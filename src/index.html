@@ -12,45 +12,53 @@
 </head>
 
 <body class="bg-gray-900 text-gray-200 font-montserrat">
-    <div class="relative md:flex">
+    <div class="relative lg:flex">
         <!-- Header -->
-        <header
-            class="absolute top-0 left-0 w-full h-screen bg-blue-dark flex flex-col justify-between items-center p-8 md:sticky md:top-0 md:w-5/12 md:h-screen">
-            <nav class="flex flex-col justify-center h-full space-y-12 md:w-4/5">
+        <header class="w-full bg-blue-dark flex flex-col justify-between items-center p-8 lg:sticky lg:left-0 lg:top-0 lg:w-5/12 lg:h-screen">
+            <nav class="flex flex-col justify-center w-4/5 lg:pr-8 h-full space-y-12 lg:w-4/5 lg:ml-auto">
                 <!-- Logo y título -->
                 <div class="flex flex-col">
                     <div class="flex items-center">
-                        <img src="./png/favicon.svg" alt="Logo" class="h-[4rem]">
-                        <h1 class="text-4xl font-bold uppercase text-white mt-4">Asdrubal Suárez</h1>
+                        <img src="./png/logo-white.png" alt="Logo" class="w-full">
+                        <h1 class=" text-4xl font-bold uppercase text-white hidden">Asdrúbal Suárez</h1>
                     </div>
-                    <h2 class="text-2xl font-bold text-white pt-4">Senior Backend Engineer</h2>
+                    <h2 class="text-3xl font-normal  text-white pt-4">Senior Backend Engineer</h2>
                     <p class="text-xl font-normal uppercase text-gray-txt pt-4">It's time to work together to create
                         something extraordinary!</p>
                 </div>
         
                 <!-- Menú de navegación -->
-                <ul class="space-y-4 text-lg">
-                    <li><a href="#home" class="text-lg font-semibold uppercase text-gray-txt hover:text-blue-txt">Home</a></li>
-                    <li><a href="#about" class="text-lg font-semibold uppercase text-gray-txt hover:text-blue-txt">About</a>
+                <ul class="hidden lg:block space-y-4 text-lg ">
+                    <li class="before:content-['-'] before:mr-2 hover:text-blue-txt group">
+                        <a href="#home" class="text-lg font-semibold uppercase text-gray-txt group-hover:text-blue-txt">Home</a>
                     </li>
-                    <li><a href="#portfolio"
-                            class="text-lg font-semibold uppercase text-gray-txt hover:text-blue-txt">Portfolio</a></li>
-                    <li><a href="#experience"
-                            class="text-lg font-semibold uppercase text-gray-txt hover:text-blue-txt">Experience</a></li>
-                    <li><a href="#references"
-                            class="text-lg font-semibold uppercase text-gray-txt hover:text-blue-txt">References</a></li>
+                    <li class="before:content-['-'] before:mr-2 hover:text-blue-txt group">
+                        <a href="#about" class="text-lg font-semibold uppercase text-gray-txt group-hover:text-blue-txt">About</a>
+                    </li>
+                    <li class="before:content-['-'] before:mr-2 hover:text-blue-txt group">
+                        <a href="#portfolio"
+                            class="text-lg font-semibold uppercase text-gray-txt group-hover:text-blue-txt">Portfolio</a>
+                    </li>
+                    <li class="before:content-['-'] before:mr-2 hover:text-blue-txt group">
+                        <a href="#experience"
+                            class="text-lg font-semibold uppercase text-gray-txt group-hover:text-blue-txt">Experience</a>
+                    </li>
+                    <li class="before:content-['-'] before:mr-2 hover:text-blue-txt group">
+                        <a href="#references"
+                            class="text-lg font-semibold uppercase text-gray-txt group-hover:text-blue-txt">References</a>
+                    </li>
                 </ul>
+
         
                 <!-- Idiomas y redes -->
                 <div class="flex flex-col space-y-4">
                     <div class="flex gap-4">
-                        <p class="text-lg font-medium uppercase text-gray-txt">ENG</p>
-                        <p class="text-lg font-medium uppercase text-gray-txt">ESP</p>
+                        <a href="" class="text-lg font-bold uppercase text-blue-txt">ENG</a>
+                        <a href="" class="text-lg font-bold uppercase text-gray-txt">ESP</a>
                     </div>
                     <div class="flex flex-col">
                         <p class="text-sm text-gray-txt">Follow us on</p>
-                        <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank"
-                            class="text-lg font-medium text-gray-txt hover:text-blue-txt">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank" class="text-lg font-medium text-gray-txt hover:text-blue-txt">LinkedIn</a>
                     </div>
                 </div>
             </nav>
@@ -59,8 +67,8 @@
 
 
         <!-- Main -->
-        <main class="w-full bg-blue-back p-12 md:w-7/12 md:ml-auto">
-            <section id="home" class="space-y-10 md:w-5/7 py-8 min-h-screen flex flex-col justify-center">
+        <main class="w-full bg-blue-back p-12 lg:w-7/12 lg:ml-auto">
+            <section id="home" class="py-12 space-y-10 lg:py-0 lg:w-5/7 lg:min-h-screen flex flex-col justify-center">
                 <p class="text-lg leading-relaxed text-justify text-gray-txt font-medium">
                     +10 years of experience as Senior Back-end Developer let me develop in remote and agile environments, promoting adaptability and clear communication with my teamwork while I gain plenty of experience in the construction of reliable servers using Python and Flask. In addition, I utilize the powerful AWS for performance and reliability.
                 </p>
@@ -73,10 +81,10 @@
                     </button>
                 </div>
             </section>
-            <section id="about" class="space-y-10 md:w-5/7 py-8 min-h-screen flex flex-col justify-center">
+            <section id="about" class="space-y-10 lg:w-5/7 py-8">
                 <!-- Skills Section -->
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">SKILLS</h2>
+                    <h2 class="text-lg font-semibold mb-12">SKILLS</h2>
                     <div class="grid grid-cols-3 gap-12 mb-6">
                         <img src="./png/sqla.png" alt="SQLA" class="h-auto mx-auto">
                         <img src="./png/celery.png" alt="Celery" class="h-auto mx-auto">
@@ -84,30 +92,30 @@
                         <img src="./png/flask.png" alt="Flask" class="h-auto mx-auto">
                         <img src="./png/postgreSQL.png" alt="PostgreSQL" class="h-auto mx-auto">
                     </div>
-                    <p class="text-sm leading-relaxed">
+                    <p class="text-base leading-relaxed text-gray-txt text-justify">
                         OpenAI | RAG / Retrieval augmented generation (IA) | TailwindCSS | Redis | Microsoft Azure | Pandas (software) | Node.js | Express.js | JavaScript | Git | Elasticsearch | Pydantic | React.js | CSS | Yii | Docker | Flight framework | PHP | Ionic Framework | Firebase | SocketIO | Redux.js | LimeSurvey | HTML Cdence | Front-End Development | Solidity | PHP | Lavarel | Desarrollo Web C++ | Linux
                     </p>
                 </div>
             
                 <!-- Languages Section -->
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">LANGUAGES</h2>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Spanish (Native)</li>
-                        <li>English (C1)</li>
-                        <li>French (B1)</li>
+                    <h2 class="text-lg font-semibold mb-12">LANGUAGES</h2>
+                    <ul class="space-y-2 text-gray-txt text-base ">
+                        <li class="before:content-['-'] before:mr-2">Spanish (Native)</li>
+                        <li class="before:content-['-'] before:mr-2">English (C1)</li>
+                        <li class="before:content-['-'] before:mr-2">French (B1)</li>
                     </ul>
                 </div>
             
                 <!-- Education Section -->
                 <div>
                     <h2 class="text-2xl font-bold mb-4">EDUCATION</h2>
-                    <ul class="space-y-4">
-                        <li>
+                    <ul class="space-y-4 ">
+                        <li class="before:content-['-'] before:mr-2">
                             <strong>Universidad Valle del Momboy</strong><br>
                             Computer Engineering (2011 – 2014)
                         </li>
-                        <li>
+                        <li class="before:content-['-'] before:mr-2">
                             <strong>Universidad de Los Andes (VE)</strong><br>
                             Systems Engineering - Unfinished studies (2008 – 2010)
                         </li>
@@ -117,14 +125,14 @@
                 <!-- Achievements Section -->
                 <div>
                     <h2 class="text-2xl font-bold mb-4">ACHIEVEMENTS</h2>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Finalist in Concurso Ideas 2012</li>
-                        <li>Organized by Fundación Ideas · Jan 2012</li>
-                        <li>Associated with EmprendeMás</li>
+                    <ul class="list-none space-y-2 ">
+                        <li class="before:content-['-'] before:mr-2">Finalist in Concurso Ideas 2012</li>
+                        <li class="before:content-['-'] before:mr-2">Organized by Fundación Ideas · Jan 2012</li>
+                        <li class="before:content-['-'] before:mr-2">Associated with EmprendeMás</li>
                     </ul>
                 </div>
             </section>
-            <section id="portfolio" class="space-y-10 md:w-5/7 py-8 min-h-screen flex flex-col justify-center">
+            <section id="portfolio" class="space-y-10 lg:w-5/7 py-8">
                 <div>
                     <h2 class="text-2xl font-bold mb-4">Portafolio</h2>
                     <div class="grid grid-cols-1 gap-8">
@@ -140,7 +148,7 @@
                     </div>
                 </div>
             </section>
-            <section id="experience" class="space-y-10 md:w-5/7 py-8 min-h-screen flex flex-col justify-center">
+            <section id="experience" class="space-y-10 lg:w-5/7 py-8">
                 <!-- Experience Section -->
                 <h2 class="text-2xl font-bold">EXPERIENCE</h2>
                 <!-- Tellen -->
@@ -249,14 +257,16 @@
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Software Engineer</h3>
                     <p class="text-sm text-gray-400">Vascar Solutions · Full-time · Dec 2016 - Nov 2018</p>
                     <p class="mt-2 text-sm text-justify">
-                        I worked with an app for monitoring algorithmic trading written using ReactJS, NodeJS, and a PostgreSQL backend.
-                        Due to its high concurrency and the amount of data that needs to be processed, it was designed with an
-                        architecture that uses isomorphic redux states, shared between frontend and backend. Once a user is logged in, a
-                        token is generated and used by the socket IO backend for authentication. Events can be sent back and forth using
-                        the SocketIO backend, updating data in the frontend. This process is much faster than using a REST API approach.
-                        For testing, we used stress testing throughout the Apache Benchmarking tool for ExpressJS endpoints, native
-                        NodeJS profiling, and unit testing through Jest and Enzyme. I participated in the leadership of a team for a
-                        Fantasy Football application.
+                        I worked with an App for monitoring algorithmic trading written using ReactJS, NodeJS, and a PostgreSQL backend. Due to its high concurrency and the amount of data that needs to be processed, it was designed with an architecture that uses isomorphic redux states, they are shared between frontend and backend.
+                    </p>
+                    <p class="mt-2 text-sm text-justify">
+                        Once a user is logged in, a token is generated and this token is used by the socket IO backend in order to perform authentication. Afterward, events can be sent back and forth by using the SocketIO backend allowing data to be updated in the frontend. This process is much faster than using a REST API approach.
+                    </p>
+                    <p class="mt-2 text-sm text-justify">
+                        For testing, we used stress testing throughout the Apache Benchmarking tool for ExpressJS endpoints, native NodeJS profiling, and unit testing through Jest and Enzyme.
+                    </p>
+                    <p class="mt-2 text-sm text-justify">
+                        I participated in the leadership of a team for an application of Fantasy Football.
                     </p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">REACT.JS</span>
@@ -271,11 +281,11 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Web Developer</h3>
                     <p class="text-sm text-gray-400">Shocklogic · Full-time · Aug 2015 - Nov 2016</p>
-                    <ul class="list-none mt-2 text-justify">
-                        <li> - Surveylogic: a survey management application.</li>
-                        <li> - Mobapplogic: a generator of mobile applications written in PHP.</li>
-                        <li> - Shocklogic.com's internal API.</li>
-                        <li> - Scanlogic: App created for scanning participants in events, created using the Ionic framework.</li>
+                    <ul class="list-none mt-2 text-justify ">
+                        <li class="before:content-['-'] before:mr-2">Surveylogic: a survey management application.</li>
+                        <li class="before:content-['-'] before:mr-2">Mobapplogic: a generator of mobile applications written in PHP.</li>
+                        <li class="before:content-['-'] before:mr-2">Shocklogic.com's internal API.</li>
+                        <li class="before:content-['-'] before:mr-2">Scanlogic: App created for scanning participants in events, created using the Ionic framework.</li>
                     </ul>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">NODE.JS</span>
@@ -289,10 +299,10 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Web Developer</h3>
                     <p class="text-sm text-gray-400">EmprendaMás · Part-time · Jan 2012 - Jul 2015</p>
-                    <ul class="list-none mt-2 text-justify">
-                        <li> - The backend of the Diario de Los Andes website.</li>
-                        <li> - Sistema Bono de Excelencia Aprodet for Colegio Los Cedros.</li>
-                        <li> - Sistema SECTIR for statistical use, created for FUNDACITE TRUJILLO.</li>
+                    <ul class="list-none mt-2 text-justify ">
+                        <li class="before:content-['-'] before:mr-2">The backend of the Diario de Los Andes website.</li>
+                        <li class="before:content-['-'] before:mr-2">Sistema Bono de Excelencia Aprodet for Colegio Los Cedros.</li>
+                        <li class="before:content-['-'] before:mr-2">Sistema SECTIR for statistical use, created for FUNDACITE TRUJILLO.</li>
                     </ul>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PHP</span>
@@ -330,8 +340,6 @@
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">YII</span>
                     </div>
                 </div>
-
-
             </section>
         </main>
     </div>
