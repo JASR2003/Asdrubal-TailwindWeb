@@ -12,11 +12,11 @@
 </head>
 
 <body class="bg-gray-900 text-gray-200 font-montserrat overflow-x-hidden">
-    <div class="relative lg:flex" style="clip-path: inset(0 0 0 0);">
+    <div class="relative grid grid-cols-12" style="clip-path: inset(0 0 0 0);">
 
         <!-- Header -->
-        <header class="w-full bg-blue-dark flex flex-col justify-between items-center p-8 lg:sticky lg:left-0 lg:top-0 lg:w-5/12 lg:h-screen">
-            <nav class="flex flex-col justify-center w-4/5 lg:pr-8 h-full space-y-12 lg:w-4/5 lg:ml-auto">
+        <header class="col-span-12 lg:col-span-5 bg-blue-dark p-8 lg:sticky lg:top-0 lg:h-screen grid grid-cols-5">
+            <nav class="col-start-2 col-span-4 flex flex-col justify-center h-full space-y-12">
                 <!-- Logo y título -->
                 <div class="flex flex-col">
                     <div class="flex items-center">
@@ -28,26 +28,36 @@
                 </div>
         
                 <!-- Menú de navegación -->
-                <ul class="hidden lg:block space-y-4 text-lg ">
-                    <li class="before:content-['-'] before:mr-2 hover:text-blue-txt group">
-                        <a href="#home" class="text-lg font-semibold uppercase text-gray-txt group-hover:text-blue-txt">Home</a>
+                <ul class="space-y-6">
+                    <li class="group flex items-center" data-section="home">
+                        <span
+                            class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                        <a href="#home" class="ml-2 text-lg font-semibold uppercase group-hover:text-blue-txt">Home</a>
                     </li>
-                    <li class="before:content-['-'] before:mr-2 hover:text-blue-txt group">
-                        <a href="#about" class="text-lg font-semibold uppercase text-gray-txt group-hover:text-blue-txt">About</a>
+                    <li class="group flex items-center" data-section="about">
+                        <span
+                            class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                        <a href="#about" class="ml-2 text-lg font-semibold uppercase group-hover:text-blue-txt">About</a>
                     </li>
-                    <li class="before:content-['-'] before:mr-2 hover:text-blue-txt group">
-                        <a href="#portfolio"
-                            class="text-lg font-semibold uppercase text-gray-txt group-hover:text-blue-txt">Portfolio</a>
+                    <li class="group flex items-center" data-section="portfolio">
+                        <span
+                            class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                        <a href="#portfolio" class="ml-2 text-lg font-semibold uppercase group-hover:text-blue-txt">Portfolio</a>
                     </li>
-                    <li class="before:content-['-'] before:mr-2 hover:text-blue-txt group">
-                        <a href="#experience"
-                            class="text-lg font-semibold uppercase text-gray-txt group-hover:text-blue-txt">Experience</a>
+                    <li class="group flex items-center" data-section="experience">
+                        <span
+                            class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                        <a href="#experience" class="ml-2 text-lg font-semibold uppercase group-hover:text-blue-txt">Experience</a>
                     </li>
-                    <li class="before:content-['-'] before:mr-2 hover:text-blue-txt group">
-                        <a href="#references"
-                            class="text-lg font-semibold uppercase text-gray-txt group-hover:text-blue-txt">References</a>
+                    <li class="group flex items-center" data-section="references">
+                        <span
+                            class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                        <a href="#references" class="ml-2 text-lg font-semibold uppercase group-hover:text-blue-txt">References</a>
                     </li>
                 </ul>
+
+
+
 
         
                 <!-- Idiomas y redes -->
@@ -70,8 +80,8 @@
     </div>
 
         <!-- Main -->
-        <main class="w-full bg-blue-back p-12 lg:w-7/12 lg:ml-auto">
-            <section id="home" class="py-12 space-y-10 lg:py-0 lg:w-5/7 lg:min-h-screen flex flex-col justify-center">
+        <main class="col-span-12 lg:col-span-7 bg-blue-back grid grid-cols-7">
+            <section id="home" class="col-start-2 col-span-5 py-12 space-y-10 lg:min-h-screen flex flex-col justify-center">
                 <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">
                     +10 years of experience as Senior Back-end Developer let me develop in remote and agile environments, promoting adaptability and clear communication with my teamwork while I gain plenty of experience in the construction of reliable servers using Python and Flask. In addition, I utilize the powerful AWS for performance and reliability.
                 </p>
@@ -85,7 +95,7 @@
                     </button></a>
                 </div>
             </section>
-            <section id="about" class="space-y-10 lg:w-5/7 py-8">
+            <section id="about" class="col-start-2 col-span-5 py-12 space-y-10">
                 <!-- Skills Section -->
                 <div>
                     <h2 class="text-2xl font-semibold mb-12">SKILLS</h2>
@@ -136,9 +146,9 @@
                     </ul>
                 </div>
             </section>
-            <section id="portfolio" class="space-y-10 lg:w-5/7 py-8">
+            <section id="portfolio" class="col-start-2 col-span-5 py-12 space-y-10">
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">Portafolio</h2>
+                    <h2 class="text-2xl font-bold mb-4">PORTFOLIO</h2>
                     <div class="grid grid-cols-1 gap-8">
                         <div>
                             <h3 class="text-lg font-bold mb-2 text-justify"> - Optimization of the bonification to academic excellence system for Colegio Los Cedros (2015)</h3>
@@ -151,7 +161,7 @@
                     </div>
                 </div>
             </section>
-            <section id="experience" class="space-y-10 lg:w-5/7 py-8">
+            <section id="experience" class="col-start-2 col-span-5 py-12 space-y-10">
                 <!-- Experience Section -->
                 <h2 class="text-2xl font-bold">EXPERIENCE</h2>
                 <!-- Tellen -->
@@ -346,9 +356,9 @@
                     </div>
                 </div>
             </section>
-            <section id="references" class="space-y-10 lg:w-5/7 py-8">
+            <section id="references" class="col-start-2 col-span-5 py-12 space-y-10">
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">References</h2>
+                    <h2 class="text-2xl font-bold mb-4">REFERENCES</h2>
                     <div class="grid grid-cols-1 gap-8">
                         <div>
                             <h3 class="text-lg font-bold mb-2">- Stephanie Habib – Senior Software Engineer</h3>
@@ -384,4 +394,5 @@
 
 
 <script src="./cursor.js"></script>
+<script src="./nav.js"></script>
 </html>
