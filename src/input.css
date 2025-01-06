@@ -1,13 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer utilities {
-  .menu-height {
-    min-height: 4rem; /* Ajusta según el contenido del menú */
-  }
-
-  .menu-arrow {
-    min-height: inherit; /* Hace que las flechas sean de la misma altura que el menú */
-  }
-}
-

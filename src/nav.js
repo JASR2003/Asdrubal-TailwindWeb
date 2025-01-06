@@ -56,28 +56,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ejecutar al cargar la página
     updateActiveLink();
 });
-
-document.addEventListener('DOMContentLoaded', () => {
-  const menuLeft = document.getElementById('menu-left');
-  const menuRight = document.getElementById('menu-right');
-  const menuOptions = document.getElementById('menu-options');
-  let menuOpen = false;
-
-  function toggleMenu() {
-    if (menuOpen) {
-        menuOptions.classList.add('hidden');
-        menuOptions.classList.remove('flex');
-      menuLeft.innerHTML = '&lt;&gt;';
-      menuRight.style.display = 'none';
-    } else {
-        menuOptions.classList.remove('hidden');
-        menuOptions.classList.add('flex');
-      menuLeft.innerHTML = '&lt;';
-      menuRight.style.display = 'flex';
-    }
-    menuOpen = !menuOpen;
-  }
-
-  menuLeft.addEventListener('click', toggleMenu);
-  menuRight.addEventListener('click', toggleMenu);
-});
