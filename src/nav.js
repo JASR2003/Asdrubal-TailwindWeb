@@ -35,18 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // Actualizar las clases activas en el nav
         navLinks.forEach(link => {
             const href = link.getAttribute('href').substring(1); // Obtiene el id sin el '#'
-            const line = link.querySelector('span:first-child'); // Selecciona el span de la línea
+            const spans = link.querySelectorAll('span'); // Selecciona todos los spans dentro del link
 
             if (href === activeSection) {
                 link.classList.add('text-blue-txt');
-                line.classList.add('w-16', 'bg-blue-txt');
-                line.classList.remove('w-6', 'bg-gray-txt');
+                spans[0].classList.add('w-16', 'bg-blue-txt');
+                spans[0].classList.remove('w-6', 'bg-gray-txt');
+                spans[1].classList.add('text-blue-txt');
             } else {
                 link.classList.remove('text-blue-txt');
-                line.classList.remove('w-16', 'bg-blue-txt');
-                line.classList.add('w-6', 'bg-gray-txt');
+                spans[0].classList.remove('w-16', 'bg-blue-txt');
+                spans[0].classList.add('w-6', 'bg-gray-txt');
+                spans[1].classList.remove('text-blue-txt');
             }
         });
+
     };
 
     // Escuchar eventos de scroll y resize
@@ -65,10 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Abrir menú
     hamburgerButton.addEventListener("click", () => {
         mobileMenu.classList.remove("hidden");
+        mobileMenu.classList.add("flex");
     });
-
+    
     // Cerrar menú
     closeButton.addEventListener("click", () => {
+        mobileMenu.classList.remove("flex");
         mobileMenu.classList.add("hidden");
     });
 
