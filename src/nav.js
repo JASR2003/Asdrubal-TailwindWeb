@@ -64,23 +64,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const hamburgerButton = document.getElementById("hamburger-button");
     const closeButton = document.getElementById("close-button");
     const mobileMenu = document.getElementById("mobile-menu");
+    const navLinks = document.querySelectorAll("#mobile-menu ul li a");
 
     // Abrir menú
     hamburgerButton.addEventListener("click", () => {
         mobileMenu.classList.remove("hidden");
         mobileMenu.classList.add("flex");
+        hamburgerButton.classList.add("opacity-0"); // Oculta con opacidad
+        hamburgerButton.classList.remove("opacity-100");
     });
-    
+
     // Cerrar menú
     closeButton.addEventListener("click", () => {
         mobileMenu.classList.remove("flex");
         mobileMenu.classList.add("hidden");
+        hamburgerButton.classList.remove("opacity-0"); // Muestra con opacidad
+        hamburgerButton.classList.add("opacity-100");
     });
 
-    // Cerrar el menú flotante automáticamente al hacer resize a pantallas lg o más grandes
+    // Cerrar menú al hacer clic en un enlace
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            mobileMenu.classList.remove("flex");
+            mobileMenu.classList.add("hidden");
+            hamburgerButton.classList.remove("opacity-0"); // Muestra con opacidad
+            hamburgerButton.classList.add("opacity-100");
+        });
+    });
+
+    // Cerrar el menú automáticamente al hacer resize a pantallas lg o más grandes
     window.addEventListener("resize", () => {
         if (window.innerWidth >= 1024) {
             mobileMenu.classList.add("hidden");
+            mobileMenu.classList.remove("flex");
+            hamburgerButton.classList.remove("opacity-0"); // Muestra con opacidad
+            hamburgerButton.classList.add("opacity-100");
         }
     });
 });
+

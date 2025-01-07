@@ -15,7 +15,6 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'], // Montserrat como fuente principal
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         'custom-cursor': 'radial-gradient(rgba(179, 181, 212, 1), rgba(179, 181, 212, 0.5) 40%, transparent 70%);',
       },
     },
