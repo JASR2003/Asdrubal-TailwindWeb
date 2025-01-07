@@ -56,3 +56,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ejecutar al cargar la página
     updateActiveLink();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerButton = document.getElementById("hamburger-button");
+    const closeButton = document.getElementById("close-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    // Abrir menú
+    hamburgerButton.addEventListener("click", () => {
+        mobileMenu.classList.remove("hidden");
+    });
+
+    // Cerrar menú
+    closeButton.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+    });
+
+    // Cerrar el menú flotante automáticamente al hacer resize a pantallas lg o más grandes
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 1024) {
+            mobileMenu.classList.add("hidden");
+        }
+    });
+});

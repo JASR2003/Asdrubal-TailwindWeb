@@ -16,67 +16,98 @@
 
         <!-- Header -->
         <header class="col-span-12 lg:col-span-5 bg-blue-dark p-8 lg:sticky lg:top-0 lg:h-screen grid grid-cols-5">
-            <nav class="col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center h-full space-y-12">
-                <!-- Logo y título -->
-                <div class="flex flex-col">
-                    <div class="flex items-center">
-                        <img src="./png/logo.png" alt="Logo" class="w-full">
-                        <h1 class=" text-4xl font-bold uppercase text-white hidden">Asdrúbal Suárez</h1>
-                    </div>
-                    <h2 class="text-3xl font-normal lg:text-start text-center text-white pt-4">Senior Backend Engineer</h2>
-                    <p class="hidden lg:block text-xl font-normal uppercase text-gray-txt pt-4">It's time to work together to create something extraordinary!</p>
+        <nav
+            class="relative col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center h-full space-y-12">
+            <!-- Logo y título -->
+            <div class="flex flex-col">
+                <div class="flex items-center">
+                    <img src="./png/logo.png" alt="Logo" class="w-full">
+                    <h1 class="text-4xl font-bold uppercase text-white hidden">Asdrúbal Suárez</h1>
                 </div>
-                <!-- Navbar Responsive -->
-                <nav class="w-full grid grid-cols-3 gap-4 lg:grid-cols-1">
-                    <!-- Columna 2: Menú de navegación (Primera en lg, segunda en pantallas pequeñas) -->
-                    <div class="flex items-center justify-center lg:justify-start lg:items-start gap-4 order-2 lg:order-1">
-                        <ul class="block space-y-6">
+                <h2 class="text-xl md:text-3xl font-normal lg:text-start text-center text-white pt-4">Senior Backend Engineer
+                </h2>
+                <p class="hidden lg:block text-xl font-normal uppercase text-gray-txt pt-4">It's time to work together to create
+                    something extraordinary!</p>
+            </div>
+        
+            <!-- Navbar Responsive -->
+            <nav class="w-full grid grid-cols-3 gap-4 lg:grid-cols-1">
+                <!-- Columna 1: Idioma -->
+                <div class="flex items-center justify-center lg:justify-start lg:items-start gap-4 order-1 lg:order-2">
+                    <a href="./index.html" class="text-lg font-bold uppercase text-blue-txt">ENG</a>
+                    <a href="./es.html" class="text-lg font-bold uppercase text-gray-txt hover:text-blue-txt">ESP</a>
+                </div>
+        
+                <!-- Columna 2: Menú de navegación -->
+                <div class="relative flex items-center justify-center lg:justify-start lg:items-start gap-4 order-2 lg:order-1">
+                    <!-- Botón hamburguesa -->
+                    <button class="block lg:hidden text-gray-txt hover:text-blue-txt text-2xl font-bold" id="hamburger-button"
+                        aria-label="Toggle Menu">
+                        &lt;&gt;
+                    </button>
+        
+                    <!-- Menú desplegable -->
+                    <div id="mobile-menu"
+                        class="hidden absolute top-full left-1/2 transform -translate-x-1/2 w-90 bg-white shadow-lg p-6 rounded-lg lg:static lg:block lg:w-auto lg:bg-transparent lg:shadow-none lg:translate-x-0 lg:top-0">
+                        <!-- Botón de cierre (X) centrado -->
+                        <button
+                            class="absolute top-4 left-1/2 transform -translate-x-1/2 text-4xl font-bold text-gray-txt hover:text-blue-txt lg:hidden"
+                            id="close-button" aria-label="Close Menu">
+                            &#x2715;
+                        </button>
+                        <ul class="space-y-6 lg:space-y-6 lg:flex lg:flex-col">
                             <li class="group w-max">
                                 <a href="#home" class="flex items-center text-lg font-semibold uppercase group-hover:text-blue-txt">
-                                    <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                                    <span
+                                        class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
                                     <span class="ml-2">Home</span>
                                 </a>
                             </li>
                             <li class="group w-max">
                                 <a href="#about" class="flex items-center text-lg font-semibold uppercase group-hover:text-blue-txt">
-                                    <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                                    <span
+                                        class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
                                     <span class="ml-2">About</span>
                                 </a>
                             </li>
                             <li class="group w-max">
                                 <a href="#portfolio" class="flex items-center text-lg font-semibold uppercase group-hover:text-blue-txt">
-                                    <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                                    <span
+                                        class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
                                     <span class="ml-2">Portfolio</span>
                                 </a>
                             </li>
                             <li class="group w-max">
                                 <a href="#experience" class="flex items-center text-lg font-semibold uppercase group-hover:text-blue-txt">
-                                    <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                                    <span
+                                        class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
                                     <span class="ml-2">Experience</span>
                                 </a>
                             </li>
                             <li class="group w-max">
                                 <a href="#references" class="flex items-center text-lg font-semibold uppercase group-hover:text-blue-txt">
-                                    <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                                    <span
+                                        class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
                                     <span class="ml-2">References</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
 
-                    <!-- Columna 1: Idioma (Primera en pantallas pequeñas, segunda en lg) -->
-                    <div class="flex items-center justify-center lg:justify-start lg:items-start gap-4 order-1 lg:order-2">
-                        <a href="./index.html" class="text-lg font-bold uppercase text-blue-txt">ENG</a>
-                        <a href="./es.html" class="text-lg font-bold uppercase text-gray-txt hover:text-blue-txt">ESP</a>
-                    </div>
-
-                    <!-- Columna 3: Redes sociales (Tercera en pantallas pequeñas y lg) -->
-                    <div class="flex flex-col items-center justify-center lg:justify-start lg:items-start lg:gap-1 order-3 lg:order-3">
-                        <p class="text-sm text-gray-txt text-center lg:text-start hidden lg:block">Follow us on</p>
-                        <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank" class="text-lg font-medium text-gray-txt hover:text-blue-txt">LinkedIn</a>
-                    </div>
-                </nav>
+                </div>
+        
+                <!-- Columna 3: Redes sociales -->
+                <div
+                    class="flex flex-col items-center justify-center lg:justify-start lg:items-start lg:gap-1 order-3 lg:order-3">
+                    <p class="text-sm text-gray-txt text-center lg:text-start hidden lg:block">Follow us on</p>
+                    <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank"
+                        class="text-lg font-medium text-gray-txt hover:text-blue-txt">LinkedIn</a>
+                </div>
             </nav>
+        </nav>
+
+
+
         </header>
 
     <!-- Cursor personalizado -->
