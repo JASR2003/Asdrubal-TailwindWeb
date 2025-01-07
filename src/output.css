@@ -586,8 +586,12 @@ video {
   top: 0px;
 }
 
-.top-\[40vh\] {
-  top: 40vh;
+.top-\[35vh\] {
+  top: 35vh;
+}
+
+.z-40 {
+  z-index: 40;
 }
 
 .z-50 {
@@ -643,10 +647,6 @@ video {
   margin-bottom: 1.5rem;
 }
 
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -683,12 +683,12 @@ video {
   height: 2px;
 }
 
-.h-\[40vh\] {
-  height: 40vh;
+.h-\[35vh\] {
+  height: 35vh;
 }
 
-.h-\[60vh\] {
-  height: 60vh;
+.h-\[65vh\] {
+  height: 65vh;
 }
 
 .h-auto {
@@ -722,6 +722,18 @@ video {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.max-w-3 {
+  max-width: 0.75rem;
+}
+
+.max-w-sm {
+  max-width: 24rem;
 }
 
 .-translate-x-1\/2 {
@@ -764,6 +776,10 @@ video {
 
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -828,12 +844,6 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
 .overflow-scroll {
@@ -903,10 +913,6 @@ video {
   background-color: rgb(255 255 255 / 0.1);
 }
 
-.bg-custom-bg {
-  background-image: radial-gradient(rgba(179, 181, 212, .3), rgba(179, 181, 212, 0.2) 30%, #041a2e 50%);;
-}
-
 .bg-custom-cursor {
   background-image: radial-gradient(rgba(179, 181, 212, 1), rgba(179, 181, 212, 0.5) 40%, transparent 70%);;
 }
@@ -921,10 +927,6 @@ video {
 
 .p-6 {
   padding: 1.5rem;
-}
-
-.p-8 {
-  padding: 2rem;
 }
 
 .px-3 {
@@ -975,11 +977,6 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .text-4xl {
@@ -1149,6 +1146,10 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -1162,10 +1163,6 @@ video {
 
   .lg\:relative {
     position: relative;
-  }
-
-  .lg\:sticky {
-    position: sticky;
   }
 
   .lg\:top-0 {
@@ -1237,6 +1234,10 @@ video {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .lg\:flex-col {
     flex-direction: column;
   }
@@ -1265,11 +1266,6 @@ video {
 
   .lg\:overflow-auto {
     overflow: auto;
-  }
-
-  .lg\:bg-blue-back {
-    --tw-bg-opacity: 1;
-    background-color: rgb(4 26 46 / var(--tw-bg-opacity, 1));
   }
 
   .lg\:bg-transparent {
