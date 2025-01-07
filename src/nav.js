@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('li[data-section]');
+    const navLinks = document.querySelectorAll('ul > li > a');
 
     const updateActiveLink = () => {
         let activeSection = null;
@@ -13,13 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
             const visiblePercentage = (visibleHeight / sectionHeight) * 100;
 
-            // Prioridad 1: Seleccionar si el 100% del section está visible
-            if (visiblePercentage >= 90) { // Tolerancia del 90% en vez del 100%
+            if (visiblePercentage >= 90) {
                 activeSection = section.id;
             }
         });
 
-        // Prioridad 2: Si ninguna tiene 90%, aplicar la lógica del 51% del viewport con margen
         if (!activeSection) {
             sections.forEach(section => {
                 const rect = section.getBoundingClientRect();
@@ -28,23 +26,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
                 const visibleViewportPercentage = (visibleHeight / viewportHeight) * 100;
 
-                if (visibleViewportPercentage >= 40) { // Mínimo 40% visible
+                if (visibleViewportPercentage >= 40) {
                     activeSection = section.id;
                 }
             });
         }
 
         // Actualizar las clases activas en el nav
-        navItems.forEach(item => {
-            const sectionId = item.getAttribute('data-section');
-            if (sectionId === activeSection) {
-                item.querySelector('a').classList.add('text-blue-txt');
-                item.querySelector('span').classList.add('w-16', 'bg-blue-txt');
-                item.querySelector('span').classList.remove('w-6', 'bg-gray-txt');
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href').substring(1); // Obtiene el id sin el '#'
+            const line = link.querySelector('span:first-child'); // Selecciona el span de la línea
+
+            if (href === activeSection) {
+                link.classList.add('text-blue-txt');
+                line.classList.add('w-16', 'bg-blue-txt');
+                line.classList.remove('w-6', 'bg-gray-txt');
             } else {
-                item.querySelector('a').classList.remove('text-blue-txt');
-                item.querySelector('span').classList.remove('w-16', 'bg-blue-txt');
-                item.querySelector('span').classList.add('w-6', 'bg-gray-txt');
+                link.classList.remove('text-blue-txt');
+                line.classList.remove('w-16', 'bg-blue-txt');
+                line.classList.add('w-6', 'bg-gray-txt');
             }
         });
     };

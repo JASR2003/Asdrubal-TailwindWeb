@@ -11,55 +11,59 @@
 
 </head>
 
-<body class="bg-gray-900 text-gray-200 font-montserrat overflow-x-hidden">
+<body class="bg-gray-900 text-gray-txt font-montserrat overflow-x-hidden">
     <div class="relative grid grid-cols-12" style="clip-path: inset(0 0 0 0);">
 
         <!-- Header -->
         <header class="col-span-12 lg:col-span-5 bg-blue-dark p-8 lg:sticky lg:top-0 lg:h-screen grid grid-cols-5">
-            <nav class="col-start-2 col-span-4 flex flex-col justify-center h-full space-y-12">
+            <nav class="col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center h-full space-y-12">
                 <!-- Logo y título -->
                 <div class="flex flex-col">
                     <div class="flex items-center">
                         <img src="./png/logo.png" alt="Logo" class="w-full">
                         <h1 class=" text-4xl font-bold uppercase text-white hidden">Asdrúbal Suárez</h1>
                     </div>
-                    <h2 class="text-3xl font-normal  text-white pt-4">Senior Backend Engineer</h2>
-                    <p class="text-xl font-normal uppercase text-gray-txt pt-4">It's time to work together to create something extraordinary!</p>
+                    <h2 class="text-3xl font-normal text-center text-white pt-4">Senior Backend Engineer</h2>
+                    <p class="hidden lg:block text-xl font-normal uppercase text-gray-txt pt-4">It's time to work together to create something extraordinary!</p>
                 </div>
         
                 <!-- Menú de navegación -->
-                <ul class="space-y-6">
-                    <li class="group flex items-center" data-section="home">
-                        <span
-                            class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
-                        <a href="#home" class="ml-2 text-lg font-semibold uppercase group-hover:text-blue-txt">Home</a>
+                <ul class="hidden lg:block space-y-6">
+                    <li class="group w-max">
+                        <a href="#home" class="flex items-center text-lg font-semibold uppercase group-hover:text-blue-txt">
+                            <span class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                            <span class="ml-2">Home</span>
+                        </a>
                     </li>
-                    <li class="group flex items-center" data-section="about">
-                        <span
-                            class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
-                        <a href="#about" class="ml-2 text-lg font-semibold uppercase group-hover:text-blue-txt">About</a>
+                    <li class="group w-max">
+                        <a href="#about" class="flex items-center text-lg font-semibold uppercase group-hover:text-blue-txt">
+                            <span class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                            <span class="ml-2">About</span>
+                        </a>
                     </li>
-                    <li class="group flex items-center" data-section="portfolio">
-                        <span
-                            class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
-                        <a href="#portfolio" class="ml-2 text-lg font-semibold uppercase group-hover:text-blue-txt">Portfolio</a>
+                    <li class="group w-max">
+                        <a href="#portfolio" class="flex items-center text-lg font-semibold uppercase group-hover:text-blue-txt">
+                            <span class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                            <span class="ml-2">Portfolio</span>
+                        </a>
                     </li>
-                    <li class="group flex items-center" data-section="experience">
-                        <span
-                            class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
-                        <a href="#experience" class="ml-2 text-lg font-semibold uppercase group-hover:text-blue-txt">Experience</a>
+                    <li class="group w-max">
+                        <a href="#experience" class="flex items-center text-lg font-semibold uppercase group-hover:text-blue-txt">
+                            <span class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                            <span class="ml-2">Experience</span>
+                        </a>
                     </li>
-                    <li class="group flex items-center" data-section="references">
-                        <span
-                            class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
-                        <a href="#references" class="ml-2 text-lg font-semibold uppercase group-hover:text-blue-txt">References</a>
+                    <li class="group w-max">
+                        <a href="#references" class="flex items-center text-lg font-semibold uppercase group-hover:text-blue-txt">
+                            <span class="w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                            <span class="ml-2">References</span>
+                        </a>
                     </li>
                 </ul>
 
 
 
 
-        
                 <!-- Idiomas y redes -->
                 <div class="flex flex-col space-y-4">
                     <div class="flex gap-4">
@@ -68,8 +72,13 @@
                     </div>
                     <div class="flex flex-col">
                         <p class="text-sm text-gray-txt">Follow us on</p>
-                        <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank" class="text-lg font-medium text-gray-txt hover:text-blue-txt">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank" class="text-lg font-medium text-gray-txt hover:text-blue-txt w-max">LinkedIn</a>
                     </div>
+
+
+
+
+
                 </div>
             </nav>
         </header>
