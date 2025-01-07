@@ -903,6 +903,10 @@ video {
   background-color: rgb(255 255 255 / 0.1);
 }
 
+.bg-custom-bg {
+  background-image: radial-gradient(rgba(179, 181, 212, .3), rgba(179, 181, 212, 0.2) 30%, #041a2e 50%);;
+}
+
 .bg-custom-cursor {
   background-image: radial-gradient(rgba(179, 181, 212, 1), rgba(179, 181, 212, 0.5) 40%, transparent 70%);;
 }
@@ -1145,14 +1149,6 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:bg-custom-cursor {
-    background-image: radial-gradient(rgba(179, 181, 212, 1), rgba(179, 181, 212, 0.5) 40%, transparent 70%);;
-  }
-
-  .md\:bg-\[length\:100\%_100\%\] {
-    background-size: 100% 100%;
-  }
-
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -1271,13 +1267,13 @@ video {
     overflow: auto;
   }
 
-  .lg\:bg-transparent {
-    background-color: transparent;
-  }
-
   .lg\:bg-blue-back {
     --tw-bg-opacity: 1;
     background-color: rgb(4 26 46 / var(--tw-bg-opacity, 1));
+  }
+
+  .lg\:bg-transparent {
+    background-color: transparent;
   }
 
   .lg\:p-0 {
