@@ -11,11 +11,11 @@
 
 </head>
 
-<body class="bg-gray-900 text-gray-txt font-montserrat overflow-x-hidden">
+<body class="bg-custom-radial text-gray-txt font-montserrat overflow-x-hidden min-w-[320px]">
     <div class="relative grid grid-cols-12" style="clip-path: inset(0 0 0 0);">
 
         <!-- Header -->
-        <header class="col-span-12 lg:col-span-5 bg-blue-dark p-12 lg:pr-8 sticky top-0 h-[35vh] lg:h-screen grid grid-cols-5 z50">
+        <header class="col-span-12 lg:col-span-5 bg-transparent lg:bg-blue-dark p-12 lg:pr-8 sticky top-0 h-[35vh] md:h-[40vh] lg:h-screen grid grid-cols-5 z50 shadow-lg lg:shadow-none">
         <nav class="relative col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center h-full space-y-12">
             <!-- Logo y título -->
             <div class="flex flex-col">
@@ -101,11 +101,11 @@
 
     <!-- Cursor personalizado -->
     <div id="custom-cursor"
-        class="pointer-events-none fixed top-0 left-0 aspect-square w-[50vw] rounded-full bg-custom-cursor mix-blend-overlay z-50 transform -translate-x-1/2 -translate-y-1/2">
+        class="pointer-events-none hidden lg:fixed top-0 left-0 aspect-square w-[50vw] rounded-full bg-custom-cursor mix-blend-overlay z-50 transform -translate-x-1/2 -translate-y-1/2">
     </div>
 
         <!-- Main -->
-        <main class="col-span-12 lg:col-span-7 bg-blue-back grid grid-cols-7 top-[35vh] h-[65vh] lg:relative lg:top-0 lg:h-auto overflow-scroll lg:overflow-auto z-40">
+        <main class="col-span-12 lg:col-span-7 bg-transparent lg:bg-blue-back grid grid-cols-7 top-[35vh] h-[65vh] md:top-[40vh] md:h-[60vh] lg:relative lg:top-0 lg:h-auto overflow-scroll lg:overflow-auto">
             <section id="home" class="col-start-2 col-span-5 py-12 space-y-10 lg:min-h-screen flex flex-col justify-center">
                 <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">
                     +10 years of experience as Senior Back-end Developer let me develop in remote and agile environments, promoting adaptability and clear communication with my teamwork while I gain plenty of experience in the construction of reliable servers using Python and Flask. In addition, I utilize the powerful AWS for performance and reliability.
@@ -123,23 +123,23 @@
             <section id="about" class="col-start-2 col-span-5 py-12 space-y-10">
                 <!-- Skills Section -->
                 <div>
-                    <h2 class="text-2xl font-semibold mb-12">SKILLS</h2>
+                    <h2 class="text-2xl font-semibold mb-12 text-white">SKILLS</h2>
                     <div class="grid grid-cols-2 lg:grid-cols-3 gap-12 mb-6">
-                        <img src="./png/sqla.png" alt="SQLA" class="h-auto w-full">
-                        <img src="./png/celery.png" alt="Celery" class="h-auto w-full">
+                        <img src="./png/OpenAI_Logo.png" alt="OpenIA" class="h-auto w-full">
+                        <img src="./png/typescript.png" alt="typescript" class="h-auto w-full">
                         <img src="./png/python.png" alt="Python" class="h-auto w-full">
                         <img src="./png/flask.png" alt="Flask" class="h-auto w-full">
                         <img src="./png/postgreSQL.png" alt="PostgreSQL" class="h-auto w-full">
                     </div>
 
                     <p class="text-base leading-relaxed text-gray-txt text-justify">
-                        OpenAI | TypeScript | RAG / Retrieval augmented generation (IA) | TailwindCSS | Redis | Microsoft Azure | Pandas (software) | Node.js | Express.js | JavaScript | Git | Elasticsearch | Pydantic | React.js | CSS | Yii | Docker | Flight framework | PHP | Ionic Framework | Firebase | SocketIO | Redux.js | LimeSurvey | HTML Cdence | Front-End Development | Solidity | PHP | Lavarel | Web Development C++ | Linux
+                        SLQA | Celery | RAG / Retrieval augmented generation (IA) | TailwindCSS | Redis | Microsoft Azure | Pandas (software) | Node.js | Express.js | JavaScript | Git | Elasticsearch | Pydantic | React.js | CSS | Yii | Docker | Flight framework | PHP | Ionic Framework | Firebase | SocketIO | Redux.js | LimeSurvey | HTML Cdence | Front-End Development | Solidity | PHP | Lavarel | Web Development C++ | Linux
                     </p>
                 </div>
             
                 <!-- Languages Section -->
                 <div>
-                    <h2 class="text-xl font-semibold mb-4">LANGUAGES</h2>
+                    <h2 class="text-xl font-semibold mb-4 text-white">LANGUAGES</h2>
                     <ul class="space-y-2 text-gray-txt text-base ">
                         <li class="before:content-['-'] before:mr-2">Spanish (Native)</li>
                         <li class="before:content-['-'] before:mr-2">English (C1)</li>
@@ -149,7 +149,7 @@
             
                 <!-- Education Section -->
                 <div>
-                    <h2 class="text-xl font-bold mb-4">EDUCATION</h2>
+                    <h2 class="text-xl font-bold mb-4 text-white">EDUCATION</h2>
                     <ul class="space-y-4 ">
                         <li class="before:content-['-'] before:mr-2 text-gray-txt text-base">
                             <strong class="text-white">Universidad Valle del Momboy</strong><br>
@@ -164,7 +164,7 @@
             
                 <!-- Achievements Section -->
                 <div>
-                    <h2 class="text-xl font-bold mb-4">ACHIEVEMENTS</h2>
+                    <h2 class="text-xl font-bold mb-4 text-white">ACHIEVEMENTS</h2>
                     <ul class="list-none space-y-2 text-base text-gray-txt">
                         <li class="before:content-['-'] before:mr-2 text-white">Finalist in Concurso Ideas 2012</li>
                         <p>Organized by Fundación Ideas · Jan 2012</p>
@@ -174,14 +174,14 @@
             </section>
             <section id="portfolio" class="col-start-2 col-span-5 py-12 space-y-10">
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">PORTFOLIO</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-white">PORTFOLIO</h2>
                     <div class="grid grid-cols-1 gap-8">
                         <div>
-                            <h3 class="text-lg font-bold mb-2 text-justify"> - Optimization of the bonification to academic excellence system for Colegio Los Cedros (2015)</h3>
+                            <h3 class="text-lg font-bold mb-2 text-justify text-white"> - Optimization of the bonification to academic excellence system for Colegio Los Cedros (2015)</h3>
                             <p class="text-gray-txt text-justify">improved the bonification of the academic excellence system for Colegio Los Cedros to upgrade the user experience.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-2 text-justify"> - Web development of a website for Diario Los Andes (2012)</h3>
+                            <h3 class="text-lg font-bold mb-2 text-justify text-white"> - Web development of a website for Diario Los Andes (2012)</h3>
                             <p class="text-gray-txt text-justify">I led this project and developed the website for Diario Los Andes, one of the main newspapers in Trujillo with editions in Táchira and Mérida.</p>
                         </div>
                     </div>
@@ -189,10 +189,10 @@
             </section>
             <section id="experience" class="col-start-2 col-span-5 py-12 space-y-10">
                 <!-- Experience Section -->
-                <h2 class="text-2xl font-bold">EXPERIENCE</h2>
+                <h2 class="text-2xl font-bold text-white">EXPERIENCE</h2>
                 <!-- Tellen -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Full-stack developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Full-stack developer</h3>
                     <p class="text-base text-gray-txt">Tellen · Contract · Nov 2023 - Dec 2024</p>
                     <p class="mt-2 text-base text-justify text-gray-txt">
                         Currently, I am working as a Full-stack developer in an AI application related to accounting (focusing on taxes
@@ -206,7 +206,7 @@
                 </div>
                 <!-- TEAM International -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Python Back-end Developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Python Back-end Developer</h3>
                     <p class="text-base text-gray-txt">TEAM International · Full-time · Nov 2022 - Oct 2023</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         I develop scalable applications with Python, Pytest, Flask, SQLAlchemy, Redis and Celery. I use open-source
@@ -223,7 +223,7 @@
                 </div>
                 <!-- Teamify -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Cofounder and consultant</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Cofounder and consultant</h3>
                     <p class="text-base text-gray-txt">Teamify · Freelance · Oct 2020 - Oct 2023</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         Experience with Python on REST APIs. My job here has been about researching new technologies for the company and
@@ -245,7 +245,7 @@
                 </div>
                 <!-- CryptoFR -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Developer</h3>
                     <p class="text-base text-gray-txt">CryptoFR · Freelance · May 2019 - Aug 2022</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         I worked with a comments WordPress plugin which in turn connects to a NodeJS API. This plugin can handle a
@@ -263,7 +263,7 @@
                 </div>
                 <!-- Clevertech -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Senior Node Developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Senior Node Developer</h3>
                     <p class="text-base text-gray-txt">Clevertech · Full-time · Sep 2019 - Dec 2019</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         Developed a NodeJS backend for Clevertech projects. I also maintained a React Front-end.
@@ -276,7 +276,7 @@
                 </div>
                 <!-- Data Drum -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Software Engineer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Software Engineer</h3>
                     <p class="text-base text-gray-txt">Data Drum · Freelance · Nov 2018 - Feb 2019</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         I contributed to a project to share economic indicators from different sources around the world. As a software
@@ -293,7 +293,7 @@
                 </div>
                 <!-- Vascar Solutions -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Software Engineer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Software Engineer</h3>
                     <p class="text-base text-gray-txt">Vascar Solutions · Full-time · Dec 2016 - Nov 2018</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         I worked with an App for monitoring algorithmic trading written using ReactJS, NodeJS, and a PostgreSQL backend. Due to its high concurrency and the amount of data that needs to be processed, it was designed with an architecture that uses isomorphic redux states, they are shared between frontend and backend.
@@ -318,7 +318,7 @@
                 </div>
                 <!-- Shocklogic -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Web Developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Web Developer</h3>
                     <p class="text-base text-gray-txt">Shocklogic · Full-time · Aug 2015 - Nov 2016</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">Shocklogic specializes in event management software. Among the systems I worked on are: </p>
                     <ul class="list-none mt-2 text-justify text-base text-gray-txt">
@@ -337,7 +337,7 @@
                 </div>
                 <!-- EmprendaMas -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Web Developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Web Developer</h3>
                     <p class="text-sm text-gray-txt">EmprendaMás · Part-time · Jan 2012 - Jul 2015</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">Web developer using the Yii framework and model-view-controller patterns. Use of jQuery, CSS, HTML5. Among the projects I worked on were:</p>
                     <ul class="list-none mt-2 text-justify text-base text-gray-txt">
@@ -355,7 +355,7 @@
                 </div>
                 <!-- Editorial Diario los Andes -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Intern</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Intern</h3>
                     <p class="text-base text-gray-txt">Editorial Diario de Los Andes C.A. · Internship · May 2014 - Jul 2014</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         Work on the maintenance of the homepage of Diario de Los Andes.
@@ -369,7 +369,7 @@
                 </div>
                 <!-- Universidad valle del momboy -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Scholarship holder</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Scholarship holder</h3>
                     <p class="text-base text-gray-txt">Universidad Valle del Momboy · Apprenticeship · Apr 2011 - Jul 2012</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         I worked with Limesurvey in order to validate survey's data.
@@ -384,24 +384,24 @@
             </section>
             <section id="references" class="col-start-2 col-span-5 py-12 space-y-10">
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">REFERENCES</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-white">REFERENCES</h2>
                     <div class="grid grid-cols-1 gap-8">
                         <div>
-                            <h3 class="text-lg font-bold mb-2">- Stephanie Habib – Senior Software Engineer</h3>
+                            <h3 class="text-lg font-bold mb-2 text-white">- Stephanie Habib – Senior Software Engineer</h3>
                             <p class="mt-2 text-base text-gray-txt text-justify">I am thrilled to wholeheartedly recommend Asdrubal, with whom I had the privilege of working closely for a year during his tenure as a contractor.</p>
                             <p class="mt-2 text-base text-gray-txt text-justify">Asdrubal's exceptional blend of technical expertise, insatiable curiosity, and infectious enthusiasm greatly enhances any team's dynamic. Throughout our collaboration, it became evident that Asdrubal is a dedicated and hardworking professional, consistently pursuing excellence. His proactive nature fuels his relentless pursuit of knowledge and new challenges in the ever-evolving software engineering landscape… He possesses an innate ability to delve into unfamiliar territories, analyze intricate technical issues, and seek the right guidance to craft well-thought-out solutions.</p>
                             <p class="mt-2 text-base text-gray-txt text-justify">In conclusion, Asdrubal's dedication, learning passion, problem-solving skills, and vibrant personality make him an invaluable team contributor.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-2">- Juan Francisco Mollega Mendoza – Computer Engineering</h3>
+                            <h3 class="text-lg font-bold mb-2 text-white">- Juan Francisco Mollega Mendoza – Computer Engineering</h3>
                             <p class="mt-2 text-base text-gray-txt text-justify">Excellent professional, an expert in new development technologies, always trained and willing to teach and share his knowledge, we had the opportunity to collaborate on some projects that were fully optimized thanks to his high competence and professionalism, best regards.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-2">- Christopher Hanson – Senior Data Engineer</h3>
+                            <h3 class="text-lg font-bold mb-2 text-white">- Christopher Hanson – Senior Data Engineer</h3>
                             <p class="mt-2 text-base text-gray-txt text-justify">I have worked extensively with Asdrúbal at Indigo Ag and he is a great team member to work with. He's very considerate of others and makes sure communicate clearly and often, frequently going out of his way to create recordings and other records of information he's gathered or issues he has encountered. I would be very happy to work with Asdrúbal at any future company.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-2">- Gabriel Banchs – Lead DevOps Engineer</h3>
+                            <h3 class="text-lg font-bold mb-2 text-white">- Gabriel Banchs – Lead DevOps Engineer</h3>
                             <p class="mt-2 text-base text-gray-txt text-justify">After a long period working with Asdrubal I can assure that he is one of those people who are committed and passionate about the work he does, he is dedicated and determined in the execution of his tasks to complete them successfully which he does 100%, I blindly recommend him for any Senior Developer role especially in React and JavaScript based technologies. In addition to this he is a great partner that you can count on for support as well as always making the best contribution to the team.</p>
                         </div>
                         <div class="flex justify-end">

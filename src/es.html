@@ -11,11 +11,11 @@
 
 </head>
 
-<body class="bg-gray-900 text-gray-200 font-montserrat overflow-x-hidden">
+<body class="bg-custom-radial text-gray-txt font-montserrat overflow-x-hidden min-w-[320px]">
     <div class="relative grid grid-cols-12" style="clip-path: inset(0 0 0 0);">
 
         <!-- Header -->
-        <header class="col-span-12 lg:col-span-5 bg-blue-dark p-12 lg:pr-8 sticky top-0 h-[35vh] lg:h-screen grid grid-cols-5 z50">
+        <header class="col-span-12 lg:col-span-5 bg-transparent lg:bg-blue-dark p-12 lg:pr-8 sticky top-0 h-[35vh] md:h-[40vh] lg:h-screen grid grid-cols-5 z50 shadow-lg lg:shadow-none">
         <nav class="relative col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center h-full space-y-12">
             <!-- Logo y título -->
             <div class="flex flex-col">
@@ -100,11 +100,12 @@
 
     <!-- Cursor personalizado -->
     <div id="custom-cursor"
-        class="pointer-events-none fixed top-0 left-0 aspect-square w-[50vw] rounded-full bg-custom-cursor mix-blend-overlay z-50 transform -translate-x-1/2 -translate-y-1/2">
+        class="pointer-events-none hidden lg:fixed top-0 left-0 aspect-square w-[50vw] rounded-full bg-custom-cursor mix-blend-overlay z-50 transform -translate-x-1/2 -translate-y-1/2">
     </div>
 
         <!-- Main -->
-        <main class="col-span-12 lg:col-span-7 bg-blue-back grid grid-cols-7 top-[35vh] h-[65vh] lg:relative lg:top-0 lg:h-auto overflow-scroll lg:overflow-auto z-40">
+        <main
+            class="col-span-12 lg:col-span-7 bg-transparent lg:bg-blue-back grid grid-cols-7 top-[35vh] h-[65vh] md:top-[40vh] md:h-[60vh] lg:relative lg:top-0 lg:h-auto overflow-scroll lg:overflow-auto">
             <section id="home" class="col-start-2 col-span-5 py-12 space-y-10 lg:min-h-screen flex flex-col justify-center">
                 <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">
                     +10 años de experiencia como Senior Back-end Developer me permiten desarrollar en entornos remotos y ágiles, fomentando la adaptabilidad y la comunicación clara con mi equipo de trabajo mientras adquiero mucha experiencia en la construcción de servidores fiables utilizando Python y Flask. Además, utilizo el potente AWS para el rendimiento y la fiabilidad.
@@ -122,7 +123,7 @@
             <section id="about" class="col-start-2 col-span-5 py-12 space-y-10">
                 <!-- Skills Section -->
                 <div>
-                    <h2 class="text-2xl font-semibold mb-12">HABILIDADES</h2>
+                    <h2 class="text-2xl font-semibold mb-12 text-white">HABILIDADES</h2>
                     <div class="grid grid-cols-2 lg:grid-cols-3 gap-12 mb-6">
                         <img src="./png/sqla.png" alt="SQLA" class="h-auto w-full">
                         <img src="./png/celery.png" alt="Celery" class="h-auto w-full">
@@ -137,7 +138,7 @@
             
                 <!-- Languages Section -->
                 <div>
-                    <h2 class="text-xl font-semibold mb-4">LENGUAJES</h2>
+                    <h2 class="text-xl font-semibold mb-4 text-white">LENGUAJES</h2>
                     <ul class="space-y-2 text-gray-txt text-base ">
                         <li class="before:content-['-'] before:mr-2">Español (nativo)</li>
                         <li class="before:content-['-'] before:mr-2">Inglés (C1)</li>
@@ -147,7 +148,7 @@
             
                 <!-- Education Section -->
                 <div>
-                    <h2 class="text-xl font-bold mb-4">EDUCACIÓN</h2>
+                    <h2 class="text-xl font-bold mb-4 text-white">EDUCACIÓN</h2>
                     <ul class="space-y-4 ">
                         <li class="before:content-['-'] before:mr-2 text-gray-txt text-base">
                             <strong class="text-white">Universidad Valle del Momboy</strong><br>
@@ -162,7 +163,7 @@
             
                 <!-- Achievements Section -->
                 <div>
-                    <h2 class="text-xl font-bold mb-4">LOGROS</h2>
+                    <h2 class="text-xl font-bold mb-4 text-white">LOGROS</h2>
                     <ul class="list-none space-y-2 text-base text-gray-txt">
                         <li class="before:content-['-'] before:mr-2 text-white">Finalista del Concurso Ideas 2012</li>
                         <p>Organizado por la Fundación Ideas - Ene 2012</p>
@@ -172,14 +173,14 @@
             </section>
             <section id="portfolio" class="col-start-2 col-span-5 py-12 space-y-10">
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">PORTAFOLIO</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-white">PORTAFOLIO</h2>
                     <div class="grid grid-cols-1 gap-8">
                         <div>
-                            <h3 class="text-lg font-bold mb-2 text-justify"> - Optimización del sistema de bonificación a la excelencia académica para el Colegio Los Cedros (2015)</h3>
+                            <h3 class="text-lg font-bold mb-2 text-justify text-white"> - Optimización del sistema de bonificación a la excelencia académica para el Colegio Los Cedros (2015)</h3>
                             <p class="text-gray-txt text-justify">mejora de la bonificación del sistema de excelencia académica del Colegio Los Cedros para mejorar la experiencia del usuario.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-2 text-justify"> - Desarrollo de un sitio web para Diario Los Andes (2012)</h3>
+                            <h3 class="text-lg font-bold mb-2 text-justify text-white"> - Desarrollo de un sitio web para Diario Los Andes (2012)</h3>
                             <p class="text-gray-txt text-justify">Dirigí este proyecto y desarrollé el sitio web del Diario Los Andes, uno de los principales periódicos de Trujillo, con ediciones en Táchira y Mérida.</p>
                         </div>
                     </div>
@@ -187,10 +188,10 @@
             </section>
             <section id="experience" class="col-start-2 col-span-5 py-12 space-y-10">
                 <!-- Experience Section -->
-                <h2 class="text-2xl font-bold">EXPERIENCIA</h2>
+                <h2 class="text-2xl font-bold text-white">EXPERIENCIA</h2>
                 <!-- Tellen -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Full-stack developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Full-stack developer</h3>
                     <p class="text-base text-gray-txt">Tellen · Contrato · Nov 2023 - Dic 2024</p>
                     <p class="mt-2 text-base text-justify text-gray-txt">
                         Actualmente, estoy trabajando como desarrollador Full-stack en una aplicación de IA relacionada con la contabilidad (centrada en los impuestos en Estados Unidos). Estoy desarrollando tanto el frontend (React.js) como el backend (Python) de las apps.
@@ -203,7 +204,7 @@
                 </div>
                 <!-- TEAM International -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Python Back-end Developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Python Back-end Developer</h3>
                     <p class="text-base text-gray-txt">TEAM International · Tiempo completo · Nov 2022 - Oct 2023</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         Desarrollo aplicaciones escalables con Python, Pytest, Flask, SQLAlchemy, Redis y Celery. Utilizo tecnologías de código abierto para crear soluciones eficientes y rápidas, mejorando la experiencia del usuario.
@@ -219,7 +220,7 @@
                 </div>
                 <!-- Teamify -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Cofounder and consultant</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Cofounder and consultant</h3>
                     <p class="text-base text-gray-txt">Teamify · Autónomo · Oct 2020 - Oct 2023</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         Desarrollo aplicaciones escalables con Python, Pytest, Flask, SQLAlchemy, Redis y Celery. Utilizo tecnologías de código abierto para crear soluciones eficientes y rápidas, mejorando la experiencia del usuario.
@@ -238,7 +239,7 @@
                 </div>
                 <!-- CryptoFR -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Developer</h3>
                     <p class="text-base text-gray-txt">CryptoFR · Freelance · May 2019 - Ago 2022</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         He trabajado con un plugin de WordPress de comentarios que a su vez se conecta a una API NodeJS. Este plugin puede manejar un alto volumen de comentarios por día. Desarrollé tanto el backend como el frontend del mismo. Hemos estado trabajando con Smart Contracts utilizando la API Polygon Scan y la API Alchemy. Desarrollé un scraper para obtener NFTs de la API de Alchemy usando Scrapy en Python. También, usamos Solidity para empezar a desarrollar contratos inteligentes para intercambiar NFTs.
@@ -253,7 +254,7 @@
                 </div>
                 <!-- Clevertech -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Senior Node Developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Senior Node Developer</h3>
                     <p class="text-base text-gray-txt">Clevertech · Tiempo completo · Sep 2019 - Dic 2019</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         Desarrollé un backend NodeJS para proyectos Clevertech. También mantuve un Front-end React.
@@ -266,7 +267,7 @@
                 </div>
                 <!-- Data Drum -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Software Engineer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Software Engineer</h3>
                     <p class="text-base text-gray-txt">Data Drum · Autónomo · Nov 2018 - Feb 2019</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         Colaboré en un proyecto para compartir indicadores económicos de distintas fuentes de todo el mundo. Como ingeniero de software, trabajé a tiempo parcial utilizando NodeJS y PHP en infraestructuras de bases de datos MySQL seguras, optimizando API NodeJS que se construyeron con ES6 y ExpressJS. También hice algunos scripts en Python.
@@ -281,7 +282,7 @@
                 </div>
                 <!-- Vascar Solutions -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Software Engineer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Software Engineer</h3>
                     <p class="text-base text-gray-txt">Vascar Solutions · Tiempo completo · Dic 2016 - Nov 2018</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         Trabajé con una App para monitorizar trading algorítmico escrita usando ReactJS, NodeJS, y un backend PostgreSQL. Debido a su alta concurrencia y la cantidad de datos que necesita ser procesada, fue diseñada con una arquitectura que utiliza estados isomórficos redux, son compartidos entre frontend y backend.
@@ -308,7 +309,7 @@
                 </div>
                 <!-- Shocklogic -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Web Developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Web Developer</h3>
                     <p class="text-base text-gray-txt">Shocklogic · Tiempo completo · Ago 2015 - Nov 2016</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">Shocklogic se especializa en software de gestión de eventos. Entre los sistemas en los que he trabajado se encuentran: </p>
                     <ul class="list-none mt-2 text-justify text-base text-gray-txt">
@@ -327,7 +328,7 @@
                 </div>
                 <!-- EmprendaMas -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Web Developer</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Web Developer</h3>
                     <p class="text-sm text-gray-txt">EmprendaMás · Tiempo parcial · Ene 2012 - Jul 2015</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">Desarrollador web utilizando el framework Yii y patrones modelo-vista-controlador. Uso de jQuery, CSS, HTML5. Entre los proyectos en los que trabajé se encuentran:</p>
                     <ul class="list-none mt-2 text-justify text-base text-gray-txt">
@@ -345,7 +346,7 @@
                 </div>
                 <!-- Editorial Diario los Andes -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Intern</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Intern</h3>
                     <p class="text-base text-gray-txt">Editorial Diario de Los Andes C.A. - Pasantía - May 2014 - Jul 2014</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         Trabajo en el mantenimiento de la página principal de Diario de Los Andes.
@@ -359,7 +360,7 @@
                 </div>
                 <!-- Universidad valle del momboy -->
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors">- Scholarship holder</h3>
+                    <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Scholarship holder</h3>
                     <p class="text-base text-gray-txt">Universidad Valle del Momboy - Aprendizaje - Abr 2011 - Jul 2012</p>
                     <p class="mt-2 text-base text-gray-txt text-justify">
                         Trabajé con Limesurvey para validar los datos de la encuesta.
@@ -374,29 +375,29 @@
             </section>
             <section id="references" class="col-start-2 col-span-5 py-12 space-y-10">
                 <div>
-                    <h2 class="text-2xl font-bold mb-4">REFERENCIAS</h2>
+                    <h2 class="text-2xl font-bold mb-4 text-white">REFERENCIAS</h2>
                     <div class="grid grid-cols-1 gap-8">
                         <div>
-                            <h3 class="text-lg font-bold mb-2">- Stephanie Habib – Senior Software Engineer</h3>
+                            <h3 class="text-lg font-bold mb-2 text-white">- Stephanie Habib – Senior Software Engineer</h3>
                             <p class="mt-2 text-base text-gray-txt text-justify">Estoy encantado de recomendar de todo corazón a Asdrúbal, con quien tuve el privilegio de trabajar estrechamente durante un año en su puesto de contratista.</p>
                             <p class="mt-2 text-base text-gray-txt text-justify">La excepcional combinación de conocimientos técnicos, curiosidad insaciable y entusiasmo contagioso de Asdrúbal mejora enormemente la dinámica de cualquier equipo. A lo largo de nuestra colaboración, se hizo evidente que Asdrúbal es un profesional dedicado y trabajador, que busca constantemente la excelencia. Su naturaleza proactiva alimenta su búsqueda incesante de conocimientos y nuevos retos en el siempre cambiante panorama de la ingeniería de software... Posee una capacidad innata para adentrarse en territorios desconocidos, analizar cuestiones técnicas complejas y buscar la orientación adecuada para elaborar soluciones bien pensadas.</p>
                             <p class="mt-2 text-base text-gray-txt text-justify">En conclusión, la dedicación de Asdrúbal, su pasión por aprender, su capacidad para resolver problemas y su vibrante personalidad hacen de él un colaborador inestimable del equipo.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-2">- Juan Francisco Mollega Mendoza – Computer Engineering</h3>
+                            <h3 class="text-lg font-bold mb-2 text-white">- Juan Francisco Mollega Mendoza – Computer Engineering</h3>
                             <p class="mt-2 text-base text-gray-txt text-justify">Excelente profesional, todo un experto en nuevas tecnologías de desarrollo, siempre capacitado y dispuesto a enseñar y compartir su conocimiento, tuvimos la oportunidad de colaborar en algunos proyectos que fueron totalmente optimizados gracias a su alta competencia y profesionalismo, un saludo.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-2">- Christopher Hanson – Senior Data Engineer</h3>
+                            <h3 class="text-lg font-bold mb-2 text-white">- Christopher Hanson – Senior Data Engineer</h3>
                             <p class="mt-2 text-base text-gray-txt text-justify">He trabajado mucho con Asdrúbal en Indigo Ag y es un gran miembro del equipo. Es muy considerado con los demás y se asegura de comunicarse con claridad y frecuencia, desviviéndose con frecuencia por crear grabaciones y otros registros de la información que ha recopilado o de los problemas que ha encontrado. Estaría encantado de trabajar con Asdrúbal en cualquier futura empresa.</p>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-2">- Gabriel Banchs – Lead DevOps Engineer</h3>
+                            <h3 class="text-lg font-bold mb-2 text-white">- Gabriel Banchs – Lead DevOps Engineer</h3>
                             <p class="mt-2 text-base text-gray-txt text-justify">Después de un largo período trabajando con Asdrúbal puedo asegurar que es de las personas que se comprometen y apasiona por el trabajo que desempeña, es dedicado y decidido en la ejecución de sus tareas para completarlas con éxito lo cual cumple en un 100%, lo recomiendo ciegamente para cualquier rol de Senior Developer especialmente en React y tecnologías basadas en JavaScript. Además de esto es un gran compañero con el que puedes contar como soporte así como también siempre realiza el mejor aporte y contribución al equipo.</p>
                         </div>
                         <div class="flex justify-end">
                             <a href="https://www.linkedin.com/in/asdrubalivan/details/recommendations/" target="_blank"><button class="px-6 py-3 bg-transparent border border-white text-white font-bold hover:bg-white hover:text-blue-900 transition duration-300">
-                                SEE REFERENCES
+                                VER REFERENCIAS
                             </button></a>
                         </div>
                     </div>

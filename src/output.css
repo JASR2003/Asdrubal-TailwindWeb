@@ -590,10 +590,6 @@ video {
   top: 35vh;
 }
 
-.z-40 {
-  z-index: 40;
-}
-
 .z-50 {
   z-index: 50;
 }
@@ -624,11 +620,6 @@ video {
 
 .col-start-2 {
   grid-column-start: 2;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .mb-12 {
@@ -724,16 +715,8 @@ video {
   width: max-content;
 }
 
-.max-w-md {
-  max-width: 28rem;
-}
-
-.max-w-3 {
-  max-width: 0.75rem;
-}
-
-.max-w-sm {
-  max-width: 24rem;
+.min-w-\[320px\] {
+  min-width: 320px;
 }
 
 .-translate-x-1\/2 {
@@ -766,6 +749,10 @@ video {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -776,10 +763,6 @@ video {
 
 .grid-cols-7 {
   grid-template-columns: repeat(7, minmax(0, 1fr));
-}
-
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -875,11 +858,6 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
 
-.bg-blue-back {
-  --tw-bg-opacity: 1;
-  background-color: rgb(4 26 46 / var(--tw-bg-opacity, 1));
-}
-
 .bg-blue-btn {
   --tw-bg-opacity: 1;
   background-color: rgb(3 37 64 / var(--tw-bg-opacity, 1));
@@ -915,6 +893,10 @@ video {
 
 .bg-custom-cursor {
   background-image: radial-gradient(rgba(179, 181, 212, 1), rgba(179, 181, 212, 0.5) 40%, transparent 70%);;
+}
+
+.bg-custom-radial {
+  background-image: radial-gradient(circle, #102f57, #05203e 50%, #041c35 80%, #041a2e);
 }
 
 .p-12 {
@@ -1071,6 +1053,35 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-2xl {
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-black {
+  --tw-shadow-color: #000;
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
 .backdrop-blur-sm {
   --tw-backdrop-blur: blur(4px);
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
@@ -1145,9 +1156,23 @@ video {
   color: rgb(54 208 241 / var(--tw-text-opacity, 1));
 }
 
+@media (min-width: 640px) {
+  .sm\:bg-custom-radial {
+    background-image: radial-gradient(circle, #102f57, #05203e 50%, #041c35 80%, #041a2e);
+  }
+}
+
 @media (min-width: 768px) {
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .md\:top-\[40vh\] {
+    top: 40vh;
+  }
+
+  .md\:h-\[40vh\] {
+    height: 40vh;
+  }
+
+  .md\:h-\[60vh\] {
+    height: 60vh;
   }
 
   .md\:text-3xl {
@@ -1159,6 +1184,10 @@ video {
 @media (min-width: 1024px) {
   .lg\:static {
     position: static;
+  }
+
+  .lg\:fixed {
+    position: fixed;
   }
 
   .lg\:relative {
@@ -1266,6 +1295,16 @@ video {
 
   .lg\:overflow-auto {
     overflow: auto;
+  }
+
+  .lg\:bg-blue-back {
+    --tw-bg-opacity: 1;
+    background-color: rgb(4 26 46 / var(--tw-bg-opacity, 1));
+  }
+
+  .lg\:bg-blue-dark {
+    --tw-bg-opacity: 1;
+    background-color: rgb(2 15 30 / var(--tw-bg-opacity, 1));
   }
 
   .lg\:bg-transparent {

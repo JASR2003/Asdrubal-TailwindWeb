@@ -16,6 +16,7 @@ module.exports = {
       },
       backgroundImage: {
         'custom-cursor': 'radial-gradient(rgba(179, 181, 212, 1), rgba(179, 181, 212, 0.5) 40%, transparent 70%);',
+        'custom-radial': 'radial-gradient(circle, #102f57, #05203e 50%, #041c35 80%, #041a2e)',
       },
     },
   },
