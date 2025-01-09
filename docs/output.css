@@ -1065,7 +1065,7 @@ video {
 }
 
 .backdrop-blur {
-  -webkit-backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(1px);
   backdrop-filter: blur(5px);
   -webkit-background-color: rgba(255, 255, 255, 0.3);
   background-color: rgba(255, 255, 255, 0.3);
