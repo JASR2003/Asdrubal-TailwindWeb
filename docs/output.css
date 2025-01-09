@@ -881,6 +881,11 @@ video {
   background-color: rgb(255 255 255 / 0.1);
 }
 
+.bg-blue-back {
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 26 46 / var(--tw-bg-opacity, 1));
+}
+
 .bg-custom-cursor {
   background-image: radial-gradient(rgba(179, 181, 212, 1), rgba(179, 181, 212, 0.5) 40%, transparent 70%);;
 }
