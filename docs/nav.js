@@ -75,9 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     attachScrollListener();
 });
 
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const hamburgerButton = document.getElementById("hamburger-button");
     const closeButton = document.getElementById("close-button");
@@ -120,4 +117,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-
