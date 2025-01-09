@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+    .backdrop-blur {
+        -webkit-backdrop-filter: blur(10px);
+        /* Soporte para Safari */
+    }
+}
