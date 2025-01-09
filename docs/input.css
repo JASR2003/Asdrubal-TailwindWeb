@@ -3,7 +3,8 @@
 @tailwind utilities;
 @layer utilities {
     .backdrop-blur {
-        -webkit-backdrop-filter: blur(10px);
-        /* Soporte para Safari */
+        -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+        backdrop-filter: blur(10px);        /* Soporte estándar */
     }
 }
+
