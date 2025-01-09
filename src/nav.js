@@ -1,19 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('ul > li > a');
+    const mainContainer = document.querySelector('main');
 
     const updateActiveLink = () => {
         let activeSection = null;
+        const isLargeScreen = window.innerWidth >= 1024; // Detectar si es "lg" o mayor
 
         sections.forEach(section => {
             const rect = section.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
+            const viewportHeight = isLargeScreen ? window.innerHeight : mainContainer.clientHeight;
 
             const sectionHeight = rect.height;
             const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
             const visiblePercentage = (visibleHeight / sectionHeight) * 100;
 
-            if (visiblePercentage >= 90) {
+            // Cambiamos 90% a 70% para activar antes
+            if (visiblePercentage >= 70) {
                 activeSection = section.id;
             }
         });
@@ -21,12 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!activeSection) {
             sections.forEach(section => {
                 const rect = section.getBoundingClientRect();
-                const viewportHeight = window.innerHeight;
+                const viewportHeight = isLargeScreen ? window.innerHeight : mainContainer.clientHeight;
 
                 const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
                 const visibleViewportPercentage = (visibleHeight / viewportHeight) * 100;
 
-                if (visibleViewportPercentage >= 40) {
+                // Cambiamos 40% a 25% para activar antes
+                if (visibleViewportPercentage >= 25) {
                     activeSection = section.id;
                 }
             });
@@ -49,16 +53,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 spans[1].classList.remove('text-blue-txt');
             }
         });
-
     };
 
-    // Escuchar eventos de scroll y resize
-    window.addEventListener('scroll', updateActiveLink);
-    window.addEventListener('resize', updateActiveLink);
+    const attachScrollListener = () => {
+        const isLargeScreen = window.innerWidth >= 1024;
 
-    // Ejecutar al cargar la página
-    updateActiveLink();
+        window.removeEventListener('scroll', updateActiveLink);
+        mainContainer.removeEventListener('scroll', updateActiveLink);
+
+        if (isLargeScreen) {
+            window.addEventListener('scroll', updateActiveLink); // Usar scroll del window
+        } else {
+            mainContainer.addEventListener('scroll', updateActiveLink); // Usar scroll del mainContainer
+        }
+
+        updateActiveLink(); // Ejecutar al iniciar
+    };
+
+    window.addEventListener('resize', attachScrollListener);
+
+    attachScrollListener();
 });
+
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const hamburgerButton = document.getElementById("hamburger-button");

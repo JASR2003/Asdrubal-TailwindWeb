@@ -558,6 +558,10 @@ video {
   pointer-events: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .fixed {
   position: fixed;
 }
@@ -735,6 +739,10 @@ video {
 
 .resize {
   resize: both;
+}
+
+.scroll-mt-\[40vh\] {
+  scroll-margin-top: 40vh;
 }
 
 .list-none {
