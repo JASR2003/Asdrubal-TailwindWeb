@@ -1071,9 +1071,6 @@ video {
   /* Navegadores modernos */
   background-color: rgba(255, 255, 255, 0.3);
   /* Fondo semitransparente */
-  /* Solución para problemas de renderizado en iOS */
-  transform: translateZ(0);
-  /* Solución general */
 }
 
 .before\:mr-2::before {
