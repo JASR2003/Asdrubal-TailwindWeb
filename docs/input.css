@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@layer utilities {
+  .backdrop-blur-sm {
+    @apply backdrop-filter-sm bg-white/30;
+    -webkit-backdrop-filter: blur(0.25rem);
+    backdrop-filter: blur(0.25rem);
+  }
+}
