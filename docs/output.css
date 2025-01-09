@@ -877,10 +877,6 @@ video {
   background-color: transparent;
 }
 
-.bg-white\/30 {
-  background-color: rgb(255 255 255 / 0.3);
-}
-
 .bg-custom-cursor {
   background-image: radial-gradient(rgba(179, 181, 212, 1), rgba(179, 181, 212, 0.5) 40%, transparent 70%);;
 }
@@ -1070,9 +1066,14 @@ video {
 
 .backdrop-blur {
   -webkit-backdrop-filter: blur(10px);
-  /* Soporte para Safari */
+  /* Safari */
   backdrop-filter: blur(10px);
-  /* Soporte estándar */
+  /* Navegadores modernos */
+  background-color: rgba(255, 255, 255, 0.3);
+  /* Fondo semitransparente */
+  /* Solución para problemas de renderizado en iOS */
+  transform: translateZ(0);
+  /* Solución general */
 }
 
 .before\:mr-2::before {
@@ -1291,4 +1292,3 @@ video {
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   }
 }
-

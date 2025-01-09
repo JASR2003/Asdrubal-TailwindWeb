@@ -3,8 +3,10 @@
 @tailwind utilities;
 @layer utilities {
     .backdrop-blur {
-        -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
-        backdrop-filter: blur(10px);        /* Soporte estándar */
+        -webkit-backdrop-filter: blur(10px); /* Safari */
+        backdrop-filter: blur(10px);        /* Navegadores modernos */
+        background-color: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
+        -webkit-transform: translateZ(0);  /* Solución para problemas de renderizado en iOS */
+        transform: translateZ(0);          /* Solución general */
     }
 }
-
