@@ -131,12 +131,12 @@ function adjustMobileMenuStyles() {
     // Si es WebKit (iOS/Safari), elimina la clase backdrop-blur-sm y agrega bg-blue-hover
     mobileMenu.classList.remove('backdrop-blur-sm');
     mobileMenu.classList.remove('bg-white/30');
-    mobileMenu.classList.add('bg-blue-hover');
+    mobileMenu.classList.add('bg-blue-btn');
   } else {
     // Si no es WebKit (otros navegadores), asegúrate de restaurar las clases originales
     mobileMenu.classList.add('backdrop-blur-sm');
     mobileMenu.classList.add('bg-white/30');
-    mobileMenu.classList.remove('bg-blue-hover');
+    mobileMenu.classList.remove('bg-blue-btn');
   }
 }
 
