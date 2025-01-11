@@ -117,3 +117,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+function adjustMobileMenuStyles() {
+  // Detectar si el navegador utiliza WebKit
+  const isWebKit = 'WebkitAppearance' in document.documentElement.style;
+
+  // Seleccionar el div con id mobile-menu
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (!mobileMenu) return; // Verifica que el elemento existe
+
+  if (isWebKit) {
+    // Si es WebKit (iOS/Safari), elimina la clase backdrop-blur-sm y agrega bg-blue-hover
+    mobileMenu.classList.remove('backdrop-blur-sm');
+    mobileMenu.classList.add('bg-blue-hover');
+  } else {
+    // Si no es WebKit (otros navegadores), asegúrate de restaurar las clases originales
+    mobileMenu.classList.add('backdrop-blur-sm');
+    mobileMenu.classList.remove('bg-blue-hover');
+  }
+}
+
+// Llama a la función cuando la página cargue
+document.addEventListener('DOMContentLoaded', adjustMobileMenuStyles);
