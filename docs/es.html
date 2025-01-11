@@ -16,109 +16,95 @@
 
         <!-- Header -->
         <header class="col-span-12 lg:col-span-5 lg:bg-blue-dark p-12 lg:pr-8 sticky top-0 h-[35vh] md:h-[40vh] lg:h-screen grid grid-cols-5 z50 shadow-lg lg:shadow-none z-50">
-        <nav class="relative col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center h-full space-y-12">
-            <!-- Logo y título -->
-            <div class="flex flex-col">
-                <div class="flex items-center">
-                    <img src="./png/logo.png" alt="Logo" class="w-full">
-                    <h1 class="text-4xl font-bold uppercase text-white hidden">Asdrúbal Suárez</h1>
+            <nav class="relative col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center h-full space-y-12">
+                <!-- Logo y título -->
+                <div class="flex flex-col">
+                    <div class="flex items-center">
+                        <img src="./png/logo.png" alt="Logo" class="w-full">
+                        <h1 class="text-4xl font-bold uppercase text-white hidden">Asdrúbal Suárez</h1>
+                    </div>
+                    <h2 class="text-xl md:text-3xl font-normal lg:text-start text-center text-white pt-4">Ingeniero de Backend Senior
+                    </h2>
+                    <p class="hidden lg:block text-xl font-normal uppercase text-gray-txt pt-4">¡Desarrollemos algo extraordinario juntos!</p>
                 </div>
-                <h2 class="text-xl md:text-3xl font-normal lg:text-start text-center text-white pt-4">Ingeniero de Backend Senior
-                </h2>
-                <p class="hidden lg:block text-xl font-normal uppercase text-gray-txt pt-4">¡Desarrollemos algo extraordinario juntos!</p>
-            </div>
-        
-            <!-- Navbar Responsive -->
-            <nav class="w-full grid grid-cols-3 gap-4 lg:grid-cols-1">
-                <!-- Columna 1: Idioma -->
-                <div class="flex items-center justify-center lg:justify-start lg:items-start gap-4 order-3 lg:order-2">
-                    <a href="./index.html" class="text-lg font-bold uppercase text-gray-txt hover:text-blue-txt">ENG</a>
-                    <a href="./es.html" class="text-lg font-bold uppercase text-blue-txt">ESP</a>
-                </div>
-        
-                <!-- Columna 2: Menú de navegación -->
-                <div class="relative flex items-center justify-center lg:justify-start lg:items-start gap-4 order-2 lg:order-1">
-                    <!-- Botón hamburguesa -->
-                    <button class="block lg:hidden text-gray-txt text-2xl font-bold" id="hamburger-button" aria-label="Toggle Menu">
-                        &lt; &gt;
-                    </button>
-        
-                    <!-- Menú desplegable -->
-                    <div id="mobile-menu" class="hidden absolute top-0 left-1/2 transform -translate-x-1/2 w-[90vw] backdrop-blur-sm p-6 shadow-lg lg:p-0 rounded-3xl lg:static lg:block lg:w-auto lg:bg-transparent lg:shadow-none lg:translate-x-0 lg:top-0 flex-col justify-center items-center">
-                        <!-- Botón de cierre (X) centrado -->
-                        <button class=" text-5xl font-bold text-gray-txt hover:text-blue-txt lg:hidden" id="close-button" aria-label="Close Menu">&#x2715;</button>
-                        <ul class="flex flex-wrap justify-center gap-6 lg:gap-0 lg:space-y-6 lg:flex-col pt-8">
-                            <li class="group w-max">
-                                <a href="#home" class="flex items-center text-lg font-semibold uppercase text-white lg:text-gray-txt group-hover:text-blue-txt">
-                                    <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
-                                    <span class="lg:ml-2 transition-colors duration-300 group-hover:text-blue-txt">Inicio</span>
-                                </a>
-                            </li>
-                            <li class="group w-max">
-                                <a href="#about" class="flex items-center text-lg font-semibold uppercase text-white lg:text-gray-txt group-hover:text-blue-txt">
-                                    <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
-                                    <span class="lg:ml-2 transition-colors duration-300 group-hover:text-blue-txt">Sobre mí</span>
-                                </a>
-                            </li>
-                            <li class="group w-max">
-                                <a href="#portfolio" class="flex items-center text-lg font-semibold uppercase text-white lg:text-gray-txt group-hover:text-blue-txt">
-                                    <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
-                                    <span class="lg:ml-2 transition-colors duration-300 group-hover:text-blue-txt">Portafolio</span>
-                                </a>
-                            </li>
-                            <li class="group w-max">
-                                <a href="#experience" class="flex items-center text-lg font-semibold uppercase text-white lg:text-gray-txt group-hover:text-blue-txt">
-                                    <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
-                                    <span class="lg:ml-2 transition-colors duration-300 group-hover:text-blue-txt">Experiencia</span>
-                                </a>
-                            </li>
-                            <li class="group w-max">
-                                <a href="#references" class="flex items-center text-lg font-semibold uppercase text-white lg:text-gray-txt group-hover:text-blue-txt">
-                                    <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
-                                    <span class="lg:ml-2 transition-colors duration-300 group-hover:text-blue-txt">Referencias</span>
-                                </a>
-                            </li>
-                        </ul>
 
+                <!-- Navbar Responsive -->
+                <nav class="w-full grid grid-cols-3 gap-4 lg:grid-cols-1">
+                    <!-- Columna 1: Idioma -->
+                    <div class="flex items-center justify-center lg:justify-start lg:items-start gap-4 order-3 lg:order-2">
+                        <a href="./index.html" class="text-lg font-bold uppercase text-gray-txt hover:text-blue-txt">ENG</a>
+                        <a href="./es.html" class="text-lg font-bold uppercase text-blue-txt">ESP</a>
                     </div>
 
-                </div>
-        
-                <!-- Columna 3: Redes sociales -->
-                <div
-                    class="flex flex-col items-center justify-center lg:justify-start lg:items-start lg:gap-1 order-1 lg:order-3">
-                    <p class="text-sm text-gray-txt text-center lg:text-start hidden lg:block">Sígueme en</p>
-                    <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank"
-                        class="text-lg font-medium text-gray-txt hover:text-blue-txt">LinkedIn</a>
-                </div>
+                    <!-- Columna 2: Menú de navegación -->
+                    <div class="relative flex items-center justify-center lg:justify-start lg:items-start gap-4 order-2 lg:order-1">
+                        <!-- Botón hamburguesa -->
+                        <button class="block lg:hidden text-gray-txt text-2xl font-bold" id="hamburger-button" aria-label="Toggle Menu"> &lt; &gt; </button>
+
+                        <!-- Menú desplegable -->
+                        <div id="mobile-menu" class="hidden absolute top-0 left-1/2 transform -translate-x-1/2 w-[90vw] backdrop-blur-sm p-6 shadow-lg lg:p-0 rounded-3xl lg:static lg:block lg:w-auto lg:bg-transparent lg:shadow-none lg:translate-x-0 lg:top-0 flex-col justify-center items-center">
+                            <!-- Botón de cierre (X) centrado -->
+                            <button class=" text-5xl font-bold text-gray-txt hover:text-blue-txt lg:hidden" id="close-button" aria-label="Close Menu">&#x2715;</button>
+                            <ul class="flex flex-wrap justify-center gap-6 lg:gap-0 lg:space-y-6 lg:flex-col pt-8">
+                                <li class="group w-max">
+                                    <a href="#home" class="flex items-center text-lg font-semibold uppercase text-white lg:text-gray-txt group-hover:text-blue-txt">
+                                        <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                                        <span class="lg:ml-2 transition-colors duration-300 group-hover:text-blue-txt">Inicio</span>
+                                    </a>
+                                </li>
+                                <li class="group w-max">
+                                    <a href="#about" class="flex items-center text-lg font-semibold uppercase text-white lg:text-gray-txt group-hover:text-blue-txt">
+                                        <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                                        <span class="lg:ml-2 transition-colors duration-300 group-hover:text-blue-txt">Sobre mí</span>
+                                    </a>
+                                </li>
+                                <li class="group w-max">
+                                    <a href="#portfolio" class="flex items-center text-lg font-semibold uppercase text-white lg:text-gray-txt group-hover:text-blue-txt">
+                                        <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                                        <span class="lg:ml-2 transition-colors duration-300 group-hover:text-blue-txt">Portafolio</span>
+                                    </a>
+                                </li>
+                                <li class="group w-max">
+                                    <a href="#experience" class="flex items-center text-lg font-semibold uppercase text-white lg:text-gray-txt group-hover:text-blue-txt">
+                                        <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                                        <span class="lg:ml-2 transition-colors duration-300 group-hover:text-blue-txt">Experiencia</span>
+                                    </a>
+                                </li>
+                                <li class="group w-max">
+                                    <a href="#references" class="flex items-center text-lg font-semibold uppercase text-white lg:text-gray-txt group-hover:text-blue-txt">
+                                        <span class="hidden lg:block w-6 h-[2px] bg-gray-txt transition-all duration-300 group-hover:w-16 group-hover:bg-blue-txt"></span>
+                                        <span class="lg:ml-2 transition-colors duration-300 group-hover:text-blue-txt">Referencias</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Columna 3: Redes sociales -->
+                    <div class="flex flex-col items-center justify-center lg:justify-start lg:items-start lg:gap-1 order-1 lg:order-3">
+                        <p class="text-sm text-gray-txt text-center lg:text-start hidden lg:block">Sígueme en</p>
+                        <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank" class="text-lg font-medium text-gray-txt hover:text-blue-txt">LinkedIn</a>
+                    </div>
+                </nav>
             </nav>
-        </nav>
-
-
-
         </header>
 
-    <!-- Cursor personalizado -->
-    <div id="custom-cursor" class="pointer-events-none hidden lg:block lg:fixed top-0 left-0 aspect-square w-[50vw] rounded-full bg-custom-cursor mix-blend-overlay z-50 transform -translate-x-1/2 -translate-y-1/2">
-    </div>
+        <!-- Cursor personalizado -->
+        <div id="custom-cursor" class="pointer-events-none hidden lg:block lg:fixed top-0 left-0 aspect-square w-[50vw] rounded-full bg-custom-cursor mix-blend-overlay z-50 transform -translate-x-1/2 -translate-y-1/2"></div>
 
         <!-- Main -->
-        <main
-            class="col-span-12 lg:col-span-7 bg-transparent lg:bg-blue-back grid grid-cols-7 top-[35vh] h-[65vh] md:top-[40vh] md:h-[60vh] lg:relative lg:top-0 lg:h-auto overflow-scroll lg:overflow-auto">
+        <main class="col-span-12 lg:col-span-7 bg-transparent lg:bg-blue-back grid grid-cols-7 top-[35vh] h-[65vh] md:top-[40vh] md:h-[60vh] lg:relative lg:top-0 lg:h-auto overflow-scroll lg:overflow-auto">
+
             <section id="home" class="col-start-2 col-span-5 py-12 space-y-10 lg:min-h-screen flex flex-col justify-center">
-                <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">
-                    +10 años de experiencia como Senior Back-end Developer me permiten desarrollar en entornos remotos y ágiles, fomentando la adaptabilidad y la comunicación clara con mi equipo de trabajo mientras adquiero mucha experiencia en la construcción de servidores fiables. Ofrezco soluciones backend escalables, eficientes y robustas, hechas a medida para llevar tu proyecto a otro nivel.
-                </p>
-                <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">
-                    ¡Esto es sólo el comienzo! Estoy emocionado de conectar contigo y explorar posibles colaboraciones que nos permitan crecer.
-                </p>
+                <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">+10 años de experiencia como Senior Back-end Developer me permiten desarrollar en entornos remotos y ágiles, fomentando la adaptabilidad y la comunicación clara con mi equipo de trabajo mientras adquiero mucha experiencia en la construcción de servidores fiables. Ofrezco soluciones backend escalables, eficientes y robustas, hechas a medida para llevar tu proyecto a otro nivel.</p>
+                <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">¡Esto es sólo el comienzo! Estoy emocionado de conectar contigo y explorar posibles colaboraciones que nos permitan crecer.</p>
                 <div class="flex justify-end">
                     <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank">
-                    <button class="px-6 py-3 bg-transparent border border-white text-white font-bold hover:bg-white hover:text-blue-900 transition duration-300">
-                        PÓNGASE EN CONTACTO
-                    </button></a>
+                    <button class="px-6 py-3 bg-transparent border border-white text-white font-bold hover:bg-white hover:text-blue-900 transition duration-300">PÓNGASE EN CONTACTO</button>
+                    </a>
                 </div>
             </section>
+
             <section id="about" class="col-start-2 col-span-5 py-12 space-y-10">
                 <!-- Skills Section -->
                 <div>
@@ -130,11 +116,9 @@
                         <img src="./png/flask.png" alt="Flask" class="h-auto w-full">
                         <img src="./png/postgreSQL.png" alt="PostgreSQL" class="h-auto w-full">
                     </div>
-                    <p class="text-base leading-relaxed text-gray-txt text-justify">
-                        SQLA | Celery | RAG / Retrieval augmented generation (IA) | TailwindCSS | Redis | Microsoft Azure | Pandas (software) | Node.js | Express.js | JavaScript | Git | Elasticsearch | Pydantic | React.js | CSS | Yii | Docker | Flight framework | PHP | Ionic Framework | Firebase | SocketIO | Redux.js | LimeSurvey | HTML Cdence | Front-End Development | Solidity | PHP | Lavarel | Desarrollo Web C++ | Linux
-                    </p>
+                    <p class="text-base leading-relaxed text-gray-txt text-justify">SQLA | Celery | RAG / Retrieval augmented generation (IA) | TailwindCSS | Redis | Microsoft Azure | Pandas (software) | Node.js | Express.js | JavaScript | Git | Elasticsearch | Pydantic | React.js | CSS | Yii | Docker | Flight framework | PHP | Ionic Framework | Firebase | SocketIO | Redux.js | LimeSurvey | HTML Cdence | Front-End Development | Solidity | PHP | Lavarel | Desarrollo Web C++ | Linux</p>
                 </div>
-            
+
                 <!-- Languages Section -->
                 <div>
                     <h2 class="text-xl font-semibold mb-4 text-white">LENGUAJES</h2>
@@ -144,7 +128,7 @@
                         <li class="before:content-['-'] before:mr-2">Francés (B1)</li>
                     </ul>
                 </div>
-            
+
                 <!-- Education Section -->
                 <div>
                     <h2 class="text-xl font-bold mb-4 text-white">EDUCACIÓN</h2>
@@ -159,7 +143,7 @@
                         </li>
                     </ul>
                 </div>
-            
+
                 <!-- Achievements Section -->
                 <div>
                     <h2 class="text-xl font-bold mb-4 text-white">LOGROS</h2>
@@ -170,6 +154,7 @@
                     </ul>
                 </div>
             </section>
+
             <section id="portfolio" class="col-start-2 col-span-5 py-12 space-y-10">
                 <div>
                     <h2 class="text-2xl font-bold mb-4 text-white">PORTAFOLIO</h2>
@@ -192,9 +177,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Full-stack developer</h3>
                     <p class="text-base text-gray-txt">Tellen · Contrato · Nov 2023 - Dic 2024</p>
-                    <p class="mt-2 text-base text-justify text-gray-txt">
-                        Actualmente, estoy trabajando como desarrollador Full-stack en una aplicación de IA relacionada con la contabilidad (centrada en los impuestos en Estados Unidos). Estoy desarrollando tanto el frontend (React.js) como el backend (Python) de las apps.
-                    </p>
+                    <p class="mt-2 text-base text-justify text-gray-txt">Actualmente, estoy trabajando como desarrollador Full-stack en una aplicación de IA relacionada con la contabilidad (centrada en los impuestos en Estados Unidos). Estoy desarrollando tanto el frontend (React.js) como el backend (Python) de las apps.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">REACT.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PYTHON</span>
@@ -205,9 +188,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Python Back-end Developer</h3>
                     <p class="text-base text-gray-txt">TEAM International · Tiempo completo · Nov 2022 - Oct 2023</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        Desarrollo aplicaciones escalables con Python, Pytest, Flask, SQLAlchemy, Redis y Celery. Utilizo tecnologías de código abierto para crear soluciones eficientes y rápidas, mejorando la experiencia del usuario.
-                    </p>
+                    <p class="mt-2 text-base text-gray-txt text-justify">Desarrollo aplicaciones escalables con Python, Pytest, Flask, SQLAlchemy, Redis y Celery. Utilizo tecnologías de código abierto para crear soluciones eficientes y rápidas, mejorando la experiencia del usuario.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">FLASK</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">POSTGRESQL</span>
@@ -221,9 +202,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Cofounder and consultant</h3>
                     <p class="text-base text-gray-txt">Teamify · Autónomo · Oct 2020 - Oct 2023</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        Desarrollo aplicaciones escalables con Python, Pytest, Flask, SQLAlchemy, Redis y Celery. Utilizo tecnologías de código abierto para crear soluciones eficientes y rápidas, mejorando la experiencia del usuario.
-                    </p>
+                    <p class="mt-2 text-base text-gray-txt text-justify">Desarrollo aplicaciones escalables con Python, Pytest, Flask, SQLAlchemy, Redis y Celery. Utilizo tecnologías de código abierto para crear soluciones eficientes y rápidas, mejorando la experiencia del usuario.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">REACT.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PYTHON</span>
@@ -240,9 +219,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Developer</h3>
                     <p class="text-base text-gray-txt">CryptoFR · Freelance · May 2019 - Ago 2022</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        He trabajado con un plugin de WordPress de comentarios que a su vez se conecta a una API NodeJS. Este plugin puede manejar un alto volumen de comentarios por día. Desarrollé tanto el backend como el frontend del mismo. Hemos estado trabajando con Smart Contracts utilizando la API Polygon Scan y la API Alchemy. Desarrollé un scraper para obtener NFTs de la API de Alchemy usando Scrapy en Python. También, usamos Solidity para empezar a desarrollar contratos inteligentes para intercambiar NFTs.
-                    </p>
+                    <p class="mt-2 text-base text-gray-txt text-justify">He trabajado con un plugin de WordPress de comentarios que a su vez se conecta a una API NodeJS. Este plugin puede manejar un alto volumen de comentarios por día. Desarrollé tanto el backend como el frontend del mismo. Hemos estado trabajando con Smart Contracts utilizando la API Polygon Scan y la API Alchemy. Desarrollé un scraper para obtener NFTs de la API de Alchemy usando Scrapy en Python. También, usamos Solidity para empezar a desarrollar contratos inteligentes para intercambiar NFTs.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">NODE.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PYTHON</span>
@@ -255,9 +232,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Senior Node Developer</h3>
                     <p class="text-base text-gray-txt">Clevertech · Tiempo completo · Sep 2019 - Dic 2019</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        Desarrollé un backend NodeJS para proyectos Clevertech. También mantuve un Front-end React.
-                    </p>
+                    <p class="mt-2 text-base text-gray-txt text-justify">Desarrollé un backend NodeJS para proyectos Clevertech. También mantuve un Front-end React.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">REACT.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">NODE.JS</span>
@@ -268,9 +243,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Software Engineer</h3>
                     <p class="text-base text-gray-txt">Data Drum · Autónomo · Nov 2018 - Feb 2019</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        Colaboré en un proyecto para compartir indicadores económicos de distintas fuentes de todo el mundo. Como ingeniero de software, trabajé a tiempo parcial utilizando NodeJS y PHP en infraestructuras de bases de datos MySQL seguras, optimizando API NodeJS que se construyeron con ES6 y ExpressJS. También hice algunos scripts en Python.
-                    </p>
+                    <p class="mt-2 text-base text-gray-txt text-justify">Colaboré en un proyecto para compartir indicadores económicos de distintas fuentes de todo el mundo. Como ingeniero de software, trabajé a tiempo parcial utilizando NodeJS y PHP en infraestructuras de bases de datos MySQL seguras, optimizando API NodeJS que se construyeron con ES6 y ExpressJS. También hice algunos scripts en Python.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">NODE.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">MYSQL</span>
@@ -283,20 +256,10 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Software Engineer</h3>
                     <p class="text-base text-gray-txt">Vascar Solutions · Tiempo completo · Dic 2016 - Nov 2018</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        Trabajé con una App para monitorizar trading algorítmico escrita usando ReactJS, NodeJS, y un backend PostgreSQL. Debido a su alta concurrencia y la cantidad de datos que necesita ser procesada, fue diseñada con una arquitectura que utiliza estados isomórficos redux, son compartidos entre frontend y backend.
-                    </p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        Una vez que el usuario ha iniciado sesión, se genera un token que es utilizado por el backend Socket IO para realizar la
-                        autenticación. Después, los eventos pueden ser enviados de ida y vuelta utilizando el backend SocketIO permitiendo que
-                        los datos sean actualizados en el frontend. Este proceso es mucho más rápido que el uso de una API REST.
-                    </p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        Para las pruebas, utilizamos pruebas de estrés a través de la herramienta Apache Benchmarking para los endpoints de ExpressJS, perfilado nativo de NodeJS y pruebas unitarias a través de Jest y Enzyme.
-                    </p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        Participé en la dirección de un equipo para una aplicación de Fantasy Football.
-                    </p>
+                    <p class="mt-2 text-base text-gray-txt text-justify"> Trabajé con una App para monitorizar trading algorítmico escrita usando ReactJS, NodeJS, y un backend PostgreSQL. Debido a su alta concurrencia y la cantidad de datos que necesita ser procesada, fue diseñada con una arquitectura que utiliza estados isomórficos redux, son compartidos entre frontend y backend.</p>
+                    <p class="mt-2 text-base text-gray-txt text-justify"> Una vez que el usuario ha iniciado sesión, se genera un token que es utilizado por el backend Socket IO para realizar la autenticación. Después, los eventos pueden ser enviados de ida y vuelta utilizando el backend SocketIO permitiendo que los datos sean actualizados en el frontend. Este proceso es mucho más rápido que el uso de una API REST.</p>
+                    <p class="mt-2 text-base text-gray-txt text-justify"> Para las pruebas, utilizamos pruebas de estrés a través de la herramienta Apache Benchmarking para los endpoints de ExpressJS, perfilado nativo de NodeJS y pruebas unitarias a través de Jest y Enzyme.</p>
+                    <p class="mt-2 text-base text-gray-txt text-justify"> Participé en la dirección de un equipo para una aplicación de Fantasy Football.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">REACT.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">NODE.JS</span>
@@ -347,9 +310,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Intern</h3>
                     <p class="text-base text-gray-txt">Editorial Diario de Los Andes C.A. - Pasantía - May 2014 - Jul 2014</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        Trabajo en el mantenimiento de la página principal de Diario de Los Andes.
-                    </p>
+                    <p class="mt-2 text-base text-gray-txt text-justify">Trabajo en el mantenimiento de la página principal de Diario de Los Andes.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PHP</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">YII</span>
@@ -361,9 +322,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">- Scholarship holder</h3>
                     <p class="text-base text-gray-txt">Universidad Valle del Momboy - Aprendizaje - Abr 2011 - Jul 2012</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">
-                        Trabajé con Limesurvey para validar los datos de la encuesta.
-                    </p>
+                    <p class="mt-2 text-base text-gray-txt text-justify">Trabajé con Limesurvey para validar los datos de la encuesta.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">MYSQL</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PHP</span>
@@ -405,8 +364,6 @@
         </main>
     </div>
 </body>
-
-
 
 <script src="./cursor.js"></script>
 <script src="./nav.js"></script>
