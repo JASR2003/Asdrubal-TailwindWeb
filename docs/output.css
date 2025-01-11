@@ -1070,7 +1070,7 @@ video {
 
 #mobile-menu {
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(1px);
   /* Soporte para Safari */
   /* Un color de fondo semitransparente es obligatorio */
 }
