@@ -119,21 +119,21 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function adjustMobileMenuStyles() {
-  // Detectar si el navegador utiliza WebKit
-  const isWebKit = 'WebkitAppearance' in document.documentElement.style;
-
-  // Seleccionar el div con id mobile-menu
   const mobileMenu = document.getElementById('mobile-menu');
 
   if (!mobileMenu) return; // Verifica que el elemento existe
 
-  if (isWebKit) {
-    // Si es WebKit (iOS/Safari), elimina la clase backdrop-blur-sm y agrega bg-blue-hover
+  // Detectar si es Safari en iOS
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  const isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+
+  if (isIOS || isSafari) {
+    // Si es iOS/Safari, elimina la clase backdrop-blur-sm y agrega bg-blue-btn
     mobileMenu.classList.remove('backdrop-blur-sm');
     mobileMenu.classList.remove('bg-white/30');
     mobileMenu.classList.add('bg-blue-btn');
   } else {
-    // Si no es WebKit (otros navegadores), asegúrate de restaurar las clases originales
+    // Restaurar las clases originales en otros navegadores
     mobileMenu.classList.add('backdrop-blur-sm');
     mobileMenu.classList.add('bg-white/30');
     mobileMenu.classList.remove('bg-blue-btn');
@@ -142,3 +142,4 @@ function adjustMobileMenuStyles() {
 
 // Llama a la función cuando la página cargue
 document.addEventListener('DOMContentLoaded', adjustMobileMenuStyles);
+
