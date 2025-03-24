@@ -881,11 +881,6 @@ video {
   background-color: rgb(255 255 255 / 0.3);
 }
 
-.bg-blue-hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(25 42 59 / var(--tw-bg-opacity, 1));
-}
-
 .bg-custom-cursor {
   background-image: radial-gradient(rgba(179, 181, 212, 1), rgba(179, 181, 212, 0.5) 40%, transparent 70%);;
 }
@@ -1232,6 +1227,10 @@ video {
 
   .lg\:justify-start {
     justify-content: flex-start;
+  }
+
+  .lg\:justify-end {
+    justify-content: flex-end;
   }
 
   .lg\:gap-0 {
