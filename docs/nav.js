@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('ul > li > a');
+    const navLinks = document.querySelectorAll('#mobile-menu ul > li > a');
     const mainContainer = document.querySelector('main');
 
     const updateActiveLink = () => {
@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileMenu.classList.add("flex");
         hamburgerButton.classList.add("opacity-0"); // Oculta con opacidad
         hamburgerButton.classList.remove("opacity-100");
+        hamburgerButton.setAttribute("aria-expanded", "true");
     });
 
     // Cerrar menú
@@ -95,6 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileMenu.classList.add("hidden");
         hamburgerButton.classList.remove("opacity-0"); // Muestra con opacidad
         hamburgerButton.classList.add("opacity-100");
+        hamburgerButton.setAttribute("aria-expanded", "false");
     });
 
     // Cerrar menú al hacer clic en un enlace
@@ -104,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mobileMenu.classList.add("hidden");
             hamburgerButton.classList.remove("opacity-0"); // Muestra con opacidad
             hamburgerButton.classList.add("opacity-100");
+            hamburgerButton.setAttribute("aria-expanded", "false");
         });
     });
 
@@ -114,6 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mobileMenu.classList.remove("flex");
             hamburgerButton.classList.remove("opacity-0"); // Muestra con opacidad
             hamburgerButton.classList.add("opacity-100");
+            hamburgerButton.setAttribute("aria-expanded", "false");
         }
     });
 });
