@@ -16,6 +16,16 @@
   <url>
     <loc>https://asdrubalivan.com/articulos/property-based-testing</loc>
     <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://asdrubalivan.com/articulos/property-based-testing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://asdrubalivan.com/articles/property-based-testing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://asdrubalivan.com/articulos/property-based-testing"/>
+  </url>
+  <url>
+    <loc>https://asdrubalivan.com/articles/property-based-testing</loc>
+    <lastmod>2026-11-04</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://asdrubalivan.com/articulos/property-based-testing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://asdrubalivan.com/articles/property-based-testing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://asdrubalivan.com/articulos/property-based-testing"/>
   </url>
 <!-- articulos:end -->
 </urlset>

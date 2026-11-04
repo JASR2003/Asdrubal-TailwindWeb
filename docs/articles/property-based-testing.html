@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property-based testing found me a bug with Somali numerals I didn't even know existed | Asdrúbal Suárez</title>
+    <meta name="description" content="A testing library found me a bug with Somali numerals. I didn't even know those numerals existed.">
+    <meta name="robots" content="max-image-preview:large">
+    <meta name="theme-color" content="#020f1e">
+    <link rel="canonical" href="https://asdrubalivan.com/articles/property-based-testing">
+    <link rel="alternate" hreflang="es" href="https://asdrubalivan.com/articulos/property-based-testing">
+    <link rel="alternate" hreflang="en" href="https://asdrubalivan.com/articles/property-based-testing">
+    <link rel="alternate" hreflang="x-default" href="https://asdrubalivan.com/articulos/property-based-testing">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Asdrúbal Suárez">
+    <meta property="og:title" content="Property-based testing found me a bug with Somali numerals I didn't even know existed">
+    <meta property="og:description" content="A testing library found me a bug with Somali numerals. I didn't even know those numerals existed.">
+    <meta property="og:url" content="https://asdrubalivan.com/articles/property-based-testing">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://asdrubalivan.com/png/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-11-04">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@AsdrubalCodes">
+    <meta name="twitter:creator" content="@AsdrubalCodes">
+    <meta name="twitter:title" content="Property-based testing found me a bug with Somali numerals I didn't even know existed">
+    <meta name="twitter:description" content="A testing library found me a bug with Somali numerals. I didn't even know those numerals existed.">
+    <meta name="twitter:image" content="https://asdrubalivan.com/png/og-image.png">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="192x192" href="/png/favicon-192.png">
+    <link rel="apple-touch-icon" href="/png/apple-touch-icon.png">
+    <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="/output.css" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Property-based testing found me a bug with Somali numerals I didn't even know existed","description":"A testing library found me a bug with Somali numerals. I didn't even know those numerals existed.","datePublished":"2026-11-04","inLanguage":"en","url":"https://asdrubalivan.com/articles/property-based-testing","author":{"@id":"https://asdrubalivan.com/#person","@type":"Person","name":"Asdrúbal Suárez","url":"https://asdrubalivan.com/"},"translationOfWork":{"@type":"Article","headline":"Property-based testing me encontró un bug con números somalíes que yo ni sabía que existían","inLanguage":"es","url":"https://asdrubalivan.com/articulos/property-based-testing","sameAs":["https://www.linkedin.com/pulse/property-based-testing-me-encontr%C3%B3-un-bug-con-n%C3%BAmeros-asdr%C3%BAbal-su%C3%A1rez-sgoyc","https://x.com/AsdrubalCodes/status/2118015250947850743"]}}</script>
+</head>
+
+<body class="bg-custom-radial bg-fixed text-gray-txt font-montserrat min-w-[320px]">
+    <div id="custom-cursor" class="pointer-events-none hidden lg:block lg:fixed top-0 left-0 aspect-square w-[50vw] rounded-full bg-custom-cursor mix-blend-overlay z-50 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <main>
+<article class="articulo">
+<header class="articulo-panel">
+<a class="logo" href="/"><img src="/png/logo.png" alt="Asdrúbal Suárez" width="1000" height="105"></a>
+<h1>Property-based testing found me a bug with <strong>Somali numerals</strong> I didn't even know existed</h1>
+<div class="datos">
+<p><time datetime="2026-11-04">November 4, 2026</time></p>
+<p>Translated from the Spanish original, published on <a class="enlace" href="https://www.linkedin.com/pulse/property-based-testing-me-encontr%C3%B3-un-bug-con-n%C3%BAmeros-asdr%C3%BAbal-su%C3%A1rez-sgoyc" target="_blank" rel="noopener">LinkedIn</a> and <a class="enlace" href="https://x.com/AsdrubalCodes/status/2118015250947850743" target="_blank" rel="noopener">X</a>.</p>
+</div>
+<div class="flex items-center gap-4" role="group" aria-label="Article language">
+<a href="/articles/property-based-testing" hreflang="en" lang="en" aria-label="ENG (English)" aria-current="page" class="py-2 -my-2 px-2 -mx-2 text-lg font-bold uppercase text-blue-txt">ENG</a>
+<a href="/articulos/property-based-testing" hreflang="es" lang="es" aria-label="ESP (Español)" class="py-2 -my-2 px-2 -mx-2 text-lg font-bold uppercase text-gray-txt hover:text-blue-txt">ESP</a>
+</div>
+<nav aria-label="Article sections">
+<a href="#section-1"><span class="linea"></span>Python</a>
+<a href="#section-2"><span class="linea"></span>TypeScript</a>
+</nav>
+</header>
+<div class="articulo-texto">
+<p>Imagine that you are learning to form plurals in English. Your teacher asks you: cat, cats, dog, dogs, book, books.</p>
+<p>Now imagine that instead of 3 they give you hundreds of nouns, some regular, others irregular, words that end in -y, -s, -x.</p>
+<p>Suddenly child, childs with an s shows up, and there we find something that the previous 3 examples didn't detect.</p>
+<p>That is how property-based testing works. Instead of writing specific cases, you define a property that your code must satisfy and you let a tool generate many inputs to try to find examples that break what you are testing.</p>
+<p>There are different libraries for this. In Python there is Hypothesis. In TypeScript there is fast-check.</p>
+<p>Let's go with 2 examples.</p>
+<h2 id="section-1">Example 1: Python with Hypothesis</h2>
+<p>Let's start with a simple function, which calculates the average of a list of numbers:</p>
+<pre tabindex="0" role="region" aria-label="Python"><code>def promedio(numeros):
+    return sum(numeros) / len(numeros)</code></pre>
+<p>Normally you would test it with a couple of lists, like <code>[2, 4, 6]</code> and <code>[10]</code>, and both pass.</p>
+<p>With property-based testing the question changes: what always has to be true, no matter the list? In this case, the average can never be less than the smallest number or greater than the largest.</p>
+<pre tabindex="0" role="region" aria-label="Python"><code>from hypothesis import given, strategies as st
+
+@given(st.lists(st.integers(min_value=-1000, max_value=1000)))
+def test_promedio_esta_entre_el_minimo_y_el_maximo(numeros):
+    resultado = promedio(numeros)
+    assert min(numeros) &lt;= resultado &lt;= max(numeros)</code></pre>
+<p><code>@given</code> tells Hypothesis to generate the lists of integers for me, so I don't write any of them. I run it and it fails:</p>
+<pre class="salida" tabindex="0" role="region" aria-label="Test output"><code>numeros = []
+ZeroDivisionError: division by zero</code></pre>
+<p>It hadn't even crossed my mind to try the empty list. Hypothesis found it on its own, and also showed it to me as the smallest case that breaks the function.</p>
+<p>Now I have to decide what should happen with an empty list. For me it is an error, so I say it explicitly:</p>
+<pre tabindex="0" role="region" aria-label="Python"><code>def promedio(numeros):
+    if not numeros:
+        raise ValueError("No se puede promediar una lista vacía")
+    return sum(numeros) / len(numeros)</code></pre>
+<p>And with <code>min_size=1</code> I tell the test that the lists must have at least one number:</p>
+<pre tabindex="0" role="region" aria-label="Python"><code>@given(st.lists(st.integers(min_value=-1000, max_value=1000), min_size=1))</code></pre>
+<p>With that, it passes.</p>
+<h2 id="section-2">Example 2: TypeScript with fast-check</h2>
+<p>The second example is a function that applies a discount to a price:</p>
+<pre tabindex="0" role="region" aria-label="TypeScript"><code>function aplicarDescuento(precio: number, porcentaje: number): number {
+  return precio - precio * (porcentaje / 100);
+}</code></pre>
+<p>If I test it with <code>aplicarDescuento(100, 10)</code>, it gives 90. All good.</p>
+<p>The property I want to always hold is that the final price is never negative and never greater than the original price.</p>
+<pre tabindex="0" role="region" aria-label="TypeScript"><code>import fc from "fast-check";
+
+fc.assert(
+  fc.property(
+    fc.integer({ min: 0, max: 10_000 }), // precio
+    fc.integer(),                        // porcentaje, cualquier entero
+    (precio, porcentaje) =&gt; {
+      const final = aplicarDescuento(precio, porcentaje);
+      return final &gt;= 0 &amp;&amp; final &lt;= precio;
+    }
+  )
+);</code></pre>
+<p>fast-check tries many prices and percentages, and it fails:</p>
+<pre class="salida" tabindex="0" role="region" aria-label="Test output"><code>Counterexample: [1,101]
+Shrunk 36 time(s)</code></pre>
+<p>A price of 1 with a 101% discount gives a negative price. Look at <code>Shrunk 36 time(s)</code>: fast-check first found a big case that failed, and it kept shrinking that case down to the simplest one. That way I don't have to decipher a weird number.</p>
+<p>If one day a bad percentage gets loaded into the database, the store ends up paying the customer.</p>
+<p>The fix is to validate the percentage so it stays between 0 and 100:</p>
+<pre tabindex="0" role="region" aria-label="TypeScript"><code>function aplicarDescuento(precio: number, porcentaje: number): number {
+  const p = Math.min(Math.max(porcentaje, 0), 100);
+  return precio - precio * (p / 100);
+}</code></pre>
+<p>With that, the property passes.</p>
+<p class="cierre">Something like this happened to me while validating numerals in Python. Hypothesis found that the system failed with Somali numerals, which I didn't even know existed. I would never have thought to write that case by hand.</p>
+<footer class="pie">
+<p>Asdrúbal Suárez · Senior Backend Engineer</p>
+<a class="boton" href="/">View profile and contact</a>
+</footer>
+</div>
+</article>
+    </main>
+    <script src="/cursor.js" defer></script>
+    <script src="/articulo.js" defer></script>
+</body>
+
+</html>
