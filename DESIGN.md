@@ -106,7 +106,7 @@ La paleta es un azul nocturno casi monocromático, con un único cian luminoso c
 - **Console Navy** (`console-navy`): borde exterior del fondo radial de la página.
 - **Glow Blue** (`glow-blue`): centro más claro del fondo radial.
 - **Hover Slate** (`hover-slate`): relleno de las entradas al pasar el cursor.
-- **Chip Deep Blue** (`chip-deep-blue`): fondo de chips, y del menú móvil donde el desenfoque no funciona bien.
+- **Chip Deep Blue** (`chip-deep-blue`): fondo de chips y del menú móvil.
 - **Readout Gray** (`readout-gray`): texto corrido, datos secundarios y navegación en reposo.
 - **Pure White** (`pure-white`): títulos de sección y de entrada, cargo y borde de los botones.
 - **Button Hover Ink** (`button-hover-ink`): texto del botón cuando se invierte en hover.
@@ -161,7 +161,7 @@ El lenguaje mezcla tres formas con funciones distintas: ángulos rectos para acc
 Sobrios y seguros: un contorno blanco sobre la noche, que se invierte al responder.
 - **Shape:** ángulos rectos (0px), con borde blanco de 1px.
 - **Primary:** fondo transparente, texto blanco en bold, relleno de 12px por 24px. Los botones de la portada se muestran en par, con el mismo peso visual.
-- **Hover / Focus:** en hover se llena de blanco y el texto pasa a azul intenso, con transición de 300ms. El foco usa el indicador predeterminado del navegador.
+- **Hover / Focus:** en hover se llena de blanco y el texto pasa a azul intenso, con transición de 300ms. El foco visible es un anillo cian de 2px, separado 2px, común a todos los controles.
 
 ### Chips
 - **Style:** píldora con fondo azul profundo, texto cian de 0.875rem y mayúsculas escritas en el contenido.
@@ -179,7 +179,7 @@ Las entradas de experiencia y portafolio son filas sin contenedor visible hasta 
 - **Style:** vertical en escritorio, en mayúsculas y semibold, cada enlace precedido por una línea de 2px.
 - **States:** en reposo, gris con línea de 24px. En hover y en la sección activa, cian con línea de 64px y transición de 300ms.
 - **Idioma:** ENG y ESP en bold, con el idioma actual en cian.
-- **Mobile:** el botón `< >` abre un panel redondeado con desenfoque y fondo blanco translúcido. En iOS y Safari usa Chip Deep Blue en lugar del desenfoque.
+- **Mobile:** el botón `< >` abre un panel redondeado y opaco en Chip Deep Blue, para que el contenido no se transparente. Se cierra con la X, con Escape o al elegir un enlace.
 
 ### Cursor Glow
 La firma del sitio: un brillo radial de 50vw de ancho, en modo de fusión overlay, que sigue al cursor. Solo aparece desde 1024px, no intercepta clics y no debe interferir con la lectura.
@@ -198,4 +198,4 @@ La firma del sitio: un brillo radial de 50vw de ancho, en modo de fusión overla
 - **Don't** sumar otro color de acento.
 - **Don't** elevar las entradas con sombras en hover.
 - **Don't** transformar a mayúsculas texto con siglas de caja mixta.
-- **Don't** tomar el texto justificado actual como patrón para contenido nuevo: es una deuda conocida, porque crea huecos desiguales en móvil.
+- **Don't** justificar el texto: crea huecos desiguales, sobre todo en móvil.

@@ -81,6 +81,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileMenu = document.getElementById("mobile-menu");
     const navLinks = document.querySelectorAll("#mobile-menu ul li a");
 
+    const closeMenu = (returnFocus = false) => {
+        mobileMenu.classList.remove("flex");
+        mobileMenu.classList.add("hidden");
+        hamburgerButton.classList.remove("opacity-0"); // Muestra con opacidad
+        hamburgerButton.classList.add("opacity-100");
+        hamburgerButton.setAttribute("aria-expanded", "false");
+        if (returnFocus) hamburgerButton.focus();
+    };
+
     // Abrir menú
     hamburgerButton.addEventListener("click", () => {
         mobileMenu.classList.remove("hidden");
@@ -88,62 +97,26 @@ document.addEventListener("DOMContentLoaded", () => {
         hamburgerButton.classList.add("opacity-0"); // Oculta con opacidad
         hamburgerButton.classList.remove("opacity-100");
         hamburgerButton.setAttribute("aria-expanded", "true");
+        closeButton.focus();
     });
 
     // Cerrar menú
-    closeButton.addEventListener("click", () => {
-        mobileMenu.classList.remove("flex");
-        mobileMenu.classList.add("hidden");
-        hamburgerButton.classList.remove("opacity-0"); // Muestra con opacidad
-        hamburgerButton.classList.add("opacity-100");
-        hamburgerButton.setAttribute("aria-expanded", "false");
+    closeButton.addEventListener("click", () => closeMenu(true));
+
+    // Cerrar menú con Escape
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && hamburgerButton.getAttribute("aria-expanded") === "true") {
+            closeMenu(true);
+        }
     });
 
     // Cerrar menú al hacer clic en un enlace
     navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            mobileMenu.classList.remove("flex");
-            mobileMenu.classList.add("hidden");
-            hamburgerButton.classList.remove("opacity-0"); // Muestra con opacidad
-            hamburgerButton.classList.add("opacity-100");
-            hamburgerButton.setAttribute("aria-expanded", "false");
-        });
+        link.addEventListener("click", () => closeMenu());
     });
 
     // Cerrar el menú automáticamente al hacer resize a pantallas lg o más grandes
     window.addEventListener("resize", () => {
-        if (window.innerWidth >= 1024) {
-            mobileMenu.classList.add("hidden");
-            mobileMenu.classList.remove("flex");
-            hamburgerButton.classList.remove("opacity-0"); // Muestra con opacidad
-            hamburgerButton.classList.add("opacity-100");
-            hamburgerButton.setAttribute("aria-expanded", "false");
-        }
+        if (window.innerWidth >= 1024) closeMenu();
     });
 });
-
-function adjustMobileMenuStyles() {
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (!mobileMenu) return; // Verifica que el elemento existe
-
-  // Detectar si es Safari en iOS
-  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-  const isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
-
-  if (isIOS || isSafari) {
-    // Si es iOS/Safari, elimina la clase backdrop-blur-sm y agrega bg-blue-btn
-    mobileMenu.classList.remove('backdrop-blur-sm');
-    mobileMenu.classList.remove('bg-white/30');
-    mobileMenu.classList.add('bg-blue-btn');
-  } else {
-    // Restaurar las clases originales en otros navegadores
-    mobileMenu.classList.add('backdrop-blur-sm');
-    mobileMenu.classList.add('bg-white/30');
-    mobileMenu.classList.remove('bg-blue-btn');
-  }
-}
-
-// Llama a la función cuando la página cargue
-document.addEventListener('DOMContentLoaded', adjustMobileMenuStyles);
-

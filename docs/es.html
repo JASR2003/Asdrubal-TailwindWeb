@@ -113,17 +113,17 @@
                 <nav aria-label="Navegación principal" class="w-full grid grid-cols-3 gap-4 md:grid-cols-1">
                     <!-- Columna 1: Idioma -->
                     <div class="flex items-center justify-center md:justify-start lg:items-start gap-4 order-3 lg:order-2">
-                        <a href="./" hreflang="en" lang="en" aria-label="ENG (English)" class="text-lg font-bold uppercase text-gray-txt hover:text-blue-txt">ENG</a>
-                        <a href="./es" hreflang="es" lang="es" aria-label="ESP (Español)" aria-current="page" class="text-lg font-bold uppercase text-blue-txt">ESP</a>
+                        <a href="./" hreflang="en" lang="en" aria-label="ENG (English)" class="py-2 -my-2 px-2 -mx-2 text-lg font-bold uppercase text-gray-txt hover:text-blue-txt">ENG</a>
+                        <a href="./es" hreflang="es" lang="es" aria-label="ESP (Español)" aria-current="page" class="py-2 -my-2 px-2 -mx-2 text-lg font-bold uppercase text-blue-txt">ESP</a>
                     </div>
 
                     <!-- Columna 2: Menú de navegación -->
                     <div class="relative flex items-center justify-center md:justify-start lg:items-start gap-4 order-2 md:order-1">
                         <!-- Botón hamburguesa -->
-                        <button class="block lg:hidden text-gray-txt text-2xl font-bold" id="hamburger-button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú"> &lt; &gt; </button>
+                        <button class="block lg:hidden py-2 -my-2 px-2 -mx-2 text-gray-txt text-2xl font-bold" id="hamburger-button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú"> &lt; &gt; </button>
 
                         <!-- Menú desplegable -->
-                        <div id="mobile-menu" class="hidden absolute top-0 left-1/2 transform -translate-x-1/2 md:left-0 md:translate-x-0 w-[90vw] p-6 shadow-lg lg:p-0 rounded-3xl lg:static lg:block lg:w-auto bg-white/30 backdrop-blur-sm lg:bg-transparent lg:shadow-none lg:translate-x-0 lg:top-0 flex-col justify-center items-center">
+                        <div id="mobile-menu" class="hidden absolute top-0 left-1/2 transform -translate-x-1/2 md:left-0 md:translate-x-0 w-[90vw] p-6 shadow-lg lg:p-0 rounded-3xl lg:static lg:block lg:w-auto bg-blue-btn lg:bg-transparent lg:shadow-none lg:translate-x-0 lg:top-0 flex-col justify-center items-center">
                             <!-- Botón de cierre (X) centrado -->
                             <button class=" text-5xl font-bold text-gray-txt hover:text-blue-txt lg:hidden" id="close-button" aria-label="Cerrar menú">&#x2715;</button>
                             <ul class="flex flex-wrap justify-center gap-6 lg:gap-0 lg:space-y-6 lg:flex-col pt-8">
@@ -165,7 +165,7 @@
                     <div class="flex flex-col items-center justify-center md:justify-start md:items-start lg:gap-1 order-1 lg:order-3">
                         <p class="text-sm text-gray-txt text-center lg:text-start hidden lg:block">Sígueme en</p>
                         <div class="flex items-center gap-4">
-                            <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank" rel="noopener" class="text-lg font-medium text-gray-txt hover:text-blue-txt">LinkedIn</a>
+                            <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank" rel="noopener" class="py-2 -my-2 text-lg font-medium text-gray-txt hover:text-blue-txt">LinkedIn</a>
                             <a href="https://x.com/AsdrubalCodes" target="_blank" rel="noopener" aria-label="X (@AsdrubalCodes)" class="text-lg font-medium text-gray-txt hover:text-blue-txt" style="padding:.5rem;margin:-.5rem">X</a>
                         </div>
                     </div>
@@ -180,10 +180,10 @@
         <main class="col-span-12 md:col-span-7 bg-transparent md:bg-blue-back grid grid-cols-7 top-[30vh] h-[70vh] md:relative md:top-0 md:h-auto overflow-scroll lg:overflow-auto">
 
             <section id="home" class="col-start-2 col-span-5 py-12 space-y-10 lg:min-h-screen flex flex-col justify-center">
-                <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">Soy ingeniero backend con 14 años en software, y Python es la base de mi carrera. Hoy trabajo con FastAPI, PostgreSQL y LLMs en producción.</p>
-                <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">En Riley, una app de crianza con IA, el backend dependía de un solo proveedor de LLM y la disponibilidad estaba en 93%. Armé un esquema con Vertex AI como principal y Claude de respaldo, y subió a 99%. Las caídas que quedaban no venían del proveedor, así que ajusté Gunicorn en Azure y llegó a 99,9%.</p>
-                <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">He trabajado en remoto desde Venezuela con equipos de EE. UU. y Europa. Una vez le expliqué una caída de Azure a un CEO y a un equipo de marketing en cinco minutos, sin jerga.</p>
-                <p class="text-xl leading-relaxed text-justify text-gray-txt font-medium">Busco un rol backend remoto, a tiempo completo o por contrato. Si tu equipo necesita LLMs que se mantengan en pie en producción, escríbeme.</p>
+                <p class="text-xl leading-relaxed text-gray-txt font-medium">Soy ingeniero backend con 14 años en software, y Python es la base de mi carrera. Hoy trabajo con FastAPI, PostgreSQL y LLMs en producción.</p>
+                <p class="text-xl leading-relaxed text-gray-txt font-medium">En Riley, una app de crianza con IA, el backend dependía de un solo proveedor de LLM y la disponibilidad estaba en 93%. Armé un esquema con Vertex AI como principal y Claude de respaldo, y subió a 99%. Las caídas que quedaban no venían del proveedor, así que ajusté Gunicorn en Azure y llegó a 99,9%.</p>
+                <p class="text-xl leading-relaxed text-gray-txt font-medium">He trabajado en remoto desde Venezuela con equipos de EE. UU. y Europa. Una vez le expliqué una caída de Azure a un CEO y a un equipo de marketing en cinco minutos, sin jerga.</p>
+                <p class="text-xl leading-relaxed text-gray-txt font-medium">Busco un rol backend remoto, a tiempo completo o por contrato. Si tu equipo necesita LLMs que se mantengan en pie en producción, escríbeme.</p>
                 <div class="flex flex-wrap justify-center lg:justify-end gap-4">
                     <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank" rel="noopener" data-email-user="hello" data-email-domain="asdrubalivan.com" class="inline-block px-6 py-3 bg-transparent border border-white text-white font-bold hover:bg-white hover:text-blue-900 transition duration-300">ESCRÍBEME POR CORREO</a>
                     <a href="https://www.linkedin.com/in/asdrubalivan/" target="_blank" rel="noopener" class="inline-block px-6 py-3 bg-transparent border border-white text-white font-bold hover:bg-white hover:text-blue-900 transition duration-300">LINKEDIN</a>
@@ -202,7 +202,7 @@
                         <img src="./png/typescript.webp" alt="TypeScript" width="400" height="126" loading="lazy" decoding="async" class="h-auto w-full">
                         <img src="./png/flask.webp" alt="Flask" width="400" height="156" loading="lazy" decoding="async" class="h-auto w-full">
                     </div>
-                    <p class="text-base leading-relaxed text-gray-txt text-justify">Large Language Models (LLM) | Desarrollo backend | APIs REST | Docker | Microsoft Azure | Google Cloud Platform / Vertex AI | Claude API | LangChain | RAG / Retrieval augmented generation (IA) | Inngest | Apache Airflow | Celery | Redis | Node.js | React.js | Next.js | SQLAlchemy | Pydantic | PyTest | Supabase | Amazon S3 | JavaScript | Git | Express.js | TailwindCSS | Pandas (software) | Elasticsearch | CSS | Yii | Flight framework | PHP | Ionic Framework | Firebase | SocketIO | Redux.js | LimeSurvey | HTML | Cadence | Front-End Development | Solidity | Laravel | Desarrollo web | C++ | Linux</p>
+                    <p class="text-base leading-relaxed text-gray-txt">Large Language Models (LLM) | Desarrollo backend | APIs REST | Docker | Microsoft Azure | Google Cloud Platform / Vertex AI | Claude API | LangChain | RAG / Retrieval augmented generation (IA) | Inngest | Apache Airflow | Celery | Redis | Node.js | React.js | Next.js | SQLAlchemy | Pydantic | PyTest | Supabase | Amazon S3 | JavaScript | Git | Express.js | TailwindCSS | Pandas (software) | Elasticsearch | CSS | Yii | Flight framework | PHP | Ionic Framework | Firebase | SocketIO | Redux.js | LimeSurvey | HTML | Cadence | Front-End Development | Solidity | Laravel | Desarrollo web | C++ | Linux</p>
                 </div>
 
                 <!-- Languages Section -->
@@ -261,12 +261,12 @@
                     <h2 class="text-2xl font-bold mb-4 text-white">PORTAFOLIO</h2>
                     <div class="grid grid-cols-1 gap-8">
                         <div>
-                            <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-justify text-white">Optimización del sistema de bonificación a la excelencia académica para el Colegio Los Cedros (2015)</h3>
-                            <p class="text-gray-txt text-justify">mejora de la bonificación del sistema de excelencia académica del <a href="https://colegioloscedros.edu.ve/" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Colegio Los Cedros</a> para mejorar la experiencia del usuario.</p>
+                            <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">Optimización del sistema de bonificación a la excelencia académica para el Colegio Los Cedros (2015)</h3>
+                            <p class="text-gray-txt">mejora de la bonificación del sistema de excelencia académica del <a href="https://colegioloscedros.edu.ve/" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Colegio Los Cedros</a> para mejorar la experiencia del usuario.</p>
                         </div>
                         <div>
-                            <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-justify text-white">Desarrollo de un sitio web para Diario Los Andes (2012)</h3>
-                            <p class="text-gray-txt text-justify">Dirigí este proyecto y desarrollé el sitio web del <a href="https://diariodelosandes.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Diario Los Andes</a>, uno de los principales periódicos de Trujillo, con ediciones en Táchira y Mérida.</p>
+                            <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">Desarrollo de un sitio web para Diario Los Andes (2012)</h3>
+                            <p class="text-gray-txt">Dirigí este proyecto y desarrollé el sitio web del <a href="https://diariodelosandes.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Diario Los Andes</a>, uno de los principales periódicos de Trujillo, con ediciones en Táchira y Mérida.</p>
                         </div>
                     </div>
                 </div>
@@ -279,7 +279,7 @@
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Ingeniero de Software Senior</h3>
                     <p class="text-base text-gray-txt"><a href="https://rileyapp.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Riley</a> · Contrato part-time, por horas · Abr 2026 - Presente</p>
                     <p class="text-base text-gray-txt"><a href="https://rileyapp.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Riley</a> · Tiempo completo · Ene 2025 - Abr 2026</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">App de crianza con IA y cerca de 10.000 usuarios. Soy el ingeniero backend principal, con FastAPI y PostgreSQL en Azure, y Vertex AI y Claude como proveedores de LLM. Reemplacé el proveedor único de LLM por un esquema de respaldo, con Vertex AI como principal y Claude como alternativa, y subí la disponibilidad de 93% a 99%; luego ajusté Gunicorn en Azure hasta llegar a 99,9%. También escribí unos 25 flujos en Inngest para guías diarias, notificaciones y actualizaciones programadas.</p>
+                    <p class="mt-2 text-base text-gray-txt">App de crianza con IA y cerca de 10.000 usuarios. Soy el ingeniero backend principal, con FastAPI y PostgreSQL en Azure, y Vertex AI y Claude como proveedores de LLM. Reemplacé el proveedor único de LLM por un esquema de respaldo, con Vertex AI como principal y Claude como alternativa, y subí la disponibilidad de 93% a 99%; luego ajusté Gunicorn en Azure hasta llegar a 99,9%. También escribí unos 25 flujos en Inngest para guías diarias, notificaciones y actualizaciones programadas.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PYTHON</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">FASTAPI</span>
@@ -292,7 +292,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Ingeniero de Software Senior</h3>
                     <p class="text-base text-gray-txt"><a href="https://www.tellen.ai" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Tellen</a> · Tiempo completo · Nov 2023 - Dic 2024</p>
-                    <p class="mt-2 text-base text-justify text-gray-txt">Plataforma de IA que ayuda a contadores a cerrar reportes a partir de 10-Ks y otros documentos, para clientes a escala Big Four. Fui ingeniero backend y trabajaba con el CTO. Refactoricé endpoints mal estructurados hacia una arquitectura de servicios, mantuve la cobertura de PyTest cerca del 90%, entregué funcionalidades de punta a punta en FastAPI y React, y trabajé directamente con el CEO y con quien lideraba marketing.</p>
+                    <p class="mt-2 text-base text-gray-txt">Plataforma de IA que ayuda a contadores a cerrar reportes a partir de 10-Ks y otros documentos, para clientes a escala Big Four. Fui ingeniero backend y trabajaba con el CTO. Refactoricé endpoints mal estructurados hacia una arquitectura de servicios, mantuve la cobertura de PyTest cerca del 90%, entregué funcionalidades de punta a punta en FastAPI y React, y trabajé directamente con el CEO y con quien lideraba marketing.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PYTHON</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">FASTAPI</span>
@@ -305,7 +305,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Desarrollador Backend Python</h3>
                     <p class="text-base text-gray-txt"><a href="https://www.teaminternational.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">TEAM International</a> · Tiempo completo · Nov 2022 - Oct 2023</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">Desarrollo aplicaciones escalables con Python, Pytest, Flask, SQLAlchemy, Redis y Celery. Utilizo tecnologías de código abierto para crear soluciones eficientes y rápidas, mejorando la experiencia del usuario.</p>
+                    <p class="mt-2 text-base text-gray-txt">Desarrollo aplicaciones escalables con Python, Pytest, Flask, SQLAlchemy, Redis y Celery. Utilizo tecnologías de código abierto para crear soluciones eficientes y rápidas, mejorando la experiencia del usuario.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">FLASK</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">POSTGRESQL</span>
@@ -319,7 +319,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Cofundador y consultor</h3>
                     <p class="text-base text-gray-txt">Teamitfy · Autónomo · Oct 2020 - Oct 2023</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">Firma de consultoría para startups de EE. UU. Fui cofundador técnico y trabajaba con nuestro CEO y un project manager. Diseñé y lideré el MVP de una plataforma de apuestas deportivas en línea (arquitectura, elección de tecnologías y decisiones de API, junto con los desarrolladores frontend y el project manager), construí subidas privadas de archivos a S3 con URLs prefirmadas (expiración de 30 minutos) y escribí APIs REST en Python con Flask, Pydantic y Docker para startups de EE. UU.</p>
+                    <p class="mt-2 text-base text-gray-txt">Firma de consultoría para startups de EE. UU. Fui cofundador técnico y trabajaba con nuestro CEO y un project manager. Diseñé y lideré el MVP de una plataforma de apuestas deportivas en línea (arquitectura, elección de tecnologías y decisiones de API, junto con los desarrolladores frontend y el project manager), construí subidas privadas de archivos a S3 con URLs prefirmadas (expiración de 30 minutos) y escribí APIs REST en Python con Flask, Pydantic y Docker para startups de EE. UU.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">REACT.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PYTHON</span>
@@ -336,7 +336,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Desarrollador</h3>
                     <p class="text-base text-gray-txt">CryptoFR · Autónomo · May 2019 - Ago 2022</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">He trabajado con un plugin de WordPress de comentarios que a su vez se conecta a una API NodeJS. Este plugin puede manejar un alto volumen de comentarios por día. Desarrollé tanto el backend como el frontend del mismo. Hemos estado trabajando con Smart Contracts utilizando la API Polygon Scan y la API Alchemy. Desarrollé un scraper para obtener NFTs de la API de Alchemy usando Scrapy en Python. También, usamos Solidity para empezar a desarrollar contratos inteligentes para intercambiar NFTs.</p>
+                    <p class="mt-2 text-base text-gray-txt">He trabajado con un plugin de WordPress de comentarios que a su vez se conecta a una API NodeJS. Este plugin puede manejar un alto volumen de comentarios por día. Desarrollé tanto el backend como el frontend del mismo. Hemos estado trabajando con Smart Contracts utilizando la API Polygon Scan y la API Alchemy. Desarrollé un scraper para obtener NFTs de la API de Alchemy usando Scrapy en Python. También, usamos Solidity para empezar a desarrollar contratos inteligentes para intercambiar NFTs.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">NODE.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PYTHON</span>
@@ -349,7 +349,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Desarrollador Node Senior</h3>
                     <p class="text-base text-gray-txt"><a href="https://lumenalta.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px" title="Clevertech es hoy Lumenalta">Clevertech</a> · Tiempo completo · Sep 2019 - Dic 2019</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">Desarrollé un backend NodeJS para proyectos Clevertech. También mantuve un Front-end React.</p>
+                    <p class="mt-2 text-base text-gray-txt">Desarrollé un backend NodeJS para proyectos Clevertech. También mantuve un Front-end React.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">REACT.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">NODE.JS</span>
@@ -360,7 +360,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Ingeniero de Software</h3>
                     <p class="text-base text-gray-txt"><a href="https://datadrum.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Data Drum</a> · Autónomo · Nov 2018 - Feb 2019</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">Colaboré en un proyecto para compartir indicadores económicos de distintas fuentes de todo el mundo. Como ingeniero de software, trabajé a tiempo parcial utilizando NodeJS y PHP en infraestructuras de bases de datos MySQL seguras, optimizando API NodeJS que se construyeron con ES6 y ExpressJS. También hice algunos scripts en Python.</p>
+                    <p class="mt-2 text-base text-gray-txt">Colaboré en un proyecto para compartir indicadores económicos de distintas fuentes de todo el mundo. Como ingeniero de software, trabajé a tiempo parcial utilizando NodeJS y PHP en infraestructuras de bases de datos MySQL seguras, optimizando API NodeJS que se construyeron con ES6 y ExpressJS. También hice algunos scripts en Python.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">NODE.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">MYSQL</span>
@@ -373,10 +373,10 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Ingeniero de Software</h3>
                     <p class="text-base text-gray-txt"><a href="https://vascarsolutions.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Vascar Solutions</a> · Tiempo completo · Dic 2016 - Nov 2018</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify"> Trabajé con una App para monitorizar trading algorítmico escrita usando ReactJS, NodeJS, y un backend PostgreSQL. Debido a su alta concurrencia y la cantidad de datos que necesita ser procesada, fue diseñada con una arquitectura que utiliza estados isomórficos redux, son compartidos entre frontend y backend.</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify"> Una vez que el usuario ha iniciado sesión, se genera un token que es utilizado por el backend Socket IO para realizar la autenticación. Después, los eventos pueden ser enviados de ida y vuelta utilizando el backend SocketIO permitiendo que los datos sean actualizados en el frontend. Este proceso es mucho más rápido que el uso de una API REST.</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify"> Para las pruebas, utilizamos pruebas de estrés a través de la herramienta Apache Benchmarking para los endpoints de ExpressJS, perfilado nativo de NodeJS y pruebas unitarias a través de Jest y Enzyme.</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify"> Participé en la dirección de un equipo para una aplicación de Fantasy Football.</p>
+                    <p class="mt-2 text-base text-gray-txt"> Trabajé con una App para monitorizar trading algorítmico escrita usando ReactJS, NodeJS, y un backend PostgreSQL. Debido a su alta concurrencia y la cantidad de datos que necesita ser procesada, fue diseñada con una arquitectura que utiliza estados isomórficos redux, son compartidos entre frontend y backend.</p>
+                    <p class="mt-2 text-base text-gray-txt"> Una vez que el usuario ha iniciado sesión, se genera un token que es utilizado por el backend Socket IO para realizar la autenticación. Después, los eventos pueden ser enviados de ida y vuelta utilizando el backend SocketIO permitiendo que los datos sean actualizados en el frontend. Este proceso es mucho más rápido que el uso de una API REST.</p>
+                    <p class="mt-2 text-base text-gray-txt"> Para las pruebas, utilizamos pruebas de estrés a través de la herramienta Apache Benchmarking para los endpoints de ExpressJS, perfilado nativo de NodeJS y pruebas unitarias a través de Jest y Enzyme.</p>
+                    <p class="mt-2 text-base text-gray-txt"> Participé en la dirección de un equipo para una aplicación de Fantasy Football.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">REACT.JS</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">NODE.JS</span>
@@ -390,8 +390,8 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Desarrollador Web</h3>
                     <p class="text-base text-gray-txt"><a href="https://shocklogic.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Shocklogic</a> · Tiempo completo · Ago 2015 - Nov 2016</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">Shocklogic se especializa en software de gestión de eventos. Entre los sistemas en los que he trabajado se encuentran: </p>
-                    <ul class="list-none mt-2 text-justify text-base text-gray-txt">
+                    <p class="mt-2 text-base text-gray-txt">Shocklogic se especializa en software de gestión de eventos. Entre los sistemas en los que he trabajado se encuentran: </p>
+                    <ul class="list-none mt-2 text-base text-gray-txt">
                         <li class="before:content-['-'] before:mr-2">Surveylogic: una aplicación de gestión de encuestas.</li>
                         <li class="before:content-['-'] before:mr-2">Mobapplogic: un generador de aplicaciones móviles escrito en PHP.</li>
                         <li class="before:content-['-'] before:mr-2">API interna de Shocklogic.com.</li>
@@ -409,8 +409,8 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Desarrollador Web</h3>
                     <p class="text-sm text-gray-txt"><a href="https://www.facebook.com/EmprendaMas/" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">EmprendaMás</a> · Tiempo parcial · Ene 2012 - Jul 2015</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">Desarrollador web utilizando el framework Yii y patrones modelo-vista-controlador. Uso de jQuery, CSS, HTML5. Entre los proyectos en los que trabajé se encuentran:</p>
-                    <ul class="list-none mt-2 text-justify text-base text-gray-txt">
+                    <p class="mt-2 text-base text-gray-txt">Desarrollador web utilizando el framework Yii y patrones modelo-vista-controlador. Uso de jQuery, CSS, HTML5. Entre los proyectos en los que trabajé se encuentran:</p>
+                    <ul class="list-none mt-2 text-base text-gray-txt">
                         <li class="before:content-['-'] before:mr-2">El backend del sitio web del Diario de Los Andes.</li>
                         <li class="before:content-['-'] before:mr-2">Sistema Bono de Excelencia Aprodet para <a href="https://colegioloscedros.edu.ve/" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Colegio Los Cedros</a>.</li>
                         <li class="before:content-['-'] before:mr-2">Sistema SECTIR para uso estadístico, creado para FUNDACITE TRUJILLO.</li>
@@ -427,7 +427,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Pasante</h3>
                     <p class="text-base text-gray-txt"><a href="https://diariodelosandes.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Editorial Diario de Los Andes C.A.</a> - Pasantía - May 2014 - Jul 2014</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">Trabajo en el mantenimiento de la página principal de Diario de Los Andes.</p>
+                    <p class="mt-2 text-base text-gray-txt">Trabajo en el mantenimiento de la página principal de Diario de Los Andes.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PHP</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">YII</span>
@@ -439,7 +439,7 @@
                 <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Becario</h3>
                     <p class="text-base text-gray-txt"><a href="https://uvm.edu.ve" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Universidad Valle del Momboy</a> - Aprendizaje - Abr 2011 - Jul 2012</p>
-                    <p class="mt-2 text-base text-gray-txt text-justify">Trabajé con Limesurvey para validar los datos de la encuesta.</p>
+                    <p class="mt-2 text-base text-gray-txt">Trabajé con Limesurvey para validar los datos de la encuesta.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">MYSQL</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PHP</span>
@@ -454,21 +454,21 @@
                     <div class="grid grid-cols-1 gap-8">
                         <div>
                             <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">Stephanie Habib – Senior Software Engineer</h3>
-                            <p class="mt-2 text-base text-gray-txt text-justify">Estoy encantado de recomendar de todo corazón a Asdrúbal, con quien tuve el privilegio de trabajar estrechamente durante un año en su puesto de contratista.</p>
-                            <p class="mt-2 text-base text-gray-txt text-justify">La excepcional combinación de conocimientos técnicos, curiosidad insaciable y entusiasmo contagioso de Asdrúbal mejora enormemente la dinámica de cualquier equipo. A lo largo de nuestra colaboración, se hizo evidente que Asdrúbal es un profesional dedicado y trabajador, que busca constantemente la excelencia. Su naturaleza proactiva alimenta su búsqueda incesante de conocimientos y nuevos retos en el siempre cambiante panorama de la ingeniería de software... Posee una capacidad innata para adentrarse en territorios desconocidos, analizar cuestiones técnicas complejas y buscar la orientación adecuada para elaborar soluciones bien pensadas.</p>
-                            <p class="mt-2 text-base text-gray-txt text-justify">En conclusión, la dedicación de Asdrúbal, su pasión por aprender, su capacidad para resolver problemas y su vibrante personalidad hacen de él un colaborador inestimable del equipo.</p>
+                            <p class="mt-2 text-base text-gray-txt">Estoy encantado de recomendar de todo corazón a Asdrúbal, con quien tuve el privilegio de trabajar estrechamente durante un año en su puesto de contratista.</p>
+                            <p class="mt-2 text-base text-gray-txt">La excepcional combinación de conocimientos técnicos, curiosidad insaciable y entusiasmo contagioso de Asdrúbal mejora enormemente la dinámica de cualquier equipo. A lo largo de nuestra colaboración, se hizo evidente que Asdrúbal es un profesional dedicado y trabajador, que busca constantemente la excelencia. Su naturaleza proactiva alimenta su búsqueda incesante de conocimientos y nuevos retos en el siempre cambiante panorama de la ingeniería de software... Posee una capacidad innata para adentrarse en territorios desconocidos, analizar cuestiones técnicas complejas y buscar la orientación adecuada para elaborar soluciones bien pensadas.</p>
+                            <p class="mt-2 text-base text-gray-txt">En conclusión, la dedicación de Asdrúbal, su pasión por aprender, su capacidad para resolver problemas y su vibrante personalidad hacen de él un colaborador inestimable del equipo.</p>
                         </div>
                         <div>
                             <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">Juan Francisco Mollega Mendoza – Computer Engineering</h3>
-                            <p class="mt-2 text-base text-gray-txt text-justify">Excelente profesional, todo un experto en nuevas tecnologías de desarrollo, siempre capacitado y dispuesto a enseñar y compartir su conocimiento, tuvimos la oportunidad de colaborar en algunos proyectos que fueron totalmente optimizados gracias a su alta competencia y profesionalismo, un saludo.</p>
+                            <p class="mt-2 text-base text-gray-txt">Excelente profesional, todo un experto en nuevas tecnologías de desarrollo, siempre capacitado y dispuesto a enseñar y compartir su conocimiento, tuvimos la oportunidad de colaborar en algunos proyectos que fueron totalmente optimizados gracias a su alta competencia y profesionalismo, un saludo.</p>
                         </div>
                         <div>
                             <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">Christopher Hanson – Senior Data Engineer</h3>
-                            <p class="mt-2 text-base text-gray-txt text-justify">He trabajado mucho con Asdrúbal en Indigo Ag y es un gran miembro del equipo. Es muy considerado con los demás y se asegura de comunicarse con claridad y frecuencia, desviviéndose con frecuencia por crear grabaciones y otros registros de la información que ha recopilado o de los problemas que ha encontrado. Estaría encantado de trabajar con Asdrúbal en cualquier futura empresa.</p>
+                            <p class="mt-2 text-base text-gray-txt">He trabajado mucho con Asdrúbal en Indigo Ag y es un gran miembro del equipo. Es muy considerado con los demás y se asegura de comunicarse con claridad y frecuencia, desviviéndose con frecuencia por crear grabaciones y otros registros de la información que ha recopilado o de los problemas que ha encontrado. Estaría encantado de trabajar con Asdrúbal en cualquier futura empresa.</p>
                         </div>
                         <div>
                             <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">Gabriel Banchs – Lead DevOps Engineer</h3>
-                            <p class="mt-2 text-base text-gray-txt text-justify">Después de un largo período trabajando con Asdrúbal puedo asegurar que es de las personas que se comprometen y apasiona por el trabajo que desempeña, es dedicado y decidido en la ejecución de sus tareas para completarlas con éxito lo cual cumple en un 100%, lo recomiendo ciegamente para cualquier rol de Senior Developer especialmente en React y tecnologías basadas en JavaScript. Además de esto es un gran compañero con el que puedes contar como soporte así como también siempre realiza el mejor aporte y contribución al equipo.</p>
+                            <p class="mt-2 text-base text-gray-txt">Después de un largo período trabajando con Asdrúbal puedo asegurar que es de las personas que se comprometen y apasiona por el trabajo que desempeña, es dedicado y decidido en la ejecución de sus tareas para completarlas con éxito lo cual cumple en un 100%, lo recomiendo ciegamente para cualquier rol de Senior Developer especialmente en React y tecnologías basadas en JavaScript. Además de esto es un gran compañero con el que puedes contar como soporte así como también siempre realiza el mejor aporte y contribución al equipo.</p>
                         </div>
                         <div class="flex justify-center lg:justify-end">
                             <a href="https://www.linkedin.com/in/asdrubalivan/details/recommendations/" target="_blank" rel="noopener" class="inline-block px-6 py-3 bg-transparent border border-white text-white font-bold hover:bg-white hover:text-blue-900 transition duration-300">VER REFERENCIAS</a>
