@@ -1,0 +1,284 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-04T22:33:11+00:00",
+  "title": "Design System: Asdrúbal Suárez",
+  "extensions": {
+    "colorMeta": {
+      "signal-cyan": {
+        "role": "primary",
+        "displayName": "Signal Cyan",
+        "canonical": "#36d0f1",
+        "tonalRamp": [
+          "oklch(15% 0.13 216.2)",
+          "oklch(26% 0.13 216.2)",
+          "oklch(38% 0.13 216.2)",
+          "oklch(49% 0.13 216.2)",
+          "oklch(61% 0.13 216.2)",
+          "oklch(72% 0.13 216.2)",
+          "oklch(84% 0.13 216.2)",
+          "oklch(95% 0.13 216.2)"
+        ]
+      },
+      "panel-midnight": {
+        "role": "neutral",
+        "displayName": "Panel Midnight",
+        "canonical": "#020f1e",
+        "tonalRamp": [
+          "oklch(15% 0.038 249.4)",
+          "oklch(26% 0.038 249.4)",
+          "oklch(38% 0.038 249.4)",
+          "oklch(49% 0.038 249.4)",
+          "oklch(61% 0.038 249.4)",
+          "oklch(72% 0.038 249.4)",
+          "oklch(84% 0.038 249.4)",
+          "oklch(95% 0.038 249.4)"
+        ]
+      },
+      "console-navy": {
+        "role": "neutral",
+        "displayName": "Console Navy",
+        "canonical": "#041a2e",
+        "tonalRamp": [
+          "oklch(15% 0.049 248.3)",
+          "oklch(26% 0.049 248.3)",
+          "oklch(38% 0.049 248.3)",
+          "oklch(49% 0.049 248.3)",
+          "oklch(61% 0.049 248.3)",
+          "oklch(72% 0.049 248.3)",
+          "oklch(84% 0.049 248.3)",
+          "oklch(95% 0.049 248.3)"
+        ]
+      },
+      "glow-blue": {
+        "role": "neutral",
+        "displayName": "Glow Blue",
+        "canonical": "#102f57",
+        "tonalRamp": [
+          "oklch(15% 0.081 256.2)",
+          "oklch(26% 0.081 256.2)",
+          "oklch(38% 0.081 256.2)",
+          "oklch(49% 0.081 256.2)",
+          "oklch(61% 0.081 256.2)",
+          "oklch(72% 0.081 256.2)",
+          "oklch(84% 0.081 256.2)",
+          "oklch(95% 0.081 256.2)"
+        ]
+      },
+      "hover-slate": {
+        "role": "neutral",
+        "displayName": "Hover Slate",
+        "canonical": "#192a3b",
+        "tonalRamp": [
+          "oklch(15% 0.039 249.4)",
+          "oklch(26% 0.039 249.4)",
+          "oklch(38% 0.039 249.4)",
+          "oklch(49% 0.039 249.4)",
+          "oklch(61% 0.039 249.4)",
+          "oklch(72% 0.039 249.4)",
+          "oklch(84% 0.039 249.4)",
+          "oklch(95% 0.039 249.4)"
+        ]
+      },
+      "chip-deep-blue": {
+        "role": "neutral",
+        "displayName": "Chip Deep Blue",
+        "canonical": "#032540",
+        "tonalRamp": [
+          "oklch(15% 0.064 247.2)",
+          "oklch(26% 0.064 247.2)",
+          "oklch(38% 0.064 247.2)",
+          "oklch(49% 0.064 247.2)",
+          "oklch(61% 0.064 247.2)",
+          "oklch(72% 0.064 247.2)",
+          "oklch(84% 0.064 247.2)",
+          "oklch(95% 0.064 247.2)"
+        ]
+      },
+      "readout-gray": {
+        "role": "neutral",
+        "displayName": "Readout Gray",
+        "canonical": "#94a3b8",
+        "tonalRamp": [
+          "oklch(15% 0.035 256.8)",
+          "oklch(26% 0.035 256.8)",
+          "oklch(38% 0.035 256.8)",
+          "oklch(49% 0.035 256.8)",
+          "oklch(61% 0.035 256.8)",
+          "oklch(72% 0.035 256.8)",
+          "oklch(84% 0.035 256.8)",
+          "oklch(95% 0.035 256.8)"
+        ]
+      },
+      "pure-white": {
+        "role": "neutral",
+        "displayName": "Pure White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0.0 89.9)",
+          "oklch(26% 0.0 89.9)",
+          "oklch(38% 0.0 89.9)",
+          "oklch(49% 0.0 89.9)",
+          "oklch(61% 0.0 89.9)",
+          "oklch(72% 0.0 89.9)",
+          "oklch(84% 0.0 89.9)",
+          "oklch(95% 0.0 89.9)"
+        ]
+      },
+      "button-hover-ink": {
+        "role": "neutral",
+        "displayName": "Button Hover Ink",
+        "canonical": "#1e3a8a",
+        "tonalRamp": [
+          "oklch(15% 0.138 265.5)",
+          "oklch(26% 0.138 265.5)",
+          "oklch(38% 0.138 265.5)",
+          "oklch(49% 0.138 265.5)",
+          "oklch(61% 0.138 265.5)",
+          "oklch(72% 0.138 265.5)",
+          "oklch(84% 0.138 265.5)",
+          "oklch(95% 0.138 265.5)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Cargo profesional bajo el logo."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Títulos de sección."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Títulos de entrada y navegación."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Párrafos de portada."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descripciones."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Chips y texto auxiliar."
+      }
+    },
+    "shadows": [
+      {
+        "name": "capa-flotante",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "purpose": "Cabecera y menú en móvil."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-300",
+        "value": "300ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Botones y línea de navegación."
+      },
+      {
+        "name": "state-150",
+        "value": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Hover de entradas y títulos."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón de contorno",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Acciones de contacto de la portada.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">EMAIL ME</a>",
+      "css": ".ds-btn-outline{display:inline-block;padding:12px 24px;background:transparent;border:1px solid #fff;color:#fff;font:700 16px/1.5 Montserrat,sans-serif;text-decoration:none;transition:all .3s cubic-bezier(.4,0,.2,1)}.ds-btn-outline:hover{background:#fff;color:#1e3a8a}.ds-btn-outline:focus-visible{outline:2px solid #36d0f1;outline-offset:2px}"
+    },
+    {
+      "name": "Chip de tecnología",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Tecnologías de una entrada; solo informativo.",
+      "html": "<span class=\"ds-chip\">FASTAPI</span>",
+      "css": ".ds-chip{display:inline-block;padding:4px 12px;background:#032540;color:#36d0f1;border-radius:9999px;font:400 14px/1.43 Montserrat,sans-serif}"
+    },
+    {
+      "name": "Entrada de experiencia",
+      "kind": "card",
+      "refersTo": "entry-card",
+      "description": "Fila que se revela al pasar el cursor.",
+      "html": "<div class=\"ds-entry\"><h3 class=\"ds-entry-title\">Senior Software Engineer</h3><p class=\"ds-entry-text\">Descripción de la entrada.</p></div>",
+      "css": ".ds-entry{padding:16px;border-radius:6px;background:#041a2e;font-family:Montserrat,sans-serif;transition:background .15s cubic-bezier(.4,0,.2,1)}.ds-entry:hover{background:#192a3b}.ds-entry-title{margin:0;color:#fff;font-size:18px;font-weight:600;transition:color .15s}.ds-entry:hover .ds-entry-title{color:#36d0f1}.ds-entry-text{margin:8px 0 0;color:#94a3b8;font-size:16px}"
+    },
+    {
+      "name": "Enlace de navegación",
+      "kind": "nav",
+      "description": "Línea que se alarga en hover y en la sección activa.",
+      "html": "<a class=\"ds-nav\" href=\"#\"><span class=\"ds-nav-line\"></span>EXPERIENCE</a>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:8px;color:#94a3b8;font:600 18px/1.55 Montserrat,sans-serif;text-decoration:none;transition:color .3s}.ds-nav-line{width:24px;height:2px;background:#94a3b8;transition:all .3s cubic-bezier(.4,0,.2,1)}.ds-nav:hover{color:#36d0f1}.ds-nav:hover .ds-nav-line{width:64px;background:#36d0f1}.ds-nav:focus-visible{outline:2px solid #36d0f1;outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La sala de control",
+    "overview": "El sitio se comporta como una sala de control de noche: oscura, serena y precisa, hecha para leer el estado de un sistema sin distracciones. El azul casi negro funciona como la sala, el gris azulado como las lecturas y el cian como la única señal que indica dónde estás o qué responde.\n\nAl navegarlo debe sentirse sereno y preciso. Hay poco ruido, la jerarquía es clara y el contenido manda. La identidad vive en pocos gestos: la columna fija que orienta, la línea de navegación que se alarga hacia la sección activa y un brillo que sigue al cursor en escritorio.",
+    "keyCharacteristics": [
+      "Tema oscuro único, sin variante clara.",
+      "Un solo acento cian, reservado para estado, enlaces e interacción.",
+      "Una sola familia tipográfica; la jerarquía sale del tamaño, el peso y el color.",
+      "Dos columnas en escritorio, con la identidad fija y el contenido en desplazamiento.",
+      "Plano en reposo; la respuesta llega con cambios de tono y de color."
+    ],
+    "rules": [
+      {
+        "name": "The Single Signal Rule",
+        "body": "El cian significa estado, enlace o interacción. No se usa como decoración ni como fondo de grandes superficies.",
+        "section": "colors"
+      },
+      {
+        "name": "The Night Room Rule",
+        "body": "Todo se apoya en el fondo oscuro. No se agrega una superficie clara en reposo; el blanco de relleno solo aparece en el hover de un botón.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Montserrat cubre todos los roles. La jerarquía se construye con tamaño, peso y color, no con una segunda fuente.",
+        "section": "typography"
+      },
+      {
+        "name": "The Readable Acronym Rule",
+        "body": "El texto con siglas de caja mixta, como \"LLMs\", no se transforma a mayúsculas, porque se leería \"LLMS\".",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Console Rule",
+        "body": "Las superficies son planas en reposo. Una entrada responde con un cambio de tono, no con sombra ni elevación.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** conservar el brillo del cursor como firma, solo en escritorio.",
+      "**Do** reservar Signal Cyan para estado, enlaces e interacción.",
+      "**Do** mantener iguales las versiones en inglés y español de cada componente.",
+      "**Do** usar los ángulos rectos en acciones, 6px en entradas y píldoras en chips.",
+      "**Do** recompilar `docs/output.css` y revisar su diff cuando se agreguen clases nuevas."
+    ],
+    "donts": [
+      "**Don't** agregar una segunda familia tipográfica.",
+      "**Don't** sumar otro color de acento.",
+      "**Don't** elevar las entradas con sombras en hover.",
+      "**Don't** transformar a mayúsculas texto con siglas de caja mixta.",
+      "**Don't** tomar el texto justificado actual como patrón para contenido nuevo: es una deuda conocida, porque crea huecos desiguales en móvil."
+    ]
+  }
+}
