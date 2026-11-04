@@ -10,3 +10,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid theme('colors.blue-txt');
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: theme('colors.blue-txt');
+    color: theme('colors.blue-dark');
+  }
+}

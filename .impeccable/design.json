@@ -278,7 +278,7 @@
       "**Don't** sumar otro color de acento.",
       "**Don't** elevar las entradas con sombras en hover.",
       "**Don't** transformar a mayúsculas texto con siglas de caja mixta.",
-      "**Don't** tomar el texto justificado actual como patrón para contenido nuevo: es una deuda conocida, porque crea huecos desiguales en móvil."
+      "**Don't** justificar el texto: crea huecos desiguales, sobre todo en móvil."
     ]
   }
 }
