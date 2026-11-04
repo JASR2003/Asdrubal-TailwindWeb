@@ -26,8 +26,8 @@ Let's go with 2 examples.
 Let's start with a simple function, which calculates the average of a list of numbers:
 
 ```python
-def promedio(numeros):
-    return sum(numeros) / len(numeros)
+def average(numbers):
+    return sum(numbers) / len(numbers)
 ```
 
 Normally you would test it with a couple of lists, like `[2, 4, 6]` and `[10]`, and both pass.
@@ -38,15 +38,15 @@ With property-based testing the question changes: what always has to be true, no
 from hypothesis import given, strategies as st
 
 @given(st.lists(st.integers(min_value=-1000, max_value=1000)))
-def test_promedio_esta_entre_el_minimo_y_el_maximo(numeros):
-    resultado = promedio(numeros)
-    assert min(numeros) <= resultado <= max(numeros)
+def test_average_is_between_min_and_max(numbers):
+    result = average(numbers)
+    assert min(numbers) <= result <= max(numbers)
 ```
 
 `@given` tells Hypothesis to generate the lists of integers for me, so I don't write any of them. I run it and it fails:
 
 ```text
-numeros = []
+numbers = []
 ZeroDivisionError: division by zero
 ```
 
@@ -55,10 +55,10 @@ It hadn't even crossed my mind to try the empty list. Hypothesis found it on its
 Now I have to decide what should happen with an empty list. For me it is an error, so I say it explicitly:
 
 ```python
-def promedio(numeros):
-    if not numeros:
-        raise ValueError("No se puede promediar una lista vacía")
-    return sum(numeros) / len(numeros)
+def average(numbers):
+    if not numbers:
+        raise ValueError("Cannot average an empty list")
+    return sum(numbers) / len(numbers)
 ```
 
 And with `min_size=1` I tell the test that the lists must have at least one number:
@@ -74,12 +74,12 @@ With that, it passes.
 The second example is a function that applies a discount to a price:
 
 ```ts
-function aplicarDescuento(precio: number, porcentaje: number): number {
-  return precio - precio * (porcentaje / 100);
+function applyDiscount(price: number, percentage: number): number {
+  return price - price * (percentage / 100);
 }
 ```
 
-If I test it with `aplicarDescuento(100, 10)`, it gives 90. All good.
+If I test it with `applyDiscount(100, 10)`, it gives 90. All good.
 
 The property I want to always hold is that the final price is never negative and never greater than the original price.
 
@@ -88,11 +88,11 @@ import fc from "fast-check";
 
 fc.assert(
   fc.property(
-    fc.integer({ min: 0, max: 10_000 }), // precio
-    fc.integer(),                        // porcentaje, cualquier entero
-    (precio, porcentaje) => {
-      const final = aplicarDescuento(precio, porcentaje);
-      return final >= 0 && final <= precio;
+    fc.integer({ min: 0, max: 10_000 }), // price
+    fc.integer(),                        // percentage, any integer
+    (price, percentage) => {
+      const final = applyDiscount(price, percentage);
+      return final >= 0 && final <= price;
     }
   )
 );
@@ -112,9 +112,9 @@ If one day a bad percentage gets loaded into the database, the store ends up pay
 The fix is to validate the percentage so it stays between 0 and 100:
 
 ```ts
-function aplicarDescuento(precio: number, porcentaje: number): number {
-  const p = Math.min(Math.max(porcentaje, 0), 100);
-  return precio - precio * (p / 100);
+function applyDiscount(price: number, percentage: number): number {
+  const p = Math.min(Math.max(percentage, 0), 100);
+  return price - price * (p / 100);
 }
 ```
 

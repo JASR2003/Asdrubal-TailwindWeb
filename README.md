@@ -11,7 +11,7 @@ Sitio de [asdrubalivan.com](https://asdrubalivan.com), publicado desde `docs/`.
 
 ### Traducciones al inglés
 
-El original en español no se reescribe. La traducción la revisa Asdrúbal antes de publicarse y la página la marca como traducción.
+El original en español no se reescribe. La traducción es automática y la revisa Asdrúbal antes de publicarse. Toda página de `content/articles/` abre con un aviso que dice que él la revisó y enlaza al original, así que no se publica sin esa revisión.
 
 1. Crea `content/articles/<slug>.md` con las mismas claves del original (`titulo`, `fecha`, `descripcion`, `destacado`, `secciones`, `link_linkedin`, `link_x`) y `traduccion_de: <slug español>`. El slug en inglés puede ser distinto; si `traduccion_de` falta o no existe en `content/articulos/`, el build falla.
 2. Usa la misma `fecha` del original. `destacado` debe aparecer tal cual en `titulo`.

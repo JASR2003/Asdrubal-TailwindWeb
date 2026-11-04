@@ -88,6 +88,7 @@ const TEXTS = {
     codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Salida del test' },
     and: ' y ',
     source: (links) => (links ? `<p>Publicado también en ${links}.</p>` : ''),
+    notice: () => '',
   },
   en: {
     dir: 'articles',
@@ -101,7 +102,8 @@ const TEXTS = {
     sectionId: 'section',
     codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Test output' },
     and: ' and ',
-    source: (links) => `<p>Translated from the Spanish original${links ? `, published on ${links}` : ''}.</p>`,
+    source: (links) => `<p>Originally published in Spanish${links ? ` on ${links}` : ''}.</p>`,
+    notice: (original) => `<p class="mb-8 text-sm">This is a machine translation that I reviewed. Read the <a class="enlace" href="${pathOf(original)}" hreflang="es">Spanish original</a>.</p>\n`,
   },
 };
 
@@ -257,7 +259,7 @@ ${t.source(sources)}
 ${nav}
 </header>
 <div class="articulo-texto">
-${renderBody(blocks, t)}
+${t.notice(a.original)}${renderBody(blocks, t)}
 <footer class="pie">
 <p>${t.role}</p>
 <a class="boton" href="${t.home}">${t.cta}</a>
