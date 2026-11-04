@@ -1,12 +1,14 @@
 // Artículos del sitio: importa registros publicados y genera sus páginas estáticas.
 //   node scripts/articulos.mjs importar <registro.md> <slug>
 //   node scripts/articulos.mjs build
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+// Originales en content/articulos (español) y traducciones en content/articles (inglés).
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = join(ROOT, 'content/articulos');
+const CONTENT_EN = join(ROOT, 'content/articles');
 const DOCS = join(ROOT, 'docs');
 const SITE = 'https://asdrubalivan.com';
 
@@ -71,29 +73,81 @@ function parseBody(md) {
   return blocks;
 }
 
-const LANG_LABEL = { python: 'Python', ts: 'TypeScript', text: 'Salida del test' };
+// Textos de la plantilla por idioma. El español es el original; el inglés siempre es una traducción.
+const TEXTS = {
+  es: {
+    dir: 'articulos',
+    locale: 'es_LA',
+    ogImage: 'og-image-es.png',
+    home: '/es',
+    role: 'Asdrúbal Suárez · Ingeniero de Backend Senior',
+    cta: 'Ver perfil y contacto',
+    sectionsLabel: 'Secciones del artículo',
+    languageLabel: 'Idioma del artículo',
+    sectionId: 'seccion',
+    codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Salida del test' },
+    and: ' y ',
+    source: (links) => (links ? `<p>Publicado también en ${links}.</p>` : ''),
+    notice: () => '',
+  },
+  en: {
+    dir: 'articles',
+    locale: 'en_US',
+    ogImage: 'og-image.png',
+    home: '/',
+    role: 'Asdrúbal Suárez · Senior Backend Engineer',
+    cta: 'View profile and contact',
+    sectionsLabel: 'Article sections',
+    languageLabel: 'Article language',
+    sectionId: 'section',
+    codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Test output' },
+    and: ' and ',
+    source: (links) => `<p>Originally published in Spanish${links ? ` on ${links}` : ''}.</p>`,
+    notice: (original) => `<p class="mb-8 text-sm">This is a machine translation that I reviewed. Read the <a class="enlace" href="${pathOf(original)}" hreflang="es">Spanish original</a>.</p>\n`,
+  },
+};
 
-function renderBody(blocks) {
+const pathOf = (a) => `/${TEXTS[a.lang].dir}/${a.slug}`;
+
+function renderBody(blocks, t) {
   const lastP = blocks.map((b) => b.type).lastIndexOf('p');
   let section = 0;
   return blocks.map((b, i) => {
-    if (b.type === 'heading') return `<h2 id="seccion-${++section}">${inline(b.text)}</h2>`;
+    if (b.type === 'heading') return `<h2 id="${t.sectionId}-${++section}">${inline(b.text)}</h2>`;
     if (b.type === 'p') return `<p${i === lastP ? ' class="cierre"' : ''}>${inline(b.text)}</p>`;
     const output = b.lang === 'text' ? ' class="salida"' : '';
-    return `<pre${output} tabindex="0" role="region" aria-label="${attr(LANG_LABEL[b.lang] ?? b.lang)}"><code>${esc(b.text)}</code></pre>`;
+    return `<pre${output} tabindex="0" role="region" aria-label="${attr(t.codeLabels[b.lang] ?? b.lang)}"><code>${esc(b.text)}</code></pre>`;
   }).join('\n');
 }
 
-function loadArticles() {
-  return readdirSync(CONTENT).filter((f) => f.endsWith('.md')).map((file) => {
-    const { meta, body } = parseFrontmatter(readFileSync(join(CONTENT, file), 'utf8'));
+function readArticles(dir, lang) {
+  if (!existsSync(dir)) return [];
+  const folder = `content/${dir.split('/').pop()}`;
+  return readdirSync(dir).filter((f) => f.endsWith('.md')).map((file) => {
+    const { meta, body } = parseFrontmatter(readFileSync(join(dir, file), 'utf8'));
     for (const key of ['titulo', 'fecha', 'descripcion']) {
-      if (!meta[key]) throw new Error(`${file}: falta ${key}`);
+      if (!meta[key]) throw new Error(`${folder}/${file}: falta ${key}`);
     }
     const date = new Date(`${meta.fecha}T12:00:00Z`);
     const format = (locale) => new Intl.DateTimeFormat(locale, { dateStyle: 'long', timeZone: 'UTC' }).format(date);
-    return { ...meta, slug: file.replace(/\.md$/, ''), body, dateEs: format('es'), dateEn: format('en') };
-  }).sort((a, b) => b.fecha.localeCompare(a.fecha));
+    return { ...meta, lang, slug: file.replace(/\.md$/, ''), body, dateEs: format('es'), dateEn: format('en') };
+  });
+}
+
+// Devuelve los originales en español y sus traducciones, enlazados entre sí.
+function loadArticles() {
+  const originals = readArticles(CONTENT, 'es').sort((a, b) => b.fecha.localeCompare(a.fecha));
+  const translations = readArticles(CONTENT_EN, 'en');
+  for (const t of translations) {
+    const file = `content/articles/${t.slug}.md`;
+    if (!t.traduccion_de) throw new Error(`${file}: falta traduccion_de (el slug del original en content/articulos)`);
+    const original = originals.find((a) => a.slug === t.traduccion_de);
+    if (!original) throw new Error(`${file}: traduccion_de apunta a "${t.traduccion_de}", pero no existe content/articulos/${t.traduccion_de}.md`);
+    if (original.traduccion) throw new Error(`${file}: content/articulos/${original.slug}.md ya tiene traducción en content/articles/${original.traduccion.slug}.md`);
+    t.original = original;
+    original.traduccion = t;
+  }
+  return { originals, translations };
 }
 
 function renderTitle({ titulo, destacado }) {
@@ -101,31 +155,63 @@ function renderTitle({ titulo, destacado }) {
   return destacado ? title.replace(esc(destacado), `<strong>${esc(destacado)}</strong>`) : title;
 }
 
+function renderLanguageLinks(a, t) {
+  const pair = a.original ?? a.traduccion;
+  if (!pair) return '';
+  const [en, es] = a.lang === 'en' ? [a, pair] : [pair, a];
+  const link = (target, text, label) => {
+    const current = target === a;
+    return `<a href="${pathOf(target)}" hreflang="${target.lang}" lang="${target.lang}" aria-label="${label}"${current ? ' aria-current="page"' : ''} class="py-2 -my-2 px-2 -mx-2 text-lg font-bold uppercase ${current ? 'text-blue-txt' : 'text-gray-txt hover:text-blue-txt'}">${text}</a>`;
+  };
+  // No va en un <nav>: articulo.js y los estilos de .articulo-panel nav tratan esos enlaces como secciones.
+  return `
+<div class="flex items-center gap-4" role="group" aria-label="${t.languageLabel}">
+${link(en, 'ENG', 'ENG (English)')}
+${link(es, 'ESP', 'ESP (Español)')}
+</div>`;
+}
+
+function renderAlternates(a) {
+  const original = a.original ?? a;
+  if (!original.traduccion) return '';
+  return `
+    <link rel="alternate" hreflang="es" href="${SITE}${pathOf(original)}">
+    <link rel="alternate" hreflang="en" href="${SITE}${pathOf(original.traduccion)}">
+    <link rel="alternate" hreflang="x-default" href="${SITE}${pathOf(original)}">`;
+}
+
 function renderPage(a) {
-  const url = `${SITE}/articulos/${a.slug}`;
+  const t = TEXTS[a.lang];
+  const url = `${SITE}${pathOf(a)}`;
+  const linkedin = a.link_linkedin || a.original?.link_linkedin;
+  const x = a.link_x || a.original?.link_x;
+  const links = [linkedin, x].filter(Boolean);
   const blocks = parseBody(a.body);
   const headings = blocks.filter((b) => b.type === 'heading');
   const labels = a.secciones ? a.secciones.split(',').map((s) => s.trim()) : [];
-  const nav = headings.length ? `<nav aria-label="Secciones del artículo">
-${headings.map((h, i) => `<a href="#seccion-${i + 1}"><span class="linea"></span>${esc(labels[i] ?? h.text)}</a>`).join('\n')}
+  const nav = headings.length ? `<nav aria-label="${t.sectionsLabel}">
+${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"></span>${esc(labels[i] ?? h.text)}</a>`).join('\n')}
 </nav>` : '';
   const sources = [
-    a.link_linkedin && `<a class="enlace" href="${attr(a.link_linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`,
-    a.link_x && `<a class="enlace" href="${attr(a.link_x)}" target="_blank" rel="noopener">X</a>`,
-  ].filter(Boolean).join(' y ');
+    linkedin && `<a class="enlace" href="${attr(linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`,
+    x && `<a class="enlace" href="${attr(x)}" target="_blank" rel="noopener">X</a>`,
+  ].filter(Boolean).join(t.and);
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: a.titulo,
     description: a.descripcion,
     datePublished: a.fecha,
-    inLanguage: 'es',
+    inLanguage: a.lang,
     url,
     author: { '@id': `${SITE}/#person`, '@type': 'Person', name: 'Asdrúbal Suárez', url: `${SITE}/` },
-    sameAs: [a.link_linkedin, a.link_x].filter(Boolean),
+    // LinkedIn y X publican el original, así que en una traducción describen a la obra traducida.
+    ...(a.original
+      ? { translationOfWork: { '@type': 'Article', headline: a.original.titulo, inLanguage: 'es', url: `${SITE}${pathOf(a.original)}`, sameAs: links } }
+      : { sameAs: links }),
   };
   return `<!doctype html>
-<html lang="es">
+<html lang="${a.lang}">
 
 <head>
     <meta charset="UTF-8">
@@ -134,14 +220,14 @@ ${headings.map((h, i) => `<a href="#seccion-${i + 1}"><span class="linea"></span
     <meta name="description" content="${attr(a.descripcion)}">
     <meta name="robots" content="max-image-preview:large">
     <meta name="theme-color" content="#020f1e">
-    <link rel="canonical" href="${url}">
+    <link rel="canonical" href="${url}">${renderAlternates(a)}
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Asdrúbal Suárez">
     <meta property="og:title" content="${attr(a.titulo)}">
     <meta property="og:description" content="${attr(a.descripcion)}">
     <meta property="og:url" content="${url}">
-    <meta property="og:locale" content="es_LA">
-    <meta property="og:image" content="${SITE}/png/og-image-es.png">
+    <meta property="og:locale" content="${t.locale}">
+    <meta property="og:image" content="${SITE}/png/${t.ogImage}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="article:published_time" content="${a.fecha}">
@@ -150,7 +236,7 @@ ${headings.map((h, i) => `<a href="#seccion-${i + 1}"><span class="linea"></span
     <meta name="twitter:creator" content="@AsdrubalCodes">
     <meta name="twitter:title" content="${attr(a.titulo)}">
     <meta name="twitter:description" content="${attr(a.descripcion)}">
-    <meta name="twitter:image" content="${SITE}/png/og-image-es.png">
+    <meta name="twitter:image" content="${SITE}/png/${t.ogImage}">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/png" sizes="192x192" href="/png/favicon-192.png">
     <link rel="apple-touch-icon" href="/png/apple-touch-icon.png">
@@ -164,19 +250,19 @@ ${headings.map((h, i) => `<a href="#seccion-${i + 1}"><span class="linea"></span
     <main>
 <article class="articulo">
 <header class="articulo-panel">
-<a class="logo" href="/es"><img src="/png/logo.png" alt="Asdrúbal Suárez" width="1000" height="105"></a>
+<a class="logo" href="${t.home}"><img src="/png/logo.png" alt="Asdrúbal Suárez" width="1000" height="105"></a>
 <h1>${renderTitle(a)}</h1>
 <div class="datos">
-<p><time datetime="${a.fecha}">${a.dateEs}</time></p>
-${sources ? `<p>Publicado también en ${sources}.</p>` : ''}
-</div>
+<p><time datetime="${a.fecha}">${a.lang === 'en' ? a.dateEn : a.dateEs}</time></p>
+${t.source(sources)}
+</div>${renderLanguageLinks(a, t)}
 ${nav}
 </header>
 <div class="articulo-texto">
-${renderBody(blocks)}
+${t.notice(a.original)}${renderBody(blocks, t)}
 <footer class="pie">
-<p>Asdrúbal Suárez · Ingeniero de Backend Senior</p>
-<a class="boton" href="/es">Ver perfil y contacto</a>
+<p>${t.role}</p>
+<a class="boton" href="${t.home}">${t.cta}</a>
 </footer>
 </div>
 </article>
@@ -199,24 +285,52 @@ function replaceBetween(file, start, end, content) {
 }
 
 function renderHomeEntries(articles, english) {
-  return articles.map((a) => `                    <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
-                        <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white"><a href="/articulos/${a.slug}"${english ? ' hreflang="es" lang="es"' : ''}>${esc(a.titulo)}</a></h3>
-                        <p class="text-base text-gray-txt">${english ? `${a.dateEn} · In Spanish` : a.dateEs}</p>
-                        <p class="mt-2 text-base text-gray-txt"${english ? ' lang="es"' : ''}>${esc(a.descripcion)}</p>
-                    </div>`).join('\n');
+  return articles.map((a) => {
+    const shown = (english && a.traduccion) || a;
+    // Sin traducción, la portada inglesa enlaza al original y avisa que está en español.
+    const spanishInEnglish = english && !a.traduccion;
+    return `                    <div class="p-4 rounded-md bg-transparent hover:bg-blue-hover transition group">
+                        <h3 class="text-lg font-semibold group-hover:text-blue-txt transition-colors text-white"><a href="${pathOf(shown)}"${spanishInEnglish ? ' hreflang="es" lang="es"' : ''}>${esc(shown.titulo)}</a></h3>
+                        <p class="text-base text-gray-txt">${english ? `${shown.dateEn}${spanishInEnglish ? ' · In Spanish' : ''}` : shown.dateEs}</p>
+                        <p class="mt-2 text-base text-gray-txt"${spanishInEnglish ? ' lang="es"' : ''}>${esc(shown.descripcion)}</p>
+                    </div>`;
+  }).join('\n');
+}
+
+function renderSitemapEntries(articles) {
+  return articles.map((a) => {
+    const original = a.original ?? a;
+    const alternates = original.traduccion ? `
+    <xhtml:link rel="alternate" hreflang="es" href="${SITE}${pathOf(original)}"/>
+    <xhtml:link rel="alternate" hreflang="en" href="${SITE}${pathOf(original.traduccion)}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${pathOf(original)}"/>` : '';
+    return `  <url>
+    <loc>${SITE}${pathOf(a)}</loc>
+    <lastmod>${a.fecha}</lastmod>${alternates}
+  </url>`;
+  }).join('\n');
+}
+
+// Las carpetas son solo de páginas generadas: lo que ya no tiene fuente se borra.
+function writePages(lang, articles) {
+  const dir = join(DOCS, TEXTS[lang].dir);
+  mkdirSync(dir, { recursive: true });
+  const expected = new Set(articles.map((a) => `${a.slug}.html`));
+  for (const file of readdirSync(dir)) {
+    if (file.endsWith('.html') && !expected.has(file)) rmSync(join(dir, file));
+  }
+  for (const a of articles) writeFileSync(join(dir, `${a.slug}.html`), renderPage(a));
 }
 
 function build() {
-  const articles = loadArticles();
-  mkdirSync(join(DOCS, 'articulos'), { recursive: true });
-  for (const a of articles) writeFileSync(join(DOCS, 'articulos', `${a.slug}.html`), renderPage(a));
-  replaceBetween('es.html', '<!-- articulos:start -->', '<!-- articulos:end -->', renderHomeEntries(articles, false));
-  replaceBetween('index.html', '<!-- articulos:start -->', '<!-- articulos:end -->', renderHomeEntries(articles, true));
-  replaceBetween('sitemap.xml', '<!-- articulos:start -->', '<!-- articulos:end -->', articles.map((a) => `  <url>
-    <loc>${SITE}/articulos/${a.slug}</loc>
-    <lastmod>${a.fecha}</lastmod>
-  </url>`).join('\n'));
-  console.log(`${articles.length} artículo(s) generados`);
+  const { originals, translations } = loadArticles();
+  writePages('es', originals);
+  writePages('en', translations);
+  replaceBetween('es.html', '<!-- articulos:start -->', '<!-- articulos:end -->', renderHomeEntries(originals, false));
+  replaceBetween('index.html', '<!-- articulos:start -->', '<!-- articulos:end -->', renderHomeEntries(originals, true));
+  const entries = originals.flatMap((a) => (a.traduccion ? [a, a.traduccion] : [a]));
+  replaceBetween('sitemap.xml', '<!-- articulos:start -->', '<!-- articulos:end -->', renderSitemapEntries(entries));
+  console.log(`${originals.length} artículo(s) y ${translations.length} traducción(es) generados`);
 }
 
 const [command, ...args] = process.argv.slice(2);
