@@ -22,3 +22,165 @@
     color: theme('colors.blue-dark');
   }
 }
+
+@layer components {
+  .articulo {
+    @apply bg-blue-dark md:bg-transparent;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .articulo-panel {
+    @apply flex flex-col gap-6 px-4 pt-8 pb-10;
+  }
+
+  .articulo-panel .logo {
+    @apply block w-52 max-w-[70%];
+  }
+
+  .articulo-panel .logo img {
+    @apply h-auto w-full;
+  }
+
+  .articulo-panel h1 {
+    @apply font-bold text-gray-txt;
+    font-size: clamp(2rem, 9.5vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .articulo-panel h1 strong {
+    @apply font-bold text-white;
+  }
+
+  .articulo-panel .datos {
+    @apply text-sm leading-normal;
+  }
+
+  .articulo-panel .datos p + p {
+    @apply mt-1;
+  }
+
+  .articulo-panel nav {
+    @apply hidden;
+  }
+
+  .articulo-texto {
+    @apply px-4 pb-16;
+  }
+
+  .articulo-texto > * {
+    max-width: 38rem;
+  }
+
+  /* El código se extiende más que el texto: su línea más larga no debe obligar a desplazarse en escritorio. */
+  .articulo-texto > pre {
+    max-width: 44rem;
+  }
+
+  .articulo-texto h2 {
+    @apply mt-14 mb-4 text-2xl font-bold text-white;
+    line-height: 1.33;
+    text-wrap: balance;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .articulo-texto p + p {
+    margin-top: 1.25em;
+  }
+
+  .articulo-texto .enlace,
+  .articulo-panel .enlace {
+    @apply text-blue-txt underline decoration-1 underline-offset-[3px] hover:text-white;
+  }
+
+  /* Código: la monoespaciada es la única excepción a Montserrat, porque el código depende de su alineación. */
+  .articulo pre,
+  .articulo code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  .articulo pre {
+    @apply my-6 overflow-x-auto rounded-md bg-blue-back px-5 py-4 text-sm text-white md:bg-blue-dark;
+    line-height: 1.6;
+    scrollbar-color: theme('colors.blue-hover') transparent;
+  }
+
+  .articulo p code {
+    @apply text-white;
+    font-size: 0.9em;
+  }
+
+  /* El cian de relleno solo marca el punto donde el sistema falla. */
+  .articulo pre.salida {
+    @apply bg-blue-txt font-semibold text-blue-dark;
+    font-size: 1.0625rem;
+  }
+
+  .articulo-texto .cierre {
+    @apply mt-14 text-xl font-medium text-white;
+    line-height: 1.625;
+  }
+
+  .articulo-texto .pie {
+    @apply mt-16;
+  }
+
+  .articulo-texto .boton {
+    @apply mt-3 inline-block border border-white px-6 py-3 font-bold text-white transition duration-300 hover:bg-white hover:text-blue-800;
+  }
+
+  @screen md {
+    .articulo {
+      @apply grid min-h-screen;
+      grid-template-columns: 5fr 7fr;
+    }
+
+    .articulo-panel {
+      @apply sticky top-0 h-screen justify-center overflow-y-auto bg-blue-dark py-12 pr-8;
+      padding-left: clamp(2rem, 7vw, 7rem);
+    }
+
+    .articulo-panel h1 {
+      @apply font-normal text-white;
+      font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+      line-height: 1.25;
+      letter-spacing: normal;
+    }
+
+    .articulo-panel h1 strong {
+      @apply font-normal;
+    }
+
+    .articulo-panel nav {
+      @apply mt-4 grid gap-4 text-lg font-semibold uppercase;
+    }
+
+    .articulo-panel nav a {
+      @apply flex w-max items-center gap-2 transition-colors duration-300 hover:text-blue-txt;
+    }
+
+    .articulo-panel nav a[aria-current] {
+      @apply text-blue-txt;
+    }
+
+    .articulo-panel .linea {
+      @apply h-[2px] w-6 bg-current transition-all duration-300;
+    }
+
+    .articulo-panel nav a:hover .linea,
+    .articulo-panel nav a[aria-current] .linea {
+      @apply w-16;
+    }
+
+    .articulo-texto {
+      @apply min-w-0 py-16;
+      padding-inline: clamp(1.5rem, 5vw, 5rem);
+    }
+
+    .articulo-texto > :first-child {
+      margin-top: 0;
+    }
+  }
+}

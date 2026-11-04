@@ -112,7 +112,7 @@ La paleta es un azul nocturno casi monocromático, con un único cian luminoso c
 - **Button Hover Ink** (`button-hover-ink`): texto del botón cuando se invierte en hover.
 
 ### Named Rules
-**The Single Signal Rule.** El cian significa estado, enlace o interacción. No se usa como decoración ni como fondo de grandes superficies.
+**The Single Signal Rule.** El cian significa estado, enlace o interacción. No se usa como decoración ni como fondo de grandes superficies. En los artículos, el relleno cian marca solo la salida de un test que falla.
 
 **The Night Room Rule.** Todo se apoya en el fondo oscuro. No se agrega una superficie clara en reposo; el blanco de relleno solo aparece en el hover de un botón.
 
@@ -131,7 +131,7 @@ La paleta es un azul nocturno casi monocromático, con un único cian luminoso c
 - **Label** (regular, 0.875rem): chips y texto auxiliar como "Follow me on".
 
 ### Named Rules
-**The One Family Rule.** Montserrat cubre todos los roles. La jerarquía se construye con tamaño, peso y color, no con una segunda fuente.
+**The One Family Rule.** Montserrat cubre todos los roles. La jerarquía se construye con tamaño, peso y color, no con una segunda fuente. La única excepción es el código de los artículos, en la monoespaciada del sistema, porque depende de su alineación.
 
 **The Readable Acronym Rule.** El texto con siglas de caja mixta, como "LLMs", no se transforma a mayúsculas, porque se leería "LLMS".
 
