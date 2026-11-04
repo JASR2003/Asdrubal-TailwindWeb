@@ -32,7 +32,6 @@ Se evalúa junto a LinkedIn, el CV y el perfil de Toptal, así que debe mantener
 - Dominio: asdrubalivan.com (`docs/CNAME`).
 - Contacto: correo (alias de reenvío `hello` del dominio, en Namecheap) y LinkedIn, al mismo nivel.
 - Para reducir el spam, la dirección no se escribe en el HTML: `docs/email.js` la arma al hacer clic. No activar catch-all.
-- **Pendiente de revisar en el sitio:** el lema "Let's develop something extraordinary together!" y el botón de contacto se deben contrastar con el objetivo de empleo; la disponibilidad aún no se declara de forma explícita.
 
 ## Brand Commitments
 
@@ -44,8 +43,8 @@ Se evalúa junto a LinkedIn, el CV y el perfil de Toptal, así que debe mantener
 Se pueden usar:
 
 - **Riley, dos cambios distintos:** disponibilidad de 93% a 99% con Vertex AI como principal y Claude de respaldo; de 99% a 99,9% ajustando Gunicorn en Azure. Nunca atribuir el salto completo a un solo cambio. Las cifras se presentan solo como logro, sin describir a Riley como un sistema que fallaba.
-- **Estado en Riley:** tiempo completo hasta abril de 2026; desde entonces, contrato a medio tiempo.
-- **Experiencia internacional:** EE. UU. (Teamitfy, consultora para startups de EE. UU.; un cliente de agtech vía TEAM International) y Europa (CryptoFR). No contar a Riley ni a Tellen como equipos de EE. UU. mientras no esté confirmado.
+- **Estado en Riley:** tiempo completo hasta abril de 2026; desde entonces, contrato part-time por horas.
+- **Experiencia internacional:** EE. UU. (Teamitfy, consultora para startups de EE. UU.; un cliente de agtech vía TEAM International) y Europa (equipos europeos en CryptoFR, hasta 2022; hablar de esta experiencia en pasado). No contar a Riley ni a Tellen como equipos de EE. UU. mientras no esté confirmado.
 - **Toptal:** miembro actual de la red. Se muestra como credencial, no como cliente ni historial laboral, y sin mencionar procesos internos.
 - **Otras cifras:** consulta de PostgreSQL de unos 10 s a menos de 100 ms (aproximada); APIs para más de 10.000 usuarios; más de 1 M de trades al día en Vascar.
 - **Proyecto propio:** remote-venezuela-hiring (contrataenve.com).
