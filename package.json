@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "build": "node scripts/articulos.mjs build && node node_modules/tailwindcss/lib/cli.js -i docs/input.css -o docs/output.css"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
   }

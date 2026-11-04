@@ -29,6 +29,7 @@ Se evalúa junto a LinkedIn, el CV y el perfil de Toptal, así que debe mantener
 ## Capabilities and Constraints
 
 - Sitio estático con páginas paralelas: `docs/index.html` (EN) y `docs/es.html` (ES). Todo cambio de contenido se aplica en ambas.
+- Artículos: el texto vive en `content/articulos/*.md` y `npm run build` genera `docs/articulos/`, la lista de la portada y el sitemap. No se editan a mano esas partes generadas. Se publican en el idioma original, sin reescribirlos.
 - Dominio: asdrubalivan.com (`docs/CNAME`).
 - Contacto: correo (alias de reenvío `hello` del dominio, en Namecheap) y LinkedIn, al mismo nivel.
 - Para reducir el spam, la dirección no se escribe en el HTML: `docs/email.js` la arma al hacer clic. No activar catch-all.
