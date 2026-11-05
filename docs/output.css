@@ -745,6 +745,101 @@ video {
   display: none;
 }
 
+/* Índice de secciones para pantallas angostas (desde md se usa la navegación de la columna).
+     Plegado por defecto; summary y enlaces miden 44 px de alto como zona táctil. */
+
+.articulo-panel .indice {
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 26 46 / var(--tw-bg-opacity, 1));
+}
+
+.articulo-panel .indice summary {
+  display: flex;
+  min-height: 2.75rem;
+  cursor: pointer;
+  list-style-type: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-radius: 0.375rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity, 1));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .articulo-panel .indice summary:hover {
+    --tw-text-opacity: 1;
+    color: rgb(54 208 241 / var(--tw-text-opacity, 1));
+  }
+}
+
+.articulo-panel .indice summary::-webkit-details-marker {
+  display: none;
+}
+
+.articulo-panel .indice summary::after {
+  content: '';
+  margin-bottom: 0.25rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+  border-color: currentColor;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  transform: rotate(45deg);
+}
+
+.articulo-panel .indice[open] summary::after {
+  margin-bottom: 0px;
+  margin-top: 0.25rem;
+  transform: rotate(-135deg);
+}
+
+.articulo-panel .indice ul {
+  padding-bottom: 0.5rem;
+}
+
+.articulo-panel .indice a {
+  display: flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity, 1));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .articulo-panel .indice a:hover {
+    --tw-text-opacity: 1;
+    color: rgb(54 208 241 / var(--tw-text-opacity, 1));
+  }
+}
+
+.articulo-panel .indice a[aria-current] {
+  --tw-text-opacity: 1;
+  color: rgb(54 208 241 / var(--tw-text-opacity, 1));
+}
+
 .articulo-texto {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -1247,6 +1342,10 @@ video {
 
   .articulo-panel h1 strong {
     font-weight: 400;
+  }
+
+  .articulo-panel .indice {
+    display: none;
   }
 
   .articulo-panel nav {

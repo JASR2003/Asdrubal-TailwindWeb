@@ -45,6 +45,20 @@
 <p><time datetime="2026-11-05">5 de noviembre de 2026</time></p>
 
 </div>
+<details class="indice">
+<summary>Secciones</summary>
+<ul aria-label="Secciones del artículo">
+<li><a href="#seccion-1">Fluidez</a></li>
+<li><a href="#seccion-2">Teach</a></li>
+<li><a href="#seccion-3">VibeWise</a></li>
+<li><a href="#seccion-4">Grilling</a></li>
+<li><a href="#seccion-5">De un vistazo</a></li>
+<li><a href="#seccion-6">Cómo se combinan</a></li>
+<li><a href="#seccion-7">Instalar</a></li>
+<li><a href="#seccion-8">Cierre</a></li>
+<li><a href="#seccion-9">Glosario</a></li>
+</ul>
+</details>
 <nav aria-label="Secciones del artículo">
 <a href="#seccion-1"><span class="linea"></span>Fluidez</a>
 <a href="#seccion-2"><span class="linea"></span>Teach</a>
@@ -54,6 +68,7 @@
 <a href="#seccion-6"><span class="linea"></span>Cómo se combinan</a>
 <a href="#seccion-7"><span class="linea"></span>Instalar</a>
 <a href="#seccion-8"><span class="linea"></span>Cierre</a>
+<a href="#seccion-9"><span class="linea"></span>Glosario</a>
 </nav>
 </header>
 <div class="articulo-texto">
@@ -61,24 +76,7 @@
 <p>Hoy aprendo con tres skills de Claude Code, y ya no empiezo de cero.</p>
 <p>Te cuento cómo hago para aprender de verdad con IA y no solo sentir que entiendo.</p>
 <p>Este artículo es para ingenieros de software que ya programan con IA y quieren aprender de verdad con ella. También es para quien, como yo, quiere pasar a AI Engineering. Asume que conoces Claude Code y RAG a nivel básico.</p>
-<p>Cuento cómo uso tres skills: <code>/teach</code>, <code>/grilling</code> y VibeWise, con mis propios ejemplos. No es una guía de instalación: al final dejo los comandos de sus README. Cuento lo que me ha funcionado a mí y dónde se queda corto.</p>
-<h2 class="menor">Glosario rápido</h2>
-<ul>
-<li><strong>Skill:</strong> instrucciones empaquetadas que le dan a Claude Code una forma de trabajar para un tipo de tarea; se invoca con un comando como <code>/teach</code>.</li>
-<li><strong><code>/teach</code>:</strong> skill de Matt Pocock que arma una carpeta por tema y te enseña en lecciones cortas, con fuentes citadas.</li>
-<li><strong>VibeWise:</strong> plugin de Claude Code, de Noah Kim, para aprender mientras la IA escribe el código que tú diseñas: antes de cada pieza te pide tu enfoque.</li>
-<li><strong><code>/grilling</code>:</strong> skill de Matt Pocock que te interroga hasta llegar a un entendimiento compartido.</li>
-<li><strong>Workspace:</strong> la carpeta de <code>/teach</code> dedicada a un solo tema, con sus lecciones y sus registros.</li>
-<li><strong>Learning record:</strong> archivo donde <code>/teach</code> anota lo que fallaste, lo que ya sabes y lo que aprendiste, y que usa en las siguientes lecciones.</li>
-<li><strong>Checkpoint (Build, Design, Implementation):</strong> momento en que VibeWise se detiene a preguntarte antes de seguir. En Build te pregunta cómo abordarías el problema, en Design te resume la propuesta y en Implementation te pide autorizar el código de ese paso.</li>
-<li><strong>Frecuencia (Light, Normal, Frequent):</strong> cuántas veces te frena VibeWise con checkpoints. Light solo en las decisiones grandes y Frequent también en las pequeñas.</li>
-<li><strong><code>progress.md</code>:</strong> archivo que VibeWise guarda en la carpeta <code>.vibe-wise/</code> del proyecto, con lo que fuiste demostrando, decidiendo y reforzando.</li>
-<li><strong>SupportPilot:</strong> proyecto mío, público en GitHub: un agente de soporte que responde preguntas sobre las políticas de una empresa ficticia, con citas, y consulta pedidos.</li>
-<li><strong>Búsqueda por vectores y búsqueda híbrida:</strong> la primera busca por significado, comparando representaciones numéricas del texto; la segunda la combina con una búsqueda por palabras exactas.</li>
-<li><strong>Caso golden:</strong> pregunta de prueba cuya respuesta o fuentes esperadas ya están definidas.</li>
-<li><strong>Intención:</strong> lo que quiere saber un cliente en SupportPilot; cada intención de mis pruebas tiene una versión en inglés normal y otra con typos.</li>
-<li><strong>Técnica de Feynman:</strong> estudiar explicando el tema con palabras sencillas, como si se lo contaras a alguien que no sabe, para encontrar dónde no lo entiendes.</li>
-</ul>
+<p>Cuento cómo uso tres skills: <code>/teach</code>, <code>/grilling</code> y VibeWise, con mis propios ejemplos. No es una guía de instalación: al final dejo los comandos de sus README. Cuento lo que me ha funcionado a mí y dónde se queda corto. Los términos que uso están en el glosario del final.</p>
 <h2 id="seccion-1">Antes de las herramientas: fluidez y almacenamiento</h2>
 <p>Sentir que entiendes no es entender. Es la idea que más pesa en cómo aprendo, y viene de la documentación de <code>/teach</code>:</p>
 <blockquote>
@@ -393,6 +391,23 @@ claude plugin install mattpocock-skills@claude-plugins-official
 <p>Fuente: <a class="enlace" href="https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/README.md" target="_blank" rel="noopener">README de mattpocock/skills</a> y <a class="enlace" href="https://github.com/nykooi1/vibe-wise/blob/eefb53df406ab89e31444684ff32c1df205221f8/README.md" target="_blank" rel="noopener">README de VibeWise</a></p>
 <h2 id="seccion-8">Cierre</h2>
 <p class="cierre">Si las pruebas, me encantaría saber qué usas tú para aprender. Y si te gustaría un post con más detalle sobre cómo decidí entre búsqueda por vectores y búsqueda híbrida, házmelo saber.</p>
+<h2 id="seccion-9">Glosario rápido</h2>
+<ul>
+<li><strong>Skill:</strong> instrucciones empaquetadas que le dan a Claude Code una forma de trabajar para un tipo de tarea; se invoca con un comando como <code>/teach</code>.</li>
+<li><strong><code>/teach</code>:</strong> skill de Matt Pocock que arma una carpeta por tema y te enseña en lecciones cortas, con fuentes citadas.</li>
+<li><strong>VibeWise:</strong> plugin de Claude Code, de Noah Kim, para aprender mientras la IA escribe el código que tú diseñas: antes de cada pieza te pide tu enfoque.</li>
+<li><strong><code>/grilling</code>:</strong> skill de Matt Pocock que te interroga hasta llegar a un entendimiento compartido.</li>
+<li><strong>Workspace:</strong> la carpeta de <code>/teach</code> dedicada a un solo tema, con sus lecciones y sus registros.</li>
+<li><strong>Learning record:</strong> archivo donde <code>/teach</code> anota lo que fallaste, lo que ya sabes y lo que aprendiste, y que usa en las siguientes lecciones.</li>
+<li><strong>Checkpoint (Build, Design, Implementation):</strong> momento en que VibeWise se detiene a preguntarte antes de seguir. En Build te pregunta cómo abordarías el problema, en Design te resume la propuesta y en Implementation te pide autorizar el código de ese paso.</li>
+<li><strong>Frecuencia (Light, Normal, Frequent):</strong> cuántas veces te frena VibeWise con checkpoints. Light solo en las decisiones grandes y Frequent también en las pequeñas.</li>
+<li><strong><code>progress.md</code>:</strong> archivo que VibeWise guarda en la carpeta <code>.vibe-wise/</code> del proyecto, con lo que fuiste demostrando, decidiendo y reforzando.</li>
+<li><strong>SupportPilot:</strong> proyecto mío, público en GitHub: un agente de soporte que responde preguntas sobre las políticas de una empresa ficticia, con citas, y consulta pedidos.</li>
+<li><strong>Búsqueda por vectores y búsqueda híbrida:</strong> la primera busca por significado, comparando representaciones numéricas del texto; la segunda la combina con una búsqueda por palabras exactas.</li>
+<li><strong>Caso golden:</strong> pregunta de prueba cuya respuesta o fuentes esperadas ya están definidas.</li>
+<li><strong>Intención:</strong> lo que quiere saber un cliente en SupportPilot; cada intención de mis pruebas tiene una versión en inglés normal y otra con typos.</li>
+<li><strong>Técnica de Feynman:</strong> estudiar explicando el tema con palabras sencillas, como si se lo contaras a alguien que no sabe, para encontrar dónde no lo entiendes.</li>
+</ul>
 <footer class="pie">
 <p>Asdrúbal Suárez · Ingeniero de Backend Senior</p>
 <a class="boton" href="/es">Ver perfil y contacto</a>

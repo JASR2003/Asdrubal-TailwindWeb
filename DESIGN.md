@@ -188,6 +188,7 @@ Las entradas de experiencia y portafolio son filas sin contenedor visible hasta 
 
 ### Artículos
 Citas, figuras y tablas siguen el mismo lenguaje que los bloques de código: paneles tonales de 6px (Console Navy en móvil, Panel Midnight desde tablet), sin filetes de color.
+- **Índice de secciones (menos de 768px):** bajo la fecha, un `details` plegado con el rótulo "Secciones" ("Sections"), en un panel tonal de Console Navy. Summary y enlaces miden 44px de alto; reutiliza las anclas de la navegación de escritorio y marca en cian la sección activa. Desde 768px se oculta y vuelve la navegación de la columna.
 - **Citas:** panel tonal; el primer párrafo (lo citado) en blanco y el resto en gris.
 - **Figuras:** SVG incrustado que hereda el blanco del texto; los acentos del diagrama se remapean al cian (lo activo) y al gris (lo planeado). Si la columna es más angosta que el diagrama, se desplaza dentro de su marco, con el mismo foco que el código.
 - **Tablas:** desde 1280px son una tabla con filas alternadas por tono; por debajo, cada fila se apila como un panel con el nombre de la columna sobre cada dato.

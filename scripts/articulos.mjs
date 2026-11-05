@@ -286,6 +286,15 @@ function renderPage(a) {
   const nav = headings.length ? `<nav aria-label="${t.sectionsLabel}">
 ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"></span>${esc(labels[i] ?? h.text)}</a>`).join('\n')}
 </nav>` : '';
+  // En pantallas angostas la navegación de escritorio se oculta; este índice plegable reutiliza sus mismas anclas.
+  // No es un <nav> para no heredar los estilos de escritorio. Sin JavaScript sigue abriéndose y cerrándose.
+  const index = headings.length ? `
+<details class="indice">
+<summary>${t.indexLabel}</summary>
+<ul aria-label="${t.sectionsLabel}">
+${headings.map((h, i) => `<li><a href="#${t.sectionId}-${i + 1}">${esc(labels[i] ?? h.text)}</a></li>`).join('\n')}
+</ul>
+</details>` : '';
   const sources = [
     linkedin && `<a class="enlace" href="${attr(linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`,
     x && `<a class="enlace" href="${attr(x)}" target="_blank" rel="noopener">X</a>`,
@@ -360,7 +369,7 @@ ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"
 <div class="datos">
 <p><time datetime="${a.fecha}">${a.lang === 'en' ? a.dateEn : a.dateEs}</time></p>
 ${t.source(sources)}
-</div>${renderLanguageLinks(a, t)}
+</div>${renderLanguageLinks(a, t)}${index}
 ${nav}
 </header>
 <div class="articulo-texto">
