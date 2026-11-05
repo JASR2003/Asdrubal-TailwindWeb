@@ -1,0 +1,40 @@
+<svg viewBox="0 0 830 250" role="img" aria-label="VibeWise flow: Build asks for my approach, Design summarizes the proposal and I confirm without authorizing code, Implementation describes the step and only when I authorize it does the AI write the code; what I demonstrated and what needs reinforcement is noted in progress.md and the cycle continues with the next piece. Checkpoints are not mandatory stops: depending on the frequency there are more or fewer." style="max-width:100%;height:auto;color:inherit" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<defs>
+<marker id="a-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="currentColor" stroke="none"/></marker>
+<marker id="p-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#d97706" stroke="none"/></marker>
+<marker id="l-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#0d9488" stroke="none"/></marker>
+</defs>
+<rect x="20" y="40" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="95.0" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Build</text>
+<text x="95.0" y="81" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">Asks how I would</text>
+<text x="95.0" y="96" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">approach the problem</text>
+<rect x="230" y="40" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="305.0" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Design</text>
+<text x="305.0" y="81" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">Sums up the proposal</text>
+<text x="305.0" y="96" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">and its tradeoffs</text>
+<rect x="440" y="40" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="515.0" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Implementation</text>
+<text x="515.0" y="81" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">Describes the changes</text>
+<text x="515.0" y="96" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">for this step</text>
+<rect x="650" y="40" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.0"/>
+<text x="725.0" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">The AI writes</text>
+<text x="725.0" y="81" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">the code for that step</text>
+<text x="725.0" y="96" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">and says what changed</text>
+<path d="M20 30 V24 H590 V30" stroke="currentColor" stroke-opacity="0.5"/>
+<text x="305" y="16" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">checkpoints (more or fewer, depending on the frequency)</text>
+<path d="M170 76 H228" stroke="currentColor" marker-end="url(#a-2)"/>
+<text x="200" y="66" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">answer</text>
+<path d="M380 76 H438" stroke="currentColor" marker-end="url(#a-2)"/>
+<text x="410" y="66" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">confirm</text>
+<text x="305" y="130" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">confirming doesn't authorize code</text>
+<path d="M590 76 H648" stroke="#d97706" stroke-width="2.5" marker-end="url(#p-2)"/>
+<text x="620" y="66" text-anchor="middle" font-size="11.5" fill="#d97706" stroke="none" font-weight="600">authorize</text>
+<path d="M725 112 V178" stroke="currentColor" marker-end="url(#a-2)"/>
+<text x="733" y="150" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">notes</text>
+<rect x="630" y="180" width="180" height="50" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="720.0" y="202" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">.vibe-wise/progress.md</text>
+<text x="720.0" y="221" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">demonstrated, to reinforce</text>
+<path d="M630 205 H90 V114" stroke="#0d9488" stroke-width="2" marker-end="url(#l-2)"/>
+<text x="360" y="196" text-anchor="middle" font-size="11.5" fill="#0d9488" stroke="none" font-weight="600">next piece</text>
+
+</svg>
