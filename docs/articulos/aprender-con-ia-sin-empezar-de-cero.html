@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprender con IA sin empezar de cero: /teach, VibeWise y /grilling</title>
+    <meta name="description" content="Cómo uso /teach, VibeWise y /grilling para aprender con IA: qué hace cada una, mis ejemplos y dónde se queda corta.">
+    <meta name="robots" content="max-image-preview:large">
+    <meta name="theme-color" content="#020f1e">
+    <link rel="canonical" href="https://asdrubalivan.com/articulos/aprender-con-ia-sin-empezar-de-cero">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Asdrúbal Suárez">
+    <meta property="og:title" content="Una me enseña, otra me hace construir y otra me interroga: así aprendo con IA sin empezar de cero">
+    <meta property="og:description" content="Cómo uso /teach, VibeWise y /grilling para aprender con IA: qué hace cada una, mis ejemplos y dónde se queda corta.">
+    <meta property="og:url" content="https://asdrubalivan.com/articulos/aprender-con-ia-sin-empezar-de-cero">
+    <meta property="og:locale" content="es_LA">
+    <meta property="og:image" content="https://asdrubalivan.com/png/og-image-aprender-con-ia-sin-empezar-de-cero.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-11-05">
+    <meta property="article:modified_time" content="2026-11-05">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@AsdrubalCodes">
+    <meta name="twitter:creator" content="@AsdrubalCodes">
+    <meta name="twitter:title" content="Una me enseña, otra me hace construir y otra me interroga: así aprendo con IA sin empezar de cero">
+    <meta name="twitter:description" content="Cómo uso /teach, VibeWise y /grilling para aprender con IA: qué hace cada una, mis ejemplos y dónde se queda corta.">
+    <meta name="twitter:image" content="https://asdrubalivan.com/png/og-image-aprender-con-ia-sin-empezar-de-cero.png">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/png" sizes="192x192" href="/png/favicon-192.png">
+    <link rel="apple-touch-icon" href="/png/apple-touch-icon.png">
+    <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="/output.css" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","@id":"https://asdrubalivan.com/articulos/aprender-con-ia-sin-empezar-de-cero#article","mainEntityOfPage":"https://asdrubalivan.com/articulos/aprender-con-ia-sin-empezar-de-cero","headline":"Una me enseña, otra me hace construir y otra me interroga: así aprendo con IA sin empezar de cero","description":"Cómo uso /teach, VibeWise y /grilling para aprender con IA: qué hace cada una, mis ejemplos y dónde se queda corta.","image":"https://asdrubalivan.com/png/og-image-aprender-con-ia-sin-empezar-de-cero.png","datePublished":"2026-11-05","dateModified":"2026-11-05","inLanguage":"es","url":"https://asdrubalivan.com/articulos/aprender-con-ia-sin-empezar-de-cero","isPartOf":{"@id":"https://asdrubalivan.com/#website"},"author":{"@id":"https://asdrubalivan.com/#person","@type":"Person","name":"Asdrúbal Suárez","url":"https://asdrubalivan.com/"},"publisher":{"@id":"https://asdrubalivan.com/#person"}}</script>
+</head>
+
+<body class="bg-custom-radial bg-fixed text-gray-txt font-montserrat min-w-[320px]">
+    <div id="custom-cursor" class="pointer-events-none hidden lg:block lg:fixed top-0 left-0 aspect-square w-[50vw] rounded-full bg-custom-cursor mix-blend-overlay z-50 transform -translate-x-1/2 -translate-y-1/2"></div>
+    <main>
+<article class="articulo">
+<header class="articulo-panel">
+<a class="logo" href="/es"><img src="/png/logo.png" alt="Asdrúbal Suárez" width="1000" height="105"></a>
+<h1>Una me enseña, otra me hace construir y otra me interroga: así aprendo con IA <strong>sin empezar de cero</strong></h1>
+<div class="datos">
+<p><time datetime="2026-11-05">5 de noviembre de 2026</time></p>
+
+</div>
+<nav aria-label="Secciones del artículo">
+<a href="#seccion-1"><span class="linea"></span>Fluidez</a>
+<a href="#seccion-2"><span class="linea"></span>Teach</a>
+<a href="#seccion-3"><span class="linea"></span>VibeWise</a>
+<a href="#seccion-4"><span class="linea"></span>Grilling</a>
+<a href="#seccion-5"><span class="linea"></span>De un vistazo</a>
+<a href="#seccion-6"><span class="linea"></span>Cómo se combinan</a>
+<a href="#seccion-7"><span class="linea"></span>Instalar</a>
+<a href="#seccion-8"><span class="linea"></span>Cierre</a>
+</nav>
+</header>
+<div class="articulo-texto">
+<p>Antes, cada vez que quería aprender algo con IA, tenía que pasarle todo el contexto de nuevo. Siempre se repetían las cosas.</p>
+<p>Hoy aprendo con tres skills de Claude Code, y ya no empiezo de cero.</p>
+<p>Te cuento cómo hago para aprender de verdad con IA y no solo sentir que entiendo.</p>
+<p>Este artículo es para ingenieros de software que ya programan con IA y quieren aprender de verdad con ella. También es para quien, como yo, quiere pasar a AI Engineering. Asume que conoces Claude Code y RAG a nivel básico.</p>
+<p>Cuento cómo uso tres skills: <code>/teach</code>, <code>/grilling</code> y VibeWise, con mis propios ejemplos. No es una guía de instalación: al final dejo los comandos de sus README. Cuento lo que me ha funcionado a mí y dónde se queda corto.</p>
+<h2 class="menor">Glosario rápido</h2>
+<ul>
+<li><strong>Skill:</strong> instrucciones empaquetadas que le dan a Claude Code una forma de trabajar para un tipo de tarea; se invoca con un comando como <code>/teach</code>.</li>
+<li><strong><code>/teach</code>:</strong> skill de Matt Pocock que arma una carpeta por tema y te enseña en lecciones cortas, con fuentes citadas.</li>
+<li><strong>VibeWise:</strong> plugin de Claude Code, de Noah Kim, para aprender mientras la IA escribe el código que tú diseñas: antes de cada pieza te pide tu enfoque.</li>
+<li><strong><code>/grilling</code>:</strong> skill de Matt Pocock que te interroga hasta llegar a un entendimiento compartido.</li>
+<li><strong>Workspace:</strong> la carpeta de <code>/teach</code> dedicada a un solo tema, con sus lecciones y sus registros.</li>
+<li><strong>Learning record:</strong> archivo donde <code>/teach</code> anota lo que fallaste, lo que ya sabes y lo que aprendiste, y que usa en las siguientes lecciones.</li>
+<li><strong>Checkpoint (Build, Design, Implementation):</strong> momento en que VibeWise se detiene a preguntarte antes de seguir. En Build te pregunta cómo abordarías el problema, en Design te resume la propuesta y en Implementation te pide autorizar el código de ese paso.</li>
+<li><strong>Frecuencia (Light, Normal, Frequent):</strong> cuántas veces te frena VibeWise con checkpoints. Light solo en las decisiones grandes y Frequent también en las pequeñas.</li>
+<li><strong><code>progress.md</code>:</strong> archivo que VibeWise guarda en la carpeta <code>.vibe-wise/</code> del proyecto, con lo que fuiste demostrando, decidiendo y reforzando.</li>
+<li><strong>SupportPilot:</strong> proyecto mío, público en GitHub: un agente de soporte que responde preguntas sobre las políticas de una empresa ficticia, con citas, y consulta pedidos.</li>
+<li><strong>Búsqueda por vectores y búsqueda híbrida:</strong> la primera busca por significado, comparando representaciones numéricas del texto; la segunda la combina con una búsqueda por palabras exactas.</li>
+<li><strong>Caso golden:</strong> pregunta de prueba cuya respuesta o fuentes esperadas ya están definidas.</li>
+<li><strong>Intención:</strong> lo que quiere saber un cliente en SupportPilot; cada intención de mis pruebas tiene una versión en inglés normal y otra con typos.</li>
+<li><strong>Técnica de Feynman:</strong> estudiar explicando el tema con palabras sencillas, como si se lo contaras a alguien que no sabe, para encontrar dónde no lo entiendes.</li>
+</ul>
+<h2 id="seccion-1">Antes de las herramientas: fluidez y almacenamiento</h2>
+<p>Sentir que entiendes no es entender. Es la idea que más pesa en cómo aprendo, y viene de la documentación de <code>/teach</code>:</p>
+<blockquote>
+<p>"Fluency can give the user an illusory sense of mastery, but storage strength is the real goal."</p>
+<p>Traducción: «La fluidez puede darle al usuario una sensación ilusoria de dominio, pero la meta real es la fuerza de almacenamiento.»</p>
+<p>Fuente: <a class="enlace" href="https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/productivity/teach/SKILL.md" target="_blank" rel="noopener">SKILL.md de teach</a></p>
+</blockquote>
+<p>A mí me ha pasado con precision y recall, dos métricas de retrieval, la parte de un sistema de IA que busca documentos relevantes. Imagina que le pides libros sobre un tema a una bibliotecaria. Precision responde: de los libros que me trajo, ¿cuántos servían? Recall responde: de todos los libros que servían en la biblioteca, ¿cuántos me trajo?</p>
+<p>Se confunden fácilmente. En mi caso, entendía la idea, pero el nombre y la fórmula todavía no los tenía automatizados. Sentir que sabes algo y poder recuperarlo sin ayuda no son lo mismo. Para entender algo de verdad, en mi opinión, hay que entenderlo de forma profunda.</p>
+<p>Por eso aplico la técnica de Feynman, que ya usaba mucho antes de la inteligencia artificial. Lo que cambió es que ahora <code>/teach</code> me ayuda recordándome cómo entender, y tengo menos carga cognitiva sobre acordarme de aplicarla.</p>
+<h2 id="seccion-2"><code>/teach</code>: tres usos distintos</h2>
+<h3>Qué es y cómo se ve por dentro</h3>
+<p>Si abro un workspace de <code>/teach</code>, veo varias cosas. Veo los learning records, que son registros de aprendizaje y muestran mi progreso como aprendiz. También veo la lista de lecciones, numeradas desde la 0001.</p>
+<p>Algo muy importante para mí es que <code>/teach</code> cita fuentes en cada lección. Antes de enseñar, busca recursos de alta confianza y comprueba con ellos que lo que va a decir es verdad. Eso reduce las alucinaciones. Lo dice su documentación:</p>
+<blockquote>
+<p>"It does not teach from what the model already knows. It treats parametric knowledge as untrusted. Before it teaches, it finds high-trust resources, records them in <code>RESOURCES.md</code>, and cites them inside every lesson."</p>
+<p>Traducción: «No enseña a partir de lo que el modelo ya sabe. Trata el conocimiento paramétrico como no confiable. Antes de enseñar, busca recursos de alta confianza, los registra en <code>RESOURCES.md</code> y los cita dentro de cada lección.»</p>
+<p>Fuente: <a class="enlace" href="https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/docs/productivity/teach.md" target="_blank" rel="noopener">docs de teach</a></p>
+</blockquote>
+<p>El conocimiento paramétrico es lo que el modelo «sabe» de su entrenamiento, sin consultar una fuente.</p>
+<p>Monté un repo aparte para aprender, con una carpeta por tema. Los tres de este artículo son AI Engineering, ucraniano y LeetCode. Prefiero un solo repo porque voy a tener muchos aprendizajes, y un repo por cada uno me parece impráctico. Entre los tres suman más de 70 lecciones, más de 180 registros de aprendizaje y más de 30 referencias.</p>
+<h3>Tres usos</h3>
+<p>Ahora estoy usando <code>/teach</code> con AI Engineering para ir pasando de Backend Engineer a AI Engineer. Ahora bien, ¿qué es lo que me está dando <code>/teach</code>? Básicamente un camino ordenado para llegar a trabajar como AI Engineer.</p>
+<p>Por ejemplo, <code>/teach</code> me empezó a hacer un conjunto de lecciones para aprender RAG. Hay conceptos como recall y precision, y una lección cubre los dos.</p>
+<p>Con precision y recall me pasó algo que no esperaba. Cuando me pusieron a prueba con definiciones puras, tipo qué pregunta Precision@K (los primeros K resultados que se traen) o cuál es el denominador de Recall@K, las cuatro respuestas me salieron mal.</p>
+<p>Pero cuando me pidieron aplicarlo, con números y con ejemplos, acerté siete de ocho. Siento que entendía la idea, pero todavía no tenía el nombre ni la fórmula automatizados.</p>
+<p>Como la definición me parecía muy abstracta, traje un video de clasificación binaria con manzanas y naranjas, y después reconstruí precision y recall con mi propio corpus de dos chunks (dos fragmentos de texto), sin que me dieran la fórmula.</p>
+<p>Por otra parte, estoy usando <code>/teach</code> con el ucraniano. Primero hice un examen diagnóstico del idioma usando ChatGPT, para que la IA tuviese un conocimiento previo de mi nivel. A partir de ahí empecé a estudiar diferentes lecciones de gramática y de palabras o frases que me estaban costando. A veces <code>/teach</code> me armaba una lección sobre una frase, o sobre varias, que me estaban costando.</p>
+<p>En el caso de LeetCode, lo estoy usando para aprender patrones y para que no se me oxide el codear a mano. También lo hago porque algunos procesos de selección lo exigen.</p>
+<h3>Lo que registra</h3>
+<p>Cuando abro un learning record, lo primero que veo es en qué fallé. Después veo el análisis: mi intuición, el nombre y la fórmula, todo detallado por separado. En el curso que hago de AI engineering hay un registro de precision y recall donde el skill anotó que mi intuición estaba bien y que lo flojo eran el nombre y la fórmula. Incluso dejó un truco para recordarlas:</p>
+<blockquote>
+<p>"precision mira <strong>hacia adentro</strong> de lo que recuperó (denominador K), recall mira <strong>hacia afuera</strong>, al universo relevante completo (denominador = total relevantes)."</p>
+<p>Fuente: learning record de mi workspace de AI Engineering (privado, sin enlace)</p>
+</blockquote>
+<p>Me sirve que quede escrito lo que corregí, porque así <code>/teach</code> no me repite la misma lección. Ese era el gran problema que tenía con los modos de estudio de ChatGPT y de Claude. Normalmente yo no leo mucho los registros, pero <code>/teach</code> los usa para decidir qué enseñarme después.</p>
+<figure>
+<div class="lienzo" tabindex="0" role="region" aria-labelledby="figura-1"><svg viewBox="0 0 840 270" role="img" aria-label="Ciclo de un workspace de /teach: la misión y las fuentes alimentan una lección, los ejercicios producen un learning record con lo que fallé y lo que ya sé, y ese registro decide la siguiente lección." style="max-width:100%;height:auto;color:inherit" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<defs>
+<marker id="a-3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="currentColor" stroke="none"/></marker>
+<marker id="p-3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#d97706" stroke="none"/></marker>
+<marker id="l-3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#0d9488" stroke="none"/></marker>
+</defs>
+<rect x="20" y="40" width="160" height="62" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="100.0" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">MISSION.md</text>
+<text x="100.0" y="81" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">para qué aprendo</text>
+<rect x="20" y="140" width="160" height="62" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="100.0" y="162" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RESOURCES.md</text>
+<text x="100.0" y="181" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">fuentes confiables</text>
+<rect x="240" y="90" width="170" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="325.0" y="112" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Lección</text>
+<text x="325.0" y="131" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">una lección en HTML</text>
+<text x="325.0" y="146" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">cita sus fuentes</text>
+<rect x="470" y="90" width="140" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="540.0" y="112" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Ejercicios</text>
+<text x="540.0" y="131" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">preguntas y práctica</text>
+<rect x="670" y="90" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="745.0" y="112" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Learning record</text>
+<text x="745.0" y="131" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">qué fallé y qué ya sé</text>
+<path d="M182 71 H200 V114 H238" stroke="currentColor" marker-end="url(#a-3)"/>
+<text x="210" y="60" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">guía</text>
+<path d="M182 171 H200 V138 H238" stroke="currentColor" marker-end="url(#a-3)"/>
+<text x="210" y="196" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">cita</text>
+<path d="M412 126 H468" stroke="currentColor" marker-end="url(#a-3)"/>
+<text x="440" y="116" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">estudio</text>
+<path d="M612 126 H668" stroke="currentColor" marker-end="url(#a-3)"/>
+<text x="640" y="116" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">se anota</text>
+<path d="M745 164 V242 H325 V164" stroke="#0d9488" stroke-width="2" marker-end="url(#l-3)"/>
+<text x="535" y="214" text-anchor="middle" font-size="11.5" fill="#0d9488" stroke="none" font-weight="600">decide qué me enseña después</text>
+<text x="535" y="228" text-anchor="middle" font-size="11.5" fill="#0d9488" stroke="none" font-weight="600">(no repite lo que ya corregí)</text>
+
+</svg></div>
+<figcaption id="figura-1">El learning record decide la siguiente lección, por eso <code>/teach</code> no repite lo que ya corregí.</figcaption>
+</figure>
+<h3>Dónde se queda corto y cómo lo cubro</h3>
+<p><code>/teach</code> se queda corto en tres cosas, y las tres aparecen en su documentación. La primera es que no evalúa tu nivel inicial:</p>
+<blockquote>
+<p>"There is no assessment step. <code>teach</code> infers your level from the mission and the learning records, and in session one there are no learning records."</p>
+<p>Traducción: «No hay un paso de evaluación. <code>teach</code> deduce tu nivel a partir de la misión y de los learning records, y en la primera sesión no hay learning records.»</p>
+<p>Fuente: <a class="enlace" href="https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/docs/productivity/teach.md" target="_blank" rel="noopener">docs de teach</a></p>
+</blockquote>
+<p>La misión es la meta del tema, que <code>/teach</code> guarda en <code>MISSION.md</code>. Lo cubro con un examen diagnóstico antes de empezar. En ucraniano lo hice con ChatGPT, por tres razones. Antes ya hacía mucho de mi aprendizaje ahí, con prompts sueltos. Su búsqueda en la web, en mi experiencia, funcionaba bastante bien. Y su modo de pensamiento alto me sale barato con mi suscripción de $20. Le pedí un examen de 50 preguntas, al estilo del Marco Común Europeo de Referencia para las Lenguas, en tandas de cinco frases, para detectar mis errores de gramática. Lo hizo con búsqueda en la web, apoyándose en fuentes de internet.</p>
+<p>La segunda es que no agenda repasos ni se conecta con Anki. Para eso uso un skill de Anki propio. En ucraniano, su descripción dice:</p>
+<blockquote>
+<p>"Revisa las tarjetas de Anki difíciles y fáciles de hoy en el curso de ucraniano, las compara con los últimos días para detectar patrones, y sugiere pasarlo a /teach si amerita."</p>
+<p>Fuente: skill <code>anki-review</code> de mi workspace de ucraniano (privado, sin enlace)</p>
+</blockquote>
+<p>La tercera es que puede inventar. Cuando eso me preocupa, abro la fuente que cita la lección o ejecuto el código.</p>
+<p>Y quiero dejar algo claro: el humano no se reemplaza. Esto es un complemento. Para el ucraniano, además, tengo una profesora en italki.</p>
+<h2 id="seccion-3">VibeWise para decidir</h2>
+<h3>Qué es</h3>
+<p>VibeWise es un plugin de Claude Code, creado por Noah Kim, para aprender mientras la IA escribe el código que tú diseñas. Su README lo dice así:</p>
+<blockquote>
+<p>"A plugin for Claude Code and Codex that puts learning first and keeps you in control while AI writes the code you designed. The AI asks for your approach first, helps you examine tradeoffs, and explains unfamiliar concepts."</p>
+<p>Traducción: «Un plugin para Claude Code y Codex que pone el aprendizaje primero y te mantiene en control mientras la IA escribe el código que tú diseñaste. La IA te pide primero tu enfoque, te ayuda a examinar las ventajas y desventajas de cada opción y explica los conceptos que no conoces.»</p>
+<p>Fuente: <a class="enlace" href="https://github.com/nykooi1/vibe-wise/blob/eefb53df406ab89e31444684ff32c1df205221f8/README.md" target="_blank" rel="noopener">README de VibeWise</a></p>
+</blockquote>
+<p>La primera vez que entro a VibeWise, le doy <code>/vibe-wise:learn</code> dentro del proyecto. Primero me pregunta qué estoy haciendo, y después mi nivel como programador: principiante, intermedio o avanzado. Por lo general le digo que soy avanzado, pero le describo en detalle dónde tengo gaps. En SupportPilot le dije que soy avanzado en programación y que quería aprender RAG mientras construía. Lo planteé así a propósito, para que el agente me retara y evaluara mejor mis conocimientos de RAG, que quería repasar. También elegí la frecuencia Light, porque quería una entrega ese mismo día.</p>
+<p>Después, cada vez que hago una iteración, VibeWise me obliga a construir algo y me guía con tres tipos de checkpoint, que no son paradas obligatorias:</p>
+<blockquote>
+<p>"Build checkpoint: ask how the learner would approach the problem."</p>
+<p>Traducción: «Checkpoint de Build: pregunta cómo abordaría el problema quien está aprendiendo.»</p>
+<p>Fuente: <a class="enlace" href="https://github.com/nykooi1/vibe-wise/blob/eefb53df406ab89e31444684ff32c1df205221f8/skills/learn/behavior.md" target="_blank" rel="noopener">behavior.md de VibeWise</a></p>
+</blockquote>
+<p>En Build me pregunta cómo abordaría el problema. En Design resume la propuesta. Y el código solo se escribe cuando autorizo el checkpoint de Implementation.</p>
+<p>La diferencia con pedirle a la IA que escriba el código directamente es que a la implementación llego sabiendo qué voy a hacer.</p>
+<figure>
+<div class="lienzo" tabindex="0" role="region" aria-labelledby="figura-2"><svg viewBox="0 0 830 250" role="img" aria-label="Flujo de VibeWise: Build pregunta mi enfoque, Design resume la propuesta y yo confirmo sin que eso autorice código, Implementation describe el paso y solo cuando lo autorizo la IA escribe el código; lo demostrado y lo que necesita refuerzo se anota en progress.md y el ciclo sigue con la siguiente pieza. Los checkpoints no son paradas obligatorias: según la frecuencia hay más o menos." style="max-width:100%;height:auto;color:inherit" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<defs>
+<marker id="a-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="currentColor" stroke="none"/></marker>
+<marker id="p-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#d97706" stroke="none"/></marker>
+<marker id="l-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#0d9488" stroke="none"/></marker>
+</defs>
+<rect x="20" y="40" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="95.0" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Build</text>
+<text x="95.0" y="81" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">Me pregunta cómo</text>
+<text x="95.0" y="96" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">abordaría el problema</text>
+<rect x="230" y="40" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="305.0" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Design</text>
+<text x="305.0" y="81" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">Resume la propuesta</text>
+<text x="305.0" y="96" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">y sus compromisos</text>
+<rect x="440" y="40" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="515.0" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Implementation</text>
+<text x="515.0" y="81" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">Describe los cambios</text>
+<text x="515.0" y="96" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">de este paso</text>
+<rect x="650" y="40" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.0"/>
+<text x="725.0" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">La IA escribe</text>
+<text x="725.0" y="81" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">el código de ese paso</text>
+<text x="725.0" y="96" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">y explica qué cambió</text>
+<path d="M20 30 V24 H590 V30" stroke="currentColor" stroke-opacity="0.5"/>
+<text x="305" y="16" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">checkpoints (según la frecuencia, más o menos)</text>
+<path d="M170 76 H228" stroke="currentColor" marker-end="url(#a-2)"/>
+<text x="200" y="66" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">respondo</text>
+<path d="M380 76 H438" stroke="currentColor" marker-end="url(#a-2)"/>
+<text x="410" y="66" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">confirmo</text>
+<text x="305" y="130" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">confirmar no autoriza código</text>
+<path d="M590 76 H648" stroke="#d97706" stroke-width="2.5" marker-end="url(#p-2)"/>
+<text x="620" y="66" text-anchor="middle" font-size="11.5" fill="#d97706" stroke="none" font-weight="600">autorizo</text>
+<path d="M725 112 V178" stroke="currentColor" marker-end="url(#a-2)"/>
+<text x="733" y="150" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">anota</text>
+<rect x="630" y="180" width="180" height="50" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="720.0" y="202" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">.vibe-wise/progress.md</text>
+<text x="720.0" y="221" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">lo demostrado y por reforzar</text>
+<path d="M630 205 H90 V114" stroke="#0d9488" stroke-width="2" marker-end="url(#l-2)"/>
+<text x="360" y="196" text-anchor="middle" font-size="11.5" fill="#0d9488" stroke="none" font-weight="600">siguiente pieza</text>
+
+</svg></div>
+<figcaption id="figura-2">El código se escribe solo después de que autorizo ese paso en el checkpoint de Implementation, y lo que quedó demostrado se anota en <code>progress.md</code>. Los checkpoints no son paradas obligatorias: según la frecuencia hay más o menos.</figcaption>
+</figure>
+<h3>Las decisiones de SupportPilot</h3>
+<p>El skill VibeWise, en el proyecto SupportPilot, fue anotando mis sesiones de desarrollo. Así pude ver cómo iba mi aprendizaje y mi proceso de pensamiento al mismo tiempo.</p>
+<p>Por ejemplo, con VibeWise yo decidí usar una tool fija para un agente (una función que el agente puede llamar, como consultar un pedido), en lugar de text-to-SQL, es decir, pedirle al modelo que convierta la pregunta en una consulta SQL. VibeWise anotó que la elegí por ser más segura. La razón concreta quedó en el README del proyecto: el <code>customer_id</code> queda capturado en la herramienta y nunca es un argumento, así que el modelo no puede pedir los pedidos de otro cliente.</p>
+<p>Otra decisión fue dónde viaja la identidad del cliente. En mi documentación de SupportPilot lo dejé escrito así:</p>
+<blockquote>
+<p>"Identity on the connection, not in tool arguments, chosen after a diagram of both channels."</p>
+<p>Traducción: «La identidad va en la conexión, no en los argumentos de la herramienta; se eligió después de un diagrama de ambos canales.»</p>
+<p>Fuente: <a class="enlace" href="https://github.com/asdrubalivan/supportpilot/blob/e5817127325fe1d2d68c23faecb269ca864e6d99/AI_ASSISTED_DEVELOPMENT.md" target="_blank" rel="noopener">AI_ASSISTED_DEVELOPMENT.md de SupportPilot</a></p>
+</blockquote>
+<p>Es decir, que cada vez que el agente llamara a una herramienta, antes habría una validación de la conexión para verificar que estás usando la identidad que se supone que tienes que usar.</p>
+<p>También tuve que decidir sobre un conjunto de datos para probar mis resultados. Esto, por cierto, me hizo decidir sobre usar búsqueda por vectores en vez de usar búsquedas híbridas. Curiosamente, la búsqueda por vectores sola me dejó mejores resultados con inglés normal.</p>
+<p>Esa decisión también quedó en mi documentación:</p>
+<blockquote>
+<p>"…a robustness set (English and English with typos) to decide between hybrid and vector; vector chosen from those results."</p>
+<p>Traducción: «…un set de robustez (inglés e inglés con typos) para decidir entre híbrida y vectores; se eligió vectores a partir de esos resultados.»</p>
+<p>Fuente: <a class="enlace" href="https://github.com/asdrubalivan/supportpilot/blob/e5817127325fe1d2d68c23faecb269ca864e6d99/AI_ASSISTED_DEVELOPMENT.md" target="_blank" rel="noopener">AI_ASSISTED_DEVELOPMENT.md de SupportPilot</a></p>
+</blockquote>
+<p>Además decidí, por otra parte, no tener atajos de autenticación para los evals, las pruebas automáticas con las que mido qué tan bien responde el agente: un modo en el que se confía en el header permitiría suplantar a cualquier cliente si se quedaba encendido. Los evals generan sus propios tokens y pasan por el mismo verificador.</p>
+<h3>Lo que registró</h3>
+<p>Esto quedó anotado en el <code>progress.md</code> de VibeWise sobre mi decisión entre búsqueda híbrida y búsqueda por vectores:</p>
+<pre tabindex="0" role="region" aria-label="Markdown"><code>## Retrieval mode decision
+- Demonstrated: proposed a robustness test set to discriminate methods when golden cases tied; switched to vector citing eval evidence; scoped variants to English for now.
+- Needs reinforcement: justification 'the evals said so' without noting small n.</code></pre>
+<blockquote>
+<p>Traducción:</p>
+<p><strong>Decisión del modo de recuperación</strong></p>
+<ul>
+<li>Demostrado: propuso un set de robustez para discriminar entre métodos cuando los casos golden empataban; cambió a vectores citando la evidencia de los evals; limitó las variantes a inglés por ahora.</li>
+<li>Necesita refuerzo: la justificación «los evals lo dijeron», sin señalar que la muestra (n) es pequeña.</li>
+</ul>
+</blockquote>
+<p>El registro dice que yo propuse un set de robustez cuando los casos golden empataron. La IA escribió el primer borrador de las preguntas y yo las revisé. Pedí versiones en inglés normal y en inglés con typos, para verificar si con typos mi sistema funcionaba.</p>
+<p>Yo esperaba que ganara la búsqueda híbrida, porque además de la parte semántica tiene un componente léxico y no fue así. En inglés normal, la búsqueda por vectores sacó 1.00 de recall@4 y la híbrida 0.81. Con typos empataron en 0.94. Por eso cambié a búsqueda por vectores.</p>
+<p>El registro también anotó que mi justificación fue «los evals lo dijeron», sin decir que la muestra es pequeña: 8 intenciones por cada versión, inglés normal e inglés con typos. En el README quedó escrito que el resultado es orientativo, no concluyente.</p>
+<h3>Dónde se queda corto</h3>
+<p>Un login CSRF es un ataque en el que otra persona hace que tu navegador termine un login que ella inició. En mi documentación de SupportPilot también dejé escrito un límite del modo:</p>
+<blockquote>
+<p>"It also added one thing beyond what I approved: the <code>sp_login</code> cookie, which binds a login to the browser that started it (login CSRF). I understood it only after a walk-through."</p>
+<p>Traducción: «También añadió una cosa más allá de lo que aprobé: la cookie <code>sp_login</code>, que vincula un login con el navegador que lo inició (login CSRF). Solo la entendí después de un walk-through.»</p>
+<p>Fuente: <a class="enlace" href="https://github.com/asdrubalivan/supportpilot/blob/e5817127325fe1d2d68c23faecb269ca864e6d99/AI_ASSISTED_DEVELOPMENT.md" target="_blank" rel="noopener">AI_ASSISTED_DEVELOPMENT.md de SupportPilot</a></p>
+</blockquote>
+<p>La IA añadió una cookie que yo no había aprobado, y solo la pude entender haciendo un walkthrough. Al final me hizo entender lo que hacía la cookie y, aparte de todo, destapó una laguna de conocimiento sobre el login CSRF. La reforcé con una explicación de la double submit cookie, una defensa en la que el mismo valor viaja en una cookie y en la petición, y el servidor exige que coincidan, y con un video.</p>
+<h2 id="seccion-4"><code>/grilling</code>: que me interroguen antes de decidir</h2>
+<p><code>/grilling</code> es un skill de Matt Pocock que te interroga sin descanso hasta llegar a un entendimiento compartido:</p>
+<blockquote>
+<p>"Interview the user relentlessly until you reach a shared understanding."</p>
+<p>Traducción: «Entrevista al usuario sin descanso hasta llegar a un entendimiento compartido.»</p>
+<p>Fuente: <a class="enlace" href="https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/productivity/grilling/SKILL.md" target="_blank" rel="noopener">SKILL.md de grilling</a></p>
+</blockquote>
+<p>En mi experiencia <code>/teach</code> cubre casi todos los casos, pero no siempre. A veces quiero diseñar el contenido de una lección a mi gusto. Ahí me sirve <code>/grilling</code>.</p>
+<p>Un ejemplo es una lección de LeetCode sobre recorridos en grids. Antes de que <code>/teach</code> la construyera, la diseñé con <code>/grilling</code> en vez de dejar que la IA asumiera el diseño: dos rondas de preguntas, cada una con su recomendación. Una de mis decisiones fue distinta de lo que me recomendaron: agregué BFS sobre grid, que no estaba en el plan original.</p>
+<p>Cuando <code>/grilling</code> me interroga sin darme la respuesta, se siente distinto a <code>/teach</code> porque el objetivo es distinto. Con <code>/grilling</code>, el objetivo es llegar a un acuerdo entre la IA y yo, que soy el orquestador. Con <code>/teach</code>, el objetivo es que yo aprenda. Por eso uso <code>/grilling</code> seguido en mis proyectos, pero no tanto con <code>/teach</code> como tal.</p>
+<h2 id="seccion-5">De un vistazo</h2>
+<table role="table">
+<thead role="rowgroup">
+<tr role="row">
+<th role="columnheader" scope="col"><span class="sr-only">Aspecto</span></th>
+<th role="columnheader" scope="col"><code>/teach</code></th>
+<th role="columnheader" scope="col">VibeWise</th>
+<th role="columnheader" scope="col"><code>/grilling</code></th>
+</tr>
+</thead>
+<tbody role="rowgroup">
+<tr role="row">
+<th role="rowheader" scope="row">Para qué lo uso</th>
+<td role="cell" data-label="/teach">Aprender un tema entero</td>
+<td role="cell" data-label="VibeWise">Aprender mientras construyo un proyecto</td>
+<td role="cell" data-label="/grilling">Llegar a un acuerdo entre la IA y yo</td>
+</tr>
+<tr role="row">
+<th role="rowheader" scope="row">Cómo funciona</th>
+<td role="cell" data-label="/teach">Divide el tema en lecciones con fuentes citadas y registra mi progreso</td>
+<td role="cell" data-label="VibeWise">Me pregunta mi enfoque en checkpoints (Build, Design, Implementation) antes de escribir código</td>
+<td role="cell" data-label="/grilling">Me interroga hasta llegar a un entendimiento compartido</td>
+</tr>
+<tr role="row">
+<th role="rowheader" scope="row">Qué deja escrito</th>
+<td role="cell" data-label="/teach">Learning records en el workspace</td>
+<td role="cell" data-label="VibeWise"><code>progress.md</code> en <code>.vibe-wise/</code></td>
+<td role="cell" data-label="/grilling">Nada propio: las decisiones quedan en el <code>CURRICULUM.md</code> (el plan) o el <code>NOTES.md</code> (las notas) del workspace donde lo corro</td>
+</tr>
+<tr role="row">
+<th role="rowheader" scope="row">Dónde lo uso</th>
+<td role="cell" data-label="/teach">AI Engineering, ucraniano y LeetCode</td>
+<td role="cell" data-label="VibeWise">SupportPilot</td>
+<td role="cell" data-label="/grilling">El diseño de una lección y las decisiones de un proyecto</td>
+</tr>
+<tr role="row">
+<th role="rowheader" scope="row">Dónde se queda corto</th>
+<td role="cell" data-label="/teach">No evalúa mi nivel inicial, no agenda repasos y puede inventar</td>
+<td role="cell" data-label="VibeWise">Confirmar no demuestra que entendí</td>
+<td role="cell" data-label="/grilling">Su objetivo es el acuerdo, no que yo aprenda</td>
+</tr>
+</tbody>
+</table>
+<figure>
+<div class="lienzo" tabindex="0" role="region" aria-labelledby="figura-3"><svg viewBox="0 0 780 364" role="img" aria-label="Mapa de las tres herramientas: según lo que necesito, uso VibeWise para entender lo que construyo, /teach para aprender un tema entero o /grilling para acordar un diseño; /grilling diseña las lecciones de /teach y planeo llevar las lagunas de VibeWise a /teach." style="max-width:100%;height:auto;color:inherit" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<defs>
+<marker id="a-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="currentColor" stroke="none"/></marker>
+<marker id="p-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#d97706" stroke="none"/></marker>
+<marker id="l-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#0d9488" stroke="none"/></marker>
+</defs>
+<rect x="290" y="12" width="200" height="38" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="390.0" y="36.0" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">¿Qué necesito?</text>
+<path d="M390 50 V84 H115 V138" stroke="currentColor" marker-end="url(#a-1)"/>
+<path d="M390 50 V138" stroke="currentColor" marker-end="url(#a-1)"/>
+<path d="M390 84 H665 V138" stroke="currentColor" marker-end="url(#a-1)"/>
+<text x="123" y="106" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">Construyo y no entiendo</text>
+<text x="123" y="120" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">lo que escribe la IA</text>
+<text x="398" y="106" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">Quiero aprender</text>
+<text x="398" y="120" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">un tema entero</text>
+<text x="657" y="106" text-anchor="end" font-size="11.5" fill="currentColor" stroke="none">Quiero acordar un</text>
+<text x="657" y="120" text-anchor="end" font-size="11.5" fill="currentColor" stroke="none">diseño con la IA</text>
+<rect x="20" y="140" width="190" height="62" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="115.0" y="162" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">VibeWise</text>
+<text x="115.0" y="181" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">me pregunta mi enfoque</text>
+<rect x="295" y="140" width="190" height="62" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="390.0" y="162" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">/teach</text>
+<text x="390.0" y="181" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">me enseña por lecciones</text>
+<rect x="570" y="140" width="190" height="62" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="665.0" y="162" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">/grilling</text>
+<text x="665.0" y="181" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">me interroga hasta acordar</text>
+<path d="M115 202 V262" stroke="currentColor" marker-end="url(#a-1)"/>
+<path d="M390 202 V262" stroke="currentColor" marker-end="url(#a-1)"/>
+<path d="M665 202 V262" stroke="currentColor" marker-end="url(#a-1)"/>
+<text x="123" y="236" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">deja escrito</text>
+<text x="398" y="236" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">deja escrito</text>
+<text x="673" y="236" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">deja escrito</text>
+<rect x="20" y="264" width="190" height="56" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="115.0" y="286" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">progress.md</text>
+<text x="115.0" y="305" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">lo demostrado y por reforzar</text>
+<rect x="295" y="264" width="190" height="56" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="390.0" y="286" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Learning records</text>
+<text x="390.0" y="305" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">qué fallé y qué ya sé</text>
+<rect x="570" y="264" width="190" height="56" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="665.0" y="286" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">CURRICULUM / NOTES</text>
+<text x="665.0" y="305" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">las decisiones acordadas</text>
+<path d="M570 184 H487" stroke="currentColor" marker-end="url(#a-1)"/>
+<text x="528" y="160" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">diseña</text>
+<text x="528" y="174" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">la lección</text>
+<path d="M212 184 H293" stroke="#d97706" stroke-dasharray="5 4" marker-end="url(#p-1)"/>
+<text x="252" y="160" text-anchor="middle" font-size="11.5" fill="#d97706" stroke="none" font-weight="600">lagunas</text>
+<text x="252" y="174" text-anchor="middle" font-size="11.5" fill="#d97706" stroke="none" font-weight="600">(plan)</text>
+<text x="390" y="350" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">Línea punteada: lo que planeo hacer y todavía no he hecho.</text>
+
+</svg></div>
+<figcaption id="figura-3">Según lo que necesito: VibeWise para entender lo que construyo, <code>/teach</code> para aprender un tema entero y <code>/grilling</code> para acordar un diseño. La línea punteada es lo que planeo hacer y todavía no he hecho.</figcaption>
+</figure>
+<h3>Cuándo elegir cada una</h3>
+<p>Si alguien quiere aprender un tema entero, como RAG, le recomiendo <code>/teach</code>. Te lo divide en varias lecciones y cada lección se adapta a tus objetivos de aprendizaje.</p>
+<p>Si en cambio estás construyendo una app y no entiendes bien lo que la IA te escribe, te recomiendo VibeWise. Así puedes hacer modificaciones a la app bien pensadas, de forma práctica y según tu nivel de aprendizaje.</p>
+<p>Con <code>/teach</code> no se me ocurre un caso donde no lo recomendaría. VibeWise, en cambio, solo lo recomiendo para ingeniería de software. Tengo pendiente probarlo con temas que no sean de ingeniería de software, pero por ahora no lo tengo claro.</p>
+<h2 id="seccion-6">Cómo se combinan</h2>
+<p>Hasta el momento no he pasado nada de VibeWise a <code>/teach</code>, pero es algo que planeo hacer en el futuro. ¿Cómo lo haría? Las lagunas que VibeWise anota en SupportPilot, como la diferencia entre HttpOnly y SameSite, que salieron mientras construía el login, me permiten crear un curso separado en <code>/teach</code> que me permite trabajarlas con más calma. Son dos atributos de una cookie: HttpOnly impide que el JavaScript de la página la lea, y SameSite controla si el navegador la envía en peticiones que vienen de otros sitios.</p>
+<p>¿Qué haría en ese caso? Le diría: «<code>/teach</code>, créame un mini taller en el que pueda aprender la diferencia entre HttpOnly y SameSite, de forma que lo aprenda en una hora», por ejemplo.</p>
+<h2 id="seccion-7">Si quieres probarlas</h2>
+<p>Si quieres instalarlas, estos son los comandos que aparecen en sus README:</p>
+<pre tabindex="0" role="region" aria-label="Terminal"><code># /teach y /grilling (skills de Matt Pocock)
+claude plugin install mattpocock-skills@claude-plugins-official
+
+# VibeWise (de Noah Kim)
+/plugin install vibe-wise@anthropic-plugin-directory</code></pre>
+<p>Fuente: <a class="enlace" href="https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/README.md" target="_blank" rel="noopener">README de mattpocock/skills</a> y <a class="enlace" href="https://github.com/nykooi1/vibe-wise/blob/eefb53df406ab89e31444684ff32c1df205221f8/README.md" target="_blank" rel="noopener">README de VibeWise</a></p>
+<h2 id="seccion-8">Cierre</h2>
+<p class="cierre">Si las pruebas, me encantaría saber qué usas tú para aprender. Y si te gustaría un post con más detalle sobre cómo decidí entre búsqueda por vectores y búsqueda híbrida, házmelo saber.</p>
+<footer class="pie">
+<p>Asdrúbal Suárez · Ingeniero de Backend Senior</p>
+<a class="boton" href="/es">Ver perfil y contacto</a>
+</footer>
+</div>
+</article>
+    </main>
+    <script src="/cursor.js" defer></script>
+    <script src="/articulo.js" defer></script>
+</body>
+
+</html>
