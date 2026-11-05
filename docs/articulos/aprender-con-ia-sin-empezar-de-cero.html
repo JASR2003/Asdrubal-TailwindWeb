@@ -82,7 +82,7 @@
 <h2 id="seccion-1">Antes de las herramientas: fluidez y almacenamiento</h2>
 <p>Sentir que entiendes no es entender. Es la idea que más pesa en cómo aprendo, y viene de la documentación de <code>/teach</code>:</p>
 <blockquote>
-<p>"Fluency can give the user an illusory sense of mastery, but storage strength is the real goal."</p>
+<p lang="en">"Fluency can give the user an illusory sense of mastery, but storage strength is the real goal."</p>
 <p>Traducción: «La fluidez puede darle al usuario una sensación ilusoria de dominio, pero la meta real es la fuerza de almacenamiento.»</p>
 <p>Fuente: <a class="enlace" href="https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/productivity/teach/SKILL.md" target="_blank" rel="noopener">SKILL.md de teach</a></p>
 </blockquote>
@@ -94,7 +94,7 @@
 <p>Si abro un workspace de <code>/teach</code>, veo varias cosas. Veo los learning records, que son registros de aprendizaje y muestran mi progreso como aprendiz. También veo la lista de lecciones, numeradas desde la 0001.</p>
 <p>Algo muy importante para mí es que <code>/teach</code> cita fuentes en cada lección. Antes de enseñar, busca recursos de alta confianza y comprueba con ellos que lo que va a decir es verdad. Eso reduce las alucinaciones. Lo dice su documentación:</p>
 <blockquote>
-<p>"It does not teach from what the model already knows. It treats parametric knowledge as untrusted. Before it teaches, it finds high-trust resources, records them in <code>RESOURCES.md</code>, and cites them inside every lesson."</p>
+<p lang="en">"It does not teach from what the model already knows. It treats parametric knowledge as untrusted. Before it teaches, it finds high-trust resources, records them in <code>RESOURCES.md</code>, and cites them inside every lesson."</p>
 <p>Traducción: «No enseña a partir de lo que el modelo ya sabe. Trata el conocimiento paramétrico como no confiable. Antes de enseñar, busca recursos de alta confianza, los registra en <code>RESOURCES.md</code> y los cita dentro de cada lección.»</p>
 <p>Fuente: <a class="enlace" href="https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/docs/productivity/teach.md" target="_blank" rel="noopener">docs de teach</a></p>
 </blockquote>
@@ -156,7 +156,7 @@
 <h3>Dónde se queda corto y cómo lo cubro</h3>
 <p><code>/teach</code> se queda corto en tres cosas, y las tres aparecen en su documentación. La primera es que no evalúa tu nivel inicial:</p>
 <blockquote>
-<p>"There is no assessment step. <code>teach</code> infers your level from the mission and the learning records, and in session one there are no learning records."</p>
+<p lang="en">"There is no assessment step. <code>teach</code> infers your level from the mission and the learning records, and in session one there are no learning records."</p>
 <p>Traducción: «No hay un paso de evaluación. <code>teach</code> deduce tu nivel a partir de la misión y de los learning records, y en la primera sesión no hay learning records.»</p>
 <p>Fuente: <a class="enlace" href="https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/docs/productivity/teach.md" target="_blank" rel="noopener">docs de teach</a></p>
 </blockquote>
@@ -172,14 +172,14 @@
 <h3>Qué es</h3>
 <p>VibeWise es un plugin de Claude Code, creado por Noah Kim, para aprender mientras la IA escribe el código que tú diseñas. Su README lo dice así:</p>
 <blockquote>
-<p>"A plugin for Claude Code and Codex that puts learning first and keeps you in control while AI writes the code you designed. The AI asks for your approach first, helps you examine tradeoffs, and explains unfamiliar concepts."</p>
+<p lang="en">"A plugin for Claude Code and Codex that puts learning first and keeps you in control while AI writes the code you designed. The AI asks for your approach first, helps you examine tradeoffs, and explains unfamiliar concepts."</p>
 <p>Traducción: «Un plugin para Claude Code y Codex que pone el aprendizaje primero y te mantiene en control mientras la IA escribe el código que tú diseñaste. La IA te pide primero tu enfoque, te ayuda a examinar las ventajas y desventajas de cada opción y explica los conceptos que no conoces.»</p>
 <p>Fuente: <a class="enlace" href="https://github.com/nykooi1/vibe-wise/blob/eefb53df406ab89e31444684ff32c1df205221f8/README.md" target="_blank" rel="noopener">README de VibeWise</a></p>
 </blockquote>
 <p>La primera vez que entro a VibeWise, le doy <code>/vibe-wise:learn</code> dentro del proyecto. Primero me pregunta qué estoy haciendo, y después mi nivel como programador: principiante, intermedio o avanzado. Por lo general le digo que soy avanzado, pero le describo en detalle dónde tengo gaps. En SupportPilot le dije que soy avanzado en programación y que quería aprender RAG mientras construía. Lo planteé así a propósito, para que el agente me retara y evaluara mejor mis conocimientos de RAG, que quería repasar. También elegí la frecuencia Light, porque quería una entrega ese mismo día.</p>
 <p>Después, cada vez que hago una iteración, VibeWise me obliga a construir algo y me guía con tres tipos de checkpoint, que no son paradas obligatorias:</p>
 <blockquote>
-<p>"Build checkpoint: ask how the learner would approach the problem."</p>
+<p lang="en">"Build checkpoint: ask how the learner would approach the problem."</p>
 <p>Traducción: «Checkpoint de Build: pregunta cómo abordaría el problema quien está aprendiendo.»</p>
 <p>Fuente: <a class="enlace" href="https://github.com/nykooi1/vibe-wise/blob/eefb53df406ab89e31444684ff32c1df205221f8/skills/learn/behavior.md" target="_blank" rel="noopener">behavior.md de VibeWise</a></p>
 </blockquote>
@@ -233,7 +233,7 @@
 <p>Por ejemplo, con VibeWise yo decidí usar una tool fija para un agente (una función que el agente puede llamar, como consultar un pedido), en lugar de text-to-SQL, es decir, pedirle al modelo que convierta la pregunta en una consulta SQL. VibeWise anotó que la elegí por ser más segura. La razón concreta quedó en el README del proyecto: el <code>customer_id</code> queda capturado en la herramienta y nunca es un argumento, así que el modelo no puede pedir los pedidos de otro cliente.</p>
 <p>Otra decisión fue dónde viaja la identidad del cliente. En mi documentación de SupportPilot lo dejé escrito así:</p>
 <blockquote>
-<p>"Identity on the connection, not in tool arguments, chosen after a diagram of both channels."</p>
+<p lang="en">"Identity on the connection, not in tool arguments, chosen after a diagram of both channels."</p>
 <p>Traducción: «La identidad va en la conexión, no en los argumentos de la herramienta; se eligió después de un diagrama de ambos canales.»</p>
 <p>Fuente: <a class="enlace" href="https://github.com/asdrubalivan/supportpilot/blob/e5817127325fe1d2d68c23faecb269ca864e6d99/AI_ASSISTED_DEVELOPMENT.md" target="_blank" rel="noopener">AI_ASSISTED_DEVELOPMENT.md de SupportPilot</a></p>
 </blockquote>
@@ -241,14 +241,14 @@
 <p>También tuve que decidir sobre un conjunto de datos para probar mis resultados. Esto, por cierto, me hizo decidir sobre usar búsqueda por vectores en vez de usar búsquedas híbridas. Curiosamente, la búsqueda por vectores sola me dejó mejores resultados con inglés normal.</p>
 <p>Esa decisión también quedó en mi documentación:</p>
 <blockquote>
-<p>"…a robustness set (English and English with typos) to decide between hybrid and vector; vector chosen from those results."</p>
+<p lang="en">"…a robustness set (English and English with typos) to decide between hybrid and vector; vector chosen from those results."</p>
 <p>Traducción: «…un set de robustez (inglés e inglés con typos) para decidir entre híbrida y vectores; se eligió vectores a partir de esos resultados.»</p>
 <p>Fuente: <a class="enlace" href="https://github.com/asdrubalivan/supportpilot/blob/e5817127325fe1d2d68c23faecb269ca864e6d99/AI_ASSISTED_DEVELOPMENT.md" target="_blank" rel="noopener">AI_ASSISTED_DEVELOPMENT.md de SupportPilot</a></p>
 </blockquote>
 <p>Además decidí, por otra parte, no tener atajos de autenticación para los evals, las pruebas automáticas con las que mido qué tan bien responde el agente: un modo en el que se confía en el header permitiría suplantar a cualquier cliente si se quedaba encendido. Los evals generan sus propios tokens y pasan por el mismo verificador.</p>
 <h3>Lo que registró</h3>
 <p>Esto quedó anotado en el <code>progress.md</code> de VibeWise sobre mi decisión entre búsqueda híbrida y búsqueda por vectores:</p>
-<pre tabindex="0" role="region" aria-label="Markdown"><code>## Retrieval mode decision
+<pre lang="en" tabindex="0" role="region" aria-label="Markdown"><code>## Retrieval mode decision
 - Demonstrated: proposed a robustness test set to discriminate methods when golden cases tied; switched to vector citing eval evidence; scoped variants to English for now.
 - Needs reinforcement: justification 'the evals said so' without noting small n.</code></pre>
 <blockquote>
@@ -265,7 +265,7 @@
 <h3>Dónde se queda corto</h3>
 <p>Un login CSRF es un ataque en el que otra persona hace que tu navegador termine un login que ella inició. En mi documentación de SupportPilot también dejé escrito un límite del modo:</p>
 <blockquote>
-<p>"It also added one thing beyond what I approved: the <code>sp_login</code> cookie, which binds a login to the browser that started it (login CSRF). I understood it only after a walk-through."</p>
+<p lang="en">"It also added one thing beyond what I approved: the <code>sp_login</code> cookie, which binds a login to the browser that started it (login CSRF). I understood it only after a walk-through."</p>
 <p>Traducción: «También añadió una cosa más allá de lo que aprobé: la cookie <code>sp_login</code>, que vincula un login con el navegador que lo inició (login CSRF). Solo la entendí después de un walk-through.»</p>
 <p>Fuente: <a class="enlace" href="https://github.com/asdrubalivan/supportpilot/blob/e5817127325fe1d2d68c23faecb269ca864e6d99/AI_ASSISTED_DEVELOPMENT.md" target="_blank" rel="noopener">AI_ASSISTED_DEVELOPMENT.md de SupportPilot</a></p>
 </blockquote>
@@ -273,7 +273,7 @@
 <h2 id="seccion-4"><code>/grilling</code>: que me interroguen antes de decidir</h2>
 <p><code>/grilling</code> es un skill de Matt Pocock que te interroga sin descanso hasta llegar a un entendimiento compartido:</p>
 <blockquote>
-<p>"Interview the user relentlessly until you reach a shared understanding."</p>
+<p lang="en">"Interview the user relentlessly until you reach a shared understanding."</p>
 <p>Traducción: «Entrevista al usuario sin descanso hasta llegar a un entendimiento compartido.»</p>
 <p>Fuente: <a class="enlace" href="https://github.com/mattpocock/skills/blob/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/productivity/grilling/SKILL.md" target="_blank" rel="noopener">SKILL.md de grilling</a></p>
 </blockquote>
