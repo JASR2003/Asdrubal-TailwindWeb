@@ -102,7 +102,7 @@ La paleta es un azul nocturno casi monocromático, con un único cian luminoso c
 - **Signal Cyan** (`signal-cyan`): sección e idioma activos, hover de navegación, enlaces a entidades, títulos de entrada en hover y texto de chips.
 
 ### Neutral
-- **Panel Midnight** (`panel-midnight`): columna fija de identidad desde tablet y barra de contacto en móvil.
+- **Panel Midnight** (`panel-midnight`): columna fija de identidad desde tablet y fondo de la barra de navegación móvil cuando queda fija.
 - **Console Navy** (`console-navy`): borde exterior del fondo radial de la página.
 - **Glow Blue** (`glow-blue`): centro más claro del fondo radial.
 - **Hover Slate** (`hover-slate`): relleno de las entradas al pasar el cursor.
@@ -137,9 +137,11 @@ La paleta es un azul nocturno casi monocromático, con un único cian luminoso c
 
 ## Layout
 
-Hay una retícula de 12 columnas. Desde 768px, la identidad y la navegación ocupan 5 columnas fijas a pantalla completa y el contenido ocupa las otras 7. En móvil, la cabecera se queda arriba, con la altura de su contenido, y el contenido se desplaza debajo, a todo el ancho con 24px de margen lateral; el texto se desvanece en sus primeros 24px en lugar de cortarse contra la cabecera. En móviles de hasta 700px de alto, la cabecera compacta sus espacios para que la navegación quepa dentro. Una barra opaca en Panel Midnight mantiene el par de botones de contacto fijo abajo; en esas pantallas sustituye al par de la portada. En ventanas de hasta 480px de alto la barra se oculta y vuelve el par de la portada.
+Hay una retícula de 12 columnas. Desde 768px, la identidad y la navegación ocupan 5 columnas fijas a pantalla completa y el contenido ocupa las otras 7. En móvil, la página se desplaza entera (no hay scroll interno en `main`), con 24px de margen lateral, y el fondo radial es una capa fija del tamaño de la pantalla para que conserve su brillo.
 
-Con texto ampliado en móvil (variante `texto-grande`: la ventana mide menos de 20rem), la cabecera deja de ser fija y se desplaza con la página, sus márgenes se reducen y la barra cede su lugar al par de la portada, a todo el ancho.
+La cabecera móvil es colapsable. En reposo mide unos 120px (12px de aire sobre el logo, logo, cargo y una fila de navegación con MENÚ a la izquierda e idioma a la derecha); el espacio superior es `max(0.75rem, env(safe-area-inset-top))`. Al bajar, el logo y el cargo salen con la página y la fila de navegación queda fija como una barra de 44px, la altura de una zona táctil. Esa barra se oculta al seguir bajando y reaparece al subir 8px o más, con fondo Panel Midnight y la capa flotante. Se mantiene a la vista mientras el menú está abierto o el foco de teclado está en ella. Tras saltar a una sección con el menú, queda oculta para no tapar el título. `scroll-padding-top` de 3.5rem evita que el foco quede bajo la barra. Con `prefers-reduced-motion` la barra aparece y desaparece sin animación. La cabecera ocupa su sitio en el flujo, así que ocultarla no mueve el contenido. Sin JavaScript, la cabecera se desplaza con la página. En móvil no hay barra de contacto fija: el par de botones de contacto está al final de la portada, con un enlace a Experiencia, y se repite al final de la página. La X de @AsdrubalCodes va dentro del panel del menú, con la etiqueta "X (@AsdrubalCodes)", para que no parezca un botón de cerrar junto a MENÚ.
+
+Con texto ampliado en móvil (variante `texto-grande`: la ventana mide menos de 20rem), la cabecera no se fija: se desplaza con la página, sus márgenes se reducen y el par de contacto de la portada ocupa todo el ancho.
 
 El ritmo es generoso y vertical: 48px de relleno en cada sección y 40px entre bloques. Las entradas se apilan en una sola columna de lectura. La cuadrícula de logos de habilidades es la única excepción densa. El lema se oculta por debajo de 1024px.
 

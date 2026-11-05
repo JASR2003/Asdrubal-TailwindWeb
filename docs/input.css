@@ -30,6 +30,86 @@
     main li a {
       padding-block: 0.5rem;
     }
+
+    /* Enlaces del menú: zona de 44 px de alto sin cambiar el espacio entre filas */
+    #mobile-menu li a {
+      padding-block: 0.5rem;
+      margin-block: -0.5rem;
+    }
+  }
+
+  #close-button {
+    min-width: 2.75rem;
+  }
+
+  /* Cabecera móvil colapsable. nav.js marca la cabecera con data-colapsable y mide --marca-h
+     (todo lo que hay encima de la fila de navegación). Con top negativo, el logo y el cargo se van
+     con la página y la fila queda fija, como una barra de 44 px. Sin JS la cabecera se desplaza
+     con la página. data-oculta la esconde al bajar; data-pegada le da fondo opaco al quedar fija.
+     No cambia la altura del flujo, así que no hay saltos de layout. */
+  @media (max-width: 767px) {
+    html:has(.cabecera) {
+      /* Que el foco por teclado no quede bajo la barra */
+      scroll-padding-top: 3.5rem;
+    }
+
+    /* Los enlaces del menú saltan a la sección con su propio margen interior de 3rem */
+    main > section {
+      scroll-margin-top: -3.5rem;
+    }
+
+    /* Con scroll de página el degradado del fondo se estiraría a lo largo de todo el contenido y
+       perdería su brillo. Una capa fija lo mantiene del tamaño de la pantalla. */
+    body:has(.cabecera) {
+      background-image: none;
+      background-color: theme('colors.blue-back');
+    }
+
+    body:has(.cabecera)::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image: theme('backgroundImage.custom-radial');
+    }
+
+    .cabecera[data-colapsable] {
+      position: sticky;
+      top: calc(var(--marca-h, 0px) * -1);
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms;
+    }
+
+    .cabecera[data-pegada] {
+      background-color: theme('colors.blue-dark');
+    }
+
+    /* El foco de teclado o el menú abierto la mantienen a la vista */
+    .cabecera[data-oculta]:not(:has(:focus-visible)) {
+      transform: translateY(-100%);
+    }
+  }
+
+  @media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+    .cabecera[data-colapsable] {
+      transition: background-color 200ms;
+    }
+  }
+
+  /* Texto grande: la cabecera se desplaza con la página, sin fijarse */
+  @container (max-width: 19.9rem) {
+    .cabecera[data-colapsable] {
+      position: relative;
+      top: auto;
+    }
+
+    .cabecera[data-pegada] {
+      background-color: transparent;
+    }
+
+    .cabecera[data-oculta]:not(:has(:focus-visible)) {
+      transform: none;
+    }
   }
 
   .articulo {
