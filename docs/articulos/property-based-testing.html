@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property-based testing me encontró un bug con números somalíes que yo ni sabía que existían | Asdrúbal Suárez</title>
-    <meta name="description" content="Una librería de testing me encontró un bug con números somalíes. Yo ni sabía que esos dígitos existían.">
+    <title>Pruebas basadas en propiedades en Python: un bug con números somalíes</title>
+    <meta name="description" content="Pruebas basadas en propiedades con Hypothesis (Python) y fast-check (TypeScript): dos ejemplos y un bug con números somalíes que no habría escrito a mano.">
     <meta name="robots" content="max-image-preview:large">
     <meta name="theme-color" content="#020f1e">
     <link rel="canonical" href="https://asdrubalivan.com/articulos/property-based-testing">
@@ -15,25 +15,26 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Asdrúbal Suárez">
     <meta property="og:title" content="Property-based testing me encontró un bug con números somalíes que yo ni sabía que existían">
-    <meta property="og:description" content="Una librería de testing me encontró un bug con números somalíes. Yo ni sabía que esos dígitos existían.">
+    <meta property="og:description" content="Pruebas basadas en propiedades con Hypothesis (Python) y fast-check (TypeScript): dos ejemplos y un bug con números somalíes que no habría escrito a mano.">
     <meta property="og:url" content="https://asdrubalivan.com/articulos/property-based-testing">
     <meta property="og:locale" content="es_LA">
     <meta property="og:image" content="https://asdrubalivan.com/png/og-image-es.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="article:published_time" content="2026-11-04">
+    <meta property="article:modified_time" content="2026-11-04">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@AsdrubalCodes">
     <meta name="twitter:creator" content="@AsdrubalCodes">
     <meta name="twitter:title" content="Property-based testing me encontró un bug con números somalíes que yo ni sabía que existían">
-    <meta name="twitter:description" content="Una librería de testing me encontró un bug con números somalíes. Yo ni sabía que esos dígitos existían.">
+    <meta name="twitter:description" content="Pruebas basadas en propiedades con Hypothesis (Python) y fast-check (TypeScript): dos ejemplos y un bug con números somalíes que no habría escrito a mano.">
     <meta name="twitter:image" content="https://asdrubalivan.com/png/og-image-es.png">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/png" sizes="192x192" href="/png/favicon-192.png">
     <link rel="apple-touch-icon" href="/png/apple-touch-icon.png">
     <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link href="/output.css" rel="stylesheet">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Property-based testing me encontró un bug con números somalíes que yo ni sabía que existían","description":"Una librería de testing me encontró un bug con números somalíes. Yo ni sabía que esos dígitos existían.","datePublished":"2026-11-04","inLanguage":"es","url":"https://asdrubalivan.com/articulos/property-based-testing","author":{"@id":"https://asdrubalivan.com/#person","@type":"Person","name":"Asdrúbal Suárez","url":"https://asdrubalivan.com/"},"sameAs":["https://www.linkedin.com/pulse/property-based-testing-me-encontr%C3%B3-un-bug-con-n%C3%BAmeros-asdr%C3%BAbal-su%C3%A1rez-sgoyc","https://x.com/AsdrubalCodes/status/2118015250947850743"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","@id":"https://asdrubalivan.com/articulos/property-based-testing#article","mainEntityOfPage":"https://asdrubalivan.com/articulos/property-based-testing","headline":"Property-based testing me encontró un bug con números somalíes que yo ni sabía que existían","description":"Pruebas basadas en propiedades con Hypothesis (Python) y fast-check (TypeScript): dos ejemplos y un bug con números somalíes que no habría escrito a mano.","image":"https://asdrubalivan.com/png/og-image-es.png","datePublished":"2026-11-04","dateModified":"2026-11-04","inLanguage":"es","url":"https://asdrubalivan.com/articulos/property-based-testing","isPartOf":{"@id":"https://asdrubalivan.com/#website"},"author":{"@id":"https://asdrubalivan.com/#person","@type":"Person","name":"Asdrúbal Suárez","url":"https://asdrubalivan.com/"},"publisher":{"@id":"https://asdrubalivan.com/#person"},"sameAs":["https://www.linkedin.com/pulse/property-based-testing-me-encontr%C3%B3-un-bug-con-n%C3%BAmeros-asdr%C3%BAbal-su%C3%A1rez-sgoyc","https://x.com/AsdrubalCodes/status/2118015250947850743"],"workTranslation":{"@id":"https://asdrubalivan.com/articles/property-based-testing#article"}}</script>
 </head>
 
 <body class="bg-custom-radial bg-fixed text-gray-txt font-montserrat min-w-[320px]">
@@ -117,6 +118,14 @@ Shrunk 36 time(s)</code></pre>
   return precio - precio * (p / 100);
 }</code></pre>
 <p>Con eso la propiedad pasa.</p>
+<p>Nota del 4 de noviembre de 2026: aquí dije "validar", pero ese código solo limita el valor. <code>aplicarDescuento(100, 101)</code> devuelve <code>0</code>, así que la propiedad pasa y la tienda regala el producto sin avisar. Validar de verdad es rechazar el dato, igual que en el ejemplo de Python:</p>
+<pre tabindex="0" role="region" aria-label="TypeScript"><code>function aplicarDescuento(precio: number, porcentaje: number): number {
+  if (!(porcentaje &gt;= 0 &amp;&amp; porcentaje &lt;= 100)) {
+    throw new RangeError("El porcentaje debe estar entre 0 y 100");
+  }
+  return precio - precio * (porcentaje / 100);
+}</code></pre>
+<p>Y al test le digo que los porcentajes estén entre 0 y 100 con <code>fc.integer({ min: 0, max: 100 })</code>. Con eso pasa.</p>
 <p class="cierre">Me pasó validando numerales en Python. Hypothesis encontró que el sistema fallaba con números somalíes, unos dígitos que yo ni sabía que existían. Ese caso no se me habría ocurrido escribirlo a mano.</p>
 <footer class="pie">
 <p>Asdrúbal Suárez · Ingeniero de Backend Senior</p>

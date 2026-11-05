@@ -1,7 +1,9 @@
 ---
 titulo: Property-based testing found me a bug with Somali numerals I didn't even know existed
+titulo_seo: Property-Based Testing in Python: A Bug with Somali Numerals
 fecha: 2026-11-04
-descripcion: A testing library found me a bug with Somali numerals. I didn't even know those numerals existed.
+actualizado: 2026-11-04
+descripcion: Property-based testing with Hypothesis (Python) and fast-check (TypeScript): two examples and a Somali numerals bug I would never have written by hand.
 destacado: Somali numerals
 secciones: Python, TypeScript
 link_linkedin: https://www.linkedin.com/pulse/property-based-testing-me-encontr%C3%B3-un-bug-con-n%C3%BAmeros-asdr%C3%BAbal-su%C3%A1rez-sgoyc
@@ -119,5 +121,18 @@ function applyDiscount(price: number, percentage: number): number {
 ```
 
 With that, the property passes.
+
+Note from November 4, 2026: I said "validate" here, but that code only clamps the value. `applyDiscount(100, 101)` returns `0`, so the property passes and the store gives the product away without warning. Actually validating means rejecting the bad value, as in the Python example:
+
+```ts
+function applyDiscount(price: number, percentage: number): number {
+  if (!(percentage >= 0 && percentage <= 100)) {
+    throw new RangeError("The percentage must be between 0 and 100");
+  }
+  return price - price * (percentage / 100);
+}
+```
+
+And with `fc.integer({ min: 0, max: 100 })` I tell the test that percentages must be between 0 and 100. With that, it passes.
 
 Something like this happened to me while validating numerals in Python. Hypothesis found that the system failed with Somali numerals, which I didn't even know existed. I would never have thought to write that case by hand.
