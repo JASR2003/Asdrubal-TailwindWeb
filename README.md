@@ -13,6 +13,7 @@ Sitio de [asdrubalivan.com](https://asdrubalivan.com), publicado desde `docs/`.
 
 El build entiende párrafos, títulos `##` (secciones, con entrada en la navegación) y `###` (subtítulos; en un artículo sin `##`, los `###` son las secciones), citas en bloque (`>`), listas con viñetas (`- `), tablas, enlaces `[texto](url)`, `**negrita**`, `` `código` `` en línea y bloques de código (`python`, `ts`, `bash`, `markdown`; `text` es la salida de un test que falla y se muestra con relleno cian).
 
+- **Fragmentos en otro idioma:** para que un lector de pantalla los pronuncie bien, pon `{en}` (o el código de dos letras que corresponda) al inicio del párrafo, por ejemplo `> {en} "Fluency can give…"`, o tras el lenguaje de un bloque de código: ` ```markdown {en} `. El marcador no se muestra y el build emite `lang="en"` en ese bloque; si coincide con el idioma de la página, no emite nada. Marca citas y bloques corridos, no nombres de herramientas, términos sueltos ni código en línea.
 - **Figuras:** `![alt](archivo.svg)` seguido de una línea en cursiva con el pie. El SVG vive en `content/articulos/<slug>/`, se incrusta en la página (para que `currentColor` tome el color del texto) y debe traer `role="img"` y `aria-label`, que es su descripción accesible. En pantallas angostas se desplaza dentro de su marco.
 - **Imagen social propia:** copia la imagen (1200×630) a `docs/png/` y escribe su nombre en `imagen_social` en el frontmatter. Sin esa clave se usa la del idioma.
 

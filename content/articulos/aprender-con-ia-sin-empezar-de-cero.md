@@ -4,7 +4,7 @@ titulo_seo: Aprender con IA sin empezar de cero: /teach, VibeWise y /grilling
 fecha: 2026-11-05
 descripcion: Cómo uso /teach, VibeWise y /grilling para aprender con IA: qué hace cada una, mis ejemplos y dónde se queda corta.
 destacado: sin empezar de cero
-secciones: Fluidez, Teach, VibeWise, Grilling, De un vistazo, Cómo se combinan, Instalar, Cierre
+secciones: Fluidez, Teach, VibeWise, Grilling, De un vistazo, Cómo se combinan, Instalar, Cierre, Glosario
 imagen_social: og-image-aprender-con-ia-sin-empezar-de-cero.png
 link_linkedin:
 link_x:
@@ -18,30 +18,13 @@ Te cuento cómo hago para aprender de verdad con IA y no solo sentir que entiend
 
 Este artículo es para ingenieros de software que ya programan con IA y quieren aprender de verdad con ella. También es para quien, como yo, quiere pasar a AI Engineering. Asume que conoces Claude Code y RAG a nivel básico.
 
-Cuento cómo uso tres skills: `/teach`, `/grilling` y VibeWise, con mis propios ejemplos. No es una guía de instalación: al final dejo los comandos de sus README. Cuento lo que me ha funcionado a mí y dónde se queda corto.
-
-### Glosario rápido
-
-- **Skill:** instrucciones empaquetadas que le dan a Claude Code una forma de trabajar para un tipo de tarea; se invoca con un comando como `/teach`.
-- **`/teach`:** skill de Matt Pocock que arma una carpeta por tema y te enseña en lecciones cortas, con fuentes citadas.
-- **VibeWise:** plugin de Claude Code, de Noah Kim, para aprender mientras la IA escribe el código que tú diseñas: antes de cada pieza te pide tu enfoque.
-- **`/grilling`:** skill de Matt Pocock que te interroga hasta llegar a un entendimiento compartido.
-- **Workspace:** la carpeta de `/teach` dedicada a un solo tema, con sus lecciones y sus registros.
-- **Learning record:** archivo donde `/teach` anota lo que fallaste, lo que ya sabes y lo que aprendiste, y que usa en las siguientes lecciones.
-- **Checkpoint (Build, Design, Implementation):** momento en que VibeWise se detiene a preguntarte antes de seguir. En Build te pregunta cómo abordarías el problema, en Design te resume la propuesta y en Implementation te pide autorizar el código de ese paso.
-- **Frecuencia (Light, Normal, Frequent):** cuántas veces te frena VibeWise con checkpoints. Light solo en las decisiones grandes y Frequent también en las pequeñas.
-- **`progress.md`:** archivo que VibeWise guarda en la carpeta `.vibe-wise/` del proyecto, con lo que fuiste demostrando, decidiendo y reforzando.
-- **SupportPilot:** proyecto mío, público en GitHub: un agente de soporte que responde preguntas sobre las políticas de una empresa ficticia, con citas, y consulta pedidos.
-- **Búsqueda por vectores y búsqueda híbrida:** la primera busca por significado, comparando representaciones numéricas del texto; la segunda la combina con una búsqueda por palabras exactas.
-- **Caso golden:** pregunta de prueba cuya respuesta o fuentes esperadas ya están definidas.
-- **Intención:** lo que quiere saber un cliente en SupportPilot; cada intención de mis pruebas tiene una versión en inglés normal y otra con typos.
-- **Técnica de Feynman:** estudiar explicando el tema con palabras sencillas, como si se lo contaras a alguien que no sabe, para encontrar dónde no lo entiendes.
+Cuento cómo uso tres skills: `/teach`, `/grilling` y VibeWise, con mis propios ejemplos. No es una guía de instalación: al final dejo los comandos de sus README. Cuento lo que me ha funcionado a mí y dónde se queda corto. Los términos que uso están en el glosario del final.
 
 ## Antes de las herramientas: fluidez y almacenamiento
 
 Sentir que entiendes no es entender. Es la idea que más pesa en cómo aprendo, y viene de la documentación de `/teach`:
 
-> "Fluency can give the user an illusory sense of mastery, but storage strength is the real goal."
+> {en} "Fluency can give the user an illusory sense of mastery, but storage strength is the real goal."
 >
 > Traducción: «La fluidez puede darle al usuario una sensación ilusoria de dominio, pero la meta real es la fuerza de almacenamiento.»
 >
@@ -61,7 +44,7 @@ Si abro un workspace de `/teach`, veo varias cosas. Veo los learning records, qu
 
 Algo muy importante para mí es que `/teach` cita fuentes en cada lección. Antes de enseñar, busca recursos de alta confianza y comprueba con ellos que lo que va a decir es verdad. Eso reduce las alucinaciones. Lo dice su documentación:
 
-> "It does not teach from what the model already knows. It treats parametric knowledge as untrusted. Before it teaches, it finds high-trust resources, records them in `RESOURCES.md`, and cites them inside every lesson."
+> {en} "It does not teach from what the model already knows. It treats parametric knowledge as untrusted. Before it teaches, it finds high-trust resources, records them in `RESOURCES.md`, and cites them inside every lesson."
 >
 > Traducción: «No enseña a partir de lo que el modelo ya sabe. Trata el conocimiento paramétrico como no confiable. Antes de enseñar, busca recursos de alta confianza, los registra en `RESOURCES.md` y los cita dentro de cada lección.»
 >
@@ -105,7 +88,7 @@ Me sirve que quede escrito lo que corregí, porque así `/teach` no me repite la
 
 `/teach` se queda corto en tres cosas, y las tres aparecen en su documentación. La primera es que no evalúa tu nivel inicial:
 
-> "There is no assessment step. `teach` infers your level from the mission and the learning records, and in session one there are no learning records."
+> {en} "There is no assessment step. `teach` infers your level from the mission and the learning records, and in session one there are no learning records."
 >
 > Traducción: «No hay un paso de evaluación. `teach` deduce tu nivel a partir de la misión y de los learning records, y en la primera sesión no hay learning records.»
 >
@@ -129,7 +112,7 @@ Y quiero dejar algo claro: el humano no se reemplaza. Esto es un complemento. Pa
 
 VibeWise es un plugin de Claude Code, creado por Noah Kim, para aprender mientras la IA escribe el código que tú diseñas. Su README lo dice así:
 
-> "A plugin for Claude Code and Codex that puts learning first and keeps you in control while AI writes the code you designed. The AI asks for your approach first, helps you examine tradeoffs, and explains unfamiliar concepts."
+> {en} "A plugin for Claude Code and Codex that puts learning first and keeps you in control while AI writes the code you designed. The AI asks for your approach first, helps you examine tradeoffs, and explains unfamiliar concepts."
 >
 > Traducción: «Un plugin para Claude Code y Codex que pone el aprendizaje primero y te mantiene en control mientras la IA escribe el código que tú diseñaste. La IA te pide primero tu enfoque, te ayuda a examinar las ventajas y desventajas de cada opción y explica los conceptos que no conoces.»
 >
@@ -139,7 +122,7 @@ La primera vez que entro a VibeWise, le doy `/vibe-wise:learn` dentro del proyec
 
 Después, cada vez que hago una iteración, VibeWise me obliga a construir algo y me guía con tres tipos de checkpoint, que no son paradas obligatorias:
 
-> "Build checkpoint: ask how the learner would approach the problem."
+> {en} "Build checkpoint: ask how the learner would approach the problem."
 >
 > Traducción: «Checkpoint de Build: pregunta cómo abordaría el problema quien está aprendiendo.»
 >
@@ -161,7 +144,7 @@ Por ejemplo, con VibeWise yo decidí usar una tool fija para un agente (una func
 
 Otra decisión fue dónde viaja la identidad del cliente. En mi documentación de SupportPilot lo dejé escrito así:
 
-> "Identity on the connection, not in tool arguments, chosen after a diagram of both channels."
+> {en} "Identity on the connection, not in tool arguments, chosen after a diagram of both channels."
 >
 > Traducción: «La identidad va en la conexión, no en los argumentos de la herramienta; se eligió después de un diagrama de ambos canales.»
 >
@@ -173,7 +156,7 @@ También tuve que decidir sobre un conjunto de datos para probar mis resultados.
 
 Esa decisión también quedó en mi documentación:
 
-> "…a robustness set (English and English with typos) to decide between hybrid and vector; vector chosen from those results."
+> {en} "…a robustness set (English and English with typos) to decide between hybrid and vector; vector chosen from those results."
 >
 > Traducción: «…un set de robustez (inglés e inglés con typos) para decidir entre híbrida y vectores; se eligió vectores a partir de esos resultados.»
 >
@@ -185,7 +168,7 @@ Además decidí, por otra parte, no tener atajos de autenticación para los eval
 
 Esto quedó anotado en el `progress.md` de VibeWise sobre mi decisión entre búsqueda híbrida y búsqueda por vectores:
 
-```markdown
+```markdown {en}
 ## Retrieval mode decision
 - Demonstrated: proposed a robustness test set to discriminate methods when golden cases tied; switched to vector citing eval evidence; scoped variants to English for now.
 - Needs reinforcement: justification 'the evals said so' without noting small n.
@@ -207,7 +190,7 @@ El registro también anotó que mi justificación fue «los evals lo dijeron», 
 
 Un login CSRF es un ataque en el que otra persona hace que tu navegador termine un login que ella inició. En mi documentación de SupportPilot también dejé escrito un límite del modo:
 
-> "It also added one thing beyond what I approved: the `sp_login` cookie, which binds a login to the browser that started it (login CSRF). I understood it only after a walk-through."
+> {en} "It also added one thing beyond what I approved: the `sp_login` cookie, which binds a login to the browser that started it (login CSRF). I understood it only after a walk-through."
 >
 > Traducción: «También añadió una cosa más allá de lo que aprobé: la cookie `sp_login`, que vincula un login con el navegador que lo inició (login CSRF). Solo la entendí después de un walk-through.»
 >
@@ -219,7 +202,7 @@ La IA añadió una cookie que yo no había aprobado, y solo la pude entender hac
 
 `/grilling` es un skill de Matt Pocock que te interroga sin descanso hasta llegar a un entendimiento compartido:
 
-> "Interview the user relentlessly until you reach a shared understanding."
+> {en} "Interview the user relentlessly until you reach a shared understanding."
 >
 > Traducción: «Entrevista al usuario sin descanso hasta llegar a un entendimiento compartido.»
 >
@@ -276,3 +259,20 @@ Fuente: [README de mattpocock/skills](https://github.com/mattpocock/skills/blob/
 ## Cierre
 
 Si las pruebas, me encantaría saber qué usas tú para aprender. Y si te gustaría un post con más detalle sobre cómo decidí entre búsqueda por vectores y búsqueda híbrida, házmelo saber.
+
+## Glosario rápido
+
+- **Skill:** instrucciones empaquetadas que le dan a Claude Code una forma de trabajar para un tipo de tarea; se invoca con un comando como `/teach`.
+- **`/teach`:** skill de Matt Pocock que arma una carpeta por tema y te enseña en lecciones cortas, con fuentes citadas.
+- **VibeWise:** plugin de Claude Code, de Noah Kim, para aprender mientras la IA escribe el código que tú diseñas: antes de cada pieza te pide tu enfoque.
+- **`/grilling`:** skill de Matt Pocock que te interroga hasta llegar a un entendimiento compartido.
+- **Workspace:** la carpeta de `/teach` dedicada a un solo tema, con sus lecciones y sus registros.
+- **Learning record:** archivo donde `/teach` anota lo que fallaste, lo que ya sabes y lo que aprendiste, y que usa en las siguientes lecciones.
+- **Checkpoint (Build, Design, Implementation):** momento en que VibeWise se detiene a preguntarte antes de seguir. En Build te pregunta cómo abordarías el problema, en Design te resume la propuesta y en Implementation te pide autorizar el código de ese paso.
+- **Frecuencia (Light, Normal, Frequent):** cuántas veces te frena VibeWise con checkpoints. Light solo en las decisiones grandes y Frequent también en las pequeñas.
+- **`progress.md`:** archivo que VibeWise guarda en la carpeta `.vibe-wise/` del proyecto, con lo que fuiste demostrando, decidiendo y reforzando.
+- **SupportPilot:** proyecto mío, público en GitHub: un agente de soporte que responde preguntas sobre las políticas de una empresa ficticia, con citas, y consulta pedidos.
+- **Búsqueda por vectores y búsqueda híbrida:** la primera busca por significado, comparando representaciones numéricas del texto; la segunda la combina con una búsqueda por palabras exactas.
+- **Caso golden:** pregunta de prueba cuya respuesta o fuentes esperadas ya están definidas.
+- **Intención:** lo que quiere saber un cliente en SupportPilot; cada intención de mis pruebas tiene una versión en inglés normal y otra con typos.
+- **Técnica de Feynman:** estudiar explicando el tema con palabras sencillas, como si se lo contaras a alguien que no sabe, para encontrar dónde no lo entiendes.

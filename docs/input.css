@@ -154,6 +154,43 @@
     @apply hidden;
   }
 
+  /* Índice de secciones para pantallas angostas (desde md se usa la navegación de la columna).
+     Plegado por defecto; summary y enlaces miden 44 px de alto como zona táctil. */
+  .articulo-panel .indice {
+    @apply rounded-md bg-blue-back;
+  }
+
+  .articulo-panel .indice summary {
+    @apply flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 rounded-md px-5 text-sm font-semibold uppercase tracking-wide text-gray-txt transition-colors duration-300 hover:text-blue-txt;
+  }
+
+  .articulo-panel .indice summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .articulo-panel .indice summary::after {
+    content: '';
+    @apply mb-1 h-2 w-2 border-b-2 border-r-2 border-current transition-transform duration-300;
+    transform: rotate(45deg);
+  }
+
+  .articulo-panel .indice[open] summary::after {
+    @apply mb-0 mt-1;
+    transform: rotate(-135deg);
+  }
+
+  .articulo-panel .indice ul {
+    @apply pb-2;
+  }
+
+  .articulo-panel .indice a {
+    @apply flex min-h-11 items-center px-5 text-base font-semibold text-gray-txt transition-colors duration-300 hover:text-blue-txt;
+  }
+
+  .articulo-panel .indice a[aria-current] {
+    @apply text-blue-txt;
+  }
+
   .articulo-texto {
     @apply px-4 pb-16;
   }
@@ -446,6 +483,10 @@
 
     .articulo-panel h1 strong {
       @apply font-normal;
+    }
+
+    .articulo-panel .indice {
+      @apply hidden;
     }
 
     .articulo-panel nav {

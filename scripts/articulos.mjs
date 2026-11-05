@@ -63,16 +63,20 @@ ${rest.join('\n').trim()}
   console.log(`Importado en ${out}. Completa descripcion antes de build.`);
 }
 
+// Marca de idioma: `{en}` al inicio de un párrafo, o tras el lenguaje de un bloque de código (```markdown {en}).
+// Se quita del texto y la página emite lang="en" en ese bloque, salvo que ya sea el idioma de la página.
+const LANG_MARK = /^\{([a-z]{2})\}\s+/;
+
 // Soporta párrafos, títulos ## y ###, citas (>), listas (- ), tablas (|), figuras SVG (![alt](archivo.svg) + pie en cursiva) y bloques de código.
 function parseLines(lines, quoted = false) {
   const blocks = [];
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (line.startsWith('```')) {
-      const lang = line.slice(3).trim();
+      const [lang, mark] = line.slice(3).trim().split(/\s+/);
       const code = [];
       while (!lines[++i].startsWith('```')) code.push(lines[i]);
-      blocks.push({ type: 'code', lang, text: code.join('\n') });
+      blocks.push({ type: 'code', lang, tongue: mark?.match(/^\{([a-z]{2})\}$/)?.[1], text: code.join('\n') });
     } else if (line.startsWith('### ') || line.startsWith('## ')) {
       const level = line.startsWith('### ') ? 3 : 2;
       blocks.push({ type: quoted ? 'p' : 'heading', level, text: quoted ? `**${line.slice(level + 1)}**` : line.slice(level + 1) });
@@ -104,7 +108,8 @@ function parseLines(lines, quoted = false) {
       }
       blocks.push({ type: 'figure', alt, src, caption });
     } else if (line.trim()) {
-      blocks.push({ type: 'p', text: line });
+      const tongue = line.match(LANG_MARK)?.[1];
+      blocks.push({ type: 'p', tongue, text: tongue ? line.replace(LANG_MARK, '') : line });
     }
   }
   return blocks;
@@ -129,6 +134,7 @@ const TEXTS = {
     role: 'Asdrúbal Suárez · Ingeniero de Backend Senior',
     cta: 'Ver perfil y contacto',
     sectionsLabel: 'Secciones del artículo',
+    indexLabel: 'Secciones',
     languageLabel: 'Idioma del artículo',
     sectionId: 'seccion',
     codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Salida del test', bash: 'Terminal', markdown: 'Markdown' },
@@ -145,6 +151,7 @@ const TEXTS = {
     role: 'Asdrúbal Suárez · Senior Backend Engineer',
     cta: 'View profile and contact',
     sectionsLabel: 'Article sections',
+    indexLabel: 'Sections',
     languageLabel: 'Article language',
     sectionId: 'section',
     codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Test output', bash: 'Terminal', markdown: 'Markdown' },
@@ -184,19 +191,22 @@ function renderTable(b, t) {
   return `<table role="table">\n<thead role="rowgroup">\n<tr role="row">\n${head}\n</tr>\n</thead>\n<tbody role="rowgroup">\n${rows}\n</tbody>\n</table>`;
 }
 
+// Un fragmento en otro idioma que el de la página lleva lang, para que un lector de pantalla lo pronuncie bien.
+const langAttr = (b, ctx) => (b.tongue && b.tongue !== ctx.a.lang ? ` lang="${b.tongue}"` : '');
+
 function renderBlock(b, ctx) {
   if (b.type === 'heading') {
     if (b.level === 2) { ctx.section++; return `<h2 id="${ctx.t.sectionId}-${ctx.section}">${inline(b.text)}</h2>`; }
     // Un ### que aparece antes del primer ## sigue siendo un título de segundo nivel, sin entrada en la navegación.
     return ctx.section ? `<h3>${inline(b.text)}</h3>` : `<h2 class="menor">${inline(b.text)}</h2>`;
   }
-  if (b.type === 'p') return `<p${ctx.last === b ? ' class="cierre"' : ''}>${inline(b.text)}</p>`;
+  if (b.type === 'p') return `<p${ctx.last === b ? ' class="cierre"' : ''}${langAttr(b, ctx)}>${inline(b.text)}</p>`;
   if (b.type === 'quote') return `<blockquote>\n${b.blocks.map((inner) => renderBlock(inner, ctx)).join('\n')}\n</blockquote>`;
   if (b.type === 'list') return `<ul>\n${b.items.map((item) => `<li>${inline(item)}</li>`).join('\n')}\n</ul>`;
   if (b.type === 'table') return renderTable(b, ctx.t);
   if (b.type === 'figure') return renderFigure(b, ctx.a, ++ctx.figure);
   const output = b.lang === 'text' ? ' class="salida"' : '';
-  return `<pre${output} tabindex="0" role="region" aria-label="${attr(ctx.t.codeLabels[b.lang] ?? b.lang)}"><code>${esc(b.text)}</code></pre>`;
+  return `<pre${output}${langAttr(b, ctx)} tabindex="0" role="region" aria-label="${attr(ctx.t.codeLabels[b.lang] ?? b.lang)}"><code>${esc(b.text)}</code></pre>`;
 }
 
 function renderBody(blocks, a, t) {
@@ -276,6 +286,15 @@ function renderPage(a) {
   const nav = headings.length ? `<nav aria-label="${t.sectionsLabel}">
 ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"></span>${esc(labels[i] ?? h.text)}</a>`).join('\n')}
 </nav>` : '';
+  // En pantallas angostas la navegación de escritorio se oculta; este índice plegable reutiliza sus mismas anclas.
+  // No es un <nav> para no heredar los estilos de escritorio. Sin JavaScript sigue abriéndose y cerrándose.
+  const index = headings.length ? `
+<details class="indice">
+<summary>${t.indexLabel}</summary>
+<ul aria-label="${t.sectionsLabel}">
+${headings.map((h, i) => `<li><a href="#${t.sectionId}-${i + 1}">${esc(labels[i] ?? h.text)}</a></li>`).join('\n')}
+</ul>
+</details>` : '';
   const sources = [
     linkedin && `<a class="enlace" href="${attr(linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`,
     x && `<a class="enlace" href="${attr(x)}" target="_blank" rel="noopener">X</a>`,
@@ -350,7 +369,7 @@ ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"
 <div class="datos">
 <p><time datetime="${a.fecha}">${a.lang === 'en' ? a.dateEn : a.dateEs}</time></p>
 ${t.source(sources)}
-</div>${renderLanguageLinks(a, t)}
+</div>${renderLanguageLinks(a, t)}${index}
 ${nav}
 </header>
 <div class="articulo-texto">
