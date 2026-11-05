@@ -120,14 +120,14 @@
     <div class="relative grid grid-cols-12" style="clip-path: inset(0 0 0 0);">
 
         <!-- Header -->
-        <header class="col-span-12 md:col-span-5 md:bg-blue-dark py-8 px-12 lg:pr-8 sticky top-0 h-[30vh] md:h-screen grid grid-cols-5 z50 shadow-lg lg:shadow-none z-50">
-            <div class="relative col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center h-full space-y-8 lg:space-y-12">
+        <header class="col-span-12 md:col-span-5 md:bg-blue-dark py-8 px-12 lg:pr-8 sticky top-0 h-[30vh] md:h-screen grid grid-cols-5 z50 shadow-lg lg:shadow-none z-50 [@media(max-width:767px)_and_(max-height:700px)]:py-3">
+            <div class="relative col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center h-full space-y-8 lg:space-y-12 [@media(max-width:767px)_and_(max-height:700px)]:space-y-3">
                 <!-- Logo y título -->
                 <div class="flex flex-col">
                     <h1 class="flex items-center">
                         <img src="./png/logo.png" alt="Asdrúbal Suárez" width="1000" height="105" class="w-full">
                     </h1>
-                    <h2 class="text-xl md:text-2xl lg:text-3xl font-normal md:text-start text-center text-white pt-4">Senior Backend Engineer</h2>
+                    <h2 class="text-xl md:text-2xl lg:text-3xl font-normal md:text-start text-center text-white pt-4 [@media(max-width:767px)_and_(max-height:700px)]:pt-1">Senior Backend Engineer</h2>
                     <p class="hidden lg:block text-xl font-normal text-gray-txt pt-4">Keeping LLMs reliable in production</p>
                 </div>
 

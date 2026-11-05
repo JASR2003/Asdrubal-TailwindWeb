@@ -1782,3 +1782,20 @@ video {
     display: none;
   }
 }
+
+@media(max-width:767px) and (max-height:700px) {
+  .\[\@media\(max-width\:767px\)_and_\(max-height\:700px\)\]\:space-y-3 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+  }
+
+  .\[\@media\(max-width\:767px\)_and_\(max-height\:700px\)\]\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .\[\@media\(max-width\:767px\)_and_\(max-height\:700px\)\]\:pt-1 {
+    padding-top: 0.25rem;
+  }
+}
