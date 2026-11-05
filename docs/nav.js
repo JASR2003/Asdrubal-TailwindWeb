@@ -3,9 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('#mobile-menu ul > li > a');
     const mainContainer = document.querySelector('main');
 
+    // Con texto grande en móvil, <main> deja de tener scroll propio y se desplaza toda la página
+    const scrollsWithWindow = () => window.innerWidth >= 1024 || getComputedStyle(mainContainer).overflowY === 'visible';
+
     const updateActiveLink = () => {
         let activeSection = null;
-        const isLargeScreen = window.innerWidth >= 1024; // Detectar si es "lg" o mayor
+        const isLargeScreen = scrollsWithWindow();
 
         sections.forEach(section => {
             const rect = section.getBoundingClientRect();
@@ -56,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const attachScrollListener = () => {
-        const isLargeScreen = window.innerWidth >= 1024;
+        const isLargeScreen = scrollsWithWindow();
 
         window.removeEventListener('scroll', updateActiveLink);
         mainContainer.removeEventListener('scroll', updateActiveLink);
