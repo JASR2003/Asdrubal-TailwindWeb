@@ -1,7 +1,9 @@
 ---
 titulo: Property-based testing me encontró un bug con números somalíes que yo ni sabía que existían
+titulo_seo: Pruebas basadas en propiedades en Python: un bug con números somalíes
 fecha: 2026-11-04
-descripcion: Una librería de testing me encontró un bug con números somalíes. Yo ni sabía que esos dígitos existían.
+actualizado: 2026-11-04
+descripcion: Pruebas basadas en propiedades con Hypothesis (Python) y fast-check (TypeScript): dos ejemplos y un bug con números somalíes que no habría escrito a mano.
 destacado: números somalíes
 secciones: Python, TypeScript
 link_linkedin: https://www.linkedin.com/pulse/property-based-testing-me-encontr%C3%B3-un-bug-con-n%C3%BAmeros-asdr%C3%BAbal-su%C3%A1rez-sgoyc
@@ -118,5 +120,18 @@ function aplicarDescuento(precio: number, porcentaje: number): number {
 ```
 
 Con eso la propiedad pasa.
+
+Nota del 4 de noviembre de 2026: aquí dije "validar", pero ese código solo limita el valor. `aplicarDescuento(100, 101)` devuelve `0`, así que la propiedad pasa y la tienda regala el producto sin avisar. Validar de verdad es rechazar el dato, igual que en el ejemplo de Python:
+
+```ts
+function aplicarDescuento(precio: number, porcentaje: number): number {
+  if (!(porcentaje >= 0 && porcentaje <= 100)) {
+    throw new RangeError("El porcentaje debe estar entre 0 y 100");
+  }
+  return precio - precio * (porcentaje / 100);
+}
+```
+
+Y al test le digo que los porcentajes estén entre 0 y 100 con `fc.integer({ min: 0, max: 100 })`. Con eso pasa.
 
 Me pasó validando numerales en Python. Hypothesis encontró que el sistema fallaba con números somalíes, unos dígitos que yo ni sabía que existían. Ese caso no se me habría ocurrido escribirlo a mano.

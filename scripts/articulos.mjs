@@ -2,6 +2,7 @@
 //   node scripts/articulos.mjs importar <registro.md> <slug>
 //   node scripts/articulos.mjs build
 // Originales en content/articulos (español) y traducciones en content/articles (inglés).
+import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -196,19 +197,26 @@ ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"
     linkedin && `<a class="enlace" href="${attr(linkedin)}" target="_blank" rel="noopener">LinkedIn</a>`,
     x && `<a class="enlace" href="${attr(x)}" target="_blank" rel="noopener">X</a>`,
   ].filter(Boolean).join(t.and);
+  const modified = a.actualizado ?? a.fecha;
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'Article',
+    '@id': `${url}#article`,
+    mainEntityOfPage: url,
     headline: a.titulo,
     description: a.descripcion,
+    image: `${SITE}/png/${t.ogImage}`,
     datePublished: a.fecha,
+    dateModified: modified,
     inLanguage: a.lang,
     url,
+    isPartOf: { '@id': `${SITE}/#website` },
     author: { '@id': `${SITE}/#person`, '@type': 'Person', name: 'Asdrúbal Suárez', url: `${SITE}/` },
-    // LinkedIn y X publican el original, así que en una traducción describen a la obra traducida.
+    publisher: { '@id': `${SITE}/#person` },
+    // LinkedIn y X publican el original, así que solo él los declara como otras copias de la obra.
     ...(a.original
-      ? { translationOfWork: { '@type': 'Article', headline: a.original.titulo, inLanguage: 'es', url: `${SITE}${pathOf(a.original)}`, sameAs: links } }
-      : { sameAs: links }),
+      ? { translationOfWork: { '@id': `${SITE}${pathOf(a.original)}#article` } }
+      : { sameAs: links, ...(a.traduccion ? { workTranslation: { '@id': `${SITE}${pathOf(a.traduccion)}#article` } } : {}) }),
   };
   return `<!doctype html>
 <html lang="${a.lang}">
@@ -216,7 +224,7 @@ ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${esc(a.titulo)} | Asdrúbal Suárez</title>
+    <title>${esc(a.titulo_seo ?? `${a.titulo} | Asdrúbal Suárez`)}</title>
     <meta name="description" content="${attr(a.descripcion)}">
     <meta name="robots" content="max-image-preview:large">
     <meta name="theme-color" content="#020f1e">
@@ -231,6 +239,7 @@ ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="article:published_time" content="${a.fecha}">
+    <meta property="article:modified_time" content="${modified}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@AsdrubalCodes">
     <meta name="twitter:creator" content="@AsdrubalCodes">
@@ -306,9 +315,22 @@ function renderSitemapEntries(articles) {
     <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${pathOf(original)}"/>` : '';
     return `  <url>
     <loc>${SITE}${pathOf(a)}</loc>
-    <lastmod>${a.fecha}</lastmod>${alternates}
+    <lastmod>${a.actualizado ?? a.fecha}</lastmod>${alternates}
   </url>`;
   }).join('\n');
+}
+
+// Las portadas se escriben a mano: su fecha es la de su último commit.
+function updateHomeLastmods() {
+  const path = join(DOCS, 'sitemap.xml');
+  let src = readFileSync(path, 'utf8');
+  for (const [page, file] of [['/', 'index.html'], ['/es', 'es.html']]) {
+    const date = execFileSync('git', ['log', '-1', '--format=%cs', '--', join(DOCS, file)], { encoding: 'utf8' }).trim();
+    const loc = `<loc>${SITE}${page}</loc>`;
+    if (!src.includes(loc)) throw new Error(`sitemap.xml: falta ${loc}`);
+    src = src.replace(new RegExp(`${loc}(\\s*<lastmod>[^<]*</lastmod>)?`), `${loc}\n    <lastmod>${date}</lastmod>`);
+  }
+  writeFileSync(path, src);
 }
 
 // Las carpetas son solo de páginas generadas: lo que ya no tiene fuente se borra.
@@ -330,6 +352,7 @@ function build() {
   replaceBetween('index.html', '<!-- articulos:start -->', '<!-- articulos:end -->', renderHomeEntries(originals, true));
   const entries = originals.flatMap((a) => (a.traduccion ? [a, a.traduccion] : [a]));
   replaceBetween('sitemap.xml', '<!-- articulos:start -->', '<!-- articulos:end -->', renderSitemapEntries(entries));
+  updateHomeLastmods();
   console.log(`${originals.length} artículo(s) y ${translations.length} traducción(es) generados`);
 }
 
