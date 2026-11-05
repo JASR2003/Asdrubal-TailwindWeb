@@ -117,11 +117,11 @@
 </head>
 
 <body class="bg-custom-radial text-gray-txt font-montserrat overflow-x-hidden min-w-[320px]">
-    <div class="relative grid grid-cols-12" style="clip-path: inset(0 0 0 0);">
+    <div class="relative grid grid-cols-12 h-dvh grid-rows-[max-content_minmax(12rem,1fr)] md:h-auto md:grid-rows-none lg:[clip-path:inset(0_0_0_0)]">
 
         <!-- Header -->
-        <header class="col-span-12 md:col-span-5 md:bg-blue-dark py-8 px-12 lg:pr-8 sticky top-0 h-[30vh] md:h-screen grid grid-cols-5 z50 shadow-lg lg:shadow-none z-50 [@media(max-width:767px)_and_(max-height:700px)]:py-3">
-            <div class="relative col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center h-full space-y-8 lg:space-y-12 [@media(max-width:767px)_and_(max-height:700px)]:space-y-3">
+        <header class="col-span-12 md:col-span-5 md:bg-blue-dark py-8 px-12 lg:pr-8 relative min-h-[30vh] md:sticky md:top-0 md:h-screen grid grid-cols-5 content-center z50 shadow-lg lg:shadow-none z-50 [@media(max-width:767px)_and_(max-height:700px)]:py-3">
+            <div class="relative col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center md:h-full space-y-8 lg:space-y-12 [@media(max-width:767px)_and_(max-height:700px)]:space-y-3">
                 <!-- Logo y título -->
                 <div class="flex flex-col">
                     <h1 class="flex items-center">
@@ -132,7 +132,7 @@
                 </div>
 
                 <!-- Navbar Responsive -->
-                <nav aria-label="Main navigation" class="relative w-full grid grid-cols-[auto_auto_auto] justify-between gap-4 md:grid-cols-1 md:justify-normal">
+                <nav aria-label="Main navigation" class="relative w-full flex flex-wrap justify-between gap-4 md:grid md:grid-cols-1 md:justify-normal">
                     <!-- Columna 1: Idioma -->
                     <div class="flex items-center justify-center md:justify-start lg:items-start gap-4 order-3 lg:order-2">
                         <a href="./" hreflang="en" lang="en" aria-label="ENG (English)" aria-current="page" class="py-2 -my-2 px-2 -mx-2 text-lg font-bold uppercase text-blue-txt">ENG</a>
@@ -205,7 +205,7 @@
         <div id="custom-cursor" class="pointer-events-none hidden lg:block lg:fixed top-0 left-0 aspect-square w-[50vw] rounded-full bg-custom-cursor mix-blend-overlay z-50 transform -translate-x-1/2 -translate-y-1/2"></div>
 
         <!-- Main -->
-        <main class="col-span-12 md:col-span-7 bg-transparent md:bg-blue-back grid grid-cols-7 top-[30vh] h-[70vh] pb-20 md:relative md:top-0 md:h-auto md:pb-0 overflow-scroll lg:overflow-auto">
+        <main class="col-span-12 md:col-span-7 bg-transparent md:bg-blue-back grid grid-cols-7 min-h-0 break-words pb-20 md:relative md:h-auto md:pb-0 overflow-scroll lg:overflow-auto">
 
             <section id="home" class="col-span-7 px-6 md:col-span-5 md:col-start-2 md:px-0 py-12 space-y-10 lg:min-h-screen flex flex-col justify-center">
                 <p class="text-xl leading-relaxed text-gray-txt font-medium">I'm a backend engineer with 14 years in software, and Python is the base of my career. Today I work with FastAPI, PostgreSQL and LLMs in production.</p>
