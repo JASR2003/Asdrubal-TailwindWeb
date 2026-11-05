@@ -20,7 +20,7 @@
 <rect x="670" y="90" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
 <text x="745.0" y="112" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Learning record</text>
 <text x="745.0" y="131" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">what I got wrong</text>
-<text x="745.0" y="146" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">and what I know</text>
+<text x="745.0" y="146" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">and what I already know</text>
 <path d="M182 71 H200 V114 H238" stroke="currentColor" marker-end="url(#a-3)"/>
 <text x="210" y="60" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">guides</text>
 <path d="M182 171 H200 V138 H238" stroke="currentColor" marker-end="url(#a-3)"/>

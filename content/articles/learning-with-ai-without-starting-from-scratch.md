@@ -1,6 +1,6 @@
 ---
 titulo: One teaches me, another makes me build, and another grills me: how I learn with AI without starting from scratch
-titulo_seo: Learn with AI Without Starting Over: /teach, VibeWise, /grilling
+titulo_seo: Learn with AI, Not from Scratch: /teach, VibeWise, /grilling
 fecha: 2026-11-05
 descripcion: How I use /teach, VibeWise and /grilling to learn with AI: what each one does, my examples and where it falls short.
 destacado: without starting from scratch
@@ -11,7 +11,7 @@ link_x:
 traduccion_de: aprender-con-ia-sin-empezar-de-cero
 ---
 
-Before, every time I wanted to learn something with AI, I had to hand it all the context again. I kept repeating the same things.
+Before, every time I wanted to learn something with AI, I had to hand it all the context again. The same things kept coming up.
 
 Today I learn with three Claude Code skills, and I no longer start from scratch.
 
