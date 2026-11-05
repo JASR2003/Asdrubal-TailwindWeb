@@ -274,6 +274,61 @@ function renderAlternates(a) {
     <link rel="alternate" hreflang="x-default" href="${SITE}${pathOf(original)}">`;
 }
 
+// WhatsApp arma la vista previa con estos límites (https://developers.facebook.com/docs/whatsapp/link-previews):
+// og:title, og:description y og:url no vacíos dentro del <head>, que debe caber en los primeros 300 KB del HTML;
+// og:image con URL absoluta, de menos de 600 KB, al menos 300 px de ancho y proporción de 4:1 o menos.
+const SOCIAL_IMAGE_MAX_BYTES = 600 * 1024;
+const SOCIAL_IMAGE_WARN_BYTES = 300 * 1024; // cifra que repiten muchas guías; el límite documentado es 600 KB
+const SOCIAL_HEAD_MAX_BYTES = 300 * 1024;
+const SOCIAL_IMAGE_SIZE = { width: 1200, height: 630 };
+const SOCIAL_IMAGE_TYPES = { png: 'image/png', jpg: 'image/jpeg', jpeg: 'image/jpeg' };
+
+// Lee las dimensiones del encabezado de un PNG o JPEG.
+function imageSize(bytes) {
+  if (bytes.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) {
+    return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
+  }
+  if (bytes[0] === 0xff && bytes[1] === 0xd8) {
+    for (let i = 2; i + 9 < bytes.length; i += 2 + bytes.readUInt16BE(i + 2)) {
+      if (bytes[i] !== 0xff) break;
+      // Marcadores SOF (salvo DHT, JPG y DAC): llevan alto y ancho.
+      if (bytes[i + 1] >= 0xc0 && bytes[i + 1] <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(bytes[i + 1])) {
+        return { width: bytes.readUInt16BE(i + 7), height: bytes.readUInt16BE(i + 5) };
+      }
+    }
+  }
+  throw new Error('no es un PNG ni un JPEG válido');
+}
+
+function checkSocialImage(slug, name) {
+  const type = SOCIAL_IMAGE_TYPES[name.split('.').pop().toLowerCase()];
+  if (!type) throw new Error(`${slug}: la imagen social docs/png/${name} debe ser PNG o JPEG`);
+  const bytes = readFileSync(join(DOCS, 'png', name));
+  let size;
+  try { size = imageSize(bytes); } catch (e) { throw new Error(`${slug}: docs/png/${name} ${e.message}`); }
+  if (size.width !== SOCIAL_IMAGE_SIZE.width || size.height !== SOCIAL_IMAGE_SIZE.height) {
+    throw new Error(`${slug}: docs/png/${name} mide ${size.width}×${size.height} y la página declara ${SOCIAL_IMAGE_SIZE.width}×${SOCIAL_IMAGE_SIZE.height}`);
+  }
+  if (bytes.length >= SOCIAL_IMAGE_MAX_BYTES) {
+    throw new Error(`${slug}: docs/png/${name} pesa ${Math.round(bytes.length / 1024)} KB y WhatsApp pide menos de ${SOCIAL_IMAGE_MAX_BYTES / 1024} KB`);
+  }
+  if (bytes.length >= SOCIAL_IMAGE_WARN_BYTES) {
+    console.warn(`Aviso: docs/png/${name} pesa ${Math.round(bytes.length / 1024)} KB; conviene bajar de ${SOCIAL_IMAGE_WARN_BYTES / 1024} KB`);
+  }
+  return type;
+}
+
+// Comprueba sobre el HTML ya generado lo que un rastreador necesita para armar la vista previa.
+function checkPreview(slug, html) {
+  const head = html.slice(0, html.indexOf('</head>'));
+  if (Buffer.byteLength(head) >= SOCIAL_HEAD_MAX_BYTES) throw new Error(`${slug}: el <head> pasa de ${SOCIAL_HEAD_MAX_BYTES / 1024} KB y WhatsApp no lo leería completo`);
+  for (const prop of ['og:title', 'og:description', 'og:url', 'og:image']) {
+    const value = head.match(new RegExp(`<meta property="${prop}" content="([^"]*)">`))?.[1];
+    if (!value?.trim()) throw new Error(`${slug}: falta ${prop} en el <head> o está vacío`);
+    if ((prop === 'og:url' || prop === 'og:image') && !value.startsWith('https://')) throw new Error(`${slug}: ${prop} debe ser una URL https absoluta`);
+  }
+}
+
 function renderPage(a) {
   const t = TEXTS[a.lang];
   const url = `${SITE}${pathOf(a)}`;
@@ -303,6 +358,7 @@ ${headings.map((h, i) => `<li><a href="#${t.sectionId}-${i + 1}">${esc(labels[i]
   // Un artículo puede traer su propia imagen social (imagen_social: archivo en docs/png); si no, la de su idioma.
   const ogImage = a.imagen_social ?? t.ogImage;
   if (!existsSync(join(DOCS, 'png', ogImage))) throw new Error(`${a.slug}: no existe docs/png/${ogImage}`);
+  const ogImageType = checkSocialImage(a.slug, ogImage);
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -323,7 +379,7 @@ ${headings.map((h, i) => `<li><a href="#${t.sectionId}-${i + 1}">${esc(labels[i]
       ? { translationOfWork: { '@id': `${SITE}${pathOf(a.original)}#article` } }
       : { ...(links.length ? { sameAs: links } : {}), ...(a.traduccion ? { workTranslation: { '@id': `${SITE}${pathOf(a.traduccion)}#article` } } : {}) }),
   };
-  return `<!doctype html>
+  const html = `<!doctype html>
 <html lang="${a.lang}">
 
 <head>
@@ -341,8 +397,9 @@ ${headings.map((h, i) => `<li><a href="#${t.sectionId}-${i + 1}">${esc(labels[i]
     <meta property="og:url" content="${url}">
     <meta property="og:locale" content="${t.locale}">
     <meta property="og:image" content="${SITE}/png/${ogImage}">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:width" content="${SOCIAL_IMAGE_SIZE.width}">
+    <meta property="og:image:height" content="${SOCIAL_IMAGE_SIZE.height}">
+    <meta property="og:image:type" content="${ogImageType}">
     <meta property="article:published_time" content="${a.fecha}">
     <meta property="article:modified_time" content="${modified}">
     <meta name="twitter:card" content="summary_large_image">
@@ -387,6 +444,8 @@ ${t.notice(a.original)}${renderBody(blocks, a, t)}
 
 </html>
 `;
+  checkPreview(a.slug, html);
+  return html;
 }
 
 function replaceBetween(file, start, end, content) {
