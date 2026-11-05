@@ -184,6 +184,12 @@ Las entradas de experiencia y portafolio son filas sin contenedor visible hasta 
 - **Mobile:** el botón "Menu" (o "Menú") abre un panel redondeado y opaco en Chip Deep Blue, para que el contenido no se transparente. Se cierra con la X, con Escape o al elegir un enlace.
 - **Saltar al contenido:** primer elemento del teclado en la portada, oculto hasta recibir foco; aparece arriba a la izquierda como botón sobre Panel Midnight.
 
+### Artículos
+Citas, figuras y tablas siguen el mismo lenguaje que los bloques de código: paneles tonales de 6px (Console Navy en móvil, Panel Midnight desde tablet), sin filetes de color.
+- **Citas:** panel tonal; el primer párrafo (lo citado) en blanco y el resto en gris.
+- **Figuras:** SVG incrustado que hereda el blanco del texto; los acentos del diagrama se remapean al cian (lo activo) y al gris (lo planeado). Si la columna es más angosta que el diagrama, se desplaza dentro de su marco, con el mismo foco que el código.
+- **Tablas:** desde 1280px son una tabla con filas alternadas por tono; por debajo, cada fila se apila como un panel con el nombre de la columna sobre cada dato.
+
 ### Cursor Glow
 La firma del sitio: un brillo radial de 50vw de ancho, en modo de fusión overlay, que sigue al cursor. Solo aparece desde 1024px, no intercepta clics y no debe interferir con la lectura.
 
