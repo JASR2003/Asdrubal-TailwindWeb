@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./docs/**/*.{html,js}"],
@@ -20,5 +22,8 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Móvil con texto ampliado: la ventana mide menos de 20rem (320px con texto normal)
+    plugin(({ addVariant }) => addVariant('texto-grande', '@container (max-width: 19.9rem)')),
+  ],
 }
