@@ -3,6 +3,8 @@ const plugin = require('tailwindcss/plugin');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./docs/**/*.{html,js}"],
+  // En pantallas táctiles el hover se queda pegado tras tocar
+  future: { hoverOnlyWhenSupported: true },
   theme: {
     extend: {
       colors: {

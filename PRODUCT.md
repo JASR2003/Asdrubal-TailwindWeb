@@ -47,7 +47,7 @@ Se pueden usar:
 - **Estado en Riley:** tiempo completo hasta abril de 2026; desde entonces, contrato part-time por horas.
 - **Experiencia internacional:** EE. UU. (Teamitfy, consultora para startups de EE. UU.; un cliente de agtech vía TEAM International) y Europa (equipos europeos en CryptoFR, hasta 2022; hablar de esta experiencia en pasado). No contar a Riley ni a Tellen como equipos de EE. UU. mientras no esté confirmado.
 - **Toptal:** miembro actual de la red. Se muestra como credencial, no como cliente ni historial laboral, y sin mencionar procesos internos.
-- **Otras cifras:** consulta de PostgreSQL de unos 10 s a menos de 100 ms (aproximada); APIs para más de 10.000 usuarios; más de 1 M de trades al día en Vascar.
+- **Otras cifras:** en Riley, consulta de PostgreSQL de unos 10 s a menos de 100 ms (aproximada); APIs para más de 10.000 usuarios; más de 1 M de trades al día en Vascar.
 - **Proyecto propio:** remote-venezuela-hiring (contrataenve.com).
 - **Prueba social:** recomendaciones en LinkedIn, enlazadas desde el sitio.
 

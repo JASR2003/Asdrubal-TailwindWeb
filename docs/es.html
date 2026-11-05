@@ -104,7 +104,7 @@
     <div class="relative grid grid-cols-12 h-dvh grid-rows-[max-content_minmax(12rem,1fr)] texto-grande:h-auto texto-grande:grid-rows-none md:h-auto md:grid-rows-none lg:[clip-path:inset(0_0_0_0)]">
 
         <!-- Header -->
-        <header class="col-span-12 md:col-span-5 md:bg-blue-dark py-8 px-12 lg:pr-8 relative min-h-[30vh] md:sticky md:top-0 md:h-screen grid grid-cols-5 content-center z50 shadow-lg lg:shadow-none z-50 [@media(max-width:767px)_and_(max-height:700px)]:py-3 texto-grande:min-h-0 texto-grande:px-4 texto-grande:py-4">
+        <header class="col-span-12 md:col-span-5 md:bg-blue-dark py-8 px-12 lg:pr-8 relative md:sticky md:top-0 md:h-screen grid grid-cols-5 content-center shadow-lg lg:shadow-none z-50 [@media(max-width:767px)_and_(max-height:700px)]:py-3 texto-grande:px-4 texto-grande:py-4">
             <div class="relative col-start-1 col-span-5 lg:col-start-2 lg:col-span-4 flex flex-col justify-center md:h-full space-y-8 lg:space-y-12 [@media(max-width:767px)_and_(max-height:700px)]:space-y-3 texto-grande:space-y-4">
                 <!-- Logo y título -->
                 <div class="flex flex-col">
@@ -190,11 +190,11 @@
         <div id="custom-cursor" class="pointer-events-none hidden lg:block lg:fixed top-0 left-0 aspect-square w-[50vw] rounded-full bg-custom-cursor mix-blend-overlay z-50 transform -translate-x-1/2 -translate-y-1/2"></div>
 
         <!-- Main -->
-        <main class="col-span-12 md:col-span-7 bg-transparent md:bg-blue-back grid grid-cols-7 min-h-0 break-words pb-20 texto-grande:pb-0 texto-grande:[overflow-wrap:anywhere] md:relative md:h-auto md:pb-0 overflow-scroll texto-grande:overflow-visible lg:overflow-auto">
+        <main class="col-span-12 md:col-span-7 bg-transparent md:bg-blue-back grid grid-cols-7 min-h-0 break-words pb-20 texto-grande:pb-0 texto-grande:[overflow-wrap:anywhere] md:relative md:h-auto md:pb-0 overflow-scroll texto-grande:overflow-visible lg:overflow-auto max-md:[mask-image:linear-gradient(to_bottom,transparent,black_1.5rem)]">
 
             <section id="home" class="col-span-7 px-6 texto-grande:px-4 md:col-span-5 md:col-start-2 md:px-0 py-12 space-y-10 lg:min-h-screen flex flex-col justify-center">
                 <p class="text-xl leading-relaxed text-gray-txt font-medium">Soy ingeniero backend con 14 años en software, y Python es la base de mi carrera. Hoy trabajo con FastAPI, PostgreSQL y LLMs en producción.</p>
-                <p class="text-xl leading-relaxed text-gray-txt font-medium">En Riley, una app de crianza con IA, subí la disponibilidad de 93% a 99% con Vertex AI como proveedor principal de LLM y Claude de respaldo. Las caídas que quedaban no venían del proveedor, así que ajusté Gunicorn en Azure y llegó a 99,9%.</p>
+                <p class="text-xl leading-relaxed text-gray-txt font-medium">En Riley, una app de crianza con IA, subí la disponibilidad <strong class="font-semibold text-white">de 93% a 99%</strong> con Vertex AI como proveedor principal de LLM y Claude de respaldo. Las caídas que quedaban no venían del proveedor, así que ajusté Gunicorn en Azure y llegó a <strong class="font-semibold text-white">99,9%</strong>.</p>
                 <p class="text-xl leading-relaxed text-gray-txt font-medium">He trabajado en remoto desde Venezuela con equipos de EE. UU. y Europa. Una vez le expliqué una caída de Azure a un CEO y a un equipo de marketing en cinco minutos, sin jerga.</p>
                 <p class="text-xl leading-relaxed text-gray-txt font-medium">Busco un rol backend remoto, a tiempo completo o por contrato. Si tu equipo necesita LLMs que se mantengan en pie en producción, escríbeme.</p>
                 <div class="hidden md:flex [@media(max-height:480px)]:flex texto-grande:flex flex-wrap justify-center lg:justify-end gap-4">
@@ -333,7 +333,7 @@
                     <h3 class="before:content-['-'] before:mr-2 text-lg font-semibold group-hover:text-blue-txt transition-colors text-white">Ingeniero de Software Senior · <a href="https://rileyapp.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Riley</a></h3>
                     <p class="text-base text-gray-txt">Contrato part-time, por horas · Abr 2026 - Presente</p>
                     <p class="text-base text-gray-txt">Tiempo completo · Ene 2025 - Abr 2026</p>
-                    <p class="mt-2 text-base text-gray-txt">App de crianza con IA y cerca de 10.000 usuarios. Soy el ingeniero backend principal, con FastAPI y PostgreSQL en Azure, y Vertex AI y Claude como proveedores de LLM. Reemplacé el proveedor único de LLM por un esquema de respaldo, con Vertex AI como principal y Claude como alternativa, y subí la disponibilidad de 93% a 99%; luego ajusté Gunicorn en Azure hasta llegar a 99,9%. También escribí unos 25 flujos en Inngest para guías diarias, notificaciones y actualizaciones programadas.</p>
+                    <p class="mt-2 text-base text-gray-txt">App de crianza con IA y cerca de 10.000 usuarios. Soy el ingeniero backend principal, con FastAPI y PostgreSQL en Azure, y Vertex AI y Claude como proveedores de LLM. Reemplacé el proveedor único de LLM por un esquema de respaldo, con Vertex AI como principal y Claude como alternativa, y subí la disponibilidad de 93% a 99%; luego ajusté Gunicorn en Azure hasta llegar a 99,9%. También bajé una consulta de PostgreSQL de unos 10 s a menos de 100 ms y escribí unos 25 flujos en Inngest para guías diarias, notificaciones y actualizaciones programadas.</p>
                     <div class="flex flex-wrap gap-2 mt-3 text-blue-txt">
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PYTHON</span>
                         <span class="px-3 py-1 bg-blue-btn text-sm rounded-full">FASTAPI</span>
