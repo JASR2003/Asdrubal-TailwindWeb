@@ -4,7 +4,7 @@ titulo_seo: Aprender con IA sin empezar de cero: /teach, VibeWise y /grilling
 fecha: 2026-11-05
 descripcion: Cómo uso /teach, VibeWise y /grilling para aprender con IA: qué hace cada una, mis ejemplos y dónde se queda corta.
 destacado: sin empezar de cero
-secciones: Fluidez, Teach, VibeWise, Grilling, De un vistazo, Cómo se combinan, Instalar, Cierre
+secciones: Fluidez, Teach, VibeWise, Grilling, De un vistazo, Cómo se combinan, Instalar, Cierre, Glosario
 imagen_social: og-image-aprender-con-ia-sin-empezar-de-cero.png
 link_linkedin:
 link_x:
@@ -18,24 +18,7 @@ Te cuento cómo hago para aprender de verdad con IA y no solo sentir que entiend
 
 Este artículo es para ingenieros de software que ya programan con IA y quieren aprender de verdad con ella. También es para quien, como yo, quiere pasar a AI Engineering. Asume que conoces Claude Code y RAG a nivel básico.
 
-Cuento cómo uso tres skills: `/teach`, `/grilling` y VibeWise, con mis propios ejemplos. No es una guía de instalación: al final dejo los comandos de sus README. Cuento lo que me ha funcionado a mí y dónde se queda corto.
-
-### Glosario rápido
-
-- **Skill:** instrucciones empaquetadas que le dan a Claude Code una forma de trabajar para un tipo de tarea; se invoca con un comando como `/teach`.
-- **`/teach`:** skill de Matt Pocock que arma una carpeta por tema y te enseña en lecciones cortas, con fuentes citadas.
-- **VibeWise:** plugin de Claude Code, de Noah Kim, para aprender mientras la IA escribe el código que tú diseñas: antes de cada pieza te pide tu enfoque.
-- **`/grilling`:** skill de Matt Pocock que te interroga hasta llegar a un entendimiento compartido.
-- **Workspace:** la carpeta de `/teach` dedicada a un solo tema, con sus lecciones y sus registros.
-- **Learning record:** archivo donde `/teach` anota lo que fallaste, lo que ya sabes y lo que aprendiste, y que usa en las siguientes lecciones.
-- **Checkpoint (Build, Design, Implementation):** momento en que VibeWise se detiene a preguntarte antes de seguir. En Build te pregunta cómo abordarías el problema, en Design te resume la propuesta y en Implementation te pide autorizar el código de ese paso.
-- **Frecuencia (Light, Normal, Frequent):** cuántas veces te frena VibeWise con checkpoints. Light solo en las decisiones grandes y Frequent también en las pequeñas.
-- **`progress.md`:** archivo que VibeWise guarda en la carpeta `.vibe-wise/` del proyecto, con lo que fuiste demostrando, decidiendo y reforzando.
-- **SupportPilot:** proyecto mío, público en GitHub: un agente de soporte que responde preguntas sobre las políticas de una empresa ficticia, con citas, y consulta pedidos.
-- **Búsqueda por vectores y búsqueda híbrida:** la primera busca por significado, comparando representaciones numéricas del texto; la segunda la combina con una búsqueda por palabras exactas.
-- **Caso golden:** pregunta de prueba cuya respuesta o fuentes esperadas ya están definidas.
-- **Intención:** lo que quiere saber un cliente en SupportPilot; cada intención de mis pruebas tiene una versión en inglés normal y otra con typos.
-- **Técnica de Feynman:** estudiar explicando el tema con palabras sencillas, como si se lo contaras a alguien que no sabe, para encontrar dónde no lo entiendes.
+Cuento cómo uso tres skills: `/teach`, `/grilling` y VibeWise, con mis propios ejemplos. No es una guía de instalación: al final dejo los comandos de sus README. Cuento lo que me ha funcionado a mí y dónde se queda corto. Los términos que uso están en el glosario del final.
 
 ## Antes de las herramientas: fluidez y almacenamiento
 
@@ -276,3 +259,20 @@ Fuente: [README de mattpocock/skills](https://github.com/mattpocock/skills/blob/
 ## Cierre
 
 Si las pruebas, me encantaría saber qué usas tú para aprender. Y si te gustaría un post con más detalle sobre cómo decidí entre búsqueda por vectores y búsqueda híbrida, házmelo saber.
+
+## Glosario rápido
+
+- **Skill:** instrucciones empaquetadas que le dan a Claude Code una forma de trabajar para un tipo de tarea; se invoca con un comando como `/teach`.
+- **`/teach`:** skill de Matt Pocock que arma una carpeta por tema y te enseña en lecciones cortas, con fuentes citadas.
+- **VibeWise:** plugin de Claude Code, de Noah Kim, para aprender mientras la IA escribe el código que tú diseñas: antes de cada pieza te pide tu enfoque.
+- **`/grilling`:** skill de Matt Pocock que te interroga hasta llegar a un entendimiento compartido.
+- **Workspace:** la carpeta de `/teach` dedicada a un solo tema, con sus lecciones y sus registros.
+- **Learning record:** archivo donde `/teach` anota lo que fallaste, lo que ya sabes y lo que aprendiste, y que usa en las siguientes lecciones.
+- **Checkpoint (Build, Design, Implementation):** momento en que VibeWise se detiene a preguntarte antes de seguir. En Build te pregunta cómo abordarías el problema, en Design te resume la propuesta y en Implementation te pide autorizar el código de ese paso.
+- **Frecuencia (Light, Normal, Frequent):** cuántas veces te frena VibeWise con checkpoints. Light solo en las decisiones grandes y Frequent también en las pequeñas.
+- **`progress.md`:** archivo que VibeWise guarda en la carpeta `.vibe-wise/` del proyecto, con lo que fuiste demostrando, decidiendo y reforzando.
+- **SupportPilot:** proyecto mío, público en GitHub: un agente de soporte que responde preguntas sobre las políticas de una empresa ficticia, con citas, y consulta pedidos.
+- **Búsqueda por vectores y búsqueda híbrida:** la primera busca por significado, comparando representaciones numéricas del texto; la segunda la combina con una búsqueda por palabras exactas.
+- **Caso golden:** pregunta de prueba cuya respuesta o fuentes esperadas ya están definidas.
+- **Intención:** lo que quiere saber un cliente en SupportPilot; cada intención de mis pruebas tiene una versión en inglés normal y otra con typos.
+- **Técnica de Feynman:** estudiar explicando el tema con palabras sencillas, como si se lo contaras a alguien que no sabe, para encontrar dónde no lo entiendes.
