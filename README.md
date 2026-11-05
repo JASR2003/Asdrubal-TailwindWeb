@@ -15,7 +15,7 @@ El build entiende párrafos, títulos `##` (secciones, con entrada en la navegac
 
 - **Fragmentos en otro idioma:** para que un lector de pantalla los pronuncie bien, pon `{en}` (o el código de dos letras que corresponda) al inicio del párrafo, por ejemplo `> {en} "Fluency can give…"`, o tras el lenguaje de un bloque de código: ` ```markdown {en} `. El marcador no se muestra y el build emite `lang="en"` en ese bloque; si coincide con el idioma de la página, no emite nada. Marca citas y bloques corridos, no nombres de herramientas, términos sueltos ni código en línea.
 - **Figuras:** `![alt](archivo.svg)` seguido de una línea en cursiva con el pie. El SVG vive en `content/articulos/<slug>/`, se incrusta en la página (para que `currentColor` tome el color del texto) y debe traer `role="img"` y `aria-label`, que es su descripción accesible. En pantallas angostas se desplaza dentro de su marco.
-- **Imagen social propia:** copia la imagen (1200×630) a `docs/png/` y escribe su nombre en `imagen_social` en el frontmatter. Sin esa clave se usa la del idioma.
+- **Imagen social propia:** copia la imagen (1200×630) a `docs/png/` y escribe su nombre en `imagen_social` en el frontmatter. Sin esa clave se usa la del idioma. El build la valida con los límites de [las vistas previas de WhatsApp](https://developers.facebook.com/docs/whatsapp/link-previews): PNG o JPEG de 1200×630 y menos de 600 KB (avisa desde 300 KB). Además comprueba que `og:title`, `og:description`, `og:url` y `og:image` no estén vacíos y que el `<head>` quepa en los primeros 300 KB.
 
 ### Traducciones al inglés
 
