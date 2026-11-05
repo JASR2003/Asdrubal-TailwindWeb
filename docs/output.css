@@ -701,10 +701,12 @@ video {
   text-underline-offset: 3px;
 }
 
-.articulo-texto .enlace:hover,
+@media (hover: hover) and (pointer: fine) {
+  .articulo-texto .enlace:hover,
   .articulo-panel .enlace:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  }
 }
 
 /* Código: la monoespaciada es la única excepción a Montserrat, porque el código depende de su alineación. */
@@ -805,11 +807,13 @@ video {
   transition-duration: 300ms;
 }
 
-.articulo-texto .boton:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-  --tw-text-opacity: 1;
-  color: rgb(30 64 175 / var(--tw-text-opacity, 1));
+@media (hover: hover) and (pointer: fine) {
+  .articulo-texto .boton:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+    --tw-text-opacity: 1;
+    color: rgb(30 64 175 / var(--tw-text-opacity, 1));
+  }
 }
 
 @media (min-width: 768px) {
@@ -867,9 +871,11 @@ video {
     transition-duration: 300ms;
   }
 
-  .articulo-panel nav a:hover {
-    --tw-text-opacity: 1;
-    color: rgb(54 208 241 / var(--tw-text-opacity, 1));
+  @media (hover: hover) and (pointer: fine) {
+    .articulo-panel nav a:hover {
+      --tw-text-opacity: 1;
+      color: rgb(54 208 241 / var(--tw-text-opacity, 1));
+    }
   }
 
   .articulo-panel nav a[aria-current] {
@@ -1081,10 +1087,6 @@ video {
 
 .min-h-12 {
   min-height: 3rem;
-}
-
-.min-h-\[30vh\] {
-  min-height: 30vh;
 }
 
 .min-h-screen {
@@ -1529,29 +1531,31 @@ video {
   content: var(--tw-content);
 }
 
-.hover\:bg-blue-hover:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(25 42 59 / var(--tw-bg-opacity, 1));
-}
+@media (hover: hover) and (pointer: fine) {
+  .hover\:bg-blue-hover:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(25 42 59 / var(--tw-bg-opacity, 1));
+  }
 
-.hover\:bg-white:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
+  .hover\:bg-white:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  }
 
-.hover\:text-blue-900:hover {
-  --tw-text-opacity: 1;
-  color: rgb(30 58 138 / var(--tw-text-opacity, 1));
-}
+  .hover\:text-blue-900:hover {
+    --tw-text-opacity: 1;
+    color: rgb(30 58 138 / var(--tw-text-opacity, 1));
+  }
 
-.hover\:text-blue-txt:hover {
-  --tw-text-opacity: 1;
-  color: rgb(54 208 241 / var(--tw-text-opacity, 1));
-}
+  .hover\:text-blue-txt:hover {
+    --tw-text-opacity: 1;
+    color: rgb(54 208 241 / var(--tw-text-opacity, 1));
+  }
 
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  .hover\:text-white:hover {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  }
 }
 
 .focus\:not-sr-only:focus {
@@ -1614,18 +1618,20 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.group:hover .group-hover\:w-16 {
-  width: 4rem;
-}
+@media (hover: hover) and (pointer: fine) {
+  .group:hover .group-hover\:w-16 {
+    width: 4rem;
+  }
 
-.group:hover .group-hover\:bg-blue-txt {
-  --tw-bg-opacity: 1;
-  background-color: rgb(54 208 241 / var(--tw-bg-opacity, 1));
-}
+  .group:hover .group-hover\:bg-blue-txt {
+    --tw-bg-opacity: 1;
+    background-color: rgb(54 208 241 / var(--tw-bg-opacity, 1));
+  }
 
-.group:hover .group-hover\:text-blue-txt {
-  --tw-text-opacity: 1;
-  color: rgb(54 208 241 / var(--tw-text-opacity, 1));
+  .group:hover .group-hover\:text-blue-txt {
+    --tw-text-opacity: 1;
+    color: rgb(54 208 241 / var(--tw-text-opacity, 1));
+  }
 }
 
 @container (max-width: 19.9rem) {
@@ -1644,10 +1650,6 @@ video {
 
   .texto-grande\:h-auto {
     height: auto;
-  }
-
-  .texto-grande\:min-h-0 {
-    min-height: 0px;
   }
 
   .texto-grande\:w-full {
@@ -1748,6 +1750,11 @@ video {
 @media not all and (min-width: 768px) {
   .max-md\:\[container-type\:inline-size\] {
     container-type: inline-size;
+  }
+
+  .max-md\:\[mask-image\:linear-gradient\(to_bottom\2c transparent\2c black_1\.5rem\)\] {
+    -webkit-mask-image: linear-gradient(to bottom,transparent,black 1.5rem);
+            mask-image: linear-gradient(to bottom,transparent,black 1.5rem);
   }
 }
 
