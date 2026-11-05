@@ -755,10 +755,323 @@ video {
   background-attachment: local, local, scroll, scroll;
 }
 
-.articulo p code {
+.articulo :not(pre) > code {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
   font-size: 0.9em;
+}
+
+/* Subtítulos: un ### dentro de una sección (o, antes de la primera, un título de segundo nivel sin entrada en la navegación). */
+
+.articulo-texto h3,
+  .articulo-texto h2.menor {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  line-height: 1.4;
+  text-wrap: balance;
+  scroll-margin-top: 1.5rem;
+}
+
+.articulo-texto h2 + h3 {
+  margin-top: 1.5rem;
+}
+
+.articulo-texto strong {
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.articulo-texto ul {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  list-style-type: disc;
+  padding-left: 1.25rem;
+}
+
+.articulo-texto ul *::marker {
+  color: rgb(148 163 184 );
+}
+
+.articulo-texto ul::marker {
+  color: rgb(148 163 184 );
+}
+
+.articulo-texto li + li {
+  margin-top: 0.75rem;
+}
+
+/* Citas: un panel tonal, sin filete de color (los bordes se reservan para los botones). */
+
+.articulo-texto blockquote {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 26 46 / var(--tw-bg-opacity, 1));
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .articulo-texto blockquote {
+    --tw-bg-opacity: 1;
+    background-color: rgb(2 15 30 / var(--tw-bg-opacity, 1));
+  }
+}
+
+.articulo-texto blockquote > :first-child {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.articulo-texto blockquote p + p {
+  margin-top: 0.75em;
+}
+
+.articulo-texto blockquote ul {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Figuras: el SVG hereda el color del texto y se desplaza dentro de su marco si la columna es más angosta que el diagrama. */
+
+.articulo-texto > figure {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 44rem;
+}
+
+.articulo .lienzo {
+  overflow-x: auto;
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 26 46 / var(--tw-bg-opacity, 1));
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+@media (min-width: 768px) {
+  .articulo .lienzo {
+    --tw-bg-opacity: 1;
+    background-color: rgb(2 15 30 / var(--tw-bg-opacity, 1));
+  }
+}
+
+.articulo .lienzo {
+  scrollbar-color: #192a3b transparent;
+  background-image:
+      linear-gradient(to right, #041a2e 40%, transparent),
+      linear-gradient(to left, #041a2e 40%, transparent),
+      linear-gradient(to right, rgb(148 163 184 / 0.3), transparent),
+      linear-gradient(to left, rgb(148 163 184 / 0.3), transparent);
+  background-position: left center, right center, left center, right center;
+  background-repeat: no-repeat;
+  background-size: 2.5rem 100%, 2.5rem 100%, 1rem 100%, 1rem 100%;
+  background-attachment: local, local, scroll, scroll;
+}
+
+.articulo .lienzo svg {
+  display: block;
+  height: auto;
+  width: 100%;
+  min-width: 43rem;
+}
+
+/* Un solo acento: el cian marca el ciclo de retorno y el trazo discontinuo (lo planeado) pasa a gris. */
+
+.articulo .lienzo svg [stroke='#0d9488'] {
+  stroke: #36d0f1;
+}
+
+.articulo .lienzo svg [fill='#0d9488'] {
+  fill: #36d0f1;
+}
+
+.articulo .lienzo svg [stroke='#d97706'] {
+  stroke: #94a3b8;
+}
+
+.articulo .lienzo svg [fill='#d97706'] {
+  fill: #94a3b8;
+}
+
+.articulo figcaption {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  max-width: 38rem;
+}
+
+/* Tabla: en columnas angostas cada fila se apila como un panel; desde xl vuelve a ser una tabla. */
+
+.articulo-texto > table {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 44rem;
+}
+
+.articulo table,
+  .articulo thead,
+  .articulo tbody,
+  .articulo tr,
+  .articulo th,
+  .articulo td {
+  display: block;
+}
+
+.articulo thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.articulo tbody tr {
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 26 46 / var(--tw-bg-opacity, 1));
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .articulo tbody tr {
+    --tw-bg-opacity: 1;
+    background-color: rgb(2 15 30 / var(--tw-bg-opacity, 1));
+  }
+}
+
+.articulo tbody tr + tr {
+  margin-top: 0.75rem;
+}
+
+.articulo tbody th {
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.articulo td {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.articulo td + td {
+  margin-top: 0.75rem;
+}
+
+.articulo td::before {
+  margin-bottom: 0.125rem;
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  content: attr(data-label);
+}
+
+@media (min-width: 1280px) {
+  .articulo table {
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .articulo thead {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    display: table-header-group;
+  }
+
+  .articulo tbody {
+    display: table-row-group;
+  }
+
+  .articulo tr {
+    display: table-row;
+  }
+
+  .articulo th,
+    .articulo td {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0.75rem 1rem;
+  }
+
+  .articulo thead th {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  }
+
+  .articulo tbody tr {
+    border-radius: 0px;
+    background-color: transparent;
+    padding: 0px;
+  }
+
+  .articulo tbody tr + tr {
+    margin-top: 0px;
+  }
+
+  .articulo tbody tr:nth-child(odd) > * {
+    --tw-bg-opacity: 1;
+    background-color: rgb(2 15 30 / var(--tw-bg-opacity, 1));
+  }
+
+  .articulo tbody tr > :first-child {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  }
+
+  .articulo tbody tr > :last-child {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+  }
+
+  .articulo tbody th {
+    margin-bottom: 0px;
+    text-align: left;
+  }
+
+  .articulo td + td {
+    margin-top: 0px;
+  }
+
+  .articulo td::before {
+    content: none;
+  }
 }
 
 /* El cian de relleno solo marca el punto donde el sistema falla. */
@@ -1057,6 +1370,10 @@ video {
   display: flex;
 }
 
+.table {
+  display: table;
+}
+
 .grid {
   display: grid;
 }
@@ -1313,6 +1630,18 @@ video {
 
 .bg-fixed {
   background-attachment: fixed;
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .p-4 {

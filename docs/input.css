@@ -125,9 +125,205 @@
     background-attachment: local, local, scroll, scroll;
   }
 
-  .articulo p code {
+  .articulo :not(pre) > code {
     @apply text-white;
     font-size: 0.9em;
+  }
+
+  /* Subtítulos: un ### dentro de una sección (o, antes de la primera, un título de segundo nivel sin entrada en la navegación). */
+  .articulo-texto h3,
+  .articulo-texto h2.menor {
+    @apply mt-10 mb-3 text-xl font-bold text-white;
+    line-height: 1.4;
+    text-wrap: balance;
+    scroll-margin-top: 1.5rem;
+  }
+
+  .articulo-texto h2 + h3 {
+    margin-top: 1.5rem;
+  }
+
+  .articulo-texto strong {
+    @apply font-bold text-white;
+  }
+
+  .articulo-texto ul {
+    @apply my-6 list-disc pl-5 marker:text-gray-txt;
+  }
+
+  .articulo-texto li + li {
+    @apply mt-3;
+  }
+
+  /* Citas: un panel tonal, sin filete de color (los bordes se reservan para los botones). */
+  .articulo-texto blockquote {
+    @apply my-6 rounded-md bg-blue-back px-5 py-4 text-base md:bg-blue-dark;
+  }
+
+  .articulo-texto blockquote > :first-child {
+    @apply text-white;
+  }
+
+  .articulo-texto blockquote p + p {
+    margin-top: 0.75em;
+  }
+
+  .articulo-texto blockquote ul {
+    @apply my-3;
+  }
+
+  /* Figuras: el SVG hereda el color del texto y se desplaza dentro de su marco si la columna es más angosta que el diagrama. */
+  .articulo-texto > figure {
+    @apply my-8;
+    max-width: 44rem;
+  }
+
+  .articulo .lienzo {
+    @apply overflow-x-auto rounded-md bg-blue-back py-4 text-white md:bg-blue-dark;
+    scrollbar-color: theme('colors.blue-hover') transparent;
+    background-image:
+      linear-gradient(to right, theme('colors.blue-back') 40%, transparent),
+      linear-gradient(to left, theme('colors.blue-back') 40%, transparent),
+      linear-gradient(to right, rgb(148 163 184 / 0.3), transparent),
+      linear-gradient(to left, rgb(148 163 184 / 0.3), transparent);
+    background-position: left center, right center, left center, right center;
+    background-repeat: no-repeat;
+    background-size: 2.5rem 100%, 2.5rem 100%, 1rem 100%, 1rem 100%;
+    background-attachment: local, local, scroll, scroll;
+  }
+
+  .articulo .lienzo svg {
+    @apply block h-auto w-full;
+    min-width: 43rem;
+  }
+
+  /* Un solo acento: el cian marca el ciclo de retorno y el trazo discontinuo (lo planeado) pasa a gris. */
+  .articulo .lienzo svg [stroke='#0d9488'] {
+    stroke: theme('colors.blue-txt');
+  }
+
+  .articulo .lienzo svg [fill='#0d9488'] {
+    fill: theme('colors.blue-txt');
+  }
+
+  .articulo .lienzo svg [stroke='#d97706'] {
+    stroke: theme('colors.gray-txt');
+  }
+
+  .articulo .lienzo svg [fill='#d97706'] {
+    fill: theme('colors.gray-txt');
+  }
+
+  .articulo figcaption {
+    @apply mt-3 text-base;
+    max-width: 38rem;
+  }
+
+  /* Tabla: en columnas angostas cada fila se apila como un panel; desde xl vuelve a ser una tabla. */
+  .articulo-texto > table {
+    @apply my-8;
+    max-width: 44rem;
+  }
+
+  .articulo table,
+  .articulo thead,
+  .articulo tbody,
+  .articulo tr,
+  .articulo th,
+  .articulo td {
+    @apply block;
+  }
+
+  .articulo thead {
+    @apply sr-only;
+  }
+
+  .articulo tbody tr {
+    @apply rounded-md bg-blue-back p-4 md:bg-blue-dark;
+  }
+
+  .articulo tbody tr + tr {
+    @apply mt-3;
+  }
+
+  .articulo tbody th {
+    @apply mb-2 text-left text-base font-bold text-white;
+  }
+
+  .articulo td {
+    @apply text-base;
+  }
+
+  .articulo td + td {
+    @apply mt-3;
+  }
+
+  .articulo td::before {
+    @apply mb-0.5 block text-sm font-semibold text-white;
+    content: attr(data-label);
+  }
+
+  @screen xl {
+    .articulo table {
+      display: table;
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    .articulo thead {
+      @apply not-sr-only table-header-group;
+    }
+
+    .articulo tbody {
+      @apply table-row-group;
+    }
+
+    .articulo tr {
+      @apply table-row;
+    }
+
+    .articulo th,
+    .articulo td {
+      @apply table-cell align-top;
+      padding: 0.75rem 1rem;
+    }
+
+    .articulo thead th {
+      @apply text-left text-base font-semibold text-white;
+    }
+
+    .articulo tbody tr {
+      @apply rounded-none bg-transparent p-0;
+    }
+
+    .articulo tbody tr + tr {
+      @apply mt-0;
+    }
+
+    .articulo tbody tr:nth-child(odd) > * {
+      @apply bg-blue-dark;
+    }
+
+    .articulo tbody tr > :first-child {
+      @apply rounded-l-md;
+    }
+
+    .articulo tbody tr > :last-child {
+      @apply rounded-r-md;
+    }
+
+    .articulo tbody th {
+      @apply mb-0 text-left;
+    }
+
+    .articulo td + td {
+      @apply mt-0;
+    }
+
+    .articulo td::before {
+      content: none;
+    }
   }
 
   /* El cian de relleno solo marca el punto donde el sistema falla. */

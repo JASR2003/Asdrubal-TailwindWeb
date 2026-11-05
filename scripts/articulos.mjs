@@ -15,7 +15,15 @@ const SITE = 'https://asdrubalivan.com';
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const attr = (s) => esc(s).replace(/"/g, '&quot;');
-const inline = (s) => esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+// Texto en línea: `código`, [enlaces](url) y **negrita**. El código se aparta primero para no interpretar su contenido.
+const inline = (s) => {
+  const codes = [];
+  return esc(s)
+    .replace(/`([^`]+)`/g, (_, code) => `\0${codes.push(`<code>${code}</code>`) - 1}\0`)
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, text, url) => `<a class="enlace" href="${url.replace(/"/g, '&quot;')}" target="_blank" rel="noopener">${text}</a>`)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\0(\d+)\0/g, (_, i) => codes[i]);
+};
 const LINK_CLASS = 'text-blue-txt';
 const LINK_STYLE = 'text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px';
 
@@ -55,9 +63,9 @@ ${rest.join('\n').trim()}
   console.log(`Importado en ${out}. Completa descripcion antes de build.`);
 }
 
-function parseBody(md) {
+// Soporta párrafos, títulos ## y ###, citas (>), listas (- ), tablas (|), figuras SVG (![alt](archivo.svg) + pie en cursiva) y bloques de código.
+function parseLines(lines, quoted = false) {
   const blocks = [];
-  const lines = md.split('\n');
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (line.startsWith('```')) {
@@ -65,11 +73,48 @@ function parseBody(md) {
       const code = [];
       while (!lines[++i].startsWith('```')) code.push(lines[i]);
       blocks.push({ type: 'code', lang, text: code.join('\n') });
-    } else if (line.startsWith('### ')) {
-      blocks.push({ type: 'heading', text: line.slice(4) });
+    } else if (line.startsWith('### ') || line.startsWith('## ')) {
+      const level = line.startsWith('### ') ? 3 : 2;
+      blocks.push({ type: quoted ? 'p' : 'heading', level, text: quoted ? `**${line.slice(level + 1)}**` : line.slice(level + 1) });
+    } else if (line.startsWith('>')) {
+      const inner = [];
+      for (; i < lines.length && lines[i].startsWith('>'); i++) inner.push(lines[i].replace(/^> ?/, ''));
+      i--;
+      blocks.push({ type: 'quote', blocks: parseLines(inner, true) });
+    } else if (line.startsWith('- ')) {
+      const items = [];
+      for (; i < lines.length && lines[i].startsWith('- '); i++) items.push(lines[i].slice(2));
+      i--;
+      blocks.push({ type: 'list', items });
+    } else if (line.startsWith('|')) {
+      const rows = [];
+      for (; i < lines.length && lines[i].startsWith('|'); i++) rows.push(lines[i].trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim()));
+      i--;
+      // La segunda fila es el separador |---|---|.
+      blocks.push({ type: 'table', head: rows[0], rows: rows.slice(2) });
+    } else if (/^!\[[^\]]*\]\([^)]+\)$/.test(line)) {
+      const [, alt, src] = line.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+      let caption = '';
+      let next = i + 1;
+      while (next < lines.length && !lines[next].trim()) next++;
+      const cursive = lines[next]?.match(/^\*([^*].*)\*$/);
+      if (cursive) {
+        caption = cursive[1];
+        i = next;
+      }
+      blocks.push({ type: 'figure', alt, src, caption });
     } else if (line.trim()) {
       blocks.push({ type: 'p', text: line });
     }
+  }
+  return blocks;
+}
+
+function parseBody(md) {
+  const blocks = parseLines(md.split('\n'));
+  // Un artículo sin ## usa ### como sus títulos de sección (formato original).
+  if (!blocks.some((b) => b.type === 'heading' && b.level === 2)) {
+    for (const b of blocks) if (b.type === 'heading') b.level = 2;
   }
   return blocks;
 }
@@ -86,7 +131,8 @@ const TEXTS = {
     sectionsLabel: 'Secciones del artículo',
     languageLabel: 'Idioma del artículo',
     sectionId: 'seccion',
-    codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Salida del test' },
+    codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Salida del test', bash: 'Terminal', markdown: 'Markdown' },
+    tableCorner: 'Aspecto',
     and: ' y ',
     source: (links) => (links ? `<p>Publicado también en ${links}.</p>` : ''),
     notice: () => '',
@@ -101,7 +147,8 @@ const TEXTS = {
     sectionsLabel: 'Article sections',
     languageLabel: 'Article language',
     sectionId: 'section',
-    codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Test output' },
+    codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Test output', bash: 'Terminal', markdown: 'Markdown' },
+    tableCorner: 'Aspect',
     and: ' and ',
     source: (links) => `<p>Originally published in Spanish${links ? ` on ${links}` : ''}.</p>`,
     notice: (original) => `<p class="mb-8 text-sm">This is a machine translation that I reviewed. Read the <a class="enlace" href="${pathOf(original)}" hreflang="es">Spanish original</a>.</p>\n`,
@@ -110,15 +157,51 @@ const TEXTS = {
 
 const pathOf = (a) => `/${TEXTS[a.lang].dir}/${a.slug}`;
 
-function renderBody(blocks, t) {
-  const lastP = blocks.map((b) => b.type).lastIndexOf('p');
-  let section = 0;
-  return blocks.map((b, i) => {
-    if (b.type === 'heading') return `<h2 id="${t.sectionId}-${++section}">${inline(b.text)}</h2>`;
-    if (b.type === 'p') return `<p${i === lastP ? ' class="cierre"' : ''}>${inline(b.text)}</p>`;
-    const output = b.lang === 'text' ? ' class="salida"' : '';
-    return `<pre${output} tabindex="0" role="region" aria-label="${attr(t.codeLabels[b.lang] ?? b.lang)}"><code>${esc(b.text)}</code></pre>`;
-  }).join('\n');
+// Los SVG se incrustan en la página (no con <img>) para que currentColor tome el color del texto.
+// Su descripción es el aria-label del propio SVG; el texto alternativo del markdown es solo la versión corta.
+function renderFigure(b, a, n) {
+  if (!b.src.endsWith('.svg')) throw new Error(`${a.slug}: la figura "${b.src}" debe ser un .svg`);
+  const dir = join(a.dir, a.slug);
+  const file = join(dir, b.src);
+  if (!file.startsWith(`${dir}/`)) throw new Error(`${a.slug}: la figura "${b.src}" sale de su carpeta`);
+  const svg = readFileSync(file, 'utf8').trim();
+  const label = svg.match(/<svg[^>]*\saria-label="([^"]*)"/)?.[1];
+  if (!/<svg[^>]*\srole="img"/.test(svg) || !label) throw new Error(`${a.slug}: ${b.src} necesita role="img" y aria-label`);
+  const caption = b.caption ? `\n<figcaption id="figura-${n}">${inline(b.caption)}</figcaption>` : '';
+  const labelled = b.caption ? ` aria-labelledby="figura-${n}"` : ` aria-label="${label}"`;
+  return `<figure>\n<div class="lienzo" tabindex="0" role="region"${labelled}>${svg}</div>${caption}\n</figure>`;
+}
+
+function renderTable(b, t) {
+  const label = (cell) => attr(cell.replace(/`/g, ''));
+  // Si la esquina está vacía, la primera columna son los títulos de cada fila.
+  const rowHeaders = !b.head[0];
+  const head = b.head.map((cell, i) => `<th role="columnheader" scope="col">${i === 0 && rowHeaders ? `<span class="sr-only">${t.tableCorner}</span>` : inline(cell)}</th>`).join('\n');
+  const rows = b.rows.map((row) => `<tr role="row">\n${row.map((cell, i) => (i === 0 && rowHeaders
+    ? `<th role="rowheader" scope="row">${inline(cell)}</th>`
+    : `<td role="cell" data-label="${label(b.head[i] ?? '')}">${inline(cell)}</td>`)).join('\n')}\n</tr>`).join('\n');
+  // Los roles se repiten porque, al apilar las filas en pantallas estrechas, algunos navegadores pierden la semántica de tabla.
+  return `<table role="table">\n<thead role="rowgroup">\n<tr role="row">\n${head}\n</tr>\n</thead>\n<tbody role="rowgroup">\n${rows}\n</tbody>\n</table>`;
+}
+
+function renderBlock(b, ctx) {
+  if (b.type === 'heading') {
+    if (b.level === 2) { ctx.section++; return `<h2 id="${ctx.t.sectionId}-${ctx.section}">${inline(b.text)}</h2>`; }
+    // Un ### que aparece antes del primer ## sigue siendo un título de segundo nivel, sin entrada en la navegación.
+    return ctx.section ? `<h3>${inline(b.text)}</h3>` : `<h2 class="menor">${inline(b.text)}</h2>`;
+  }
+  if (b.type === 'p') return `<p${ctx.last === b ? ' class="cierre"' : ''}>${inline(b.text)}</p>`;
+  if (b.type === 'quote') return `<blockquote>\n${b.blocks.map((inner) => renderBlock(inner, ctx)).join('\n')}\n</blockquote>`;
+  if (b.type === 'list') return `<ul>\n${b.items.map((item) => `<li>${inline(item)}</li>`).join('\n')}\n</ul>`;
+  if (b.type === 'table') return renderTable(b, ctx.t);
+  if (b.type === 'figure') return renderFigure(b, ctx.a, ++ctx.figure);
+  const output = b.lang === 'text' ? ' class="salida"' : '';
+  return `<pre${output} tabindex="0" role="region" aria-label="${attr(ctx.t.codeLabels[b.lang] ?? b.lang)}"><code>${esc(b.text)}</code></pre>`;
+}
+
+function renderBody(blocks, a, t) {
+  const ctx = { a, t, section: 0, figure: 0, last: blocks.findLast((b) => b.type === 'p') };
+  return blocks.map((b) => renderBlock(b, ctx)).join('\n');
 }
 
 function readArticles(dir, lang) {
@@ -131,7 +214,7 @@ function readArticles(dir, lang) {
     }
     const date = new Date(`${meta.fecha}T12:00:00Z`);
     const format = (locale) => new Intl.DateTimeFormat(locale, { dateStyle: 'long', timeZone: 'UTC' }).format(date);
-    return { ...meta, lang, slug: file.replace(/\.md$/, ''), body, dateEs: format('es'), dateEn: format('en') };
+    return { ...meta, lang, dir, slug: file.replace(/\.md$/, ''), body, dateEs: format('es'), dateEn: format('en') };
   });
 }
 
@@ -188,7 +271,7 @@ function renderPage(a) {
   const x = a.link_x || a.original?.link_x;
   const links = [linkedin, x].filter(Boolean);
   const blocks = parseBody(a.body);
-  const headings = blocks.filter((b) => b.type === 'heading');
+  const headings = blocks.filter((b) => b.type === 'heading' && b.level === 2);
   const labels = a.secciones ? a.secciones.split(',').map((s) => s.trim()) : [];
   const nav = headings.length ? `<nav aria-label="${t.sectionsLabel}">
 ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"></span>${esc(labels[i] ?? h.text)}</a>`).join('\n')}
@@ -198,6 +281,9 @@ ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"
     x && `<a class="enlace" href="${attr(x)}" target="_blank" rel="noopener">X</a>`,
   ].filter(Boolean).join(t.and);
   const modified = a.actualizado ?? a.fecha;
+  // Un artículo puede traer su propia imagen social (imagen_social: archivo en docs/png); si no, la de su idioma.
+  const ogImage = a.imagen_social ?? t.ogImage;
+  if (!existsSync(join(DOCS, 'png', ogImage))) throw new Error(`${a.slug}: no existe docs/png/${ogImage}`);
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -205,7 +291,7 @@ ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"
     mainEntityOfPage: url,
     headline: a.titulo,
     description: a.descripcion,
-    image: `${SITE}/png/${t.ogImage}`,
+    image: `${SITE}/png/${ogImage}`,
     datePublished: a.fecha,
     dateModified: modified,
     inLanguage: a.lang,
@@ -216,7 +302,7 @@ ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"
     // LinkedIn y X publican el original, así que solo él los declara como otras copias de la obra.
     ...(a.original
       ? { translationOfWork: { '@id': `${SITE}${pathOf(a.original)}#article` } }
-      : { sameAs: links, ...(a.traduccion ? { workTranslation: { '@id': `${SITE}${pathOf(a.traduccion)}#article` } } : {}) }),
+      : { ...(links.length ? { sameAs: links } : {}), ...(a.traduccion ? { workTranslation: { '@id': `${SITE}${pathOf(a.traduccion)}#article` } } : {}) }),
   };
   return `<!doctype html>
 <html lang="${a.lang}">
@@ -235,7 +321,7 @@ ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"
     <meta property="og:description" content="${attr(a.descripcion)}">
     <meta property="og:url" content="${url}">
     <meta property="og:locale" content="${t.locale}">
-    <meta property="og:image" content="${SITE}/png/${t.ogImage}">
+    <meta property="og:image" content="${SITE}/png/${ogImage}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="article:published_time" content="${a.fecha}">
@@ -245,7 +331,7 @@ ${headings.map((h, i) => `<a href="#${t.sectionId}-${i + 1}"><span class="linea"
     <meta name="twitter:creator" content="@AsdrubalCodes">
     <meta name="twitter:title" content="${attr(a.titulo)}">
     <meta name="twitter:description" content="${attr(a.descripcion)}">
-    <meta name="twitter:image" content="${SITE}/png/${t.ogImage}">
+    <meta name="twitter:image" content="${SITE}/png/${ogImage}">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/png" sizes="192x192" href="/png/favicon-192.png">
     <link rel="apple-touch-icon" href="/png/apple-touch-icon.png">
@@ -268,7 +354,7 @@ ${t.source(sources)}
 ${nav}
 </header>
 <div class="articulo-texto">
-${t.notice(a.original)}${renderBody(blocks, t)}
+${t.notice(a.original)}${renderBody(blocks, a, t)}
 <footer class="pie">
 <p>${t.role}</p>
 <a class="boton" href="${t.home}">${t.cta}</a>
