@@ -190,9 +190,9 @@
         <!-- Main -->
         <main class="col-span-12 md:col-span-7 bg-transparent md:bg-blue-back grid grid-cols-7 top-[30vh] h-[70vh] pb-20 md:relative md:top-0 md:h-auto md:pb-0 overflow-scroll lg:overflow-auto">
 
-            <section id="home" class="col-start-2 col-span-5 py-12 space-y-10 lg:min-h-screen flex flex-col justify-center">
+            <section id="home" class="col-span-7 px-6 md:col-span-5 md:col-start-2 md:px-0 py-12 space-y-10 lg:min-h-screen flex flex-col justify-center">
                 <p class="text-xl leading-relaxed text-gray-txt font-medium">Soy ingeniero backend con 14 años en software, y Python es la base de mi carrera. Hoy trabajo con FastAPI, PostgreSQL y LLMs en producción.</p>
-                <p class="text-xl leading-relaxed text-gray-txt font-medium">En Riley, una app de crianza con IA, el backend dependía de un solo proveedor de LLM y la disponibilidad estaba en 93%. Armé un esquema con Vertex AI como principal y Claude de respaldo, y subió a 99%. Las caídas que quedaban no venían del proveedor, así que ajusté Gunicorn en Azure y llegó a 99,9%.</p>
+                <p class="text-xl leading-relaxed text-gray-txt font-medium">En Riley, una app de crianza con IA, subí la disponibilidad de 93% a 99% con Vertex AI como proveedor principal de LLM y Claude de respaldo. Las caídas que quedaban no venían del proveedor, así que ajusté Gunicorn en Azure y llegó a 99,9%.</p>
                 <p class="text-xl leading-relaxed text-gray-txt font-medium">He trabajado en remoto desde Venezuela con equipos de EE. UU. y Europa. Una vez le expliqué una caída de Azure a un CEO y a un equipo de marketing en cinco minutos, sin jerga.</p>
                 <p class="text-xl leading-relaxed text-gray-txt font-medium">Busco un rol backend remoto, a tiempo completo o por contrato. Si tu equipo necesita LLMs que se mantengan en pie en producción, escríbeme.</p>
                 <div class="hidden md:flex [@media(max-height:480px)]:flex flex-wrap justify-center lg:justify-end gap-4">
@@ -201,7 +201,7 @@
                 </div>
             </section>
 
-            <section id="about" class="col-start-2 col-span-5 py-12 space-y-10">
+            <section id="about" class="col-span-7 px-6 md:col-span-5 md:col-start-2 md:px-0 py-12 space-y-10">
                 <!-- Skills Section -->
                 <div>
                     <h2 class="text-2xl font-semibold mb-12 text-white">HABILIDADES</h2>
@@ -267,7 +267,7 @@
                 </div>
             </section>
 
-            <section id="portfolio" class="col-start-2 col-span-5 py-12 space-y-10">
+            <section id="portfolio" class="col-span-7 px-6 md:col-span-5 md:col-start-2 md:px-0 py-12 space-y-10">
                 <div>
                     <h2 class="text-2xl font-bold mb-4 text-white">PORTAFOLIO</h2>
                     <div class="grid grid-cols-1 gap-8">
@@ -283,7 +283,7 @@
                         </div>
                         <div>
                             <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">TEAM International</h3>
-                            <p class="text-gray-txt">Para un cliente de agtech, desarrollé modelos de precios de créditos de carbono a partir de datos de labranza, sobre aplicaciones backend en Python.</p>
+                            <p class="text-gray-txt">Para un cliente de agtech, implementé en Python el motor de reglas que convirtió un modelo de labranza en cálculos de créditos de carbono en producción.</p>
                             <div class="flex flex-wrap gap-2 mt-3 text-blue-txt"><span class="px-3 py-1 bg-blue-btn text-sm rounded-full">PYTHON</span><span class="px-3 py-1 bg-blue-btn text-sm rounded-full">FLASK</span><span class="px-3 py-1 bg-blue-btn text-sm rounded-full">SQLALCHEMY</span><span class="px-3 py-1 bg-blue-btn text-sm rounded-full">APACHE AIRFLOW</span><span class="px-3 py-1 bg-blue-btn text-sm rounded-full">CELERY</span><span class="px-3 py-1 bg-blue-btn text-sm rounded-full">REDIS</span><span class="px-3 py-1 bg-blue-btn text-sm rounded-full">AMAZON S3</span></div>
                         </div>
                         <div>
@@ -300,17 +300,17 @@
                             <p class="text-gray-txt">Pruebas de integración en paralelo para FastAPI y PostgreSQL, con una base de datos clonada por worker. En 301 pruebas, la suite bajó de 23,65 s a 7,05 s. <a href="https://github.com/asdrubalivan/poc-pytest-fastapi" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">GitHub</a></p>
                         </div>
                         <div>
-                            <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">Optimización del sistema de bonificación a la excelencia académica para el Colegio Los Cedros (2015)</h3>
-                            <p class="text-gray-txt">mejora de la bonificación del sistema de excelencia académica del <a href="https://colegioloscedros.edu.ve/" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Colegio Los Cedros</a> para mejorar la experiencia del usuario.</p>
+                            <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">Sistema de bonificación a la excelencia académica del Colegio Los Cedros (2015)</h3>
+                            <p class="text-gray-txt">Mejoré el sistema de bonificación a la excelencia académica del <a href="https://colegioloscedros.edu.ve/" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Colegio Los Cedros</a> para hacerlo más fácil de usar.</p>
                         </div>
                         <div>
-                            <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">Desarrollo de un sitio web para Diario Los Andes (2012)</h3>
+                            <h3 class="before:content-['-'] before:mr-2 text-lg font-bold mb-2 text-white">Sitio web para Diario Los Andes (2012)</h3>
                             <p class="text-gray-txt">Dirigí este proyecto y desarrollé el sitio web del <a href="https://diariodelosandes.com" target="_blank" rel="noopener" class="text-blue-txt" style="text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px">Diario Los Andes</a>, uno de los principales periódicos de Trujillo, con ediciones en Táchira y Mérida.</p>
                         </div>
                     </div>
                 </div>
             </section>
-            <section id="articles" class="col-start-2 col-span-5 py-12 space-y-10">
+            <section id="articles" class="col-span-7 px-6 md:col-span-5 md:col-start-2 md:px-0 py-12 space-y-10">
                 <h2 class="text-2xl font-bold text-white">ARTÍCULOS</h2>
                 <div class="space-y-6">
                     <!-- articulos:start -->
@@ -323,7 +323,7 @@
                 </div>
             </section>
 
-            <section id="experience" class="col-start-2 col-span-5 py-12 space-y-10">
+            <section id="experience" class="col-span-7 px-6 md:col-span-5 md:col-start-2 md:px-0 py-12 space-y-10">
                 <!-- Experience Section -->
                 <h2 class="text-2xl font-bold text-white">EXPERIENCIA</h2>
                 <!-- Riley -->
@@ -500,7 +500,7 @@
                     </div>
                 </div>
             </section>
-            <section id="references" class="col-start-2 col-span-5 py-12 space-y-10">
+            <section id="references" class="col-span-7 px-6 md:col-span-5 md:col-start-2 md:px-0 py-12 space-y-10">
                 <div>
                     <h2 class="text-2xl font-bold mb-4 text-white">REFERENCIAS</h2>
                     <div class="grid grid-cols-1 gap-8">
@@ -525,7 +525,7 @@
                 </div>
             </section>
 
-            <footer class="col-start-2 col-span-5 pb-12 text-sm text-gray-txt">
+            <footer class="col-span-7 px-6 md:col-span-5 md:col-start-2 md:px-0 pb-12 text-sm text-gray-txt">
                 <p>© 2026 Asdrúbal Suárez · Ingeniero de Backend Senior</p>
             </footer>
         </main>

@@ -583,6 +583,15 @@ video {
   color: #020f1e;
 }
 
+/* Más área táctil en enlaces dentro del texto, sin mover las líneas */
+
+@media (pointer: coarse) {
+  main p a,
+    main li a {
+    padding-block: 0.5rem;
+  }
+}
+
 .articulo {
   --tw-bg-opacity: 1;
   background-color: rgb(2 15 30 / var(--tw-bg-opacity, 1));
@@ -732,6 +741,16 @@ video {
 .articulo pre {
   line-height: 1.6;
   scrollbar-color: #192a3b transparent;
+  /* El tinte del borde solo aparece si hay más código por ese lado */
+  background-image:
+      linear-gradient(to right, #041a2e 40%, transparent),
+      linear-gradient(to left, #041a2e 40%, transparent),
+      linear-gradient(to right, rgb(148 163 184 / 0.3), transparent),
+      linear-gradient(to left, rgb(148 163 184 / 0.3), transparent);
+  background-position: left center, right center, left center, right center;
+  background-repeat: no-repeat;
+  background-size: 2.5rem 100%, 2.5rem 100%, 1rem 100%, 1rem 100%;
+  background-attachment: local, local, scroll, scroll;
 }
 
 .articulo p code {
@@ -748,6 +767,7 @@ video {
   font-weight: 600;
   --tw-text-opacity: 1;
   color: rgb(2 15 30 / var(--tw-text-opacity, 1));
+  background-image: none;
   font-size: 1.0625rem;
 }
 
@@ -956,12 +976,12 @@ video {
   grid-column: span 5 / span 5;
 }
 
-.col-start-1 {
-  grid-column-start: 1;
+.col-span-7 {
+  grid-column: span 7 / span 7;
 }
 
-.col-start-2 {
-  grid-column-start: 2;
+.col-start-1 {
+  grid-column-start: 1;
 }
 
 .-mx-2 {
@@ -1552,6 +1572,10 @@ video {
     grid-column: span 7 / span 7;
   }
 
+  .md\:col-start-2 {
+    grid-column-start: 2;
+  }
+
   .md\:inline {
     display: inline;
   }
@@ -1601,6 +1625,11 @@ video {
   .md\:bg-blue-dark {
     --tw-bg-opacity: 1;
     background-color: rgb(2 15 30 / var(--tw-bg-opacity, 1));
+  }
+
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .md\:pb-0 {
