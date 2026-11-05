@@ -137,7 +137,7 @@ La paleta es un azul nocturno casi monocromático, con un único cian luminoso c
 
 ## Layout
 
-Hay una retícula de 12 columnas. Desde 768px, la identidad y la navegación ocupan 5 columnas fijas a pantalla completa y el contenido ocupa las otras 7. En móvil, la cabecera se queda fija arriba, con 30% de la altura de la ventana, y el contenido se desplaza debajo, a todo el ancho con 24px de margen lateral. Una barra opaca en Panel Midnight mantiene el par de botones de contacto fijo abajo; en esas pantallas sustituye al par de la portada. En ventanas de hasta 480px de alto la barra se oculta y vuelve el par de la portada.
+Hay una retícula de 12 columnas. Desde 768px, la identidad y la navegación ocupan 5 columnas fijas a pantalla completa y el contenido ocupa las otras 7. En móvil, la cabecera se queda fija arriba, con 30% de la altura de la ventana, y el contenido se desplaza debajo, a todo el ancho con 24px de margen lateral. En móviles de hasta 700px de alto, la cabecera compacta sus espacios para que la navegación quepa dentro. Una barra opaca en Panel Midnight mantiene el par de botones de contacto fijo abajo; en esas pantallas sustituye al par de la portada. En ventanas de hasta 480px de alto la barra se oculta y vuelve el par de la portada.
 
 El ritmo es generoso y vertical: 48px de relleno en cada sección y 40px entre bloques. Las entradas se apilan en una sola columna de lectura. La cuadrícula de logos de habilidades es la única excepción densa. El lema se oculta por debajo de 1024px.
 
