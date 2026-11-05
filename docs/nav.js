@@ -123,3 +123,82 @@ document.addEventListener("DOMContentLoaded", () => {
         if (window.innerWidth >= 1024) closeMenu();
     });
 });
+
+// Cabecera móvil colapsable: el logo y el cargo se van con la página; la fila de navegación
+// queda fija, se oculta al bajar y reaparece al subir (estilos en input.css, .cabecera).
+document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector(".cabecera");
+    const nav = header && header.querySelector("nav");
+    const hamburgerButton = document.getElementById("hamburger-button");
+    if (!header || !nav) return;
+
+    const mobile = window.matchMedia("(max-width: 767px)");
+    const DELTA = 8; // px de scroll antes de cambiar de dirección, para ignorar temblores
+    let marcaH = 0;
+    let lastY = window.scrollY;
+    let jumping = false;
+    let ticking = false;
+
+    // Alto de todo lo que queda encima de la fila de navegación
+    const measure = () => {
+        marcaH = nav.getBoundingClientRect().top - header.getBoundingClientRect().top;
+        header.style.setProperty("--marca-h", `${marcaH}px`);
+    };
+
+    const update = () => {
+        ticking = false;
+        if (!mobile.matches) {
+            header.removeAttribute("data-pegada");
+            header.removeAttribute("data-oculta");
+            return;
+        }
+        // Se limita al rango real para ignorar el rebote de iOS en los extremos
+        const maxY = document.documentElement.scrollHeight - window.innerHeight;
+        const y = Math.min(Math.max(window.scrollY, 0), Math.max(maxY, 0));
+        const stuck = y >= marcaH - 1;
+        const menuOpen = hamburgerButton && hamburgerButton.getAttribute("aria-expanded") === "true";
+        const dy = y - lastY;
+        let hidden = header.hasAttribute("data-oculta");
+
+        if (!stuck || menuOpen) {
+            hidden = false;
+            lastY = y;
+        } else if (jumping) {
+            // Tras saltar a una sección con el menú, la barra no tapa el título
+            hidden = true;
+            lastY = y;
+        } else if (dy > DELTA) {
+            hidden = true;
+            lastY = y;
+        } else if (dy < -DELTA) {
+            hidden = false;
+            lastY = y;
+        }
+        jumping = false;
+
+        header.toggleAttribute("data-pegada", stuck);
+        header.toggleAttribute("data-oculta", hidden);
+    };
+
+    const requestUpdate = () => {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(update);
+        }
+    };
+
+    document.addEventListener("click", (event) => {
+        if (!event.target.closest('a[href^="#"]')) return;
+        jumping = true;
+        setTimeout(() => { jumping = false; }, 400); // si el salto no mueve la página
+    });
+    if (hamburgerButton) hamburgerButton.addEventListener("click", requestUpdate);
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", () => { measure(); requestUpdate(); });
+    if ("ResizeObserver" in window) new ResizeObserver(() => { measure(); requestUpdate(); }).observe(header);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); requestUpdate(); });
+
+    measure();
+    header.setAttribute("data-colapsable", "");
+    update();
+});
