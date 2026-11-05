@@ -24,6 +24,14 @@
 }
 
 @layer components {
+  /* Más área táctil en enlaces dentro del texto, sin mover las líneas */
+  @media (pointer: coarse) {
+    main p a,
+    main li a {
+      padding-block: 0.5rem;
+    }
+  }
+
   .articulo {
     @apply bg-blue-dark md:bg-transparent;
     font-size: 1.0625rem;
@@ -105,6 +113,16 @@
     @apply my-6 overflow-x-auto rounded-md bg-blue-back px-5 py-4 text-sm text-white md:bg-blue-dark;
     line-height: 1.6;
     scrollbar-color: theme('colors.blue-hover') transparent;
+    /* El tinte del borde solo aparece si hay más código por ese lado */
+    background-image:
+      linear-gradient(to right, theme('colors.blue-back') 40%, transparent),
+      linear-gradient(to left, theme('colors.blue-back') 40%, transparent),
+      linear-gradient(to right, rgb(148 163 184 / 0.3), transparent),
+      linear-gradient(to left, rgb(148 163 184 / 0.3), transparent);
+    background-position: left center, right center, left center, right center;
+    background-repeat: no-repeat;
+    background-size: 2.5rem 100%, 2.5rem 100%, 1rem 100%, 1rem 100%;
+    background-attachment: local, local, scroll, scroll;
   }
 
   .articulo p code {
@@ -115,6 +133,7 @@
   /* El cian de relleno solo marca el punto donde el sistema falla. */
   .articulo pre.salida {
     @apply bg-blue-txt font-semibold text-blue-dark;
+    background-image: none;
     font-size: 1.0625rem;
   }
 
