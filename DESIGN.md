@@ -102,7 +102,7 @@ La paleta es un azul nocturno casi monocromático, con un único cian luminoso c
 - **Signal Cyan** (`signal-cyan`): sección e idioma activos, hover de navegación, enlaces a entidades, títulos de entrada en hover y texto de chips.
 
 ### Neutral
-- **Panel Midnight** (`panel-midnight`): columna fija de identidad desde tablet.
+- **Panel Midnight** (`panel-midnight`): columna fija de identidad desde tablet y barra de contacto en móvil.
 - **Console Navy** (`console-navy`): borde exterior del fondo radial de la página.
 - **Glow Blue** (`glow-blue`): centro más claro del fondo radial.
 - **Hover Slate** (`hover-slate`): relleno de las entradas al pasar el cursor.
@@ -137,7 +137,7 @@ La paleta es un azul nocturno casi monocromático, con un único cian luminoso c
 
 ## Layout
 
-Hay una retícula de 12 columnas. Desde 768px, la identidad y la navegación ocupan 5 columnas fijas a pantalla completa y el contenido ocupa las otras 7. En móvil, la cabecera se queda fija arriba, con 30% de la altura de la ventana, y el contenido se desplaza debajo.
+Hay una retícula de 12 columnas. Desde 768px, la identidad y la navegación ocupan 5 columnas fijas a pantalla completa y el contenido ocupa las otras 7. En móvil, la cabecera se queda fija arriba, con 30% de la altura de la ventana, y el contenido se desplaza debajo. Una barra opaca en Panel Midnight mantiene el par de botones de contacto fijo abajo; en esas pantallas sustituye al par de la portada. En ventanas de hasta 480px de alto la barra se oculta y vuelve el par de la portada.
 
 El ritmo es generoso y vertical: 48px de relleno en cada sección y 40px entre bloques. Las entradas se apilan en una sola columna de lectura. La cuadrícula de logos de habilidades es la única excepción densa. El lema se oculta por debajo de 1024px.
 
@@ -179,7 +179,7 @@ Las entradas de experiencia y portafolio son filas sin contenedor visible hasta 
 - **Style:** vertical en escritorio, en mayúsculas y semibold, cada enlace precedido por una línea de 2px.
 - **States:** en reposo, gris con línea de 24px. En hover y en la sección activa, cian con línea de 64px y transición de 300ms.
 - **Idioma:** ENG y ESP en bold, con el idioma actual en cian.
-- **Mobile:** el botón `< >` abre un panel redondeado y opaco en Chip Deep Blue, para que el contenido no se transparente. Se cierra con la X, con Escape o al elegir un enlace.
+- **Mobile:** el botón "Menu" (o "Menú") abre un panel redondeado y opaco en Chip Deep Blue, para que el contenido no se transparente. Se cierra con la X, con Escape o al elegir un enlace.
 
 ### Cursor Glow
 La firma del sitio: un brillo radial de 50vw de ancho, en modo de fusión overlay, que sigue al cursor. Solo aparece desde 1024px, no intercepta clics y no debe interferir con la lectura.
