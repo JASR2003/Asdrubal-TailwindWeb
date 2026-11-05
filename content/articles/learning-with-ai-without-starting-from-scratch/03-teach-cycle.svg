@@ -1,0 +1,36 @@
+<svg viewBox="0 0 840 270" role="img" aria-label="Cycle of a /teach workspace: the mission and the sources feed a lesson, the exercises produce a learning record with what I got wrong and what I already know, and that record decides the next lesson." style="max-width:100%;height:auto;color:inherit" font-family="system-ui,-apple-system,Segoe UI,sans-serif" font-size="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<defs>
+<marker id="a-3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="currentColor" stroke="none"/></marker>
+<marker id="p-3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#d97706" stroke="none"/></marker>
+<marker id="l-3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 z" fill="#0d9488" stroke="none"/></marker>
+</defs>
+<rect x="20" y="40" width="160" height="62" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="100.0" y="62" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">MISSION.md</text>
+<text x="100.0" y="81" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">why I'm learning</text>
+<rect x="20" y="140" width="160" height="62" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="100.0" y="162" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">RESOURCES.md</text>
+<text x="100.0" y="181" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">trusted sources</text>
+<rect x="240" y="90" width="170" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="325.0" y="112" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Lesson</text>
+<text x="325.0" y="131" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">an HTML lesson</text>
+<text x="325.0" y="146" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">cites its sources</text>
+<rect x="470" y="90" width="140" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="540.0" y="112" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Exercises</text>
+<text x="540.0" y="131" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">questions &amp; practice</text>
+<rect x="670" y="90" width="150" height="72" rx="8" fill="currentColor" fill-opacity="0.06"/>
+<text x="745.0" y="112" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor" stroke="none">Learning record</text>
+<text x="745.0" y="131" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">what I got wrong</text>
+<text x="745.0" y="146" text-anchor="middle" font-size="11.5" fill="currentColor" fill-opacity="0.78" stroke="none">and what I know</text>
+<path d="M182 71 H200 V114 H238" stroke="currentColor" marker-end="url(#a-3)"/>
+<text x="210" y="60" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">guides</text>
+<path d="M182 171 H200 V138 H238" stroke="currentColor" marker-end="url(#a-3)"/>
+<text x="210" y="196" text-anchor="start" font-size="11.5" fill="currentColor" stroke="none">cites</text>
+<path d="M412 126 H468" stroke="currentColor" marker-end="url(#a-3)"/>
+<text x="440" y="116" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">I study</text>
+<path d="M612 126 H668" stroke="currentColor" marker-end="url(#a-3)"/>
+<text x="640" y="116" text-anchor="middle" font-size="11.5" fill="currentColor" stroke="none">recorded</text>
+<path d="M745 164 V242 H325 V164" stroke="#0d9488" stroke-width="2" marker-end="url(#l-3)"/>
+<text x="535" y="214" text-anchor="middle" font-size="11.5" fill="#0d9488" stroke="none" font-weight="600">decides what it teaches me next</text>
+<text x="535" y="228" text-anchor="middle" font-size="11.5" fill="#0d9488" stroke="none" font-weight="600">(doesn't repeat what I've already corrected)</text>
+
+</svg>
