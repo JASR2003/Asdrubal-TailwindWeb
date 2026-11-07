@@ -57,7 +57,7 @@ If you want to know more about learning records (the `learning-records/` folder)
 
 This is how lesson 2 opens: it asks me to recall lesson 1 before moving on.
 
-![Screenshot of lesson 2 of the mini-course: the heading "Before moving on: recall lesson 1" and a question with the code sitio = "python.org" and print("https://" + sitio), with an answer field and a Check button.](leccion-2-recuperacion.png)
+![Screenshot of lesson 2 of the mini-course: the heading "Before moving on: recall lesson 1" and a question with the code site = "python.org" and print("https://" + site), with an answer field and a Check button.](leccion-2-recuperacion-en.png)
 
 ## The mini-course and its honest limit
 
