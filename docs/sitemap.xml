@@ -2,29 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://asdrubalivan.com/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://asdrubalivan.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://asdrubalivan.com/es"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://asdrubalivan.com/"/>
   </url>
   <url>
     <loc>https://asdrubalivan.com/es</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://asdrubalivan.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://asdrubalivan.com/es"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://asdrubalivan.com/"/>
   </url>
   <!-- articulos:start -->
   <url>
+    <loc>https://asdrubalivan.com/articulos/teach-convierte-quiero-aprender-en-una-mision</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://asdrubalivan.com/articulos/teach-convierte-quiero-aprender-en-una-mision"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://asdrubalivan.com/articles/teach-turns-i-want-to-learn-into-a-mission"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://asdrubalivan.com/articulos/teach-convierte-quiero-aprender-en-una-mision"/>
+  </url>
+  <url>
+    <loc>https://asdrubalivan.com/articles/teach-turns-i-want-to-learn-into-a-mission</loc>
+    <lastmod>2026-11-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://asdrubalivan.com/articulos/teach-convierte-quiero-aprender-en-una-mision"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://asdrubalivan.com/articles/teach-turns-i-want-to-learn-into-a-mission"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://asdrubalivan.com/articulos/teach-convierte-quiero-aprender-en-una-mision"/>
+  </url>
+  <url>
     <loc>https://asdrubalivan.com/articulos/aprender-con-ia-sin-empezar-de-cero</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://asdrubalivan.com/articulos/aprender-con-ia-sin-empezar-de-cero"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://asdrubalivan.com/articles/learning-with-ai-without-starting-from-scratch"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://asdrubalivan.com/articulos/aprender-con-ia-sin-empezar-de-cero"/>
   </url>
   <url>
     <loc>https://asdrubalivan.com/articles/learning-with-ai-without-starting-from-scratch</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <xhtml:link rel="alternate" hreflang="es" href="https://asdrubalivan.com/articulos/aprender-con-ia-sin-empezar-de-cero"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://asdrubalivan.com/articles/learning-with-ai-without-starting-from-scratch"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://asdrubalivan.com/articulos/aprender-con-ia-sin-empezar-de-cero"/>

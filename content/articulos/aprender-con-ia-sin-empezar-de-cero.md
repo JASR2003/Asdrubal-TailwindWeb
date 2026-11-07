@@ -2,6 +2,7 @@
 titulo: Una me enseña, otra me hace construir y otra me interroga: así aprendo con IA sin empezar de cero
 titulo_seo: Aprender con IA sin empezar de cero: /teach, VibeWise y /grilling
 fecha: 2026-11-05
+actualizado: 2026-11-07
 descripcion: Cómo uso /teach, VibeWise y /grilling para aprender con IA: qué hace cada una, mis ejemplos y dónde se queda corta.
 destacado: sin empezar de cero
 secciones: Fluidez, Teach, VibeWise, Grilling, De un vistazo, Cómo se combinan, Instalar, Cierre, Glosario
@@ -40,7 +41,7 @@ Por eso aplico la técnica de Feynman, que ya usaba mucho antes de la inteligenc
 
 ### Qué es y cómo se ve por dentro
 
-Si abro un workspace de `/teach`, veo varias cosas. Veo los learning records, que son registros de aprendizaje y muestran mi progreso como aprendiz. También veo la lista de lecciones, numeradas desde la 0001.
+Si abro un workspace de `/teach`, veo varias cosas. Veo los learning records, que son registros de aprendizaje y muestran mi progreso como aprendiz. También veo la lista de lecciones, numeradas desde la 0001. Mostré un curso entero por dentro en otro artículo: [Cómo /teach convierte «quiero aprender» en una misión](https://asdrubalivan.com/articulos/teach-convierte-quiero-aprender-en-una-mision).
 
 Algo muy importante para mí es que `/teach` cita fuentes en cada lección. Antes de enseñar, busca recursos de alta confianza y comprueba con ellos que lo que va a decir es verdad. Eso reduce las alucinaciones. Lo dice su documentación:
 

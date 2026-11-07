@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 2: Preguntar y convertir</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/quiz.js" defer></script>
+</head>
+<body>
+<main>
+
+<nav class="docs">
+  <a href="0001-tu-primer-script.html">← Lección 1</a>
+  <a href="../reference/python-basicos.html">Referencia: Python básico</a>
+</nav>
+
+<p class="meta">Lección 2 · ~25 min · Python desde cero</p>
+<h1>Preguntar y convertir</h1>
+<p class="subtitle">Hacer que tu script pida datos al usuario y entender por qué <code>"5"</code> no es lo mismo que <code>5</code>.</p>
+
+<div class="win">
+  <strong>Lo que lograrás hoy</strong>
+  Un script que te pide un dominio web y un número de páginas, arma la dirección completa y calcula cuánto tardaría en visitarlas con una pausa entre cada una.
+</div>
+
+<h2>Por qué esto importa para tu misión</h2>
+<p>
+  Un script que descarga páginas casi siempre necesita datos que cambian: qué sitio visitar, cuántas páginas pedir.
+  Hoy aprendes a recibirlos con <code>input()</code> y a evitar el error más común de quien empieza: mezclar texto con números.
+</p>
+
+<h2>Antes de seguir: recupera la lección 1</h2>
+<p>Intenta responder sin volver atrás.</p>
+<div class="quiz" data-accept="https://python.org">
+  <p class="q">¿Qué muestra este programa? Escribe exactamente lo que aparece en pantalla.</p>
+  <pre><code>sitio = "python.org"
+print("https://" + sitio)</code></pre>
+  <p class="explain">El <code>+</code> une los dos textos, sin añadir espacios.</p>
+</div>
+
+<h2>Cuatro ideas</h2>
+
+<h3>1. <code>input()</code> pregunta y devuelve lo que el usuario escribe</h3>
+<p>Lo que escribe la persona llega siempre como <strong>texto</strong>, aunque sean dígitos.<sup class="cite"><a href="https://automatetheboringstuff.com/3e/chapter1.html">1</a></sup></p>
+<pre><code>dominio = input("Dominio (ej. python.org): ")
+print("Voy a visitar https://" + dominio)</code></pre>
+
+<h3>2. Los valores tienen tipo, y <code>type()</code> te lo dice</h3>
+<pre><code>print(type("5"))   <span class="out"># &lt;class 'str'&gt;     texto</span>
+print(type(5))     <span class="out"># &lt;class 'int'&gt;     entero</span>
+print(type(2.5))   <span class="out"># &lt;class 'float'&gt;   decimal</span></code></pre>
+<p>El tipo cambia lo que hacen los operadores. Con números, <code>*</code> multiplica; con texto, repite:<sup class="cite"><a href="https://automatetheboringstuff.com/3e/chapter1.html">1</a></sup></p>
+<pre><code>print(5 * 2)       <span class="out"># 10</span>
+print("5" * 2)     <span class="out"># 55</span></code></pre>
+
+<h3>3. <code>int()</code> y <code>str()</code> convierten entre tipos</h3>
+<p><code>int("5")</code> convierte el texto en el número 5. <code>str(5)</code> hace lo contrario.<sup class="cite"><a href="https://automatetheboringstuff.com/3e/chapter1.html">1</a></sup></p>
+<pre><code>paginas = int(input("¿Cuántas páginas? "))
+print(paginas * 2)   <span class="out"># si escribes 5: 10</span></code></pre>
+<p>Si el texto no parece un número, la conversión falla:</p>
+<pre><code>int("abc")
+<span class="out">ValueError: invalid literal for int() with base 10: 'abc'</span></code></pre>
+
+<h3>4. Unir texto con número da un error, y se arregla convirtiendo</h3>
+<pre><code>print("Total: " + 10)
+<span class="out">TypeError: can only concatenate str (not "int") to str</span>
+
+print("Total: " + str(10))
+<span class="out">Total: 10</span></code></pre>
+<p>Python lee el mensaje así: "solo puedo unir texto con texto, y me diste un entero". También existe <code>len()</code>, que cuenta los caracteres de un texto: <code>len("https://python.org")</code> da <code>18</code>.<sup class="cite"><a href="https://automatetheboringstuff.com/3e/chapter1.html">1</a></sup></p>
+
+<h2>Hazlo tú</h2>
+<ol class="steps">
+  <li>En la carpeta <code>practica</code>, crea <code>visita.py</code> con este contenido (escríbelo, no lo pegues; teclear fija mejor):
+<pre><code>dominio = input("Dominio (ej. python.org): ")
+paginas = int(input("¿Cuántas páginas quieres descargar? "))
+segundos = paginas * 2
+
+print("Voy a visitar https://" + dominio)
+print("Con 2 segundos de pausa por página tardaré", segundos, "segundos")
+print("La dirección tiene", len("https://" + dominio), "caracteres")</code></pre>
+  </li>
+  <li>Ejecútalo con <code>python3 visita.py</code> y responde <code>python.org</code> y <code>5</code>. Deberías ver <code>10 segundos</code> y <code>18 caracteres</code>.</li>
+  <li><strong>Rómpelo.</strong> Cambia la línea de <code>paginas</code> a <code>paginas = input("¿Cuántas páginas quieres descargar? ")</code> (sin <code>int</code>), ejecútalo con <code>5</code> y observa qué pasa con <code>segundos</code>. Después restaura <code>int(...)</code>.</li>
+  <li><strong>Un reto:</strong> añade una línea que muestre el tiempo en minutos usando <code>/ 60</code> (la división de Python). ¿Qué tipo de número devuelve?</li>
+</ol>
+<p>La pausa de 2 segundos es una costumbre que importará mucho cuando pidamos páginas de verdad: más adelante veremos por qué no conviene pedirlas a toda velocidad.</p>
+
+<h2>Comprueba lo que recuerdas</h2>
+
+<div class="quiz" data-accept="55">
+  <p class="q">El usuario escribe <code>5</code>. ¿Qué muestra este programa? Escribe exactamente lo que aparece.</p>
+  <pre><code>paginas = input("¿Cuántas páginas? ")
+print(paginas * 2)</code></pre>
+  <p class="explain"><code>input()</code> devuelve texto. Como <code>paginas</code> es el texto "5", multiplicarlo por 2 lo repite: 55. No es una suma ni un producto.</p>
+</div>
+
+<div class="quiz">
+  <p class="q">Esta línea da <code>TypeError: can only concatenate str (not "int") to str</code>. ¿Cuál la corrige?</p>
+  <pre><code>print("Total: " + 10)</code></pre>
+  <ul class="options">
+    <li data-correct>print("Total: " + str(10))</li>
+    <li>print("Total: " + int(10))</li>
+    <li>print("Total: " - str(10))</li>
+    <li>print("Total: " + (10))</li>
+  </ul>
+  <p class="explain">Para unir con <code>+</code> ambos lados deben ser texto, así que el número se convierte con <code>str()</code>. <code>int(10)</code> sigue siendo un entero.</p>
+</div>
+
+<div class="quiz">
+  <p class="q">El usuario escribe <code>abc</code> cuando el programa pide un número. ¿Qué línea falla?</p>
+  <pre><code>dominio = input("Dominio: ")
+paginas = int(input("Páginas: "))
+print("Listo")</code></pre>
+  <ul class="options">
+    <li data-correct>Falla la segunda línea del programa</li>
+    <li>Falla la primera línea del programa</li>
+    <li>Falla la tercera línea del programa</li>
+    <li>No falla ninguna línea del programa</li>
+  </ul>
+  <p class="explain"><code>int("abc")</code> lanza <code>ValueError</code> porque ese texto no es un número. Más adelante aprenderás a manejar ese caso sin que el programa se caiga.</p>
+</div>
+
+<h2>Fuente principal</h2>
+<p class="source">
+  Termina el <a href="https://automatetheboringstuff.com/3e/chapter1.html">Capítulo 1: Python Basics</a> de <em>Automate the Boring Stuff with Python</em>.
+  Hoy corresponden las secciones <em>The Integer, Floating-Point, and String Data Types</em>, <em>String Concatenation and Replication</em> y, dentro de <em>Dissecting the Program</em>, las partes sobre <code>input()</code>, <code>len()</code>, <code>str()</code>/<code>int()</code>/<code>float()</code> y <code>type()</code>.
+  Equivalente oficial en español: <a href="https://docs.python.org/es/3/tutorial/introduction.html">Una introducción informal a Python</a>.
+</p>
+
+<p class="note">
+  <strong>Recuerda:</strong> tu profesor es el agente con el que estás hablando. Si <code>visita.py</code> no funciona, pega el código y el error completo. También puedes preguntar cosas como "¿por qué <code>input()</code> devuelve texto?" o "¿qué más puedo hacer con <code>len()</code>?".
+</p>
+
+</main>
+</body>
+</html>

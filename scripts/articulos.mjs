@@ -137,7 +137,7 @@ const TEXTS = {
     indexLabel: 'Secciones',
     languageLabel: 'Idioma del artículo',
     sectionId: 'seccion',
-    codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Salida del test', bash: 'Terminal', markdown: 'Markdown' },
+    codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Salida del test', bash: 'Terminal', markdown: 'Markdown', tree: 'Estructura de carpetas' },
     tableCorner: 'Aspecto',
     and: ' y ',
     source: (links) => (links ? `<p>Publicado también en ${links}.</p>` : ''),
@@ -154,7 +154,7 @@ const TEXTS = {
     indexLabel: 'Sections',
     languageLabel: 'Article language',
     sectionId: 'section',
-    codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Test output', bash: 'Terminal', markdown: 'Markdown' },
+    codeLabels: { python: 'Python', ts: 'TypeScript', text: 'Test output', bash: 'Terminal', markdown: 'Markdown', tree: 'Folder structure' },
     tableCorner: 'Aspect',
     and: ' and ',
     source: (links) => `<p>Originally published in Spanish${links ? ` on ${links}` : ''}.</p>`,
@@ -167,7 +167,8 @@ const pathOf = (a) => `/${TEXTS[a.lang].dir}/${a.slug}`;
 // Los SVG se incrustan en la página (no con <img>) para que currentColor tome el color del texto.
 // Su descripción es el aria-label del propio SVG; el texto alternativo del markdown es solo la versión corta.
 function renderFigure(b, a, n) {
-  if (!b.src.endsWith('.svg')) throw new Error(`${a.slug}: la figura "${b.src}" debe ser un .svg`);
+  if (/\.(png|jpe?g)$/i.test(b.src)) return renderCapture(b, a, n);
+  if (!b.src.endsWith('.svg')) throw new Error(`${a.slug}: la figura "${b.src}" debe ser un .svg, .png o .jpg`);
   const dir = join(a.dir, a.slug);
   const file = join(dir, b.src);
   if (!file.startsWith(`${dir}/`)) throw new Error(`${a.slug}: la figura "${b.src}" sale de su carpeta`);
@@ -177,6 +178,17 @@ function renderFigure(b, a, n) {
   const caption = b.caption ? `\n<figcaption id="figura-${n}">${inline(b.caption)}</figcaption>` : '';
   const labelled = b.caption ? ` aria-labelledby="figura-${n}"` : ` aria-label="${label}"`;
   return `<figure>\n<div class="lienzo" tabindex="0" role="region"${labelled}>${svg}</div>${caption}\n</figure>`;
+}
+
+// Una captura (PNG o JPEG) vive en docs/png, junto a las imágenes sociales. Se enlaza a su tamaño completo porque,
+// en pantallas angostas, el texto de la captura queda demasiado pequeño para leerlo en la página.
+function renderCapture(b, a, n) {
+  if (!/^[\w.-]+$/.test(b.src)) throw new Error(`${a.slug}: la captura "${b.src}" debe ser un nombre de archivo de docs/png`);
+  const file = join(DOCS, 'png', b.src);
+  if (!existsSync(file)) throw new Error(`${a.slug}: no existe docs/png/${b.src}`);
+  const { width, height } = imageSize(readFileSync(file));
+  const caption = b.caption ? `\n<figcaption>${inline(b.caption)}</figcaption>` : '';
+  return `<figure class="captura">\n<a href="/png/${b.src}" target="_blank" rel="noopener"><img src="/png/${b.src}" alt="${attr(b.alt)}" width="${width}" height="${height}" loading="lazy" decoding="async"></a>${caption}\n</figure>`;
 }
 
 function renderTable(b, t) {

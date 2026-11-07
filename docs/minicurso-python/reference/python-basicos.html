@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Referencia: Python básico</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<main>
+
+<nav class="docs">
+  <a href="../lessons/0001-tu-primer-script.html">Lección 1</a>
+  <a href="../lessons/0002-preguntar-y-convertir.html">Lección 2</a>
+</nav>
+
+<p class="meta">Referencia · se amplía con cada lección</p>
+<h1>Python básico</h1>
+<p class="subtitle">Lo mínimo para escribir y ejecutar un script.</p>
+
+<h2>Ejecutar un script</h2>
+<table>
+  <tr><th>Comando</th><th>Qué hace</th></tr>
+  <tr><td><code>python3 --version</code></td><td>Muestra la versión de Python instalada.</td></tr>
+  <tr><td><code>python3 hola.py</code></td><td>Ejecuta el archivo <code>hola.py</code> de arriba abajo.</td></tr>
+  <tr><td><code>cd carpeta</code></td><td>Entra en una carpeta.</td></tr>
+  <tr><td><code>mkdir carpeta</code></td><td>Crea una carpeta.</td></tr>
+</table>
+
+<h2>Sintaxis</h2>
+<table>
+  <tr><th>Idea</th><th>Ejemplo</th><th>Nota</th></tr>
+  <tr><td>Mostrar en pantalla</td><td><code>print("Hola")</code></td><td>El texto va entre comillas.</td></tr>
+  <tr><td>Guardar en una variable</td><td><code>nombre = "Ana"</code></td><td><code>=</code> guarda; no compara.</td></tr>
+  <tr><td>Reasignar</td><td><code>nombre = "Luis"</code></td><td>El valor anterior se pierde.</td></tr>
+  <tr><td>Unir textos</td><td><code>"Hola, " + nombre</code></td><td>Python no añade espacios solo.</td></tr>
+  <tr><td>Comentario</td><td><code># esto Python lo ignora</code></td><td>Para notas humanas.</td></tr>
+</table>
+
+<h2>Texto vs. variable</h2>
+<pre><code>nombre = "Ana"
+print("nombre")   <span class="out"># nombre</span>
+print(nombre)     <span class="out"># Ana</span></code></pre>
+
+<h2>Entrada, tipos y conversión</h2>
+<table>
+  <tr><th>Idea</th><th>Ejemplo</th><th>Nota</th></tr>
+  <tr><td>Pedir un dato</td><td><code>x = input("¿Dominio? ")</code></td><td>Siempre devuelve <strong>texto</strong>.</td></tr>
+  <tr><td>Ver el tipo</td><td><code>type(5)</code></td><td><code>str</code> texto, <code>int</code> entero, <code>float</code> decimal.</td></tr>
+  <tr><td>Texto a entero</td><td><code>int("5")</code></td><td>Falla con <code>ValueError</code> si no es un número.</td></tr>
+  <tr><td>Número a texto</td><td><code>str(5)</code></td><td>Necesario para unir con <code>+</code>.</td></tr>
+  <tr><td>Contar caracteres</td><td><code>len("python.org")</code></td><td>Devuelve <code>10</code>.</td></tr>
+  <tr><td>Repetir texto</td><td><code>"5" * 2</code></td><td>Da <code>"55"</code>; con números sería <code>10</code>.</td></tr>
+</table>
+
+<h2>Leer un error</h2>
+<ol>
+  <li>Mira la <strong>última línea</strong>: el tipo de error y su descripción.</li>
+  <li>Mira el número de línea que indica Python.</li>
+  <li>El <code>^</code> apunta al lugar aproximado del problema.</li>
+</ol>
+<table>
+  <tr><th>Mensaje</th><th>Significa</th></tr>
+  <tr><td><code>SyntaxError: unterminated string literal</code></td><td>Se abrieron comillas y nunca se cerraron.</td></tr>
+  <tr><td><code>TypeError: can only concatenate str (not "int") to str</code></td><td>Intentaste unir texto con un entero con <code>+</code>. Convierte con <code>str()</code>.</td></tr>
+  <tr><td><code>ValueError: invalid literal for int() with base 10: 'abc'</code></td><td><code>int()</code> recibió un texto que no es un número.</td></tr>
+</table>
+
+<p class="note">Fuente: <a href="https://automatetheboringstuff.com/3e/chapter1.html">Automate the Boring Stuff, cap. 1</a>.</p>
+
+</main>
+</body>
+</html>

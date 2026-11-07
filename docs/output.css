@@ -890,6 +890,12 @@ video {
   }
 }
 
+.articulo-texto .enlace,
+  .articulo-panel .enlace {
+  /* Una URL escrita como texto del enlace no debe ensanchar la página en móvil. */
+  overflow-wrap: anywhere;
+}
+
 /* Código: la monoespaciada es la única excepción a Montserrat, porque el código depende de su alineación. */
 
 .articulo pre,
@@ -1093,6 +1099,31 @@ video {
   font-size: 1rem;
   line-height: 1.5rem;
   max-width: 38rem;
+}
+
+/* Capturas: son de tema claro, así que van en un marco oscuro y algo atenuadas para no deslumbrar sobre la noche. */
+
+.articulo .captura a {
+  display: block;
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 26 46 / var(--tw-bg-opacity, 1));
+  padding: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .articulo .captura a {
+    --tw-bg-opacity: 1;
+    background-color: rgb(2 15 30 / var(--tw-bg-opacity, 1));
+  }
+}
+
+.articulo .captura img {
+  display: block;
+  height: auto;
+  width: 100%;
+  border-radius: 0.375rem;
+  filter: brightness(0.88);
 }
 
 /* Tabla: en columnas angostas cada fila se apila como un panel; desde xl vuelve a ser una tabla. */

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lección 1: Tu primer script</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/quiz.js" defer></script>
+</head>
+<body>
+<main>
+
+<nav class="docs">
+  <a href="../reference/python-basicos.html">Referencia: Python básico</a>
+  <a href="0002-preguntar-y-convertir.html">Lección 2 →</a>
+</nav>
+
+<p class="meta">Lección 1 · ~25 min · Python desde cero</p>
+<h1>Tu primer script</h1>
+<p class="subtitle">Escribir un archivo, ejecutarlo y leer lo que Python te responde.</p>
+
+<div class="win">
+  <strong>Lo que lograrás hoy</strong>
+  Crear un archivo <code>hola.py</code>, ejecutarlo desde la terminal y verlo imprimir un mensaje que usa una variable.
+</div>
+
+<h2>Por qué empezar aquí</h2>
+<p>
+  Tu meta es que un programa vaya a la web por ti: descargue una página, consulte una API y guarde el resultado.
+  Ese programa será un <strong>script</strong>: un archivo de texto con instrucciones que Python ejecuta una tras otra, de arriba abajo.
+  Antes de traer nada de internet necesitas dominar el ciclo básico: <em>escribir, ejecutar, leer el resultado</em>.
+</p>
+
+<h2>Tres ideas</h2>
+
+<h3>1. <code>print()</code> muestra algo en pantalla</h3>
+<p>El texto va entre comillas. Sin comillas, Python cree que te refieres a un nombre.</p>
+<pre><code>print("Hola, mundo")
+<span class="out"># Hola, mundo</span></code></pre>
+
+<h3>2. Una variable es un nombre con un valor guardado</h3>
+<p>El signo <code>=</code> no compara: <strong>guarda</strong> el valor de la derecha bajo el nombre de la izquierda. Si lo guardas otra vez, el valor anterior se pierde.<sup class="cite"><a href="https://automatetheboringstuff.com/3e/chapter1.html">1</a></sup></p>
+<pre><code>nombre = "Ana"
+print("Hola, " + nombre)
+<span class="out"># Hola, Ana</span>
+
+nombre = "Luis"
+print("Hola, " + nombre)
+<span class="out"># Hola, Luis</span>
+
+print("nombre")
+<span class="out"># nombre   (con comillas es solo la palabra, no la variable)</span></code></pre>
+<p>El signo <code>+</code> entre dos textos los une. Fíjate en el espacio dentro de <code>"Hola, "</code>: Python no añade espacios por ti.</p>
+
+<h3>3. Los errores son información, no fracasos</h3>
+<p>
+  Python se detiene y te dice qué línea falló y por qué. El libro lo resume con un título: <em>"Errors Are Okay!"</em>.<sup class="cite"><a href="https://automatetheboringstuff.com/3e/chapter1.html">1</a></sup>
+  Por ejemplo, si olvidas cerrar las comillas:
+</p>
+<pre><code>print("Hola)
+<span class="out">    print("Hola)
+          ^
+SyntaxError: unterminated string literal (detected at line 1)</span></code></pre>
+<p>El <code>^</code> señala dónde empieza el texto que nunca se cerró. Aprender a leer estos mensajes te ahorrará más tiempo que cualquier otra habilidad de hoy.</p>
+
+<h2>Hazlo tú</h2>
+<p>Estos pasos asumen macOS y Python ya instalado (en tu equipo es <code>python3</code>, versión 3.14).</p>
+<ol class="steps">
+  <li>Abre la app <strong>Terminal</strong>. Comprueba que Python responde:
+<pre><code>python3 --version</code></pre>
+  </li>
+  <li>Entra en la carpeta del curso y crea una carpeta para practicar:
+<pre><code>cd ~/minicurso-python-teach
+mkdir practica
+cd practica</code></pre>
+  </li>
+  <li>Crea el archivo con un editor de <strong>texto plano</strong> (VS Code, o <code>nano hola.py</code> en la terminal; con <code>nano</code> se guarda con <kbd>Ctrl</kbd>+<kbd>O</kbd>, <kbd>Enter</kbd> y se sale con <kbd>Ctrl</kbd>+<kbd>X</kbd>). Escribe:
+<pre><code>tu_nombre = "escribe aquí tu nombre"
+print("Hola, " + tu_nombre)
+print("Hoy empiezo a aprender Python")</code></pre>
+  </li>
+  <li>Ejecútalo:
+<pre><code>python3 hola.py</code></pre>
+  </li>
+  <li><strong>Rómpelo a propósito.</strong> Borra las comillas finales de la primera línea, ejecuta de nuevo y lee el error. Luego arréglalo.</li>
+</ol>
+
+<h2>Comprueba lo que recuerdas</h2>
+<p>Responde sin mirar arriba. Si fallas, es buena señal: el esfuerzo de recordar es lo que fija el aprendizaje.</p>
+
+<div class="quiz" data-accept="Quito|quito">
+  <p class="q">¿Qué muestra este programa? Escribe exactamente lo que aparece en pantalla.</p>
+  <pre><code>ciudad = "Lima"
+ciudad = "Quito"
+print(ciudad)</code></pre>
+  <p class="explain">La segunda línea guarda "Quito" en <code>ciudad</code> y el valor "Lima" se pierde.</p>
+</div>
+
+<div class="quiz">
+  <p class="q">Con estas dos líneas, ¿qué hace la tercera?</p>
+  <pre><code>nombre = "Ana"
+print("nombre")</code></pre>
+  <ul class="options">
+    <li data-correct>Muestra la palabra nombre</li>
+    <li>Muestra la palabra Ana</li>
+    <li>Muestra la palabra print</li>
+    <li>Muestra la palabra texto</li>
+  </ul>
+  <p class="explain">Con comillas es solo texto. Sin comillas, <code>print(nombre)</code> mostraría Ana.</p>
+</div>
+
+<div class="quiz">
+  <p class="q">Ejecutas <code>print("Hola)</code> y Python responde <code>SyntaxError: unterminated string literal</code>. ¿Qué pasa?</p>
+  <ul class="options">
+    <li data-correct>Falta cerrar las comillas del texto</li>
+    <li>Falta guardar el archivo en la carpeta</li>
+    <li>Falta poner una variable antes del texto</li>
+    <li>Falta escribir print en mayúsculas</li>
+  </ul>
+  <p class="explain">"Unterminated string literal" significa texto sin terminar: las comillas se abrieron y nunca se cerraron.</p>
+</div>
+
+<h2>Fuente principal</h2>
+<p class="source">
+  Lee el <a href="https://automatetheboringstuff.com/3e/chapter1.html">Capítulo 1: Python Basics</a> de <em>Automate the Boring Stuff with Python</em> (Al Sweigart, gratis en línea, en inglés).
+  Hoy solo necesitas estas secciones: <em>Errors Are Okay!</em>, <em>Storing Values in Variables</em> y <em>Your First Program</em>.
+  El resto del capítulo (números, <code>input()</code>, <code>len()</code>) será la lección 2.
+  Para consultar el lenguaje en español, está el <a href="https://docs.python.org/es/3/tutorial/index.html">tutorial oficial</a>.
+</p>
+
+<p class="note">
+  <strong>Recuerda:</strong> tu profesor es el agente con el que estás hablando. Si un error no se entiende, si un paso falla en tu máquina o si algo de esta lección quedó confuso, pregúntale. Pega el mensaje de error completo; es lo más útil que puedes darle.
+</p>
+
+<p class="note">
+  Resumen de sintaxis para tener a mano: <a href="../reference/python-basicos.html">Referencia: Python básico</a>.
+</p>
+
+</main>
+</body>
+</html>
