@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reference: Python basics</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<main>
+
+<nav class="docs">
+  <a href="../lessons/0001-your-first-script.html">Lesson 1</a>
+  <a href="../lessons/0002-asking-and-converting.html">Lesson 2</a>
+</nav>
+
+<p class="meta">Reference · grows with each lesson</p>
+<h1>Python basics</h1>
+<p class="subtitle">The bare minimum to write and run a script.</p>
+
+<h2>Running a script</h2>
+<table>
+  <tr><th>Command</th><th>What it does</th></tr>
+  <tr><td><code>python3 --version</code></td><td>Shows the installed Python version.</td></tr>
+  <tr><td><code>python3 hello.py</code></td><td>Runs the file <code>hello.py</code> from top to bottom.</td></tr>
+  <tr><td><code>cd folder</code></td><td>Goes into a folder.</td></tr>
+  <tr><td><code>mkdir folder</code></td><td>Creates a folder.</td></tr>
+</table>
+
+<h2>Syntax</h2>
+<table>
+  <tr><th>Idea</th><th>Example</th><th>Note</th></tr>
+  <tr><td>Show on screen</td><td><code>print("Hello")</code></td><td>The text goes between quotes.</td></tr>
+  <tr><td>Store in a variable</td><td><code>name = "Ana"</code></td><td><code>=</code> stores; it doesn't compare.</td></tr>
+  <tr><td>Reassign</td><td><code>name = "Luis"</code></td><td>The previous value is lost.</td></tr>
+  <tr><td>Join texts</td><td><code>"Hello, " + name</code></td><td>Python doesn't add spaces on its own.</td></tr>
+  <tr><td>Comment</td><td><code># Python ignores this</code></td><td>For human notes.</td></tr>
+</table>
+
+<h2>Text vs. variable</h2>
+<pre><code>name = "Ana"
+print("name")   <span class="out"># name</span>
+print(name)     <span class="out"># Ana</span></code></pre>
+
+<h2>Input, types and conversion</h2>
+<table>
+  <tr><th>Idea</th><th>Example</th><th>Note</th></tr>
+  <tr><td>Ask for data</td><td><code>x = input("Domain? ")</code></td><td>Always returns <strong>text</strong>.</td></tr>
+  <tr><td>See the type</td><td><code>type(5)</code></td><td><code>str</code> text, <code>int</code> integer, <code>float</code> decimal.</td></tr>
+  <tr><td>Text to integer</td><td><code>int("5")</code></td><td>Fails with <code>ValueError</code> if it isn't a number.</td></tr>
+  <tr><td>Number to text</td><td><code>str(5)</code></td><td>Needed to join with <code>+</code>.</td></tr>
+  <tr><td>Count characters</td><td><code>len("python.org")</code></td><td>Returns <code>10</code>.</td></tr>
+  <tr><td>Repeat text</td><td><code>"5" * 2</code></td><td>Gives <code>"55"</code>; with numbers it would be <code>10</code>.</td></tr>
+</table>
+
+<h2>Reading an error</h2>
+<ol>
+  <li>Look at the <strong>last line</strong>: the error type and its description.</li>
+  <li>Look at the line number Python gives.</li>
+  <li>The <code>^</code> points to the approximate place of the problem.</li>
+</ol>
+<table>
+  <tr><th>Message</th><th>Means</th></tr>
+  <tr><td><code>SyntaxError: unterminated string literal</code></td><td>Quotes were opened and never closed.</td></tr>
+  <tr><td><code>TypeError: can only concatenate str (not "int") to str</code></td><td>You tried to join text with an integer using <code>+</code>. Convert with <code>str()</code>.</td></tr>
+  <tr><td><code>ValueError: invalid literal for int() with base 10: 'abc'</code></td><td><code>int()</code> received a text that isn't a number.</td></tr>
+</table>
+
+<p class="note">Source: <a href="https://automatetheboringstuff.com/3e/chapter1.html">Automate the Boring Stuff, ch. 1</a>.</p>
+
+</main>
+</body>
+</html>
