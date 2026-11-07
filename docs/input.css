@@ -218,6 +218,8 @@
   .articulo-texto .enlace,
   .articulo-panel .enlace {
     @apply text-blue-txt underline decoration-1 underline-offset-[3px] hover:text-white;
+    /* Una URL escrita como texto del enlace no debe ensanchar la página en móvil. */
+    overflow-wrap: anywhere;
   }
 
   /* Código: la monoespaciada es la única excepción a Montserrat, porque el código depende de su alineación. */
@@ -334,6 +336,16 @@
   .articulo figcaption {
     @apply mt-3 text-base;
     max-width: 38rem;
+  }
+
+  /* Capturas: son de tema claro, así que van en un marco oscuro y algo atenuadas para no deslumbrar sobre la noche. */
+  .articulo .captura a {
+    @apply block rounded-md bg-blue-back p-3 md:bg-blue-dark;
+  }
+
+  .articulo .captura img {
+    @apply block h-auto w-full rounded-md;
+    filter: brightness(0.88);
   }
 
   /* Tabla: en columnas angostas cada fila se apila como un panel; desde xl vuelve a ser una tabla. */

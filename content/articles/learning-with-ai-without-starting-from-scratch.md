@@ -2,6 +2,7 @@
 titulo: One teaches me, another makes me build, and another grills me: how I learn with AI without starting from scratch
 titulo_seo: Learn with AI, Don't Start Over: /teach, VibeWise, /grilling
 fecha: 2026-11-05
+actualizado: 2026-11-07
 descripcion: How I use /teach, VibeWise and /grilling to learn with AI: what each one does, my examples and where it falls short.
 destacado: without starting from scratch
 secciones: Fluency, Teach, VibeWise, Grilling, At a glance, How they combine, Install, Closing, Glossary
@@ -39,7 +40,7 @@ That's why I apply the Feynman technique, which I was already using long before 
 
 ### What it is and what it looks like inside
 
-If I open a `/teach` workspace, I see several things. I see the learning records, which track my progress as a learner. I also see the list of lessons, numbered from 0001.
+If I open a `/teach` workspace, I see several things. I see the learning records, which track my progress as a learner. I also see the list of lessons, numbered from 0001. I showed a whole course from the inside in another article: [How /teach turns "I want to learn" into a mission](https://asdrubalivan.com/articles/teach-turns-i-want-to-learn-into-a-mission).
 
 Something very important to me is that `/teach` cites sources in every lesson. Before teaching, it looks for high-trust resources and uses them to check that what it's about to say is true. That reduces hallucinations. Its documentation says so:
 

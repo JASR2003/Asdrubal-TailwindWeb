@@ -1,0 +1,177 @@
+/* Hoja de estilo compartida de todas las lecciones y referencias.
+   Inspiración: Tufte: columna estrecha, mucho aire, tipografía serif. */
+
+:root {
+  --bg: #fffff8;
+  --fg: #1f1f1f;
+  --muted: #6b6b66;
+  --rule: #d9d6c8;
+  --accent: #1d4f91;
+  --code-bg: #f3f1e6;
+  --ok: #1b6e3c;
+  --ok-bg: #e3f2e6;
+  --bad: #9b2226;
+  --bad-bg: #f8e4e4;
+  --note-bg: #eef3fa;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #181a1b;
+    --fg: #e6e4dc;
+    --muted: #9a988f;
+    --rule: #34363a;
+    --accent: #7db2f0;
+    --code-bg: #232629;
+    --ok: #7fd49a;
+    --ok-bg: #1d3325;
+    --bad: #f09a9d;
+    --bad-bg: #3a2022;
+    --note-bg: #1e2733;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  margin: 0;
+  padding: 3rem 1rem 5rem;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  line-height: 1.6;
+}
+
+main { max-width: 38rem; margin: 0 auto; }
+
+h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .25rem; font-weight: 600; }
+h2 { font-size: 1.3rem; margin: 2.5rem 0 .5rem; font-weight: 600; }
+h3 { font-size: 1.05rem; margin: 1.6rem 0 .3rem; font-style: italic; font-weight: 400; }
+
+.subtitle { color: var(--muted); font-style: italic; margin: 0 0 2rem; }
+.meta { color: var(--muted); font-size: .8rem; font-family: system-ui, sans-serif; margin-bottom: .5rem; }
+
+a { color: var(--accent); text-underline-offset: 2px; }
+
+p, ul, ol { margin: 0 0 1rem; }
+li { margin-bottom: .3rem; }
+
+code, pre, kbd {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: .82rem;
+}
+code { background: var(--code-bg); padding: .08em .3em; border-radius: 3px; }
+pre {
+  background: var(--code-bg);
+  padding: .9rem 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin: 0 0 1.2rem;
+}
+pre code { background: none; padding: 0; }
+pre .out { color: var(--muted); }
+kbd {
+  border: 1px solid var(--rule);
+  border-bottom-width: 2px;
+  padding: .05em .4em;
+  border-radius: 3px;
+  background: var(--code-bg);
+}
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+/* Cuadro con la victoria concreta de la lección */
+.win {
+  border-left: 3px solid var(--accent);
+  background: var(--note-bg);
+  padding: .8rem 1rem;
+  margin: 1.5rem 0;
+}
+.win strong:first-child { display: block; font-family: system-ui, sans-serif; font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); }
+
+/* Notas laterales y recordatorios */
+.note {
+  font-size: .9rem;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  padding-top: .6rem;
+  margin: 2rem 0 1rem;
+}
+
+/* Pasos numerados */
+ol.steps { padding-left: 1.4rem; }
+ol.steps li { margin-bottom: .8rem; }
+
+/* Citas de fuentes */
+.source { font-size: .9rem; }
+sup.cite { font-size: .7em; }
+
+/* Tablas de referencia */
+table { border-collapse: collapse; width: 100%; margin: 0 0 1.2rem; font-size: .9rem; }
+th, td { text-align: left; padding: .4rem .6rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: system-ui, sans-serif; font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+
+/* Quiz (ver quiz.js) */
+.quiz {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1rem 1.1rem;
+  margin: 1.2rem 0;
+}
+.quiz .q { margin: 0 0 .7rem; font-weight: 600; }
+.quiz pre { margin-bottom: .8rem; }
+.quiz .options { list-style: none; padding: 0; margin: 0; }
+.quiz .options li { margin: 0 0 .4rem; }
+.quiz button.opt {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: .95rem;
+  padding: .5rem .7rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+}
+.quiz button.opt:hover:not(:disabled) { border-color: var(--accent); }
+.quiz button.opt:disabled { cursor: default; }
+.quiz button.opt.correct { background: var(--ok-bg); border-color: var(--ok); }
+.quiz button.opt.wrong { background: var(--bad-bg); border-color: var(--bad); }
+.quiz .predict { display: flex; gap: .5rem; }
+.quiz .predict input {
+  flex: 1;
+  font: inherit;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: .9rem;
+  padding: .45rem .6rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--fg);
+}
+.quiz .predict button {
+  font: inherit;
+  font-size: .9rem;
+  padding: .45rem .9rem;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.quiz .feedback { margin: .7rem 0 0; font-size: .9rem; min-height: 1.2em; }
+.quiz .feedback.ok { color: var(--ok); }
+.quiz .feedback.no { color: var(--bad); }
+
+/* Navegación entre documentos */
+nav.docs { font-family: system-ui, sans-serif; font-size: .8rem; margin-bottom: 2rem; }
+nav.docs a { margin-right: 1rem; }
+
+@media print {
+  body { background: #fff; color: #000; padding: 0; font-size: 11pt; }
+  .quiz, nav.docs { display: none; }
+  a { color: #000; }
+}
